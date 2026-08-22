@@ -1,0 +1,3 @@
+dimension,n,mean,sd,median,p25,p75,zero_pct,role,note
+PHQ9_TOTAL,9743,3.034999486811044,4.059745064813036,2.0,0.0,4.0,32.854356974237916,phenotype P,Observed 9-item depressive phenotype
+SOMATIC_SCORE,9743,1.6968079646925998,2.03461047354773,1.0,0.0,3.0,37.99651031509802,phenotype P,Sleep + fatigue + appetite phenotype

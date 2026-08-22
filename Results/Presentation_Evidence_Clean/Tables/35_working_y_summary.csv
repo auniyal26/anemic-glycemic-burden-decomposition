@@ -1,0 +1,4 @@
+dimension,n,mean,sd,median,p25,p75,zero_pct,role,note
+A,9743,0.0832187211331212,0.37338116481953776,0.0,0.0,0.0,91.41948065277636,working representation y,Sex-thresholded hemoglobin deficit
+G_HBA1C,9743,0.2700400287385815,0.8699908491714708,0.0,0.0,0.09999999999999964,74.69978446063841,working representation y,HbA1c excess above 5.7%
+AG_HBA1C,9743,0.036107974956378935,0.4516664340942279,0.0,0.0,0.0,96.93113004208149,working representation y,Scalar A×G interaction
