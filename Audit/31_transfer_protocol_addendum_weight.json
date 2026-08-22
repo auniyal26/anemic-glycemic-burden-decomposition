@@ -1,0 +1,22 @@
+{
+  "amendment_number": 1,
+  "date": "2026-08-22",
+  "timing": "Before any transfer outcome model or coefficient was fit/viewed",
+  "reason": "Official NHANES August 2021-August 2023 analytic guidance states that analyses using blood analytes must use the phlebotomy weight WTPH2YR.",
+  "change": {
+    "old_2123_weight": "WTMEC2YR",
+    "new_2123_weight": "WTPH2YR",
+    "unchanged_2009_2018": "WTMEC2YR; divide by 5 when pooling five 2-year cycles"
+  },
+  "unchanged_frozen_elements": [
+    "A definition",
+    "G definition",
+    "A\u00d7G definition",
+    "somatic PHQ outcome",
+    "PHQ9 total outcome",
+    "X adjustment sets",
+    "success/failure rules",
+    "no tuning on validation outcomes"
+  ],
+  "final_premodel_file": "Data\\Processed\\31_transfer_harmonized_FINAL_PREMODEL.parquet"
+}

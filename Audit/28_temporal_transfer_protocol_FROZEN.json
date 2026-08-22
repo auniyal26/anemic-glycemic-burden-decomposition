@@ -1,0 +1,197 @@
+{
+  "protocol": {
+    "protocol_name": "Temporal transfer validation of hematological and glycemic associations with somatic depressive symptoms",
+    "frozen_on": "2026-08-22",
+    "discovery_data": [
+      "NHANES 2005-2006",
+      "NHANES 2007-2008"
+    ],
+    "temporal_replication_data": [
+      "NHANES 2009-2010",
+      "NHANES 2011-2012",
+      "NHANES 2013-2014",
+      "NHANES 2015-2016",
+      "NHANES 2017-2018"
+    ],
+    "final_modern_holdout": [
+      "NHANES August 2021-August 2023"
+    ],
+    "analysis_population": {
+      "age": ">=20 years",
+      "pregnancy": "exclude known pregnant participants when RIDEXPRG == 1",
+      "complete_case_primary": true
+    },
+    "outcomes": {
+      "primary": {
+        "name": "SOMATIC_SCORE",
+        "definition": "DPQ030 + DPQ040 + DPQ050",
+        "items": [
+          "sleep",
+          "fatigue",
+          "appetite"
+        ]
+      },
+      "secondary": {
+        "name": "PHQ9_TOTAL",
+        "definition": "sum DPQ010-DPQ090 when all 9 items are valid 0-3"
+      }
+    },
+    "exposures": {
+      "A": {
+        "name": "hematological deficit proxy",
+        "formula": "max(HB_THRESHOLD - LBXHGB, 0)",
+        "HB_THRESHOLD": {
+          "male_RIAGENDR_1": 13.0,
+          "female_RIAGENDR_2": 12.0
+        }
+      },
+      "G_HBA1C": {
+        "name": "glycemic excess proxy",
+        "formula": "max(LBXGH - 5.7, 0)"
+      },
+      "AG_HBA1C": {
+        "formula": "A * G_HBA1C",
+        "status": "exploratory interaction"
+      }
+    },
+    "confounders": {
+      "X0_demographic": [
+        "RIDAGEYR",
+        "RIAGENDR",
+        "RIDRETH1"
+      ],
+      "X1_primary": [
+        "RIDAGEYR",
+        "RIAGENDR",
+        "RIDRETH1",
+        "INDFMPIR",
+        "EDUC3",
+        "SMOKING3"
+      ],
+      "X2_bmi_sensitivity": [
+        "RIDAGEYR",
+        "RIAGENDR",
+        "RIDRETH1",
+        "INDFMPIR",
+        "EDUC3",
+        "SMOKING3",
+        "BMXBMI"
+      ],
+      "X3_kidney_direct_effect": [
+        "RIDAGEYR",
+        "RIAGENDR",
+        "RIDRETH1",
+        "INDFMPIR",
+        "EDUC3",
+        "SMOKING3",
+        "BMXBMI",
+        "EGFR_2021"
+      ]
+    },
+    "derived_covariates": {
+      "EDUC3": {
+        "DMDEDUC2_1_or_2": 1,
+        "DMDEDUC2_3": 2,
+        "DMDEDUC2_4_or_5": 3
+      },
+      "SMOKING3": {
+        "never": "SMQ020 == 2 -> 0",
+        "former": "SMQ020 == 1 and SMQ040 == 3 -> 1",
+        "current": "SMQ020 == 1 and SMQ040 in [1,2] -> 2"
+      },
+      "EGFR_2021": "2021 CKD-EPI creatinine equation exactly as in script 15"
+    },
+    "primary_model": "SOMATIC_SCORE ~ A + G_HBA1C + X3",
+    "interaction_model": "SOMATIC_SCORE ~ A + G_HBA1C + AG_HBA1C + X3",
+    "secondary_model": "PHQ9_TOTAL ~ A + G_HBA1C + X3",
+    "survey_design": {
+      "2009_2018_pooled": "WTMEC2YR/5; cycle-prefixed strata and PSU",
+      "2021_2023": "WTMEC2YR as released; native SDMVSTRA and SDMVPSU",
+      "fasting_sensitivity_2009_2018": "WTSAF2YR/5",
+      "fasting_sensitivity_2021_2023": "WTSAF2YR as released",
+      "inference": "R survey::svyglm / design-based Wald inference"
+    },
+    "replication_rules": {
+      "primary_A": {
+        "minimum": "beta_A > 0 in 2009-2018 pooled and 2021-2023 holdout",
+        "strong": "design-based 95% CI excludes 0 in pooled 2009-2018; modern holdout same direction"
+      },
+      "secondary_G": {
+        "minimum": "beta_G > 0 and weighted incremental delta-R2 > 0 in both validation periods",
+        "strong": "design-based 95% CI excludes 0 in pooled 2009-2018 and modern holdout"
+      },
+      "interaction_AG": {
+        "rule": "exploratory only; report sign/effect/CI without promoting to primary claim unless independently stable"
+      },
+      "failure": [
+        "A reverses direction in either major validation period",
+        "G reverses direction in either major validation period",
+        "apparent replication requires changing thresholds, outcome items, or confounder definitions after inspecting results"
+      ]
+    },
+    "anti_leakage_rules": [
+      "Do not change A, G, somatic items, X sets, or success criteria after viewing validation outcomes.",
+      "Do not tune thresholds on 2009-2018 or 2021-2023.",
+      "Do not use 2021-2023 to choose models.",
+      "Any post-hoc model is labelled exploratory and kept separate from frozen validation."
+    ],
+    "planned_sensitivities": [
+      "fasting glucose replaces HbA1c-based G using fasting-subsample weights",
+      "clinical diabetes state",
+      "X0 -> X1 -> X2 -> X3 adjustment ladder",
+      "missingness / included-vs-excluded audit"
+    ]
+  },
+  "discovery_artifact_manifest": [
+    {
+      "path": "Scripts\\15_build_x_audit_and_dag_FINAL.py",
+      "exists": true,
+      "sha256": "71199478ed0787bae6d0ce80daee77a19764c83a8052b5e255320d0da31218c3"
+    },
+    {
+      "path": "Scripts\\16_staged_survey_models.py",
+      "exists": true,
+      "sha256": "556ee4a5758972f871b561469bca6ec878521f699ce2217fe3aa8afc460ff91b"
+    },
+    {
+      "path": "Scripts\\20_ordinal_cfa_validation.py",
+      "exists": true,
+      "sha256": "e5e2ea800fbc05b705167d55c3fa257aeeb924e3bba4ae8f0e73ff6a4cd4205d"
+    },
+    {
+      "path": "Scripts\\21_mimic_sem_validation.py",
+      "exists": true,
+      "sha256": "f4beff317e57c7344166da80745f477748ae8b26658048e02acd942e5361cdf8"
+    },
+    {
+      "path": "Scripts\\25_pre_presentation_validity_audit.py",
+      "exists": true,
+      "sha256": "4d0b48268f27a5757744fc6dee9370850d055ff3b70f538f104d39c1dea1f06b"
+    },
+    {
+      "path": "Scripts\\26_formal_separability_test.py",
+      "exists": true,
+      "sha256": "92269cfa63a503b977fa32a6660528b44e925270f656cd7356c096400bae9b5d"
+    },
+    {
+      "path": "Scripts\\27_incremental_information_test.py",
+      "exists": true,
+      "sha256": "999f8470efb8bafbc4549ea71bca2eb323e05ad82c9265494cff7cc91dc09821"
+    },
+    {
+      "path": "Results\\25_survey_estimator_parity.csv",
+      "exists": true,
+      "sha256": "75dcfdc26fc90b452e228f5a84589b7c48149257a2b8a20f658f375452211ed0"
+    },
+    {
+      "path": "Results\\26_design_based_coefficients.csv",
+      "exists": true,
+      "sha256": "987c1729d2ebd91f2b1dcf56b24ef5c24ca23c48c0897fba4c26bbadbb0ac02a"
+    },
+    {
+      "path": "Results\\27_incremental_information_tests.csv",
+      "exists": true,
+      "sha256": "98c60fa5bb70834e6f5fa84f21a69480050ec04bbab5c8151fe9ca191ee4d0ec"
+    }
+  ]
+}
