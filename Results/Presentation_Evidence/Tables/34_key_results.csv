@@ -1,0 +1,8 @@
+section,population,outcome,term,estimate,ci_low,ci_high,p,interpretation
+Discovery strict additive survey model,2005-2008 pooled,Somatic score,A,0.331548684961218,0.137365665106648,0.525731704815788,0.0024226749242312,Adjusted association conditional on the other physiology term and X3; not a causal effect.
+Discovery strict additive survey model,2005-2008 pooled,Somatic score,G_HBA1C,0.0974144300114641,-0.0067582979418858,0.201587157964814,0.0647584670721541,Adjusted association conditional on the other physiology term and X3; not a causal effect.
+Frozen temporal transfer,2009-2018,Somatic score,A,0.157867925232278,0.0674030287666417,0.248332821697915,0.0010262798329033,Frozen X3 temporal-validation coefficient. 2021-2023 CI/p are not valid when residual design df is exhausted.
+Frozen temporal transfer,2009-2018,Somatic score,G_HBA1C,0.106565787173772,0.0553094423829671,0.157822131964577,0.0001320863067864,Frozen X3 temporal-validation coefficient. 2021-2023 CI/p are not valid when residual design df is exhausted.
+Frozen temporal transfer,2021-2023,Somatic score,A,-0.0118148350093508,,,,Frozen X3 temporal-validation coefficient. 2021-2023 CI/p are not valid when residual design df is exhausted.
+Frozen temporal transfer,2021-2023,Somatic score,G_HBA1C,0.120650206593999,,,,Frozen X3 temporal-validation coefficient. 2021-2023 CI/p are not valid when residual design df is exhausted.
+Fasting-glucose sensitivity,2005-2008 fasting subset,Somatic score,G fasting,0.0365893658874483,0.0051030938257907,0.0680756379491058,0.024188943190973,Alternative glycemia measurement; reduces concern that G is solely an HbA1c/RBC-turnover artifact.

@@ -1,0 +1,5 @@
+check,status,detail
+Core working reference hash unchanged during script 34,PASS,54ed3f53865c1e80f9412243160285285b9ad123b8c6c51cc0bdb1f00011a753
+Existing transformation ledger found,PASS,D:\Hematological and Glycemic Decomposision of Depression\Audit\13_transformation_ledger.csv
+Downstream explicit writes to nhanes_core_working.parquet detected by static scan,PASS,None detected
+Final y -> y_hat reconstruction for final physiological representation,NOT YET DONE,Do not claim final reconstruction success in the presentation.

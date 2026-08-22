@@ -1,0 +1,15 @@
+statistic_or_method,plain_meaning,why_we_used_it,do_not_overclaim
+β (beta),"Adjusted change in the modeled outcome per one-unit increase in the predictor, conditional on other terms in that model.","A β=0.33 means roughly +0.33 somatic-score points per 1 g/dL larger Hb deficit, conditional on G and X, if using that exact additive model.","Association, not causation."
+95% CI,Range produced by the survey-design inference procedure that represents uncertainty around β.,"If the interval excludes 0, the two-sided test usually gives p<0.05.","A narrow CI is precision, not biological importance."
+p-value,"Probability, under the fitted null model and survey design, of a test statistic at least this extreme if the tested coefficient were zero.",Used here for design-based Wald inference.,Not the probability that the hypothesis is true.
+Weighted R²,Descriptive fraction of weighted outcome variance accounted for by a fitted model.,Used to compare model ladders.,Not the primary NHANES inferential statistic.
+ΔR²,Increase in weighted R² after adding a term/block to a nested model.,Shows unique incremental descriptive information beyond existing terms.,"0.0026 = 0.26 percentage points of weighted outcome variance, not 26%."
+F / Wald test,Design-based test of whether an added term or block contributes after the rest of the model.,Used by survey::regTermTest in script 27.,Depends on survey design degrees of freedom.
+Survey design df,"Effective inferential degrees of freedom driven mainly by PSU/stratum structure, not raw participant N.",2021–23 has many participants but X3 exhausts residual design df.,"When residual df=0, t-based CI/p are not estimable."
+CFI,Comparative fit index for the latent-factor model; closer to 1 means better relative fit.,Used to compare one-factor versus two-factor PHQ structure.,Good fit does not prove the factor model is uniquely true.
+RMSEA,Approximate model misfit per degree of freedom; smaller is better.,Used with CFI/SRMR rather than alone.,Not a causal metric.
+SRMR,Average standardized discrepancy between observed and model-implied relationships; smaller is better.,Another latent-model fit diagnostic.,Should be interpreted jointly with other fit measures.
+Factor loading,Standardized strength linking a PHQ item to a latent factor.,Sleep/fatigue/appetite load on the somatic factor.,A loading does not mean an item is caused by physiology.
+PCA explained variance,Share of standardized marker variation captured by a principal component.,Used to ask whether one-number A/G proxies discard stable measurement structure.,"Principal components are mathematical axes, not automatically biological mechanisms."
+Cross-cycle loading similarity,Similarity of component loading vectors after sign/order alignment across independently fit cycles.,Near 1 means the measurement pattern reproduced strongly.,Stability does not by itself establish clinical meaning.
+DIF + FDR,Tests whether a specific PHQ item has a direct physiology association beyond the latent factor; FDR controls multiplicity.,No FDR-stable single-item effect was found.,Useful negative check against one item driving the result.

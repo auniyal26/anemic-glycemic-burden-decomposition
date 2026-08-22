@@ -1,0 +1,4 @@
+population,outcome,test,F,df_num,df_den,p,weighted_delta_R2,display
+Pooled,SOMATIC_SCORE,Add_A_to_G_plus_X,13.2440932926015,1,15,0.0024226749242312,0.0026083379942495,Add A beyond G + X
+Pooled,SOMATIC_SCORE,Add_G_to_A_plus_X,3.97272612863145,1,15,0.0647584670721541,0.0011679779528353,Add G beyond A + X
+Pooled,SOMATIC_SCORE,Add_AxG_to_A_plus_G_plus_X,6.31558262973342,1,14,0.0248307565356157,0.0004254339255277,Add A×G beyond additive

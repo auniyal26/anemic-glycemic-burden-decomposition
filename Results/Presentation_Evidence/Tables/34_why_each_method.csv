@@ -1,0 +1,13 @@
+choice,reason,interpretation_rule
+Sex-specific A threshold,Raw low Hb has different clinical meaning by sex; naive -z(Hb) erased the A signal.,"Representation choice matters; threshold is domain-informed, not learned from outcome."
+G threshold at HbA1c 5.7,Creates a simple excess-above-reference glycemic burden.,Working proxy only; not all glycemic physiology.
+A×G term,Tests departure from a purely additive A + G model.,Secondary because it is small and not stable across all checks.
+X0→X3 ladder,Separates baseline confounding adjustment from BMI and kidney sensitivity/direct-effect assumptions.,Avoids blindly adjusting for everything.
+NHANES survey weights + strata + PSU,NHANES is not a simple random sample.,Required for population-relevant standard errors/inference.
+Fasting glucose sensitivity,HbA1c can be affected by RBC turnover/anemia.,Checks whether G is only an HbA1c measurement artifact.
+Ordinal CFA,PHQ items are ordinal and total score can mix symptom dimensions.,Tests whether somatic vs cognitive-affective structure is supported.
+MIMIC/SEM,Links A/G to validated latent symptom factors.,Checks whether physiology aligns more with somatic than affective phenotype.
+DIF,Checks if one PHQ item is directly driving a latent association.,Negative-result integrity check.
+Internal PCA,Tests whether scalar A/G proxies throw away stable marker structure.,Motivates deeper A_i / G_j representation work without calling PCs biological mechanisms.
+Frozen temporal transfer,Tests the already-defined model on later NHANES without retuning.,Prevents post-hoc rescue and measures transfer honestly.
+2021–23 X ladder diagnostic,Determines whether transfer failure is substantive or only due to collapsed survey df.,Diagnostic only; did not alter frozen definitions.

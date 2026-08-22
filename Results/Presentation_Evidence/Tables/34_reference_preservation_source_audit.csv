@@ -1,0 +1,36 @@
+script,reads_core_working,explicitly_writes_core_working,copy_calls,read_parquet_calls,to_parquet_calls,merge_calls,classification
+01_inspect_nhanes.py,False,False,0,0,0,0,other/derived producer
+02_build_core.py,False,True,2,0,2,3,original core producer / inspect manually
+03_test_decomposition.py,True,False,4,1,2,0,downstream reader/branch
+04_domain_informed_decomposition.py,True,False,2,1,0,0,downstream reader/branch
+05_replication_nonlinear.py,True,False,3,1,0,0,downstream reader/branch
+06_residual_ica.py,True,False,2,1,3,0,downstream reader/branch
+07_latent_phq_decomposition.py,True,False,1,1,2,0,downstream reader/branch
+08_cross_cycle_latent_replications.py,True,False,3,1,0,0,downstream reader/branch
+09_ica_stability.py,True,False,2,1,0,0,downstream reader/branch
+10_bootstrap_theory_validation.py,True,False,4,1,0,0,downstream reader/branch
+11_aligned_cross_cycle_validation.py,True,False,8,1,0,0,downstream reader/branch
+12_interpret_and_visualize.py,False,False,1,0,0,0,other/derived producer
+13_full_integrity_audit.py,True,False,7,1,0,3,downstream reader/branch
+14_freeze_exploratory_v1.py,True,False,9,1,0,3,downstream reader/branch
+15_build_x_audit_and_dag_FINAL.py,True,False,4,1,1,1,downstream reader/branch
+16_staged_survey_models.py,True,False,3,2,0,1,downstream reader/branch
+17_cross_cycle_somatic_replication.py,True,False,5,2,0,1,downstream reader/branch
+18_fasting_glucose_sensitivity.py,True,False,3,2,0,2,downstream reader/branch
+19_clinical_diabetes_sensitivity.py,True,False,3,2,0,3,downstream reader/branch
+20_ordinal_cfa_validation.py,True,False,3,2,0,1,downstream reader/branch
+21_mimic_sem_validation.py,True,False,3,2,0,1,downstream reader/branch
+22_method_convergence_audit.py,False,False,3,0,0,0,other/derived producer
+23_mimic_differential_item_functioning.py,True,False,3,2,0,1,downstream reader/branch
+24_internal_ag_burden_decomposition.py,False,False,8,1,1,4,other/derived producer
+25_pre_presentation_validity_audit.py,True,False,5,2,0,1,downstream reader/branch
+26_formal_separability_test.py,False,False,0,0,0,0,other/derived producer
+27_incremental_information_test.py,False,False,0,0,0,0,other/derived producer
+28_freeze_temporal_transfer_protocol.py,False,False,0,0,0,0,other/derived producer
+29_download_temporal_validation_data.py,False,False,0,0,0,0,other/derived producer
+30_build_frozen_transfer_cohort.py,False,False,5,0,1,6,other/derived producer
+31_amend_transfer_weight_and_finalize_cohort.py,False,False,2,1,1,1,other/derived producer
+32_run_frozen_temporal_transfer_test.py,False,False,0,1,0,0,other/derived producer
+33_audit_2021_2023_transfer_failure.py,False,False,2,1,0,0,other/derived producer
+34_build_presentation_evidence_pack.py,True,False,19,4,4,5,downstream reader/branch
+diagnostics.py,False,False,0,0,0,0,other/derived producer
