@@ -1,0 +1,24 @@
+{
+  "A_definition": "max(sex_specific_Hb_threshold - Hb, 0)",
+  "male_Hb_threshold": 13.0,
+  "female_Hb_threshold": 12.0,
+  "G_definition": "max(HbA1c - 5.7, 0)",
+  "AG_definition": "A * G",
+  "PHQ_valid_values": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "PHQ_xpt_zero_rule": "abs(value) < 1e-10 -> 0",
+  "complete_case_variables": [
+    "LBXHGB",
+    "LBXGH",
+    "PHQ9_TOTAL"
+  ],
+  "complete_sample_n": 9743,
+  "reference_key": [
+    "CYCLE",
+    "SEQN"
+  ]
+}

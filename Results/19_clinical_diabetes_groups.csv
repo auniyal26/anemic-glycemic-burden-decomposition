@@ -1,0 +1,6 @@
+state,n,label,percent
+0.0,1751,Normal,45.64650677789364
+1.0,1473,Prediabetes,38.39937434827946
+2.0,175,Undiagnosed diabetes,4.562043795620438
+3.0,50,Diagnosed untreated,1.3034410844629822
+4.0,387,Diagnosed treated,10.088633993743484

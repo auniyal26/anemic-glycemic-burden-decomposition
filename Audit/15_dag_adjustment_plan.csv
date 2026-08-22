@@ -1,0 +1,11 @@
+concept,variable,role,reason
+Age,RIDAGEYR,Primary baseline,Common cause / demographic
+Sex,RIAGENDR,Primary baseline,Common cause; also defines Hb threshold
+Race/ethnicity,RIDRETH1,Primary baseline,Demographic/social structure
+Poverty-income ratio,INDFMPIR,Primary baseline,Socioeconomic common cause
+Education,DMDEDUC2,Primary baseline,Socioeconomic common cause
+Smoking,EVER_SMOKER/CURRENT_SMOKER,Primary baseline,"Potential common cause of hematologic, metabolic and depressive burden"
+BMI,BMXBMI,Extended sensitivity,Strong metabolic/depression common cause; potentially downstream in some pathways
+Kidney function,EGFR_2021,Direct-effect sensitivity,Can cause anemia and depression but can also lie downstream of dysglycemia
+Pregnancy,RIDEXPRG,Restriction,Changes Hb physiology and anemia definition
+Cycle,CYCLE,Pooled-model design,Controls cycle-level differences

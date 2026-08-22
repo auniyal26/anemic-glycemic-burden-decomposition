@@ -1,0 +1,24 @@
+{
+  "A_complete_n": {
+    "0506": 3814,
+    "0708": 4872
+  },
+  "G_fasting_complete_n": {
+    "0506": 1833,
+    "0708": 2371
+  },
+  "bootstrap_replicates_per_cycle": 200,
+  "A_variables": [
+    "LBXHGB",
+    "LBXHCT",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXMCHSI",
+    "LBXMC",
+    "LBXRDW"
+  ],
+  "G_variables": [
+    "LBXGH",
+    "LBXGLU"
+  ]
+}

@@ -1,0 +1,25 @@
+@"
+# Raw / processed data
+Data/
+
+# Local R packages
+R_library/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Environment / IDE
+.env
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+"@ | Set-Content .gitignore

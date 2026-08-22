@@ -1,0 +1,4 @@
+term,survey_direction,survey_supported,latent_direction,latent_verdict,direction_concordant
+A,1,True,1,REPLICATES,True
+G,1,True,1,REPLICATES,True
+AG,-1,True,-1,PARTIAL,True

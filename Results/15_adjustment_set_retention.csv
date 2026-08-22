@@ -1,0 +1,5 @@
+model,n,retention
+X0_demographic,8686,1.0
+X1_primary,8119,0.9347225420216441
+X2_bmi_sensitivity,8037,0.9252820630900299
+X3_kidney_direct_effect,7957,0.9160718397421137

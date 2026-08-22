@@ -1,0 +1,34 @@
+{
+  "X0_demographic": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "RIDRETH1"
+  ],
+  "X1_primary": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "RIDRETH1",
+    "INDFMPIR",
+    "EDUC3",
+    "SMOKING3"
+  ],
+  "X2_bmi_sensitivity": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "RIDRETH1",
+    "INDFMPIR",
+    "EDUC3",
+    "SMOKING3",
+    "BMXBMI"
+  ],
+  "X3_kidney_direct_effect": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "RIDRETH1",
+    "INDFMPIR",
+    "EDUC3",
+    "SMOKING3",
+    "BMXBMI",
+    "EGFR_2021"
+  ]
+}

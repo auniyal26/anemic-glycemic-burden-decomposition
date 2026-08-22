@@ -1,0 +1,10 @@
+stage,input_output,transformation,lossy_representation,reference_preserved,audit_note
+Raw XPT,Original NHANES files,None,False,True,Ground truth; preserve bytes and SHA256.
+Core reference,CBC + DEMO + GHB + DPQ merge,Inner merge on SEQN,False,True,Value-level compressed reference; raw XPT remains authoritative.
+PHQ normalization,XPT near-zero -> literal zero,abs(value)<1e-10 -> 0,False,True,Required because of XPORT numeric decoding artifact.
+A representation,Hemoglobin -> anemia deficit,"max(sex threshold - Hb, 0)",True,True,Clinically informed working representation; raw Hb retained.
+G representation,HbA1c -> glycemic excess,"max(HbA1c - 5.7, 0)",True,True,Working representation; HbA1c may itself be biased by anemia.
+PHQ total,9 items -> total score,sum items,True,True,Known aggregation loss; item-level reference retained.
+ICA,Residualized 9-item PHQ -> latent components,FastICA,True,True,Exploratory decomposition; mixing/unmixing matrices must be stored.
+Cross-cycle alignment,Independent ICA spaces -> aligned spaces,Hungarian assignment + sign alignment,True,True,Component signs/order are arbitrary until aligned.
+Bootstrap,Participant resamples -> stability estimates,ordinary participant bootstrap,True,True,Useful for algorithm/sample stability; not survey-design population inference.
