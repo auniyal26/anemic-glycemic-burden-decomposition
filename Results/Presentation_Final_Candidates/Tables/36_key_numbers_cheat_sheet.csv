@@ -1,0 +1,11 @@
+result,statistic,value
+Discovery same-person age18+ core,N,11329.0
+Complete A/G/PHQ discovery core,N,9743.0
+Final discovery X3 survey cohort,N,7957.0
+Discovery A,beta,0.331548684961218
+Discovery A,p,0.0024226749242312
+Discovery G,beta,0.0974144300114641
+Discovery G,p,0.0647584670721541
+"Weighted corr(A,G)",rho,0.04469489843518147
+A incremental somatic weighted R2,delta_R2,0.0026083379942495
+G incremental somatic weighted R2,delta_R2,0.0011679779528353

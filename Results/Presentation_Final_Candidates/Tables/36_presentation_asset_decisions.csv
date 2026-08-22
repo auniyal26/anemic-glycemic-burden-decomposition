@@ -1,0 +1,21 @@
+asset,decision,reason
+36_01_current_vs_proposed_architecture.png,MAIN,Defines what was done versus the actual PhD problem.
+36_02_discovery_cohort_flow.png,MAIN,Transparent participant accounting.
+34_08_hb_to_A_transform.png + 34_09_hba1c_to_G_transform.png,MAIN,Show exactly how the first A/G representation was constructed.
+36_03_weighted_somatic_by_ag_group.png,MAIN,Intuitive survey-weighted descriptive phenotype pattern.
+36_04_discovery_primary_effects.png,MAIN,Primary adjusted discovery result.
+36_05_separability_incremental_information.png,MAIN/APPENDIX,Use if supervisor asks what 'separable' means quantitatively.
+36_06_cfa_fit_summary.png,MAIN,Why somatic vs cognitive-affective decomposition is justified.
+36_07_somatic_factor_loadings.png,MAIN/APPENDIX,Shows reproducibility of somatic measurement structure.
+36_08_mimic_somatic_paths.png,MAIN,Links A/G to the latent somatic phenotype.
+36_09_reduced_hematology_pca.png,MAIN,Motivates why scalar Hb-deficit A may be insufficient.
+36_10_frozen_temporal_transfer_summary.png,MAIN,Honest frozen transfer result.
+36_11_2123_A_diagnostic_ladder.png,MAIN,Shows substantive A non-transfer.
+36_12_2123_G_diagnostic_ladder.png,APPENDIX/MAIN,Shows G direction is more stable.
+35_03_burden_phenotype_correlation.png,APPENDIX,Raw correlations are small; PHQ-total/somatic correlation is partly mechanical.
+35_05_weighted_ag_group_phq10_prevalence.png,APPENDIX,Thresholded prevalence is not monotonic across groups.
+34_15_incremental_weighted_R2.png,REPLACE,Use 36_05 instead.
+34_19_fasting_glucose_sensitivity.png,REPLACE,Different units make shared coefficient axis misleading; use table/verbal sensitivity result.
+34_21_G_pca_variance.png,APPENDIX,Only two glycemic markers; useful but not central.
+34_25_2123_residual_design_df.png,APPENDIX,Technical explanation of modern inference limits.
+34_30_reference_preserving_branch_architecture.png,APPENDIX,Integrity/methods backup; 36_01 is cleaner for the main story.
