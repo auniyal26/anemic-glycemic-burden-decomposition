@@ -1,0 +1,31 @@
+{
+  "script": "40_project_frozen_A_temporal.py",
+  "frozen_parameter_file": "Parameters\\39_frozen_reduced_A_transform.json",
+  "frozen_parameter_sha256": "b8818da88250f68c66639ccf36cef7f61f880d31606ab598526e9d2edbbcf9f6",
+  "variables": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "retained_components": 3,
+  "representation_refit_in_temporal_data": false,
+  "temporal_periods": {
+    "2009-2018": [
+      "0910",
+      "1112",
+      "1314",
+      "1516",
+      "1718"
+    ],
+    "2021-2023": [
+      "2123"
+    ]
+  },
+  "weights": {
+    "2009-2018": "WEIGHT_0918_POOLED = WTMEC2YR / 5",
+    "2021-2023": "WEIGHT_2123 = WTPH2YR"
+  },
+  "prespecified_reconstruction_energy_gate": 0.98,
+  "outcomes_used_to_fit_or_modify_representation": false
+}

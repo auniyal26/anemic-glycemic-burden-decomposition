@@ -753,3 +753,603 @@ Use the stable internal hematological and glycemic components as candidate physi
 Do not yet label the PCA components as the final A or G.
 
 The next goal is to identify physiologically interpretable, reproducible burden components before constructing the final decomposition model.
+
+---
+
+# Research Log — 2026-09-14
+
+## Project
+**Computational Physiological Decomposition — Hematological and Glycemic Testbed**
+
+## Objective
+
+Move from the earlier exploratory A/G decomposition toward a finalized, outcome-independent physiological representation and test whether:
+
+1. hematological and glycemic state can be represented as stable multidimensional components,
+2. those representations preserve information across time,
+3. the decomposed representation contains depressive-phenotype information beyond the original scalar A and G burdens,
+4. the discovery result transfers forward without refitting.
+
+---
+
+## 1. Final Reduced Hematological Representation
+
+### Script 39 — Freeze Reduced A Representation
+`39_freeze_reduced_A_representation.py`
+
+Final hematological basis:
+
+- hemoglobin
+- RBC count
+- MCV
+- RDW
+
+This replaced the earlier seven-variable exploratory CBC representation, which contained substantial algebraic redundancy.
+
+### Discovery structure
+
+Complete reduced-CBC sample:
+
+**n = 8,686**
+
+Cycle-specific explained variance:
+
+#### PC1
+- 2005–06: 47.4%
+- 2007–08: 48.2%
+- loading similarity: **0.993**
+
+#### PC2
+- 2005–06: 36.2%
+- 2007–08: 37.3%
+- loading similarity: **0.993**
+
+#### PC3
+- 2005–06: 15.7%
+- 2007–08: 13.9%
+- loading similarity: **0.999**
+
+#### PC4
+- approximately 0.6–0.7% variance
+
+Outcome-independent retention criterion selected:
+
+**K = 3**
+
+Frozen 2005–06 -> 2007–08 reconstruction energy:
+
+**0.989**
+
+Final pooled 2005–08 reconstruction energy:
+
+**0.992**
+
+Conclusion:
+
+The reduced hematological state can be represented by a stable three-dimensional structure while preserving >99% of the standardized information.
+
+The final transform was frozen without using depression outcomes.
+
+---
+
+## 2. Frozen Hematological Temporal Projection
+
+### Script 40 — Temporal A Projection
+`40_project_frozen_A_temporal.py`
+
+The 2005–08 hematological transform was projected into later NHANES cycles without refitting:
+
+- means
+- scales
+- loadings
+- component order
+- component signs
+- retained dimensionality
+
+### Reconstruction
+
+#### 2009–18
+- reconstruction energy: **0.993**
+
+#### 2021–23
+- reconstruction energy: **0.996**
+
+Every later cycle passed the structural transfer criterion.
+
+Conclusion:
+
+The hematological representation itself remains structurally stable through 2021–23.
+
+Therefore the earlier failure of the simple scalar Hb-deficit A in 2021–23 cannot automatically be interpreted as failure of the underlying hematological state.
+
+---
+
+## 3. Glycemic Representation Revisited
+
+### Script 41 — Two-Marker G Baseline
+`41_freeze_and_transfer_G_representation.py`
+
+Initial glycemic representation:
+
+- HbA1c
+- fasting glucose
+
+The two-marker space remained dominated by one common axis:
+
+- discovery PC1 variance: ~91%
+- 2009–18: ~91%
+- 2021–23: ~93%
+
+This representation is now treated only as a:
+
+**minimal glycemic measurement baseline**
+
+and not as evidence that diabetes/glycemic physiology is inherently one-dimensional.
+
+---
+
+## 4. Deep Glycemic Representation
+
+### Script 42 — Deep G Structure + Assay Audit
+`42_deep_G_structure_and_assay_audit.py`
+
+Core transferable glycemic representation:
+
+`G3 = {HbA1c, fasting glucose, log fasting insulin}`
+
+Extended representation:
+
+`G4 = {HbA1c, fasting glucose, log fasting insulin, 2-hour OGTT glucose}`
+
+### G3 discovery results
+
+Sample:
+
+**n = 4,145**
+
+Variance:
+
+#### 2005–06
+- PC1 = 63.2%
+- PC2 = 31.4%
+- PC3 = 5.5%
+
+#### 2007–08
+- PC1 = 62.6%
+- PC2 = 31.2%
+- PC3 = 6.1%
+
+Cross-cycle loading similarity:
+
+- PC1 = **0.999883**
+- PC2 = **0.999722**
+- PC3 = **0.999837**
+
+Therefore adding insulin reveals a clearly multidimensional glycemic state.
+
+### Physiological anchors
+
+Correlation with log-HOMA-IR:
+
+- G3-PC1: **0.556**
+- G3-PC2: **0.828**
+- G3-PC3: **0.037**
+
+This suggests:
+
+- PC1 = broad/common glycemic state
+- PC2 = strongly insulin-related dimension
+- PC3 = smaller glucose-measurement discordance dimension
+
+These remain descriptive labels rather than final mechanistic claims.
+
+---
+
+## 5. Extended G4 Representation
+
+Adding 2-hour OGTT produced a richer structure:
+
+- PC1: ~58–62%
+- PC2: ~21%
+- PC3: ~10–13%
+- PC4: ~6–9%
+
+Cross-cycle loading similarities remained high:
+
+**~0.985–0.997**
+
+OGTT therefore introduces additional metabolic/challenge-response information not contained in the simple HbA1c + fasting glucose representation.
+
+Important limitation:
+
+OGTT is unavailable after 2015–16, so G4 cannot serve as the full temporal representation through 2021–23.
+
+---
+
+## 6. Insulin Assay Audit
+
+Insulin assay methods changed across NHANES eras.
+
+Therefore:
+
+- frozen projections were retained,
+- correlation/loading structure was audited,
+- no silent temporal calibration was performed,
+- absolute insulin-containing score shifts are not automatically interpreted as biological.
+
+Despite assay changes, the component geometry remained highly similar across later cycles.
+
+This supports structural stability while preserving the assay caveat.
+
+---
+
+## 7. Deep G Phenotype Mapping
+
+### Script 43 — G3/G4 Phenotype Mapping
+`43_deep_G_phenotype_mapping.py`
+
+Primary phenotype:
+
+**somatic PHQ symptom score**
+
+Primary adjustment:
+
+**X3**
+
+Formal inference:
+
+`survey::svyglm + survey::regTermTest`
+
+### G3 results
+
+Sample:
+
+**n = 3,815**
+
+Somatic phenotype:
+
+- G3 PCs jointly given A + X:
+  - p = **0.0617**
+- PC2–3 beyond PC1:
+  - p = 0.233
+- G3 PCs beyond scalar G:
+  - p = 0.210
+- scalar G beyond G3 PCs:
+  - p = 0.803
+
+G3-PC1:
+
+- beta = **0.114**
+- p = **0.0285**
+- BH-adjusted p = 0.0855
+
+Interpretation:
+
+G3 is physiologically multidimensional, but the depression-relevant signal is concentrated mainly in the common glycemic dimension.
+
+The deeper G3 representation does not independently demonstrate a strong information advantage over scalar G.
+
+---
+
+## 8. G4 Phenotype Mapping
+
+Extended G4 produced stronger evidence.
+
+Somatic phenotype:
+
+- joint G4 block:
+  - p = **0.0279**
+- G4 PCs beyond scalar G:
+  - p = 0.0959
+
+For total PHQ-9, the richer G4 block showed clearer evidence that multidimensional metabolic/challenge physiology contains information beyond the HbA1c-based scalar.
+
+Interpretation:
+
+The simple scalar G appears to capture much of the transferable common glycemic signal, but richer metabolic measurements can reveal additional phenotype-relevant information.
+
+---
+
+## 9. Final Reduced A Phenotype Validation
+
+### Script 44 — Final Reduced A + Deep G3
+`44_final_reduced_A_deep_G3_combined_discovery.py`
+
+This replaced the earlier phenotype result based on the legacy seven-variable CBC PCA.
+
+Final reduced-A MEC sample:
+
+**n = 7,957**
+
+Somatic phenotype:
+
+- A PCs jointly given scalar G + X:
+  - p = **0.000130**
+- A-PC2/3 beyond A-PC1:
+  - p = **0.001040**
+- A PCs beyond scalar A + scalar G:
+  - p = **0.000724**
+- scalar A beyond A PCs + scalar G:
+  - p = 0.276
+
+Conclusion:
+
+The main hematological information-loss result survives using the finalized reduced and frozen representation.
+
+The scalar Hb-deficit A does not preserve all phenotype-relevant hematological information.
+
+---
+
+## 10. Final Combined A + G3 Discovery Model
+
+Joint fasting phenotype sample:
+
+**n = 3,815**
+
+Somatic phenotype:
+
+- A PCs given G PCs + X:
+  - p = **0.001546**
+- G PCs given A PCs + X:
+  - p = **0.027443**
+- A PCs beyond scalar A + scalar G + G PCs:
+  - p = **0.005464**
+- G PCs beyond scalar G + scalar A + A PCs:
+  - p = 0.148223
+- all six PCs beyond scalar A + scalar G:
+  - p = **0.014596**
+- both scalar burdens beyond all six PCs:
+  - p = **0.955583**
+
+### Incremental information
+
+Scalar A + G beyond X:
+
+`ΔR² = 0.004638`
+
+All six PCs beyond X:
+
+`ΔR² = 0.015235`
+
+All PCs beyond scalar A + G:
+
+`ΔR² = 0.010642`
+
+Both scalars beyond all PCs:
+
+`ΔR² = 0.000046`
+
+Conclusion:
+
+The multidimensional physiological representation contains substantially more somatic-phenotype information than the conventional scalar A + G model.
+
+The reverse is not true: the scalar burdens add essentially no information once the decomposed representation is present.
+
+---
+
+## 11. A/G Separability
+
+Cross-block A/G component correlations were generally weak.
+
+Maximum absolute correlation was approximately:
+
+**0.20**
+
+Therefore the recovered hematological and glycemic spaces remain statistically distinguishable.
+
+This supports statistical nonredundancy, not biological independence.
+
+---
+
+## 12. Frozen Temporal Phenotype Transfer
+
+### Script 45 — Frozen Combined A + G3 Temporal Transfer
+`45_frozen_combined_AG_temporal_phenotype_transfer.py`
+
+No representation refit.
+
+No temporal re-standardization.
+
+Discovery coordinates were projected forward unchanged.
+
+Temporal physiology samples:
+
+- 2009–18: **12,230**
+- 2021–23: **3,010**
+
+Phenotype-complete samples:
+
+- 2009–18 X3: **9,893**
+- 2021–23 X3: **2,247**
+- 2021–23 X0 sensitivity: **2,590**
+
+---
+
+## 13. Formal 2009–18 Replication
+
+Somatic phenotype:
+
+- A PCs given G PCs + X3:
+  - p = **0.000070**
+- G PCs given A PCs + X3:
+  - p = **0.005769**
+- A-PC2/3 beyond A-PC1:
+  - p = **0.001851**
+- G-PC2/3 beyond G-PC1:
+  - p = 0.840
+- A PCs beyond scalar A + G + G PCs:
+  - p = **0.000932**
+- all six PCs beyond scalar A + scalar G:
+  - p = **0.006570**
+- both scalars beyond all PCs:
+  - p = 0.176
+
+### Incremental information
+
+Scalar model beyond X:
+
+`ΔR² = 0.003869`
+
+All PCs beyond X:
+
+`ΔR² = 0.007014`
+
+All PCs beyond scalar model:
+
+`ΔR² = 0.003643`
+
+Scalars beyond all PCs:
+
+`ΔR² = 0.000497`
+
+Conclusion:
+
+The discovery-stage decomposition advantage **formally replicates in pooled 2009–18** under the frozen X3 complex-survey model.
+
+---
+
+## 14. Component-Level Temporal Replication
+
+2009–18 all-PC somatic model:
+
+### A-PC1
+- beta = **-0.129**
+- BH-adjusted p = **0.00430**
+
+### A-PC3
+- beta = **+0.110**
+- BH-adjusted p = **0.00139**
+
+### G-PC1
+- beta = **+0.097**
+- BH-adjusted p = **0.00139**
+
+These reproduce the major discovery directions.
+
+Therefore temporal transfer is not limited to a global R² result; specific component-level phenotype mappings also persist.
+
+---
+
+## 15. 2021–23 Modern Holdout
+
+The full X3 model became design-limited because the single NHANES cycle does not provide enough denominator survey degrees of freedom for the full parameterized block test.
+
+Therefore confirmatory X3 p-values are not available.
+
+X0 sensitivity remains design-limited as well and is not treated as confirmatory evidence.
+
+However, the information pattern remains informative.
+
+### X3 effect sizes
+
+Scalar model beyond X:
+
+`ΔR² = 0.002373`
+
+All PCs beyond X:
+
+`ΔR² = 0.010668`
+
+All PCs beyond scalar model:
+
+`ΔR² = 0.011688`
+
+Scalars beyond all PCs:
+
+`ΔR² = 0.003392`
+
+Thus the decomposed representation continues to carry more somatic-phenotype information than the scalar model in the modern holdout, although formal complex-survey confirmation is not possible with the available design degrees of freedom.
+
+---
+
+## 16. Interpretation of the Earlier Scalar-A Failure
+
+A notable pattern emerged across time.
+
+Approximate A-PC1 somatic coefficients:
+
+- discovery: **-0.222**
+- 2009–18: **-0.129**
+- 2021–23: **-0.071**
+
+A-PC3:
+
+- discovery: **+0.136**
+- 2009–18: **+0.110**
+- 2021–23: **+0.130**
+
+Therefore the earlier failure of scalar Hb-deficit A in 2021–23 may be consistent with a redistribution of phenotype-relevant hematological information across dimensions.
+
+The multidimensional hematological representation remains intact even when the Hb-deficit-associated dimension weakens.
+
+This is a computational interpretation of the observed pattern and is **not** yet a causal biological explanation.
+
+---
+
+# Current Scientific Position
+
+The first physiological testbed now supports the following chain:
+
+`raw biomarkers -> outcome-independent decomposition -> reconstruction -> separability -> phenotype mapping -> scalar information-loss test -> frozen temporal transfer`
+
+Current evidence supports:
+
+1. Hematological state is multidimensional and structurally stable.
+2. Glycemic state becomes clearly multidimensional once insulin and OGTT are included.
+3. Final reduced A components contain somatic-phenotype information that scalar anemia does not preserve.
+4. G3 independently contributes to somatic phenotype when modeled alongside A.
+5. Much of the transferable G3 signal remains concentrated in the common glycemic axis.
+6. The combined A + G3 representation contains more somatic-phenotype information than scalar A + G.
+7. The combined decomposition advantage formally replicates in 2009–18.
+8. The underlying representations remain structurally valid through 2021–23.
+9. The 2021–23 phenotype result remains suggestive but design-limited for formal complex-survey inference.
+10. Scalar representation failure can occur even when multidimensional physiological information remains preserved.
+
+---
+
+## Important Boundaries
+
+Do **not** currently claim:
+
+- causality
+- clinical prediction or diagnostic utility
+- final biological mechanisms for the PCs
+- biological independence of A and G
+- a stable A×G interaction
+- that G3 fully captures diabetes physiology
+- confirmatory 2021–23 X3 significance
+- that the scalar-A failure has a known biological cause
+
+---
+
+## Stop Point
+
+Work stops here for today.
+
+Do not add further exploratory models before reviewing the current evidence as a whole.
+
+### Next time
+
+1. Build a concise discovery -> 2009–18 replication -> 2021–23 holdout synthesis.
+2. Decide whether one targeted heterogeneity/sensitivity analysis is still required.
+3. Freeze the resulting evidence pack.
+4. Begin structuring Paper 1 around:
+   - representation choice,
+   - information preservation,
+   - scalar information loss,
+   - physiological separability,
+   - temporal transfer.
+
+---
+
+## Status at End of Day
+
+The main decomposition result now survives:
+
+`discovery -> frozen representation -> temporal replication`
+
+The strongest result is no longer merely that A and G associate with depression.
+
+It is that a stable multidimensional physiological representation preserves phenotype-relevant information that conventional scalar burden measures can lose, and that this advantage transfers forward in time.
+
+**Valid stopping point.**

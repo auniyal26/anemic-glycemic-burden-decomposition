@@ -1,0 +1,3 @@
+cycle,n,weighted_corr_hba1c_fasting_glucose,pc1_explained_variance,pc2_explained_variance,pc1_cross_cycle_loading_similarity,pc2_cross_cycle_loading_similarity
+0506,1833,0.8381982682106718,0.9190991341053356,0.08090086589466426,1.0,1.0
+0708,2371,0.8083732351764562,0.9041866175882282,0.09581338241177184,1.0,1.0

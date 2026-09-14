@@ -1,0 +1,38 @@
+{
+  "analysis_sample_n": 7957,
+  "cycle_n": {
+    "0506": 3582,
+    "0708": 4375
+  },
+  "primary_outcome": "SOMATIC_SCORE",
+  "secondary_outcome": "PHQ9_TOTAL",
+  "component_terms": [
+    "A_PC1_Z",
+    "A_PC2_Z",
+    "A_PC3_Z",
+    "A_PC4_Z"
+  ],
+  "glycemic_term": "G_SCALAR_Z",
+  "adjustments": {
+    "X1_primary": [
+      "RIDAGEYR",
+      "RIAGENDR",
+      "RIDRETH1",
+      "INDFMPIR",
+      "EDUC3",
+      "SMOKING3"
+    ],
+    "X3_full": [
+      "RIDAGEYR",
+      "RIAGENDR",
+      "RIDRETH1",
+      "INDFMPIR",
+      "EDUC3",
+      "SMOKING3",
+      "BMXBMI",
+      "EGFR_2021"
+    ]
+  },
+  "formal_replication_rule": "Do not require p<0.05 in each independent cycle. Use aligned effect direction plus pooled cycle-by-component heterogeneity tests; cycle-specific design-based estimates are reported.",
+  "interactions_tested": "Only component-by-cycle interactions for heterogeneity. No A_i x G_j physiological interactions."
+}

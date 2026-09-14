@@ -1,0 +1,24 @@
+{
+  "primary_MEC_n": 7957,
+  "fasting_sensitivity_n": 3838,
+  "primary_components": [
+    "A_PC1",
+    "A_PC2",
+    "A_PC3",
+    "A_PC4"
+  ],
+  "fasting_components": [
+    "A_PC1",
+    "A_PC2",
+    "A_PC3",
+    "A_PC4",
+    "G_PC1",
+    "G_PC2"
+  ],
+  "primary_weight": "WTMEC4YR",
+  "fasting_weight": "WTSAF2YR / 2 for pooled 2005-2008",
+  "primary_outcome": "SOMATIC_SCORE",
+  "secondary_outcome": "PHQ9_TOTAL",
+  "interactions_tested": false,
+  "multiplicity": "BH-FDR within A and G component families"
+}

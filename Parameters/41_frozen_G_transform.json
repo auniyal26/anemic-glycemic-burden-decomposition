@@ -1,0 +1,59 @@
+{
+  "transform_name": "glycemia_hba1c_fasting_glucose_weighted_pca_frozen_discovery",
+  "training_period": "NHANES 2005-2008 fasting subsample",
+  "training_cycles": [
+    "0506",
+    "0708"
+  ],
+  "outcome_used_in_representation_learning": false,
+  "variables": [
+    "LBXGH",
+    "LBXGLU"
+  ],
+  "labels": {
+    "LBXGH": "HbA1c",
+    "LBXGLU": "Fasting glucose"
+  },
+  "full_components_retained": 2,
+  "interpretive_axes": {
+    "PC1": "common glycemic axis",
+    "PC2": "fasting-glucose-vs-HbA1c discordance axis"
+  },
+  "weighting": {
+    "discovery_pooled": "WTSAF2YR / 2",
+    "2009_2018_pooled": "WTSAF2YR / 5",
+    "2021_2023": "WTSAF2YR"
+  },
+  "standardization": {
+    "mean": {
+      "LBXGH": 5.525542653341467,
+      "LBXGLU": 104.79876987670843
+    },
+    "scale": {
+      "LBXGH": 0.9061854045938632,
+      "LBXGLU": 29.79810127798837
+    }
+  },
+  "pca": {
+    "eigenvalues": [
+      1.8191432519874946,
+      0.18085674801250623
+    ],
+    "explained_variance_ratio": [
+      0.9095716259937469,
+      0.09042837400625307
+    ],
+    "loadings_columns_are_components": [
+      [
+        0.7071067811865481,
+        -0.7071067811865468
+      ],
+      [
+        0.7071067811865468,
+        0.7071067811865481
+      ]
+    ],
+    "sign_rule": "PC1 oriented with HbA1c and fasting glucose positive; PC2 oriented with fasting glucose positive."
+  },
+  "future_rule": "Do not refit means, scales, loadings, ordering, or signs in temporal data. Both PCs are retained for information preservation. PC1-only is evaluated separately as a compression/common-burden sensitivity."
+}

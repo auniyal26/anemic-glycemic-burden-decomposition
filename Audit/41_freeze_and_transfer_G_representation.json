@@ -1,0 +1,15 @@
+{
+  "script": "41_freeze_and_transfer_G_representation.py",
+  "discovery_complete_n": 4204,
+  "discovery_cycle_n": {
+    "0506": 1833,
+    "0708": 2371
+  },
+  "temporal_complete_n": 15755,
+  "temporal_2009_2018_n": 12571,
+  "temporal_2021_2023_n": 3184,
+  "full_representation_components": 2,
+  "representation_refit_in_temporal_data": false,
+  "parameter_file": "Parameters\\41_frozen_G_transform.json",
+  "parameter_sha256": "1b9a2505be26b0fb2db21d0a5ab752e9cc5a5c1972990b3f0a5e9cd45ae1beea"
+}

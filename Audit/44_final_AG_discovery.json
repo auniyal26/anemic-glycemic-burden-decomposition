@@ -1,0 +1,19 @@
+{
+  "script": "44_final_reduced_A_deep_G3_combined_discovery.py",
+  "primary_outcome": "SOMATIC_SCORE",
+  "secondary_outcomes": [
+    "PHQ9_TOTAL",
+    "COGAFF_SUM"
+  ],
+  "primary_adjustment": "X3_kidney_direct_effect + cycle",
+  "A_representation": "39 frozen reduced A PC1-PC3",
+  "G_representation": "42 frozen G3 PC1-PC3",
+  "A_MEC_n": 7957,
+  "joint_physiology_n": 4145,
+  "joint_fasting_phenotype_n": 3815,
+  "joint_weight": "WTSAF2YR/2",
+  "representation_refit": false,
+  "outcome_used_for_scaling": false,
+  "interactions_tested": false,
+  "formal_inference": "survey::svyglm + survey::regTermTest"
+}

@@ -23,3 +23,9 @@ Thumbs.db
 *.tmp
 *.log
 "@ | Set-Content .gitignore
+
+# Documentation
+
+*.docx
+*.pdf
+*.pptx

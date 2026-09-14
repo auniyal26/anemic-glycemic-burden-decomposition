@@ -1,0 +1,76 @@
+block,model,component,variable,label,loading
+G3_core,0506_cycle_fit,1,LBXGH,HbA1c,0.6771130530012182
+G3_core,0506_cycle_fit,1,LBXGLU,Fasting glucose,0.6895952830372829
+G3_core,0506_cycle_fit,1,LOG_IN,log fasting insulin,0.25685844169133115
+G3_core,0506_cycle_fit,2,LBXGH,HbA1c,-0.23387529408371777
+G3_core,0506_cycle_fit,2,LBXGLU,Fasting glucose,-0.12928889537989097
+G3_core,0506_cycle_fit,2,LOG_IN,log fasting insulin,0.9636320502913455
+G3_core,0506_cycle_fit,3,LBXGH,HbA1c,-0.6977250606597301
+G3_core,0506_cycle_fit,3,LBXGLU,Fasting glucose,0.7125606831310416
+G3_core,0506_cycle_fit,3,LOG_IN,log fasting insulin,-0.07373610094925608
+G3_core,0708_cycle_fit_aligned,1,LBXGH,HbA1c,0.6724038586966999
+G3_core,0708_cycle_fit_aligned,1,LBXGLU,Fasting glucose,0.6886462803560327
+G3_core,0708_cycle_fit_aligned,1,LOG_IN,log fasting insulin,0.2713657151550063
+G3_core,0708_cycle_fit_aligned,2,LBXGH,HbA1c,-0.2566766580941069
+G3_core,0708_cycle_fit_aligned,2,LBXGLU,Fasting glucose,-0.1269332587719034
+G3_core,0708_cycle_fit_aligned,2,LOG_IN,log fasting insulin,0.9581257960242935
+G3_core,0708_cycle_fit_aligned,3,LBXGH,HbA1c,-0.6942551000888857
+G3_core,0708_cycle_fit_aligned,3,LBXGLU,Fasting glucose,0.7139007272508866
+G3_core,0708_cycle_fit_aligned,3,LOG_IN,log fasting insulin,-0.09140901285554932
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,1,LBXGH,HbA1c,0.6737760998895422
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,1,LBXGLU,Fasting glucose,0.688049184366462
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,1,LOG_IN,log fasting insulin,0.269470011523145
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,2,LBXGH,HbA1c,-0.24796666154808691
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,2,LBXGLU,Fasting glucose,-0.13299677468537063
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,2,LOG_IN,log fasting insulin,0.9595959528280561
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,3,LBXGH,HbA1c,-0.6960878550717098
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,3,LBXGLU,Fasting glucose,0.7133723977109956
+G3_core,FINAL_POOLED_DISCOVERY_FROZEN,3,LOG_IN,log fasting insulin,-0.08100321108283859
+G4_extended,0506_cycle_fit,1,LBXGH,HbA1c,0.5308829146823093
+G4_extended,0506_cycle_fit,1,LBXGLU,Fasting glucose,0.5773287923716721
+G4_extended,0506_cycle_fit,1,LOG_IN,log fasting insulin,0.3015433489569093
+G4_extended,0506_cycle_fit,1,LBXGLT,2-hour OGTT glucose,0.5421497994991187
+G4_extended,0506_cycle_fit,2,LBXGH,HbA1c,-0.2830140691472015
+G4_extended,0506_cycle_fit,2,LBXGLU,Fasting glucose,-0.13853899547258125
+G4_extended,0506_cycle_fit,2,LOG_IN,log fasting insulin,0.9437477185150023
+G4_extended,0506_cycle_fit,2,LBXGLT,2-hour OGTT glucose,-0.10025082142266448
+G4_extended,0506_cycle_fit,3,LBXGH,HbA1c,-0.6673435462680869
+G4_extended,0506_cycle_fit,3,LBXGLU,Fasting glucose,-0.01125727232681406
+G4_extended,0506_cycle_fit,3,LOG_IN,log fasting insulin,-0.12377500955953827
+G4_extended,0506_cycle_fit,3,LBXGLT,2-hour OGTT glucose,0.7343062113877494
+G4_extended,0506_cycle_fit,4,LBXGH,HbA1c,-0.4389976751846104
+G4_extended,0506_cycle_fit,4,LBXGLU,Fasting glucose,0.8045941126132325
+G4_extended,0506_cycle_fit,4,LOG_IN,log fasting insulin,-0.05560215379026018
+G4_extended,0506_cycle_fit,4,LBXGLT,2-hour OGTT glucose,-0.39600221669141783
+G4_extended,0708_cycle_fit_aligned,1,LBXGH,HbA1c,0.5044194742123705
+G4_extended,0708_cycle_fit_aligned,1,LBXGLU,Fasting glucose,0.5726110224971643
+G4_extended,0708_cycle_fit_aligned,1,LOG_IN,log fasting insulin,0.3686863751887476
+G4_extended,0708_cycle_fit_aligned,1,LBXGLT,2-hour OGTT glucose,0.5307993667104829
+G4_extended,0708_cycle_fit_aligned,2,LBXGH,HbA1c,-0.43734723495072614
+G4_extended,0708_cycle_fit_aligned,2,LBXGLU,Fasting glucose,-0.08598364751840393
+G4_extended,0708_cycle_fit_aligned,2,LOG_IN,log fasting insulin,0.8885366017640687
+G4_extended,0708_cycle_fit_aligned,2,LBXGLT,2-hour OGTT glucose,-0.10879759080947181
+G4_extended,0708_cycle_fit_aligned,3,LBXGH,HbA1c,-0.6122314381757865
+G4_extended,0708_cycle_fit_aligned,3,LBXGLU,Fasting glucose,-0.030549375927532985
+G4_extended,0708_cycle_fit_aligned,3,LOG_IN,log fasting insulin,-0.21107641203410105
+G4_extended,0708_cycle_fit_aligned,3,LBXGLT,2-hour OGTT glucose,0.7613712300989949
+G4_extended,0708_cycle_fit_aligned,4,LBXGH,HbA1c,-0.4236284412376932
+G4_extended,0708_cycle_fit_aligned,4,LBXGLU,Fasting glucose,0.8147331863282736
+G4_extended,0708_cycle_fit_aligned,4,LOG_IN,log fasting insulin,-0.17326226466992936
+G4_extended,0708_cycle_fit_aligned,4,LBXGLT,2-hour OGTT glucose,-0.3559901213676421
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,1,LBXGH,HbA1c,0.521502061093184
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,1,LBXGLU,Fasting glucose,0.57523453961069
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,1,LOG_IN,log fasting insulin,0.3318200955765963
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,1,LBXGLT,2-hour OGTT glucose,0.5357576400630952
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,2,LBXGH,HbA1c,-0.33885537680565425
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,2,LBXGLU,Fasting glucose,-0.1250369383495606
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,2,LOG_IN,log fasting insulin,0.9260466117988458
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,2,LBXGLT,2-hour OGTT glucose,-0.10945533533796008
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,3,LBXGH,HbA1c,-0.6443478200662045
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,3,LBXGLU,Fasting glucose,-0.026661321085006018
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,3,LOG_IN,log fasting insulin,-0.15081985375946516
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,3,LBXGLT,2-hour OGTT glucose,0.7492385684452626
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,4,LBXGH,HbA1c,-0.44500395578173185
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,4,LBXGLU,Fasting glucose,0.8079357415321142
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,4,LOG_IN,log fasting insulin,-0.09791051352837979
+G4_extended,FINAL_POOLED_DISCOVERY_FROZEN,4,LBXGLT,2-hour OGTT glucose,-0.3736640847528319

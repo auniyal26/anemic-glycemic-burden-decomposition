@@ -1,0 +1,63 @@
+{
+  "transform_name": "G3_HbA1c_fasting_glucose_log_insulin_discovery_PCA",
+  "training_period": "NHANES 2005-2008",
+  "outcome_used_in_representation_learning": false,
+  "variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "labels": {
+    "LBXGH": "HbA1c",
+    "LBXGLU": "Fasting glucose",
+    "LOG_IN": "log fasting insulin"
+  },
+  "weighting": "WTSAF2YR / 2 pooled across 2005-2008",
+  "standardization": {
+    "mean": {
+      "LBXGH": 5.522704776317377,
+      "LBXGLU": 104.75629521561886,
+      "LOG_IN": 2.1600428848469733
+    },
+    "scale": {
+      "LBXGH": 0.9002914209219122,
+      "LBXGLU": 29.627408711340227,
+      "LOG_IN": 0.7328386702616752
+    }
+  },
+  "pca": {
+    "eigenvalues": [
+      1.8850949393181762,
+      0.936054722929169,
+      0.17885033775265552
+    ],
+    "explained_variance_ratio": [
+      0.6283649797727253,
+      0.31201824097638964,
+      0.05961677925088516
+    ],
+    "cumulative_explained_variance": [
+      0.6283649797727253,
+      0.940383220749115,
+      1.0000000000000002
+    ],
+    "loadings_columns_are_components": [
+      [
+        0.6737760998895422,
+        -0.24796666154808691,
+        -0.6960878550717098
+      ],
+      [
+        0.688049184366462,
+        -0.13299677468537063,
+        0.7133723977109956
+      ],
+      [
+        0.269470011523145,
+        0.9595959528280561,
+        -0.08100321108283859
+      ]
+    ]
+  },
+  "temporal_interpretation_caveat": "Serum insulin assay methods changed across NHANES cycles. Do not interpret raw temporal score shifts as biological until the assay-era audit is reviewed. Frozen projection is preserved for audit."
+}

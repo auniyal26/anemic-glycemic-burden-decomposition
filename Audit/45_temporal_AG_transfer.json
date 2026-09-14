@@ -1,0 +1,41 @@
+{
+  "script": "45_frozen_combined_AG_temporal_phenotype_transfer.py",
+  "A_source": "Data\\Processed\\40_frozen_A_temporal_projection.parquet",
+  "G3_source": "Data\\Processed\\42_G3_temporal_frozen_scores.parquet",
+  "discovery_scaling_source": "Results\\44_final_AG_component_scaling.csv",
+  "A_temporal_columns_resolved": [
+    "A_FROZEN_PC1",
+    "A_FROZEN_PC2",
+    "A_FROZEN_PC3"
+  ],
+  "G_temporal_columns_resolved": [
+    "G3_FROZEN_PC1",
+    "G3_FROZEN_PC2",
+    "G3_FROZEN_PC3"
+  ],
+  "A_z_columns": [
+    "A_FROZEN_PC1_FZ",
+    "A_FROZEN_PC2_FZ",
+    "A_FROZEN_PC3_FZ"
+  ],
+  "G_z_columns": [
+    "G3_FROZEN_PC1_FZ",
+    "G3_FROZEN_PC2_FZ",
+    "G3_FROZEN_PC3_FZ"
+  ],
+  "representation_refit": false,
+  "temporal_restandardization": false,
+  "2009_2018_weight": "WTSAF2YR / 5",
+  "2021_2023_weight": "WTSAF2YR",
+  "primary_2009_2018_adjustment": "X3 + cycle",
+  "modern_holdout_adjustments": [
+    "X3",
+    "X0 sensitivity"
+  ],
+  "interactions_tested": false,
+  "primary_outcome": "SOMATIC_SCORE",
+  "secondary_outcomes": [
+    "PHQ9_TOTAL",
+    "COGAFF_SUM"
+  ]
+}

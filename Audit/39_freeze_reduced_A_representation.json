@@ -1,0 +1,22 @@
+{
+  "script": "39_freeze_reduced_A_representation.py",
+  "basis": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "variance_target": 0.99,
+  "retained_components": 3,
+  "cycle_complete_n": {
+    "0506": 3814,
+    "0708": 4872
+  },
+  "pooled_complete_n": 8686,
+  "min_retained_cross_cycle_similarity": 0.9927304472742553,
+  "0506_to_0708_reconstruction_energy_fraction": 0.9890311654853219,
+  "final_pooled_reconstruction_energy_fraction": 0.9923289747531757,
+  "structural_gate_passed": true,
+  "parameter_file": "Parameters\\39_frozen_reduced_A_transform.json",
+  "parameter_sha256": "e58921ed2bbcb75d58007a4bcfdccdd5168f7c7ad5cf2893a616105fae13cda5"
+}

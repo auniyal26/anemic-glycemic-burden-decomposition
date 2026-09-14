@@ -1,0 +1,32 @@
+{
+  "script": "42_deep_G_structure_and_assay_audit.py",
+  "G3_variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "G4_variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN",
+    "LBXGLT"
+  ],
+  "insulin_method_eras": {
+    "0506": "Mercodia_ELISA",
+    "0708": "Mercodia_ELISA",
+    "0910": "Mercodia_to_Roche_transition_NHANES_corrected",
+    "1112": "Roche_Elecsys",
+    "1314": "Tosoh_AIA",
+    "1516": "Tosoh_AIA",
+    "1718": "Tosoh_AIA",
+    "2123": "Tosoh_AIA"
+  },
+  "discovery_G3_n": 4145,
+  "discovery_G4_n": 3191,
+  "temporal_G3_n": 15282,
+  "temporal_G4_n_2009_2016": 7299,
+  "outcomes_used": false,
+  "silent_insulin_assay_harmonization": false,
+  "G3_parameter_sha256": "eacb6e04a5cdbbda08a6daad488440eaf419cf81755274a21a7a7d55889ae59e",
+  "G4_parameter_sha256": "24d324bb68fb7b144ad66671af696d22e1efd88efa52aa7457d386a750eca206"
+}

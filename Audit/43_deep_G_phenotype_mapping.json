@@ -1,0 +1,14 @@
+{
+  "script": "43_deep_G_phenotype_mapping_v3.py",
+  "primary_block": "G3_core",
+  "secondary_block": "G4_extended",
+  "primary_outcome": "SOMATIC_SCORE",
+  "secondary_outcome": "PHQ9_TOTAL",
+  "adjustment": "X3_kidney_direct_effect",
+  "hematology_control": "scalar A",
+  "G3_weight": "WTSAF2YR / 2",
+  "G4_weight": "WTSOG2YR / 2",
+  "formal_inference": "survey::svyglm + survey::regTermTest",
+  "G3_n": 3815,
+  "G4_n": 2965
+}

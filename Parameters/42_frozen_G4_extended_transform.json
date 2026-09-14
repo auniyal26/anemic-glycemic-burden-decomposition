@@ -1,0 +1,79 @@
+{
+  "transform_name": "G4_HbA1c_fasting_glucose_log_insulin_OGTT_discovery_PCA",
+  "training_period": "NHANES 2005-2008",
+  "outcome_used_in_representation_learning": false,
+  "variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN",
+    "LBXGLT"
+  ],
+  "labels": {
+    "LBXGH": "HbA1c",
+    "LBXGLU": "Fasting glucose",
+    "LOG_IN": "log fasting insulin",
+    "LBXGLT": "2-hour OGTT glucose"
+  },
+  "weighting": "WTSOG2YR / 2 pooled across 2005-2008",
+  "standardization": {
+    "mean": {
+      "LBXGH": 5.360564077206858,
+      "LBXGLU": 99.89614601442433,
+      "LOG_IN": 2.146061049605307,
+      "LBXGLT": 116.0353877004399
+    },
+    "scale": {
+      "LBXGH": 0.5061608003786289,
+      "LBXGLU": 15.115123741691367,
+      "LOG_IN": 0.7163227497107982,
+      "LBXGLT": 47.69206682818162
+    }
+  },
+  "pca": {
+    "eigenvalues": [
+      2.4077401529790374,
+      0.8415090058307153,
+      0.45997321397158913,
+      0.2907776272186604
+    ],
+    "explained_variance_ratio": [
+      0.6019350382447591,
+      0.21037725145767874,
+      0.11499330349289723,
+      0.07269440680466507
+    ],
+    "cumulative_explained_variance": [
+      0.6019350382447591,
+      0.8123122897024379,
+      0.9273055931953351,
+      1.0000000000000002
+    ],
+    "loadings_columns_are_components": [
+      [
+        0.521502061093184,
+        -0.33885537680565425,
+        -0.6443478200662045,
+        -0.44500395578173185
+      ],
+      [
+        0.57523453961069,
+        -0.1250369383495606,
+        -0.026661321085006018,
+        0.8079357415321142
+      ],
+      [
+        0.3318200955765963,
+        0.9260466117988458,
+        -0.15081985375946516,
+        -0.09791051352837979
+      ],
+      [
+        0.5357576400630952,
+        -0.10945533533796008,
+        0.7492385684452626,
+        -0.3736640847528319
+      ]
+    ]
+  },
+  "temporal_interpretation_caveat": "OGTT is unavailable after 2015-2016, so this extended representation cannot support the 2021-2023 holdout. Insulin assay changes also require explicit assay-era interpretation."
+}

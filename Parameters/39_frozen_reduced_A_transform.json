@@ -1,0 +1,97 @@
+{
+  "transform_name": "reduced_hematology_weighted_pca_frozen_discovery",
+  "training_period": "NHANES 2005-2008",
+  "training_cycles": [
+    "0506",
+    "0708"
+  ],
+  "training_population": "20+ adjustment cohort with complete reduced CBC basis",
+  "outcome_used_in_representation_learning": false,
+  "variables": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "labels": {
+    "LBXHGB": "Hemoglobin",
+    "LBXRBCSI": "RBC count",
+    "LBXMCVSI": "MCV",
+    "LBXRDW": "RDW"
+  },
+  "weighting": {
+    "cycle_specific_validation": "WTMEC2YR",
+    "pooled_discovery_training": "WTMEC2YR / 2"
+  },
+  "standardization": {
+    "mean": {
+      "LBXHGB": 14.462154335147622,
+      "LBXRBCSI": 4.7386892493026656,
+      "LBXMCVSI": 89.42032538218241,
+      "LBXRDW": 12.72731677297155
+    },
+    "scale": {
+      "LBXHGB": 1.4925066504912228,
+      "LBXRBCSI": 0.47983892504037723,
+      "LBXMCVSI": 5.326324458614594,
+      "LBXRDW": 1.144856995865348
+    }
+  },
+  "pca": {
+    "retained_components": 3,
+    "variance_target": 0.99,
+    "eigenvalues": [
+      1.9141844088604096,
+      1.4594744292877733,
+      0.5956570608645212,
+      0.03068410098729661
+    ],
+    "explained_variance_ratio": [
+      0.4785461022151024,
+      0.3648686073219433,
+      0.1489142652161303,
+      0.007671025246824153
+    ],
+    "cumulative_explained_variance": [
+      0.4785461022151024,
+      0.8434147095370457,
+      0.9923289747531759,
+      1.0
+    ],
+    "loadings_columns_are_components": [
+      [
+        0.6974021610161518,
+        -0.06640920799026993,
+        0.2882332491858842,
+        0.6527952488857852
+      ],
+      [
+        0.5428118657314353,
+        -0.538345460091647,
+        0.021715243848212912,
+        -0.6442576287514833
+      ],
+      [
+        0.2117993609472081,
+        0.708288419328676,
+        0.545370320824231,
+        -0.39501868172444143
+      ],
+      [
+        -0.4172847168702847,
+        -0.45177593753729683,
+        0.7867790384932969,
+        0.052447229825285324
+      ]
+    ],
+    "sign_rule": "For each component, the variable with largest absolute loading is oriented positive."
+  },
+  "internal_structural_gate": {
+    "minimum_retained_cross_cycle_loading_similarity": 0.9927304472742553,
+    "required_minimum_similarity": 0.9,
+    "0506_frozen_to_0708_reconstruction_energy_fraction": 0.9890311654853219,
+    "required_minimum_0708_reconstruction_energy": 0.98,
+    "passed": true
+  },
+  "future_projection_rule": "Do not refit means, scales, loadings, component count, ordering, or signs in 2009-2018 or 2021-2023. Standardize with these frozen discovery means/scales and multiply by these frozen loadings."
+}
