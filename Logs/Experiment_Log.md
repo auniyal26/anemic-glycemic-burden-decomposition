@@ -1396,15 +1396,15 @@ Therefore 2h OGTT adds physiologically meaningful challenge-response information
 ### Current G hierarchy
 Primary transferable glycemic representation:
 
-\[
+$\[
 \boxed{G3 = \text{HbA1c + FPG + insulin}}
-\]
+\]$
 
 Extended physiological representation:
 
-\[
+$\[
 \boxed{G4 = G3 + \text{2h OGTT}}
-\]
+\]$
 
 G4 remains useful as an extended/sensitivity representation rather than replacing G3 as the main temporal backbone.
 
@@ -1433,15 +1433,15 @@ No reproducible multiplicative phenotype interaction was detected.
 
 Current interpretation:
 
-\[
+$\[
 P \approx A + G + X
-\]
+\]$
 
 is better supported than requiring
 
-\[
+$\[
 P \approx A + G + A\times G + X
-\]
+\]$
 
 This does **not** mean hematology and glycemia do not interact biologically.
 
