@@ -1353,3 +1353,138 @@ The strongest result is no longer merely that A and G associate with depression.
 It is that a stable multidimensional physiological representation preserves phenotype-relevant information that conventional scalar burden measures can lose, and that this advantage transfers forward in time.
 
 **Valid stopping point.**
+
+## 16 Sep 2026 — Research Log
+
+### G4 extension tested
+Extended glycemic representation:
+
+\[
+G4 = \{\text{HbA1c, fasting glucose, log fasting insulin, 2h OGTT}\}
+\]
+
+Outcome-independent G4 fitting completed successfully.
+
+- Discovery fit: **n = 3,308**
+- G4 K3 reconstruction, 2005–08: **92.83%**
+- Frozen G4 reconstruction, 2009–16: **93.12%**
+
+This supports good **structural transfer of G4**.
+
+### Same-sample G3 vs G4
+Exact OGTT analytic samples:
+
+- 2005–08: **n = 2,972**
+- 2009–16: **n = 6,248**
+
+Weighted \(R^2\):
+
+| Period | A + G3 | A + G4 |
+|---|---:|---:|
+| 2005–08 | 0.08263 | 0.08278 |
+| 2009–16 | 0.08174 | 0.08269 |
+
+G4 gives a small descriptive improvement, especially in 2009–16.
+
+Direct 2h OGTT contribution beyond the complete G3 state:
+
+- 2005–08: **p = 0.416**
+- 2009–16: **p = 0.062**
+
+Therefore 2h OGTT adds physiologically meaningful challenge-response information, but there is currently **no replicated evidence that it adds substantial depression-phenotype information beyond G3**.
+
+### Current G hierarchy
+Primary transferable glycemic representation:
+
+\[
+\boxed{G3 = \text{HbA1c + FPG + insulin}}
+\]
+
+Extended physiological representation:
+
+\[
+\boxed{G4 = G3 + \text{2h OGTT}}
+\]
+
+G4 remains useful as an extended/sensitivity representation rather than replacing G3 as the main temporal backbone.
+
+### Hematology remains robust
+A components remained informative after adjustment for G4:
+
+- 2005–08: **p = 0.00738**
+- 2009–16: **p = 0.000332**
+
+G4 given A:
+
+- 2005–08: **p = 0.0226**
+- 2009–16: **p = 0.150**
+
+Hematological multidimensional information therefore remains particularly stable across periods.
+
+### A × G4 interaction
+No reproducible multiplicative phenotype interaction was detected.
+
+2009–16:
+
+- PC1 × PC1: **p = 0.392**
+- all 9 A × G4 terms: **p = 0.250**
+
+2005–08 interaction inference remains survey-df limited.
+
+Current interpretation:
+
+\[
+P \approx A + G + X
+\]
+
+is better supported than requiring
+
+\[
+P \approx A + G + A\times G + X
+\]
+
+This does **not** mean hematology and glycemia do not interact biologically.
+
+The strongest literature-supported A–G coupling remains erythrocyte-state effects on HbA1c interpretation rather than a necessarily multiplicative effect on depressive symptoms.
+
+### X / effect-modification stress test
+Prespecified modifiers tested:
+
+- age
+- sex
+- BMI
+- eGFR
+
+No modifier survived multiplicity correction.
+
+The closest nominal result was the combined age interaction block in 2009–16:
+
+- **p = 0.063**
+- BH-adjusted **q = 0.646**
+
+No robust X-dependent heterogeneity is currently supported.
+
+### Current working hierarchy
+**Core**
+- A4: Hb + RBC + MCV + RDW
+- G3: HbA1c + FPG + insulin
+- additive phenotype model with X adjustment
+
+**Useful extensions**
+- G4 with 2h OGTT
+- temporal drift tests
+- targeted mechanistic A–G measurement coupling
+
+**Secondary / sensitivity**
+- broad A × G interactions
+- age / sex / BMI / eGFR effect modification
+
+### Next session
+1. Fix the Script 49 development-vs-replication temporal-shift contrast.
+2. Review candidate auxiliary physiological variables.
+3. Classify them as:
+   - core stable
+   - useful extension
+   - sensitivity only
+4. Avoid indiscriminate biomarker expansion.
+5. Preserve A4 + G3 as the primary framework unless new evidence justifies a change.
