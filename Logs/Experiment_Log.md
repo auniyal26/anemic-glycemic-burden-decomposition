@@ -1359,9 +1359,9 @@ It is that a stable multidimensional physiological representation preserves phen
 ### G4 extension tested
 Extended glycemic representation:
 
-\[
+$\[
 G4 = \{\text{HbA1c, fasting glucose, log fasting insulin, 2h OGTT}\}
-\]
+\]$
 
 Outcome-independent G4 fitting completed successfully.
 
