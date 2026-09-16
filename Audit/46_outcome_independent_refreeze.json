@@ -1,0 +1,23 @@
+{
+  "script": "46_refreeze_outcome_independent_representations.py",
+  "purpose": "Remove outcome-availability conditioning from representation learning.",
+  "reads_PHQ_or_depression": false,
+  "overwrites_previous_39_42_outputs": false,
+  "A_parameter_file": "Parameters\\46_outcome_independent_A_transform.json",
+  "A_parameter_sha256": "3ccffca3417ff2bbc56a6f249d3115c338270a97751d60b7928abb41d89e3403",
+  "G3_parameter_file": "Parameters\\46_outcome_independent_G3_transform.json",
+  "G3_parameter_sha256": "802e646393310e00f9085d1d975f19013ed1680ec88adf1e3e67f9535be88ce9",
+  "A_retained_components": 3,
+  "A_0506_to_0708_reconstruction_energy": 0.9889623883950011,
+  "A_cross_cycle_loading_similarity": [
+    0.9952607534173662,
+    0.9944825201478656,
+    0.9987992471029281,
+    0.9999651309754376
+  ],
+  "G3_cross_cycle_loading_similarity": [
+    0.9999980737117167,
+    0.9999100599224942,
+    0.9999088955789759
+  ]
+}

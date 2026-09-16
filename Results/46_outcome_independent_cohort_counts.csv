@@ -1,0 +1,17 @@
+block,cycle,n,source
+A,0506,4200,raw eligibility; no PHQ filter
+A,0708,5308,raw eligibility; no PHQ filter
+G3,0506,1963,raw eligibility; no PHQ filter
+G3,0708,2556,raw eligibility; no PHQ filter
+A,0910,5688,raw eligibility; no PHQ filter
+G3,0910,2700,raw eligibility; no PHQ filter
+A,1112,4985,raw eligibility; no PHQ filter
+G3,1112,2326,raw eligibility; no PHQ filter
+A,1314,5333,raw eligibility; no PHQ filter
+G3,1314,2486,raw eligibility; no PHQ filter
+A,1516,5123,raw eligibility; no PHQ filter
+G3,1516,2382,raw eligibility; no PHQ filter
+A,1718,4981,raw eligibility; no PHQ filter
+G3,1718,2364,raw eligibility; no PHQ filter
+A,2123,5731,raw eligibility; no PHQ filter
+G3,2123,3024,raw eligibility; no PHQ filter

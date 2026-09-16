@@ -1,0 +1,70 @@
+{
+  "variables": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "eligibility": "age>=20; exclude known pregnancy; laboratory/weight completeness only; no PHQ conditioning",
+  "standardization": {
+    "mean": {
+      "LBXHGB": 14.43479948273763,
+      "LBXRBCSI": 4.732841318703382,
+      "LBXMCVSI": 89.39826943955339,
+      "LBXRDW": 12.743965697545832
+    },
+    "scale": {
+      "LBXHGB": 1.507470385749137,
+      "LBXRBCSI": 0.48518397586940054,
+      "LBXMCVSI": 5.382804342471991,
+      "LBXRDW": 1.1563858643428695
+    }
+  },
+  "pca": {
+    "eigenvalues": [
+      1.9213755161500439,
+      1.4614865881459191,
+      0.5865925086569732,
+      0.030545387047062986
+    ],
+    "explained_variance_ratio": [
+      0.4803438790375111,
+      0.36537164703647984,
+      0.14664812716424333,
+      0.007636346761765748
+    ],
+    "loadings_columns_are_components": [
+      [
+        0.6955600744867799,
+        -0.07279365086187749,
+        0.29098367113912316,
+        0.6528596865365048
+      ],
+      [
+        0.5359728887834663,
+        -0.5455519746535398,
+        0.026651344122025786,
+        -0.643735824152438
+      ],
+      [
+        0.21746586238564183,
+        0.706969701574522,
+        0.5444742230209472,
+        -0.39553793777365576
+      ],
+      [
+        -0.42618991537332307,
+        -0.4441485882015772,
+        0.7862353524566448,
+        0.05411245863940978
+      ]
+    ],
+    "retained_components": 3
+  },
+  "notes": {
+    "variance_target": 0.99,
+    "strict_0506_to_0708_reconstruction_gate": 0.98,
+    "strict_0506_to_0708_reconstruction_energy": 0.9889623883950011,
+    "representation_learning_uses_depression": false
+  }
+}

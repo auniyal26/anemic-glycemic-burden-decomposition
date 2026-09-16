@@ -1,0 +1,20 @@
+{
+  "script": "48_comparator_and_sensitivity_audit.py",
+  "comparators_same_sample": [
+    "threshold A + threshold HbA1c G",
+    "continuous Hb + HbA1c",
+    "natural splines Hb + HbA1c (3 df each)",
+    "raw standardized 7-marker multivariate model",
+    "frozen A3 + G3 component model"
+  ],
+  "glycemic_sensitivities": {
+    "G2_no_insulin": "HbA1c + fasting glucose, outcome-independent frozen PCA",
+    "G2_no_HbA1c": "fasting glucose + log insulin, outcome-independent frozen PCA"
+  },
+  "outcome_robustness": "survey quasi-Poisson log-link sensitivity for SOMATIC_SCORE",
+  "survey_domain_order": "design first; subset domain second",
+  "cycle_normalization_before_raw_merge": true,
+  "G2A_fit_does_not_require_insulin": true,
+  "G2B_fit_does_not_require_HbA1c": true,
+  "overwrites_prior_outputs": false
+}

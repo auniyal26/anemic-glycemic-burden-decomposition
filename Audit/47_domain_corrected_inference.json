@@ -1,0 +1,12 @@
+{
+  "script": "47_domain_corrected_combined_AG_inference.py",
+  "representation_source": "script 46 outcome-independent frozen scores",
+  "survey_design_order": "positive fasting-weight sample -> svydesign -> survey::subset analytic domain -> svyglm",
+  "pre_design_complete_case_filtering": false,
+  "discovery_weight": "WTSAF2YR / 2",
+  "2009_2018_weight": "WTSAF2YR / 5",
+  "2021_2023_weight": "WTSAF2YR",
+  "primary_adjustment": "X3",
+  "modern_sensitivity": "X0",
+  "old_44_45_outputs_overwritten": false
+}

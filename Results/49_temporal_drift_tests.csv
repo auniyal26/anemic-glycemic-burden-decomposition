@@ -1,0 +1,7 @@
+"population","family","test","F","df_num","df_den","p","design_df","inference_status"
+"2005-2018","temporal_drift","A_components_linear_cycle_drift",0.253744937445505,3,34,0.858115190817776,62,"available"
+"2005-2018","temporal_drift","G_components_linear_cycle_drift",3.7980347206538,3,34,0.0188571211161994,62,"available"
+"2005-2018","temporal_drift","all_components_linear_cycle_drift",2.23726048743613,6,34,0.0631263683767173,62,"available"
+"2005-2018","temporal_drift","A_components_development_vs_replication_shift",NA,NA,NA,NA,62,"unavailable"
+"2005-2018","temporal_drift","G_components_development_vs_replication_shift",NA,NA,NA,NA,62,"unavailable"
+"2005-2018","temporal_drift","all_components_development_vs_replication_shift",NA,NA,NA,NA,62,"unavailable"

@@ -1,0 +1,56 @@
+{
+  "variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "eligibility": "age>=20; exclude known pregnancy; laboratory/weight completeness only; no PHQ conditioning",
+  "standardization": {
+    "mean": {
+      "LBXGH": 5.528338091732473,
+      "LBXGLU": 104.97739071228897,
+      "LOG_IN": 2.1644743959334383
+    },
+    "scale": {
+      "LBXGH": 0.9069330365650684,
+      "LBXGLU": 30.091693131444245,
+      "LOG_IN": 0.7341831589092608
+    }
+  },
+  "pca": {
+    "eigenvalues": [
+      1.8880057796251877,
+      0.9321580237292868,
+      0.17983619664552403
+    ],
+    "explained_variance_ratio": [
+      0.6293352598750629,
+      0.31071934124309575,
+      0.05994539888184137
+    ],
+    "loadings_columns_are_components": [
+      [
+        0.672157111687426,
+        -0.25369687082622394,
+        -0.6955880353636046
+      ],
+      [
+        0.68694746234896,
+        -0.1368237289682583,
+        0.7137103412194227
+      ],
+      [
+        0.2762390290678372,
+        0.9575579172688212,
+        -0.08230937914633862
+      ]
+    ],
+    "retained_components": 3
+  },
+  "notes": {
+    "all_three_coordinates_retained_for_phenotype_mapping": true,
+    "two_component_reconstruction_energy_discovery": 0.9400546011181588,
+    "representation_learning_uses_depression": false,
+    "insulin_assay_era_requires_temporal_caution": true
+  }
+}

@@ -1,0 +1,4 @@
+"population","analysis","test","F","df_num","df_den","p","design_df"
+"2005-2008","quasipoisson","all_PCs_extra_beyond_threshold_scalars",7.8309789609952,6,9,0.00361274774498835,31
+"2009-2018","quasipoisson","all_PCs_extra_beyond_threshold_scalars",3.8408316678595,6,53,0.00297344684807391,78
+"2021-2023","quasipoisson","all_PCs_extra_beyond_threshold_scalars",9.94914147061103,6,-6,NA,15

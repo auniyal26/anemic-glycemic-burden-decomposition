@@ -1,0 +1,30 @@
+{
+  "script": 50,
+  "g4_raw": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN",
+    "LBXGLT"
+  ],
+  "g4_k_primary": 3,
+  "fit_cycles": [
+    "0506",
+    "0708"
+  ],
+  "replication_cycles": [
+    "0910",
+    "1112",
+    "1314",
+    "1516"
+  ],
+  "fit_n": 3308,
+  "ogtt_discovery_mean": 116.35333363387949,
+  "ogtt_discovery_sd": 48.01483318837635,
+  "notes": [
+    "G4 fitted without any PHQ/depression variable.",
+    "OGTT survey design created before analytic-domain subsetting.",
+    "G3 and G4 compared on the same OGTT-complete X3 sample.",
+    "2h OGTT incremental test is nested on top of the full G3 state.",
+    "Modifier family is limited to age, sex, BMI, and eGFR; BH q-values are reported."
+  ]
+}
