@@ -1,0 +1,10 @@
+{
+  "script": "55_validate_against_hidden_truth.py",
+  "prediction_sha256_verified_before_truth_use": true,
+  "truth_sha256_verified": true,
+  "predictions_frozen_before_truth_opened": true,
+  "truth_prediction_metrics": "Synthetic_Longitudinal\\Results\\55_truth_prediction_metrics.csv",
+  "model_increment_diagnostics": "Synthetic_Longitudinal\\Results\\55_model_increment_diagnostics.csv",
+  "representation_truth_recovery": "Synthetic_Longitudinal\\Results\\55_representation_truth_recovery.csv",
+  "truth_decoder_role": "audit only; not part of the predictive framework"
+}

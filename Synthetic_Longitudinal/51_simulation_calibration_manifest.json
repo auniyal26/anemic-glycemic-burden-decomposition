@@ -1,0 +1,57 @@
+{
+  "script": "51_prepare_simulation_calibration.py",
+  "purpose": "Create leakage-protected 2005-08 NHANES calibration pool for synthetic longitudinal simulation.",
+  "allowed_cycles": [
+    "0506",
+    "0708"
+  ],
+  "forbidden_for_calibration": "All NHANES cycles from 2009 onward",
+  "chronology": {
+    "0506": "CALIBRATION_FIT",
+    "0708": "CALIBRATION_CHECK",
+    "2009_plus": "RESERVED_EXTERNAL_VALIDATION_OR_STRESS_TEST"
+  },
+  "representation_source": {
+    "A": "Data\\Processed\\46_outcome_independent_A_discovery_scores.parquet",
+    "G3": "Data\\Processed\\46_outcome_independent_G3_discovery_scores.parquet",
+    "outcome_independent": true
+  },
+  "primary_state": {
+    "A_raw": [
+      "LBXHGB",
+      "LBXRBCSI",
+      "LBXMCVSI",
+      "LBXRDW"
+    ],
+    "G_raw": [
+      "LBXGH",
+      "LBXGLU",
+      "LBXIN",
+      "LOG_IN"
+    ],
+    "A_components": [
+      "A_OI_PC1",
+      "A_OI_PC2",
+      "A_OI_PC3"
+    ],
+    "G_components": [
+      "G3_OI_PC1",
+      "G3_OI_PC2",
+      "G3_OI_PC3"
+    ],
+    "X3": [
+      "RIDAGEYR",
+      "RIAGENDR",
+      "RACE",
+      "INDFMPIR",
+      "EDUC3",
+      "SMOKING3",
+      "BMXBMI",
+      "EGFR_2021"
+    ],
+    "phenotype": "SOMATIC_SCORE"
+  },
+  "output": "Synthetic_Longitudinal\\51_simulation_calibration_2005_2008.parquet",
+  "output_sha256": "651ec01371cb8f89b334cf7dffa0af36737460926e14defcc44a06ecf8b1088e",
+  "important_rule": "No longitudinal transition parameter may be estimated from 2009+ data before external validation."
+}

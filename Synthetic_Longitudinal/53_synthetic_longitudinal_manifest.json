@@ -1,0 +1,25 @@
+{
+  "script": "53_simulate_longitudinal_lives.py",
+  "seed": 20260917,
+  "baseline_input_sha256": "9a061c2a817bc1f56e5a518d5572cf7247a2e7f4e5f0b39e372bdad41c50b959",
+  "n_humans": 10000,
+  "years": 15,
+  "timepoints_per_human": 16,
+  "scenarios": [
+    "stable_additive",
+    "mapping_drift",
+    "ag_interaction",
+    "measurement_shift"
+  ],
+  "future_nhanes_read": false,
+  "generator_uses_0708": false,
+  "generator_uses_2009_plus": false,
+  "simulator_truth_is_not_framework_pca": true,
+  "observed_output": "Synthetic_Longitudinal\\53_synthetic_longitudinal_observed.parquet",
+  "truth_output": "Synthetic_Longitudinal\\53_synthetic_longitudinal_truth.parquet",
+  "summary_output": "Synthetic_Longitudinal\\Results\\53_scenario_summary.csv",
+  "observed_sha256": "3748cc6fa70473a86d8881c34390957bf76e333abb929d2fb592f14ba0e0e212",
+  "truth_sha256": "4b03050004470d3a98a06730cc12ac162ace083a2d8213d16ffa751ad03d1731",
+  "important_rule": "Later framework-testing scripts should fit/predict from the observed file. The truth file must be joined only after predictions are frozen.",
+  "interpretation": "These are controlled synthetic worlds for method validation, not estimates of true individual NHANES longitudinal dynamics."
+}

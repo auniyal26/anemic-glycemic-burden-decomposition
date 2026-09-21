@@ -1,0 +1,17 @@
+{
+  "script": "52_generate_synthetic_humans.py",
+  "purpose": "Generate baseline synthetic pseudo-individuals before longitudinal life simulation.",
+  "generator_source_cycle": "0506",
+  "distributional_check_cycle": "0708",
+  "future_cycles_read": false,
+  "method": "survey-weighted donor resampling with replacement",
+  "n_synthetic": 10000,
+  "seed": 20260917,
+  "important_rule": "2007-08 may be inspected but must not be used to tune the generator in this script.",
+  "longitudinal_dynamics_added": false,
+  "input_sha256": "651ec01371cb8f89b334cf7dffa0af36737460926e14defcc44a06ecf8b1088e",
+  "output_sha256": "9a061c2a817bc1f56e5a518d5572cf7247a2e7f4e5f0b39e372bdad41c50b959",
+  "output": "Synthetic_Longitudinal\\52_synthetic_baseline_population.parquet",
+  "balance_file": "Synthetic_Longitudinal\\Results\\52_baseline_balance.csv",
+  "max_abs_continuous_smd_synthetic_vs_0506": 0.02604634462467424
+}

@@ -1,0 +1,39 @@
+{
+  "script": "58_test_dynamic_framework_v2.py",
+  "observed_input_sha256": "141e8e406405f4630405d3d7124979e5c41aa9e5767669cc389eaa7300adcfb2",
+  "hidden_truth_read": false,
+  "future_nhanes_read": false,
+  "frozen_representation_source": [
+    "Parameters\\46_outcome_independent_A_transform.json",
+    "Parameters\\46_outcome_independent_G3_transform.json"
+  ],
+  "time_split": {
+    "train_current_years": [
+      0,
+      4
+    ],
+    "validation_current_years": [
+      5,
+      9
+    ],
+    "test_current_years": [
+      10,
+      14
+    ]
+  },
+  "person_holdout_fraction": 0.2,
+  "person_split_seed": 20260917,
+  "ridge_alpha_prespecified": 1.0,
+  "models": [
+    "scalar_additive",
+    "component_additive",
+    "component_time",
+    "component_time_ag",
+    "persistence"
+  ],
+  "no_validation_based_model_selection": true,
+  "prediction_output": "Synthetic_Longitudinal\\58_frozen_longitudinal_predictions_v2.parquet",
+  "prediction_sha256": "e0f571c0b297930a0d4b3fa5babb444f72498413644347cfd57c1bc139283218",
+  "metrics_output": "Synthetic_Longitudinal\\Results\\58_longitudinal_prediction_metrics_v2.csv",
+  "important_rule": "Predictions are frozen here before Script 55 is allowed to read 53_synthetic_longitudinal_truth.parquet."
+}

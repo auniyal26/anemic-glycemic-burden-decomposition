@@ -1,0 +1,28 @@
+{
+  "script": "57_simulate_longitudinal_lives_v2.py",
+  "replaces": "Script 53 for v2 experiments; Script 53 outputs remain preserved.",
+  "change_from_v1": "Phenotype process now evolves around an individual baseline set-point. Physiology transition equations are unchanged.",
+  "seed": 20260917,
+  "baseline_input_sha256": "9a061c2a817bc1f56e5a518d5572cf7247a2e7f4e5f0b39e372bdad41c50b959",
+  "n_humans": 10000,
+  "years": 15,
+  "timepoints_per_human": 16,
+  "phenotype_persistence_rho": 0.42,
+  "scenarios": [
+    "stable_additive",
+    "mapping_drift",
+    "ag_interaction",
+    "measurement_shift"
+  ],
+  "future_nhanes_read": false,
+  "generator_uses_0708": false,
+  "generator_uses_2009_plus": false,
+  "simulator_truth_is_not_framework_pca": true,
+  "observed_output": "Synthetic_Longitudinal\\57_synthetic_longitudinal_observed_v2.parquet",
+  "truth_output": "Synthetic_Longitudinal\\57_synthetic_longitudinal_truth_v2.parquet",
+  "summary_output": "Synthetic_Longitudinal\\Results\\57_scenario_summary_v2.csv",
+  "observed_sha256": "141e8e406405f4630405d3d7124979e5c41aa9e5767669cc389eaa7300adcfb2",
+  "truth_sha256": "6924a35ff82522441d96ae2f8fcf04a5f14761443d8f8a6b53627f574c1817c7",
+  "important_rule": "Downstream framework tests must use the observed file only. Truth remains unavailable until predictions are frozen.",
+  "interpretation": "Controlled synthetic worlds for method validation, not estimates of true individual NHANES longitudinal dynamics."
+}

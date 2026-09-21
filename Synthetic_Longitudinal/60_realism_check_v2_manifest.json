@@ -1,0 +1,30 @@
+{
+  "script": "60_compare_synthetic_v2_to_future_nhanes.py",
+  "synthetic_input_sha256": "141e8e406405f4630405d3d7124979e5c41aa9e5767669cc389eaa7300adcfb2",
+  "hidden_truth_read": false,
+  "simulator_refit_or_tuned": false,
+  "actual_cycles_read": [
+    "0708",
+    "0910",
+    "1112",
+    "1314",
+    "1516",
+    "1718"
+  ],
+  "cycle_to_sim_year": {
+    "0708": 2,
+    "0910": 4,
+    "1112": 6,
+    "1314": 8,
+    "1516": 10,
+    "1718": 12
+  },
+  "nhanes_2021_2023_read": false,
+  "comparison_sample": "Adults age>=20, known pregnancy excluded, positive fasting weight, joint complete A raw + G3 raw + BMI + somatic score.",
+  "poststratification": "Actual NHANES reweighted to each synthetic year's age-sex composition.",
+  "important_caution": "NHANES is repeated cross-sectional, not longitudinal. These comparisons assess population-level plausibility only. Do not interpret them as validation of true individual trajectories.",
+  "future_use_rule": "Do not tune Scripts 52-53 against these results without explicitly reclassifying 2007-18 as development data. 2021-23 remains untouched.",
+  "detail_output": "Synthetic_Longitudinal\\Results\\60_realism_by_cycle_v2.csv",
+  "summary_output": "Synthetic_Longitudinal\\Results\\60_realism_summary_v2.csv",
+  "flow_output": "Synthetic_Longitudinal\\Results\\60_realism_actual_flow_v2.csv"
+}
