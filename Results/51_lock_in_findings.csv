@@ -1,0 +1,66 @@
+category,test,status,critical,evidence,interpretation
+representation,Outcome leakage static audit,PASS,True,No operational depression/outcome tokens in Script 46.,The final physiological representation must be learned without phenotype conditioning.
+representation,Script 46 audit manifest,PASS,True,reads_PHQ_or_depression=False; A_retained_components=3,Outcome independence and retained dimensionality are explicit.
+representation,Cross-cycle loading similarity,PASS,True,minimum aligned loading similarity = 0.994483,Discovery-cycle PCA geometry should reproduce across 2005-06 and 2007-08.
+representation,Frozen A reconstruction,PASS,True,minimum reconstruction-energy fraction = 0.992364,Retained A representation must preserve >=98% of standardized hematology energy.
+primary_replication,2005-2008: components beyond scalars,PASS,True,p=0.0140752 < 0.05,Criterion met.
+primary_replication,2005-2008: scalars beyond components,PASS,False,p=0.965949 >= 0.05,Criterion met.
+primary_replication,2005-2008: incremental weighted R2 asymmetry,PASS,True,PCs beyond scalars ΔR²=0.010197; scalars beyond PCs ΔR²=0.000034,Richer representation should add more information than the reverse direction.
+survey_design,2005-2008: design-before-domain df preservation,PASS,False,full design df=31; domain df=31,Full survey design is created before analytic-domain subsetting.
+primary_replication,2009-2018: components beyond scalars,PASS,True,p=0.00612027 < 0.05,Criterion met.
+primary_replication,2009-2018: scalars beyond components,PASS,False,p=0.149261 >= 0.05,Criterion met.
+primary_replication,2009-2018: incremental weighted R2 asymmetry,PASS,True,PCs beyond scalars ΔR²=0.003686; scalars beyond PCs ΔR²=0.000543,Richer representation should add more information than the reverse direction.
+survey_design,2009-2018: design-before-domain df preservation,PASS,False,full design df=78; domain df=78,Full survey design is created before analytic-domain subsetting.
+outcome_sensitivity,2005-2008: PHQ9 total components beyond scalars,PASS,False,p=0.0104334 < 0.05,Criterion met.
+outcome_sensitivity,2009-2018: PHQ9 total components beyond scalars,PASS,False,p=0.0195974 < 0.05,Criterion met.
+outcome_sensitivity,Cognitive-affective replication,INFO,False,2009-2018 p=0.136869,Do not claim uniform phenotype effects; cognitive-affective-only evidence is weaker.
+representation_sensitivity,2005-2008: raw7 beyond threshold scalars,PASS,True,p=0.0220242 < 0.05,Criterion met.
+representation_sensitivity,2005-2008: threshold scalars beyond raw7,PASS,False,p=0.977979 >= 0.05,Criterion met.
+representation_sensitivity,2009-2018: raw7 beyond threshold scalars,PASS,True,p=0.0103119 < 0.05,Criterion met.
+representation_sensitivity,2009-2018: threshold scalars beyond raw7,PASS,False,p=0.147703 >= 0.05,Criterion met.
+representation_sensitivity,2005-2008: raw7 vs PCA R2 proximity,PASS,False,|R²_raw7 - R²_PCA| = 0.000723,Similar performance argues against a PCA-specific artifact.
+representation_sensitivity,2009-2018: raw7 vs PCA R2 proximity,PASS,False,|R²_raw7 - R²_PCA| = 0.000030,Similar performance argues against a PCA-specific artifact.
+model_specification,2005-2008: quasi-Poisson components beyond scalars,PASS,True,p=0.00361275 < 0.05,Criterion met.
+model_specification,2009-2018: quasi-Poisson components beyond scalars,PASS,True,p=0.00297345 < 0.05,Criterion met.
+measurement_sensitivity,2005-2008: no-insulin sensitivity,PASS,True,p=0.0164035 < 0.05,Criterion met.
+measurement_sensitivity,2005-2008: no-HbA1c sensitivity,PASS,True,p=0.000696468 < 0.05,Criterion met.
+measurement_sensitivity,2009-2018: no-insulin sensitivity,PASS,True,p=0.00398515 < 0.05,Criterion met.
+measurement_sensitivity,2009-2018: no-HbA1c sensitivity,PASS,True,p=0.00465671 < 0.05,Criterion met.
+interaction_nonclaim,Replication: broad A×G interaction not supported,PASS,False,p=0.752591 >= 0.05,Criterion met.
+temporal_mapping,A linear temporal drift,PASS,False,p=0.858115 >= 0.05,Criterion met.
+temporal_mapping,G block linear temporal drift,PASS,False,p=0.0188571 < 0.05,Criterion met.
+temporal_mapping,All-component linear drift,INFO,False,p=0.0631264,Do not overstate a borderline joint result.
+multiplicity,Individual temporal interactions after BH,PASS,False,minimum BH-adjusted p = 0.0606428,Do not localize temporal drift to an individual PC unless adjusted evidence survives.
+complexity_control,2005-2008: 2h OGTT beyond G3,PASS,False,p=0.416322 >= 0.05,Criterion met.
+complexity_control,2009-2016: 2h OGTT beyond G3,PASS,False,p=0.0624043 >= 0.05,Criterion met.
+complexity_control,2005-2008: G4 same-sample R2 gain,PASS,False,R²(G4)-R²(G3)=0.000146,Tiny gain supports keeping G3 as the primary parsimonious representation.
+complexity_control,2009-2016: G4 same-sample R2 gain,PASS,False,R²(G4)-R²(G3)=0.000947,Tiny gain supports keeping G3 as the primary parsimonious representation.
+multiplicity,G4 modifier family after BH,PASS,False,minimum modifier-family BH q=0.646496,No modifier becomes a claim from one nominal p-value.
+survey_design,2021-23 full X3 inference,PASS,False,All primary 2021-23 X3 block tests are design-limited.,Do not use 2021-23 as confirmatory significance evidence.
+irreducible_limitations,Unmeasured confounding,UNTESTABLE,False,No observational adjustment set can prove that all common causes were measured.,Association estimates remain vulnerable to residual/unmeasured confounding.
+irreducible_limitations,Reverse causation,UNTESTABLE,False,NHANES is cross-sectional within each cycle.,Depressive phenotype may affect physiology/behavior as well as the reverse.
+irreducible_limitations,Collider/overadjustment,UNTESTABLE,False,BMI/eGFR may have different causal roles under different biological DAGs.,"Adjustment-ladder stability helps, but causal status cannot be identified from associations alone."
+irreducible_limitations,MNAR missingness,UNTESTABLE,False,Missingness mechanisms involving unobserved values are not identified.,Complete-case selection can never be fully proven safe here.
+irreducible_limitations,External transportability,UNTESTABLE,False,2009-18 is temporal transfer within NHANES.,Independent external-population validation remains required.
+irreducible_limitations,True longitudinal change,UNTESTABLE,False,NHANES cycles are repeated cross-sections.,Do not call current analysis within-person longitudinal modelling.
+new_stress_tests,R stress-test execution,PASS,True,Same-sample adjustment ladder and arbitrary cycle-heterogeneity tests completed.,New falsification outputs were generated.
+adjustment_ladder,2005-2008 X0: PCs beyond scalars,PASS,True,p=4.27897e-05; ΔR²=0.024302; same X3-complete sample n=3830,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2005-2008 X1: PCs beyond scalars,PASS,True,p=0.000431154; ΔR²=0.017754; same X3-complete sample n=3830,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2005-2008 X2: PCs beyond scalars,PASS,True,p=0.0102126; ΔR²=0.010276; same X3-complete sample n=3830,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2005-2008 X3: PCs beyond scalars,PASS,True,p=0.0140752; ΔR²=0.010197; same X3-complete sample n=3830,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2009-2018 X0: PCs beyond scalars,PASS,True,p=6.88576e-10; ΔR²=0.016056; same X3-complete sample n=9919,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2009-2018 X1: PCs beyond scalars,PASS,True,p=3.33064e-06; ΔR²=0.009364; same X3-complete sample n=9919,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2009-2018 X2: PCs beyond scalars,PASS,True,p=0.00516247; ΔR²=0.003717; same X3-complete sample n=9919,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,2009-2018 X3: PCs beyond scalars,PASS,True,p=0.00612027; ΔR²=0.003686; same X3-complete sample n=9919,Core component advantage should not depend on one adjustment set.
+adjustment_ladder,Reverse scalar advantage across adjustment ladder,PASS,False,No adjustment set shows a statistically supported reverse scalar advantage.,Guards against the headline result being created by one covariate specification.
+temporal_mapping,A: arbitrary cycle-specific slope heterogeneity,PASS,False,p=0.604635,"If significant, weaken the earlier 'stable A mapping' statement."
+temporal_mapping,G3: arbitrary cycle-specific slope heterogeneity,INFO,False,p=0.13063,Interpret alongside Script 49; do not promote this stress test into a new claim.
+selection,2005-2008 analytic retention,PASS,False,"eligible n=4,869; included n=3,830; unweighted retention=0.787; weighted retention=0.879","Lower retention increases sensitivity to complete-case selection. This is diagnostic, not proof of MAR."
+selection,2009-2018 analytic retention,PASS,False,"eligible n=13,223; included n=9,919; unweighted retention=0.750; weighted retention=0.836","Lower retention increases sensitivity to complete-case selection. This is diagnostic, not proof of MAR."
+selection,2021-2023 analytic retention,PASS,False,"eligible n=3,397; included n=2,261; unweighted retention=0.666; weighted retention=0.713","Lower retention increases sensitivity to complete-case selection. This is diagnostic, not proof of MAR."
+selection,Maximum observed-variable selection SMD,WARN,False,max |weighted SMD| = 0.430,"SMD <0.10 is reassuring. Larger imbalance does not prove bias, but means complete-case selection must remain a stated limitation."
+selection,MNAR / unobserved selection,UNTESTABLE,False,Observed data cannot establish that missingness is independent of unobserved physiology/phenotype.,Berkson/collider-type selection from unobserved determinants cannot be ruled out by this dataset alone.
+model_specification,2005-2008 component-only VIF,PASS,False,max VIF among six frozen PCs = 1.069,VIF <5 argues against severe redundancy among component predictors.
+model_specification,2009-2018 component-only VIF,PASS,False,max VIF among six frozen PCs = 1.062,VIF <5 argues against severe redundancy among component predictors.
+reproducibility,Git commit identified,PASS,False,branch=main; commit=b3749c2cb980d2fcad2a431b06281e7bcfadbbb1,Lock manifest can be tied to an exact repository state.
+reproducibility,Working tree cleanliness,WARN,False,Working tree has uncommitted changes.,Commit final scripts/results after reviewing the lock report.

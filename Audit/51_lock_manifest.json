@@ -1,0 +1,113 @@
+{
+  "core_locked": true,
+  "git_commit": "b3749c2cb980d2fcad2a431b06281e7bcfadbbb1",
+  "git_branch": "main",
+  "working_tree_dirty": true,
+  "working_tree_status": "?? Audit/51_lock_in_stress_tests.R\n?? NHANES_Scripts/51_lock_in_falsification_suite.py\n?? Results/51_lock_in_adjustment_ladder.csv\n?? Results/51_lock_in_nonlinear_time.csv\n?? Results/51_lock_in_selection_smd.csv",
+  "alpha": 0.05,
+  "files": {
+    "NHANES_Scripts\\46_refreeze_outcome_independent_representations.py": {
+      "sha256": "86695776b7a992c9adfdc9f99a2675691317935e4432d42dd7b3812d259eeadc",
+      "size_bytes": 16700
+    },
+    "NHANES_Scripts\\47_domain_corrected_combined_AG_inference.py": {
+      "sha256": "f908df8c15591f59ab89aa07616da3526f93a553013ca875728b3bc77c2a8ea1",
+      "size_bytes": 24753
+    },
+    "NHANES_Scripts\\48_comparator_and_sensitivity_audit.py": {
+      "sha256": "a5ee52e579ab85075f35b01dbfb303c7e53982f0fd3e8c7dd29540d0fc92fbdd",
+      "size_bytes": 22480
+    },
+    "NHANES_Scripts\\49_interaction_and_temporal_drift_audit.py": {
+      "sha256": "23511e315dd770ce6af3e6e93873a3cfdc584292568acaf717ff1a7309f5e260",
+      "size_bytes": 15597
+    },
+    "NHANES_Scripts\\50_g4_extension_and_modifier_audit.py": {
+      "sha256": "b087d9f78578061c7068de1eee977625ea1c87d92e8df84ca45c84e4f5897e6b",
+      "size_bytes": 22177
+    },
+    "NHANES_Scripts\\51_lock_in_falsification_suite.py": {
+      "sha256": "bedd833445577727ab164576b0029f19c9c13b1b18938cf1f76689cd6bb9ad53",
+      "size_bytes": 40122
+    },
+    "Results\\46_outcome_independent_structure_audit.csv": {
+      "sha256": "4226b64f793ed50530741e84f320da83948cfdc161257bdeb955dbaf8998d0b0",
+      "size_bytes": 688
+    },
+    "Results\\46_outcome_independent_A_reconstruction_transfer.csv": {
+      "sha256": "a027d6902437fcc58458a534902443089a1ae95fe0e3654fe756d7ef8f9c3842",
+      "size_bytes": 183
+    },
+    "Results\\47_domain_corrected_block_tests.csv": {
+      "sha256": "b52d37b42303013c2f529381ff46495eaabba0a2e58349d946f75ea8ce6261a2",
+      "size_bytes": 15107
+    },
+    "Results\\47_domain_corrected_incremental_information.csv": {
+      "sha256": "625dbb18026548a1f38ad3edda6d575616e1fff0fec184d7fd893ab8a25e5217",
+      "size_bytes": 2127
+    },
+    "Results\\47_domain_corrected_design_audit.csv": {
+      "sha256": "6efd0ac4223ddbf1f18b892d06ad9192023bc56d1e83d79388dff3df7c7dfd57",
+      "size_bytes": 679
+    },
+    "Results\\48_comparator_sensitivity_tests.csv": {
+      "sha256": "7c6176eb8ecbe801ad002cc2a4e8c092c53f57c303638be2bd1411c8f7f44720",
+      "size_bytes": 3114
+    },
+    "Results\\48_quasipoisson_somatic_tests.csv": {
+      "sha256": "65d17e1d044971e1c2f2c8b987c2c624c74dcd8d21ebe667fa9e090abc4e8941",
+      "size_bytes": 392
+    },
+    "Results\\48_representation_comparator_R2.csv": {
+      "sha256": "e8a7d751b4249f08797cffba643514af472512c38293458786c7b3e4c6c6beb9",
+      "size_bytes": 950
+    },
+    "Results\\49_interaction_block_tests.csv": {
+      "sha256": "8791c00fed56fd0c915314644077c6c341796b1ac4c59d276be03fd522c7b9ad",
+      "size_bytes": 2025
+    },
+    "Results\\49_temporal_drift_tests.csv": {
+      "sha256": "d319f65b421ad6a0611eb9ef9b477ce1f32cdbde3834b1ce09b9e19673f88e9e",
+      "size_bytes": 771
+    },
+    "Results\\49_temporal_drift_coefficients.csv": {
+      "sha256": "d48f632aa32e6163c3bb5a4bd8bd487356424ee6a8ccafb96f085f82b4ed82bc",
+      "size_bytes": 1141
+    },
+    "Results\\50_g4_modifier_tests.csv": {
+      "sha256": "f037b6d8a8231d58b79069fdadea37fa0bfe413a9797566c6f1c12247313cad8",
+      "size_bytes": 4429
+    },
+    "Results\\50_g4_same_sample_R2.csv": {
+      "sha256": "760a9387c6940963a1628181e807f7c68859baef27eecaa55c7036c8186fbf46",
+      "size_bytes": 388
+    },
+    "Results\\51_lock_in_adjustment_ladder.csv": {
+      "sha256": "a9853e8c28257883f2353e0e3292e4c4cf57698ea2027aba620b1919f2b653b5",
+      "size_bytes": 1687
+    },
+    "Results\\51_lock_in_nonlinear_time.csv": {
+      "sha256": "0d2b3f36ba987d47cbbc38066f23c414ac74d2223cf19dd130c643fa5cf06039",
+      "size_bytes": 149
+    },
+    "Results\\51_lock_in_selection_smd.csv": {
+      "sha256": "97d073f9272718ba69bc6b12436f45be2518f45bec6212da86dd8076a4bac2ce",
+      "size_bytes": 1672
+    },
+    "Results\\51_lock_in_findings.csv": {
+      "sha256": "4bef5e7105e6307f989a067d03a288403c469686bd382f0e936f48985008860e",
+      "size_bytes": 10544
+    }
+  },
+  "explicit_nonclaims": [
+    "causality",
+    "absence of unmeasured confounding",
+    "absence of MNAR/selection bias",
+    "biological independence of hematology and glycemia",
+    "stable A\u00d7G interaction",
+    "individual G2/G3 temporal drift after multiplicity correction",
+    "confirmatory 2021-23 significance",
+    "within-person longitudinal change",
+    "external-population generalizability"
+  ]
+}
