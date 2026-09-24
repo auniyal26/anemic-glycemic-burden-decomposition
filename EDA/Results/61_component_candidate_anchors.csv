@@ -1,0 +1,19 @@
+period,subgroup,component,component_label,strongest_anchor,strongest_anchor_r,second_anchor,second_anchor_r,interpretation_status
+2005-2008,All analytic participants,A_OI_PC1_FZ,Haematology PC1,Haemoglobin,0.9687141491079306,RBC count,0.7477313374643827,descriptive physiological anchor; not mechanistic identity
+2005-2008,All analytic participants,A_OI_PC2_FZ,Haematology PC2,MCV,0.857082659495268,RBC count,-0.659063788806114,descriptive physiological anchor; not mechanistic identity
+2005-2008,All analytic participants,A_OI_PC3_FZ,Haematology PC3,RDW,0.5398742133959582,MCV,0.47097758788461885,descriptive physiological anchor; not mechanistic identity
+2005-2008,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,Haemoglobin,0.9650902088346569,RBC count,0.7767907903580338,descriptive physiological anchor; not mechanistic identity
+2005-2008,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,MCV,0.8349677141529686,RBC count,-0.7612331758182429,descriptive physiological anchor; not mechanistic identity
+2005-2008,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,RDW,0.5802573597572311,MCV,0.5539690595321836,descriptive physiological anchor; not mechanistic identity
+2009-2018,All analytic participants,A_OI_PC1_FZ,Haematology PC1,Haemoglobin,0.960663104378071,RBC count,0.6788560371593031,descriptive physiological anchor; not mechanistic identity
+2009-2018,All analytic participants,A_OI_PC2_FZ,Haematology PC2,MCV,0.8709144491272545,RBC count,-0.6828759760778306,descriptive physiological anchor; not mechanistic identity
+2009-2018,All analytic participants,A_OI_PC3_FZ,Haematology PC3,RDW,0.6456479769931918,MCV,0.32652112780821324,descriptive physiological anchor; not mechanistic identity
+2009-2018,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,Haemoglobin,0.9554063922536801,RBC count,0.7149532757794698,descriptive physiological anchor; not mechanistic identity
+2009-2018,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,MCV,0.8499259573042028,RBC count,-0.7928446949504447,descriptive physiological anchor; not mechanistic identity
+2009-2018,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,RDW,0.6709277442830606,MCV,0.4322169509389769,descriptive physiological anchor; not mechanistic identity
+2021-2023,All analytic participants,A_OI_PC1_FZ,Haematology PC1,Haemoglobin,0.9530215399948899,RBC count,0.6633401680382788,descriptive physiological anchor; not mechanistic identity
+2021-2023,All analytic participants,A_OI_PC2_FZ,Haematology PC2,MCV,0.881034238705721,RBC count,-0.6672032787590916,descriptive physiological anchor; not mechanistic identity
+2021-2023,All analytic participants,A_OI_PC3_FZ,Haematology PC3,RDW,0.6930058690764517,MCV,0.27583360882825536,descriptive physiological anchor; not mechanistic identity
+2021-2023,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,Haemoglobin,0.9496092966557479,RBC count,0.7015084974948327,descriptive physiological anchor; not mechanistic identity
+2021-2023,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,MCV,0.8673342903493533,RBC count,-0.7952161047734811,descriptive physiological anchor; not mechanistic identity
+2021-2023,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,RDW,0.6848694220433162,MCV,0.4093733754365248,descriptive physiological anchor; not mechanistic identity

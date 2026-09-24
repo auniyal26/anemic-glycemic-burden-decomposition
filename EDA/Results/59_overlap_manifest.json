@@ -1,0 +1,14 @@
+{
+  "script": "59_clinical_overlap_eda.py",
+  "cohort_domain": "DOMAIN_PHQ9_TOTAL_X3",
+  "anaemia_definition": "A > 0; equivalent to Hb <13 g/dL men or <12 g/dL women in locked pipeline",
+  "dysglycaemia_definition": "HbA1c >= 5.7%",
+  "diabetes_range_definition": "HbA1c >= 6.5%; biochemical threshold only, not clinical diagnosis",
+  "depressive_burden_definition": "PHQ-9 >= 10; screening/severity threshold only, not clinical diagnosis",
+  "periods": [
+    "2005-2008",
+    "2009-2018",
+    "2021-2023"
+  ],
+  "locked_outputs_modified": false
+}

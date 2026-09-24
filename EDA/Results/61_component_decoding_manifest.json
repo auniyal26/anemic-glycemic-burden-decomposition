@@ -1,0 +1,8 @@
+{
+  "script": "61_component_decoding.py",
+  "purpose": "Physiologically decode frozen haematology PC1-3 without refitting PCA.",
+  "method": "Survey-weighted PC-to-Hb/RBC/MCV/RDW correlation profiles, cross-period profile stability, and weighted quintile gradients.",
+  "primary_subgroup": "Non-anaemic participants with locked scalar A = 0",
+  "interpretation_rule": "Correlation profiles are physiological anchors, not causal or mechanistic identities.",
+  "locked_outputs_modified": false
+}

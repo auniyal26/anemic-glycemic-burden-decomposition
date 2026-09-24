@@ -1,0 +1,23 @@
+{
+  "script": "58_cohort_phq_eda.py",
+  "locked_scaffold": "Results\\47_domain_corrected_AG_input.csv",
+  "primary_domain": "DOMAIN_SOMATIC_SCORE_X3",
+  "full_phq_domain": "DOMAIN_PHQ9_TOTAL_X3",
+  "discovery_primary_n": 3830,
+  "discovery_full_phq_n": 3815,
+  "replication_primary_n": 9919,
+  "replication_full_phq_n": 9893,
+  "A_raw_variables": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "G_raw_variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LBXIN"
+  ],
+  "insulin_column_detected": "LBXIN",
+  "locked_outputs_modified": false
+}

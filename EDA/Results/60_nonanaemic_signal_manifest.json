@@ -1,0 +1,20 @@
+{
+  "script": "60_nonanaemic_signal_audit.py",
+  "question": "Do frozen haematological PCs retain phenotype-associated information among participants for whom scalar anaemia burden A is exactly zero?",
+  "nonanaemic_definition": "A == 0 under locked sex-specific Hb threshold scalar",
+  "A_representation": "Frozen outcome-independent A_OI_PC1-3_FZ from Script 47; no PCA refit",
+  "raw_A_variables": [
+    "Hb margin above sex-specific threshold",
+    "RBC",
+    "MCV",
+    "RDW"
+  ],
+  "primary_outcome": "SOMATIC_SCORE",
+  "secondary_outcomes": [
+    "PHQ9_TOTAL",
+    "COGAFF_SUM"
+  ],
+  "survey_rule": "Full period survey design first, then outcome analytic domain, then non-anaemic subpopulation",
+  "causal_claim": "None. This is an associative representation-mechanism audit.",
+  "locked_outputs_modified": false
+}

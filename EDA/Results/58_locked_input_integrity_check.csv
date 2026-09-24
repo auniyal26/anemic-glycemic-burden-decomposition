@@ -1,0 +1,4 @@
+check,n_compared,max_abs_difference,exact_match_n,exact_match_pct
+PHQ9_TOTAL_RAW_vs_PHQ9_TOTAL,20575,0.0,20575,100.0
+SOMATIC_SCORE_RAW_vs_SOMATIC_SCORE,20659,0.0,20659,100.0
+COGAFF_SUM_RAW_vs_COGAFF_SUM,20575,0.0,20575,100.0

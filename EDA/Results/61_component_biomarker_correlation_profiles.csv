@@ -1,0 +1,73 @@
+period,subgroup,component,component_label,biomarker,biomarker_label,n_complete,weighted_correlation
+2005-2008,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXHGB,Haemoglobin,3830,0.9687141491079306
+2005-2008,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXRBCSI,RBC count,3830,0.7477313374643827
+2005-2008,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXMCVSI,MCV,3830,0.31808798258874704
+2005-2008,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXRDW,RDW,3830,-0.5858298339968313
+2005-2008,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXHGB,Haemoglobin,3830,-0.07571802271051234
+2005-2008,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXRBCSI,RBC count,3830,-0.659063788806114
+2005-2008,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXMCVSI,MCV,3830,0.857082659495268
+2005-2008,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXRDW,RDW,3830,-0.5230022314576142
+2005-2008,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXHGB,Haemoglobin,3830,0.2677906861289323
+2005-2008,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXRBCSI,RBC count,3830,0.026987517408850747
+2005-2008,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXMCVSI,MCV,3830,0.47097758788461885
+2005-2008,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXRDW,RDW,3830,0.5398742133959582
+2005-2008,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXHGB,Haemoglobin,3550,0.9650902088346569
+2005-2008,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXRBCSI,RBC count,3550,0.7767907903580338
+2005-2008,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXMCVSI,MCV,3550,0.17372765534030096
+2005-2008,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXRDW,RDW,3550,-0.40554671915940743
+2005-2008,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXHGB,Haemoglobin,3550,-0.24556194548783464
+2005-2008,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXRBCSI,RBC count,3550,-0.7612331758182429
+2005-2008,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXMCVSI,MCV,3550,0.8349677141529686
+2005-2008,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXRDW,RDW,3550,-0.4519431919392164
+2005-2008,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXHGB,Haemoglobin,3550,0.3699009876079336
+2005-2008,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXRBCSI,RBC count,3550,0.07278371489824505
+2005-2008,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXMCVSI,MCV,3550,0.5539690595321836
+2005-2008,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXRDW,RDW,3550,0.5802573597572311
+2009-2018,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXHGB,Haemoglobin,9919,0.960663104378071
+2009-2018,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXRBCSI,RBC count,9919,0.6788560371593031
+2009-2018,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXMCVSI,MCV,9919,0.3047661381791057
+2009-2018,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXRDW,RDW,9919,-0.6008064897628513
+2009-2018,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXHGB,Haemoglobin,9919,-0.04715964169443303
+2009-2018,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXRBCSI,RBC count,9919,-0.6828759760778306
+2009-2018,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXMCVSI,MCV,9919,0.8709144491272545
+2009-2018,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXRDW,RDW,9919,-0.6046032698211175
+2009-2018,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXHGB,Haemoglobin,9919,0.16616526609801696
+2009-2018,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXRBCSI,RBC count,9919,0.031713957238212125
+2009-2018,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXMCVSI,MCV,9919,0.32652112780821324
+2009-2018,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXRDW,RDW,9919,0.6456479769931918
+2009-2018,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXHGB,Haemoglobin,9002,0.9554063922536801
+2009-2018,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXRBCSI,RBC count,9002,0.7149532757794698
+2009-2018,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXMCVSI,MCV,9002,0.1275998231518079
+2009-2018,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXRDW,RDW,9002,-0.4098520687871087
+2009-2018,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXHGB,Haemoglobin,9002,-0.24164882961123965
+2009-2018,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXRBCSI,RBC count,9002,-0.7928446949504447
+2009-2018,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXMCVSI,MCV,9002,0.8499259573042028
+2009-2018,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXRDW,RDW,9002,-0.5421784770814979
+2009-2018,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXHGB,Haemoglobin,9002,0.29257028379999117
+2009-2018,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXRBCSI,RBC count,9002,0.08206481908810509
+2009-2018,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXMCVSI,MCV,9002,0.4322169509389769
+2009-2018,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXRDW,RDW,9002,0.6709277442830606
+2021-2023,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXHGB,Haemoglobin,2261,0.9530215399948899
+2021-2023,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXRBCSI,RBC count,2261,0.6633401680382788
+2021-2023,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXMCVSI,MCV,2261,0.3040043108629654
+2021-2023,All analytic participants,A_OI_PC1_FZ,Haematology PC1,LBXRDW,RDW,2261,-0.6417546416888528
+2021-2023,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXHGB,Haemoglobin,2261,-0.018137501233329374
+2021-2023,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXRBCSI,RBC count,2261,-0.6672032787590916
+2021-2023,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXMCVSI,MCV,2261,0.881034238705721
+2021-2023,All analytic participants,A_OI_PC2_FZ,Haematology PC2,LBXRDW,RDW,2261,-0.6111576636571391
+2021-2023,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXHGB,Haemoglobin,2261,0.09776429694891557
+2021-2023,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXRBCSI,RBC count,2261,-0.03438182453931934
+2021-2023,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXMCVSI,MCV,2261,0.27583360882825536
+2021-2023,All analytic participants,A_OI_PC3_FZ,Haematology PC3,LBXRDW,RDW,2261,0.6930058690764517
+2021-2023,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXHGB,Haemoglobin,2070,0.9496092966557479
+2021-2023,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXRBCSI,RBC count,2070,0.7015084974948327
+2021-2023,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXMCVSI,MCV,2070,0.10806352964958303
+2021-2023,Non-anaemic only (A = 0),A_OI_PC1_FZ,Haematology PC1,LBXRDW,RDW,2070,-0.45211698433565034
+2021-2023,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXHGB,Haemoglobin,2070,-0.2268245710016306
+2021-2023,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXRBCSI,RBC count,2070,-0.7952161047734811
+2021-2023,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXMCVSI,MCV,2070,0.8673342903493533
+2021-2023,Non-anaemic only (A = 0),A_OI_PC2_FZ,Haematology PC2,LBXRDW,RDW,2070,-0.5373316499930456
+2021-2023,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXHGB,Haemoglobin,2070,0.2484436787059309
+2021-2023,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXRBCSI,RBC count,2070,0.013385037393598682
+2021-2023,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXMCVSI,MCV,2070,0.4093733754365248
+2021-2023,Non-anaemic only (A = 0),A_OI_PC3_FZ,Haematology PC3,LBXRDW,RDW,2070,0.6848694220433162
