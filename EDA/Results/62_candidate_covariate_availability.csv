@@ -1,0 +1,26 @@
+variable,label,role,present,n_nonmissing_discovery,weighted_variance
+RIDAGEYR,age,baseline/demographic,True,3830,270.71826873558337
+FEMALE,female sex,baseline/demographic,True,3830,0.24998165996491092
+INDFMPIR,poverty-income ratio,socioeconomic,True,3830,2.505506546864932
+EDUC3,education category,socioeconomic,True,3830,0.5827030360574463
+CURRENT_SMOKER,current smoking,behavioral,True,3830,0.17997249482307148
+FORMER_SMOKER,former smoking,behavioral,True,3830,0.1896331078198433
+BMXBMI,BMI,possible confounder-or-mediator,True,3830,44.874652970165506
+EGFR_2021,eGFR,possible confounder-or-mediator,True,3830,408.9266136800938
+PARTNERED,married/living with partner,social,True,3830,0.22445149612960344
+ALCOHOL_DRINKS_DAY,average drinks/day,behavioral,False,0,
+SLEEP_HOURS,usual weekday sleep hours,symptom-overlap sensitivity,False,0,
+LOG_CRP,log CRP,inflammation,False,0,
+LBXWBCSI,white blood cell count,inflammation,True,3830,4.350725644741331
+LBXPLTSI,platelet count,hematologic/inflammation,True,3830,4806.075615514326
+LBXSAL,albumin,nutrition/systemic illness,True,3830,0.1008953451132507
+LOG_ALT,log ALT,liver/metabolic,True,3815,0.18057955075972004
+LOG_AST,log AST,liver/systemic,True,3815,0.08509805450885688
+LBXSBU,blood urea nitrogen,renal/systemic,True,3830,26.622589472446826
+LBXSCH,total cholesterol,metabolic,True,3829,1705.6048794163532
+LBXSUA,uric acid,metabolic/inflammatory,True,3830,1.8889236381748942
+HYPERTENSION_SELFREPORT,hypertension,clinical/metabolic,False,0,
+DIABETES_SELFREPORT,diabetes,clinical/metabolic,True,3756,0.07205708773112096
+INSULIN_USE,insulin use,treatment/disease severity,True,3830,0.023352995441991754
+CVD_ANY,CVD history,clinical/systemic,False,0,
+CANCER_HISTORY,cancer history,clinical/systemic,False,0,

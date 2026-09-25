@@ -1,0 +1,78 @@
+{
+  "script": "71_phenotype_bidirectional_epsilon.py",
+  "experiment": "Actual phenotype as Y",
+  "chain": "X0 --f--> Y1 --g--> X1 --f--> Y2 --g--> X2",
+  "X": "raw 7-variable physiology",
+  "Y": "observed depressive phenotype score",
+  "training": "70% of complete NHANES 2005-08 only",
+  "testing": "untouched 30% NHANES 2005-08 holdout",
+  "main_scores": {
+    "epsilon_f": "distance(Y1,Y2)",
+    "epsilon_g": "distance(X1,X2)",
+    "phenotype_initial": "distance(Y0,Y1)",
+    "phenotype_full": "distance(Y0,Y2)",
+    "physiology_initial": "distance(X0,X1)",
+    "physiology_full": "distance(X0,X2)"
+  },
+  "warning": "Because Y is one phenotype score and X is seven-dimensional physiology, g:Y->X is not a unique inverse. It estimates the physiology predictable from the phenotype, not full physiological recovery.",
+  "locked_outputs_modified": false,
+  "models": {
+    "SOMATIC": {
+      "outcome_column": "DOMAIN_SOMATIC_SCORE_X3",
+      "complete_n": 6106,
+      "train_n": 4274,
+      "test_n": 1832,
+      "X_dimension": 7,
+      "Y_dimension": 1,
+      "X_variables": [
+        "LBXHGB",
+        "LBXRBCSI",
+        "LBXMCVSI",
+        "LBXRDW",
+        "LBXGH",
+        "LBXGLU",
+        "LOG_IN"
+      ],
+      "phenotype_train_mean": 0.7621420496466664,
+      "phenotype_train_sd": 0.4257717062077336
+    },
+    "PHQ9_TOTAL": {
+      "outcome_column": "DOMAIN_PHQ9_TOTAL_X3",
+      "complete_n": 6106,
+      "train_n": 4274,
+      "test_n": 1832,
+      "X_dimension": 7,
+      "Y_dimension": 1,
+      "X_variables": [
+        "LBXHGB",
+        "LBXRBCSI",
+        "LBXMCVSI",
+        "LBXRDW",
+        "LBXGH",
+        "LBXGLU",
+        "LOG_IN"
+      ],
+      "phenotype_train_mean": 0.7604035514564784,
+      "phenotype_train_sd": 0.42683719424255084
+    },
+    "PHQ9_TOTAL_RAW": {
+      "outcome_column": "PHQ9_TOTAL",
+      "complete_n": 4683,
+      "train_n": 3278,
+      "test_n": 1405,
+      "X_dimension": 7,
+      "Y_dimension": 1,
+      "X_variables": [
+        "LBXHGB",
+        "LBXRBCSI",
+        "LBXMCVSI",
+        "LBXRDW",
+        "LBXGH",
+        "LBXGLU",
+        "LOG_IN"
+      ],
+      "phenotype_train_mean": 2.759584420642691,
+      "phenotype_train_sd": 3.73961101501127
+    }
+  }
+}

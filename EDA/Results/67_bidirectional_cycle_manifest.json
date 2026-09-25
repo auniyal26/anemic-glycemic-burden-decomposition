@@ -1,0 +1,34 @@
+{
+  "script": "67_bidirectional_cycle_consistency.py",
+  "experiment": {
+    "f": "X raw physiology -> existing frozen PCA coordinates Z",
+    "h": "Z -> ICA source coordinates S",
+    "g": "S -> raw physiology X",
+    "cycle_X": "X -> f -> Z -> h -> S -> g -> X_hat",
+    "cycle_S": "S -> g -> X_hat -> f -> Z_hat -> h -> S_hat"
+  },
+  "epsilon": "sqrt(weighted squared reconstruction error / weighted target variance)",
+  "evaluation": "all maps trained on 70% of 2005-08; epsilons reported on untouched 30%",
+  "pca_refit": false,
+  "locked_outputs_modified": false,
+  "metadata": {
+    "A": {
+      "n_total_complete_2005_08": 4615,
+      "n_train": 3230,
+      "n_test": 1385,
+      "X_dimensions": 4,
+      "Z_dimensions": 3,
+      "S_dimensions": 3,
+      "ICA_iterations": 60
+    },
+    "G": {
+      "n_total_complete_2005_08": 4519,
+      "n_train": 3163,
+      "n_test": 1356,
+      "X_dimensions": 3,
+      "Z_dimensions": 3,
+      "S_dimensions": 3,
+      "ICA_iterations": 30
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "script": "63_deep_ddx_additive_interaction_and_mechanism.py",
+  "questions": [
+    "additive vs multiplicative HRR/TyG interaction",
+    "which A PC drives residual HbA1c/glucose/insulin coupling and its incremental R2",
+    "CRP/cotinine attenuation",
+    "ferritin/sTfR/CRP mechanism substudy in non-anaemic women 20-49",
+    "G-PC1/2/3 metabolic decoding"
+  ],
+  "downloads_location": "EDA/External_NHANES only",
+  "causal_boundary": "diagnostic/falsification only; repeated cross-sectional NHANES does not identify causal effects",
+  "locked_outputs_modified": false
+}

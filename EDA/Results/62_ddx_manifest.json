@@ -1,0 +1,43 @@
+{
+  "script": "62_ddx_interaction_confounder_audit.py",
+  "purpose": "DDx of component meaning, confounding/explanatory attenuation, A\u00d7G component interactions, and RBC-linked HbA1c coupling.",
+  "A_components": [
+    "A_OI_PC1_FZ",
+    "A_OI_PC2_FZ",
+    "A_OI_PC3_FZ"
+  ],
+  "G_components": [
+    "G3_OI_PC1_FZ",
+    "G3_OI_PC2_FZ",
+    "G3_OI_PC3_FZ"
+  ],
+  "primary_period": "2005-2008",
+  "interaction_replication_period": "2009-2018",
+  "valid_explanatory_blocks": {
+    "social_behavioral_extra": [
+      "PARTNERED"
+    ],
+    "inflammation": [
+      "LBXWBCSI"
+    ],
+    "systemic_nutrition_liver": [
+      "LBXSAL",
+      "LOG_ALT",
+      "LOG_AST",
+      "LBXSBU",
+      "LBXSCH",
+      "LBXSUA"
+    ],
+    "clinical_comorbidity": [
+      "DIABETES_SELFREPORT"
+    ]
+  },
+  "causal_boundary": "Repeated cross-sectional NHANES cannot identify causal effects. These are causal-diagnostic/falsification analyses only.",
+  "sleep_warning": "Sleep is sensitivity-only because somatic PHQ contains a sleep item.",
+  "iron_subset_note": "Ferritin/TFR/iron are restored if available but reserved for a separate women 20-49 mechanism substudy because NHANES eligibility is restricted.",
+  "closest_paper_comparators_restored_if_available": [
+    "HRR",
+    "TYG"
+  ],
+  "locked_outputs_modified": false
+}

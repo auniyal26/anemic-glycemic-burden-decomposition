@@ -1,0 +1,34 @@
+{
+  "script": "68_four_step_bidirectional_validation.py",
+  "chain": "X0 --f--> Y1 --g--> X1 --f--> Y2 --g--> X2",
+  "main_epsilon_f": "distance(Y1, Y2)",
+  "main_epsilon_g": "distance(X1, X2)",
+  "supporting_checks": [
+    "distance(reference ICA Y, f(X0))",
+    "distance(X0, X1)",
+    "distance(X0, X2)"
+  ],
+  "epsilon_definition": "sqrt(weighted squared error / weighted target variance)",
+  "evaluation": "f and g learned on 70% of 2005-08; all reported errors evaluated on untouched 30%",
+  "Y_definition": "ICA coordinates obtained from existing frozen PCA scores; ICA fitted only on training rows",
+  "pca_refit": false,
+  "locked_outputs_modified": false,
+  "domains": {
+    "A": {
+      "n_complete": 4615,
+      "n_train": 3230,
+      "n_test": 1385,
+      "X_dimension": 4,
+      "Y_dimension": 3,
+      "ICA_iterations": 60
+    },
+    "G": {
+      "n_complete": 4519,
+      "n_train": 3163,
+      "n_test": 1356,
+      "X_dimension": 3,
+      "Y_dimension": 3,
+      "ICA_iterations": 30
+    }
+  }
+}

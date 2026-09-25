@@ -1,0 +1,9 @@
+{
+  "script": "65_ica_future_time_travel_audit.py",
+  "input": "EDA\\Results\\63_deep_ddx_input.csv",
+  "reason_for_script64_discovery_only": "Script64 required raw biomarkers and frozen PCs simultaneously; later rows in Script63 retain frozen PCs but restored raw biomarker fields are empty.",
+  "test": "Freeze discovery ICA map, transform later frozen PCA coordinates, invert them back to the exact same PCA coordinates, audit support/range/correlation drift, and compare with independently refit future ICA.",
+  "pca_refit": false,
+  "locked_outputs_modified": false,
+  "important_limit": "Future all-the-way-back raw-biomarker reconstruction cannot be directly scored from Script63 because those raw future fields are absent there. This script validates the bidirectional PCA<->ICA map and latent-space transfer."
+}

@@ -1,0 +1,5 @@
+domain,map,max_abs_numeric_vs_analytic_derivative_error,epsilon_step,n_rows_checked
+A,f_X_to_Y,5.869207342357186e-10,1e-06,25
+A,g_Y_to_X,3.475225662796788e-10,1e-06,25
+G,f_X_to_Y,4.609983506043136e-10,1e-06,25
+G,g_Y_to_X,2.455049497029904e-10,1e-06,25

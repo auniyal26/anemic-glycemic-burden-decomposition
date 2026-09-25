@@ -1,0 +1,46 @@
+{
+  "script": "64_pca_to_ica_bidirectional_transfer.py",
+  "input": "EDA\\Results\\63_deep_ddx_input.csv",
+  "design": "Frozen PCA scores -> discovery-fit FastICA -> frozen transfer -> inverse ICA -> weighted raw-variable decoder",
+  "pca_refit": false,
+  "locked_outputs_modified": false,
+  "important_math_note": "Using all 3 ICA components preserves the same retained PCA subspace. ICA should not improve information content merely by rotation; the scientific tests are independence, interpretability, conditioning, transfer, and rediscoverability.",
+  "ica_fit_weighting": "FastICA fit is unweighted because sklearn FastICA has no sample_weight; all reported correlations, reconstruction metrics, ranges, covariance/support metrics use NHANES survey weights.",
+  "model_metadata": {
+    "A": {
+      "n_discovery": 4615,
+      "pcs": [
+        "A_OI_PC1_FZ",
+        "A_OI_PC2_FZ",
+        "A_OI_PC3_FZ"
+      ],
+      "raw": [
+        "LBXHGB",
+        "LBXRBCSI",
+        "LBXMCVSI",
+        "LBXRDW"
+      ],
+      "fit_warning": "",
+      "n_iter": 79,
+      "forward_condition_number": 1.0904850822800474,
+      "inverse_condition_number": 1.0904850822800474
+    },
+    "G": {
+      "n_discovery": 4519,
+      "pcs": [
+        "G3_OI_PC1_FZ",
+        "G3_OI_PC2_FZ",
+        "G3_OI_PC3_FZ"
+      ],
+      "raw": [
+        "LBXGH",
+        "LBXGLU",
+        "LOG_IN"
+      ],
+      "fit_warning": "",
+      "n_iter": 29,
+      "forward_condition_number": 1.2469818066905316,
+      "inverse_condition_number": 1.2469818066905298
+    }
+  }
+}

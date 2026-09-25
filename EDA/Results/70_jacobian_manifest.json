@@ -1,0 +1,44 @@
+{
+  "script": "70_jacobian_sensitivity_audit.py",
+  "question": "Which variables actually influence the learned f and g functions?",
+  "f": "X_standardized -> ICA/source Y",
+  "g": "ICA/source Y -> X_standardized",
+  "derivatives": {
+    "J_f": "dY/dX",
+    "J_g": "dX/dY"
+  },
+  "important_interpretation": "Because f and g are linear, the partial derivatives are constant everywhere. A zero derivative therefore means no dependence anywhere in this learned map, not merely at one point.",
+  "near_zero_rule": "absolute derivative < 0.1% of the largest absolute derivative for that output",
+  "composition_checks": {
+    "f_after_g": "should approximate identity in Y-space",
+    "g_after_f": "is a projection in X-space when X dimension exceeds Y dimension; for A, one null direction is expected because 4D -> 3D"
+  },
+  "pca_refit": false,
+  "locked_outputs_modified": false,
+  "domains": {
+    "A": {
+      "n_discovery": 4615,
+      "X_dimension": 4,
+      "Y_dimension": 3,
+      "rank_Jf": 3,
+      "null_dimension_Jf": 1,
+      "condition_number_nonzero_Jf": 1.7777899721331416,
+      "max_abs_error_f_after_g_vs_identity": 7.355227538141662e-16,
+      "max_abs_error_g_after_f_vs_identity": 0.42787800394656195,
+      "finite_difference_max_error_f": 5.869207342357186e-10,
+      "finite_difference_max_error_g": 3.475225662796788e-10
+    },
+    "G": {
+      "n_discovery": 4519,
+      "X_dimension": 3,
+      "Y_dimension": 3,
+      "rank_Jf": 3,
+      "null_dimension_Jf": 0,
+      "condition_number_nonzero_Jf": 3.149378382199426,
+      "max_abs_error_f_after_g_vs_identity": 1.9984014443252818e-15,
+      "max_abs_error_g_after_f_vs_identity": 3.054414360326163e-15,
+      "finite_difference_max_error_f": 4.609983506043136e-10,
+      "finite_difference_max_error_g": 2.455049497029904e-10
+    }
+  }
+}

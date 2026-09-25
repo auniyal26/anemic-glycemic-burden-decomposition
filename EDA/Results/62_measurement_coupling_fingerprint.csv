@@ -1,0 +1,7 @@
+"target","test","F","df_num","df_den","p","n","design_df"
+"HbA1c","A_PC_block_given_other_two_G_markers_X3",114.123036640407,3,13,1.37078605974878e-09,3830,31
+"FastingGlucose","A_PC_block_given_other_two_G_markers_X3",20.0039196646964,3,13,3.75754250152564e-05,3830,31
+"LogInsulin","A_PC_block_given_other_two_G_markers_X3",25.0626771238965,3,13,1.11820057496477e-05,3830,31
+"HbA1c","raw_Hb_RBC_MCV_RDW_block_given_other_two_G_markers_X3",76.7343063977772,4,12,1.92184093694707e-08,3830,31
+"FastingGlucose","raw_Hb_RBC_MCV_RDW_block_given_other_two_G_markers_X3",18.8005535135337,4,12,4.19288013041688e-05,3830,31
+"LogInsulin","raw_Hb_RBC_MCV_RDW_block_given_other_two_G_markers_X3",20.0709667632459,4,12,3.00683149850556e-05,3830,31

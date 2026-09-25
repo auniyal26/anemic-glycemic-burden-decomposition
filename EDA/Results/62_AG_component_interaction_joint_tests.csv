@@ -1,0 +1,5 @@
+"period","outcome","test","F","df_num","df_den","p","n","design_df"
+"2005-2008","SOMATIC_SCORE","all_9_Ai_x_Gj_interactions_given_main_effects_X3",1.5417403530515,9,3,0.396663033902518,3830,31
+"2005-2008","PHQ9_TOTAL","all_9_Ai_x_Gj_interactions_given_main_effects_X3",1.16778831477227,9,3,0.50213503340784,3815,31
+"2009-2018","SOMATIC_SCORE","all_9_Ai_x_Gj_interactions_given_main_effects_X3",0.607041045520123,9,50,0.785062591762802,9919,78
+"2009-2018","PHQ9_TOTAL","all_9_Ai_x_Gj_interactions_given_main_effects_X3",0.816703223748474,9,50,0.603415167317333,9893,78

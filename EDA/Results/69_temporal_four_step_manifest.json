@@ -1,0 +1,29 @@
+{
+  "script": "69_temporal_four_step_bidirectional_validation.py",
+  "master": "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\63_deep_ddx_input.csv",
+  "raw_restoration": "repository-wide SEQN merge from CSV and likely NHANES XPT lab files",
+  "training": "2005-08 only",
+  "testing": [
+    "2009-2018",
+    "2021-2023"
+  ],
+  "chain": "X0 --f--> Y1 --g--> X1 --f--> Y2 --g--> X2",
+  "future_relearning": false,
+  "pca_refit": false,
+  "ica_refit_future": false,
+  "locked_outputs_modified": false,
+  "models": {
+    "A": {
+      "discovery_n": 4615,
+      "X_dimension": 4,
+      "Y_dimension": 3,
+      "ICA_iterations": 79
+    },
+    "G": {
+      "discovery_n": 4519,
+      "X_dimension": 3,
+      "Y_dimension": 3,
+      "ICA_iterations": 29
+    }
+  }
+}

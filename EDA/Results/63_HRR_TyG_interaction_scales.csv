@@ -1,0 +1,3 @@
+"scale","interaction_beta","interaction_se","interaction_p","multiplicative_OR","n","design_df"
+"additive_risk_difference",-0.0077076240956166,0.0452726658617589,0.867089387720971,NA,992,31
+"multiplicative_log_odds",-0.845031553779403,0.821647212845979,0.32003299375593,0.429543804266457,992,31

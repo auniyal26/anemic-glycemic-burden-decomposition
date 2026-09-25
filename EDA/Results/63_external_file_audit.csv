@@ -1,0 +1,11 @@
+cycle,stem,url,path,status,error
+0506,CRP_D,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/CRP_D.XPT,EDA\External_NHANES\0506\CRP_D.XPT,already_present,
+0506,COT_D,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/COT_D.XPT,EDA\External_NHANES\0506\COT_D.XPT,already_present,
+0506,FERTIN_D,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/FERTIN_D.XPT,EDA\External_NHANES\0506\FERTIN_D.XPT,already_present,
+0506,TFR_D,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/TFR_D.XPT,EDA\External_NHANES\0506\TFR_D.XPT,already_present,
+0506,TRIGLY_D,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/TRIGLY_D.XPT,EDA\External_NHANES\0506\TRIGLY_D.XPT,already_present,
+0708,CRP_E,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/CRP_E.XPT,EDA\External_NHANES\0708\CRP_E.XPT,already_present,
+0708,COTNAL_E,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/COTNAL_E.XPT,EDA\External_NHANES\0708\COTNAL_E.XPT,already_present,
+0708,FERTIN_E,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/FERTIN_E.XPT,EDA\External_NHANES\0708\FERTIN_E.XPT,already_present,
+0708,TFR_E,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/TFR_E.XPT,EDA\External_NHANES\0708\TFR_E.XPT,already_present,
+0708,TRIGLY_E,https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/TRIGLY_E.XPT,EDA\External_NHANES\0708\TRIGLY_E.XPT,already_present,

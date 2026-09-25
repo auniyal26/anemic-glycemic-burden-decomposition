@@ -1,0 +1,9 @@
+domain,evaluation,test,epsilon,R2_equivalent,weighted_RMSE_standardized,n_test
+A,30pct_held_out_discovery,f__X_to_Z,1.0254824009225902e-15,1.0,1.0169318067118075e-15,1385
+A,30pct_held_out_discovery,g__S_to_X,0.08986316105038017,0.9919246122860335,0.08853741891081908,1385
+A,30pct_held_out_discovery,cycle__X_to_Z_to_S_to_X,0.08986316105038017,0.9919246122860335,0.08853741891081908,1385
+A,30pct_held_out_discovery,cycle__S_to_X_to_Z_to_S,9.527228756530341e-16,1.0,8.604626969664116e-16,1385
+G,30pct_held_out_discovery,f__X_to_Z,6.421084613805402e-15,1.0,6.901411641326468e-15,1356
+G,30pct_held_out_discovery,g__S_to_X,1.0544105521072183e-15,1.0,1.1020652141458006e-15,1356
+G,30pct_held_out_discovery,cycle__X_to_Z_to_S_to_X,4.4605310629952076e-15,1.0,4.6621272058779095e-15,1356
+G,30pct_held_out_discovery,cycle__S_to_X_to_Z_to_S,6.507171124473084e-15,1.0,6.172628069506627e-15,1356
