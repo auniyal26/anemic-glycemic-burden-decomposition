@@ -1,0 +1,27 @@
+{
+  "script": "72_shared_private_decomposition_and_phenotype.py",
+  "scientific_question": "Is apparent A-G interaction better represented as outcome-independent shared physiology, private physiology, discordance, or a residual multiplicative phenotype interaction?",
+  "decomposition": "weighted CCA canonical basis learned on 2005-08 physiology only; selected correlated pairs reparameterized into common(shared) and difference(discordance) coordinates; weak/unpaired directions retained as private coordinates",
+  "primary_shared_rank_rule": "permutation p<0.05 and discovery canonical correlation >= 0.1",
+  "shared_rank": 2,
+  "discovery_n": 4088,
+  "A_variables": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "G_variables": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "outcome_used_to_fit_decomposition": false,
+  "future_refit": false,
+  "transform_is_full_rank": true,
+  "interpretation_boundary": "shared coordinates represent statistically shared A-G physiological variation, not a proven biological mechanism or causal source",
+  "phenotype_model": "survey-weighted Y ~ shared + discordance + private A + private G + covariates; separate block test adds all CCA_A x CCA_G multiplicative interactions",
+  "r_survey_status": "pass",
+  "r_error": "",
+  "locked_outputs_modified": false
+}

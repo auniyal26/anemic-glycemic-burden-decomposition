@@ -1,0 +1,38 @@
+{
+  "script": "73_frozen_phenotype_map_time_travel.py",
+  "question": "Does the phenotype map learned in NHANES 2005-08 survive when both T and h are frozen and applied to later NHANES periods?",
+  "decomposition_source": "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\72_shared_private_frozen_transform.npz",
+  "T_fit_period": "2005-2008 only",
+  "h_fit_period": "2005-2008 only",
+  "future_T_refit": false,
+  "future_h_refit": false,
+  "adult_nonpregnant_only": true,
+  "physiology_terms": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "covariates": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "RACE",
+    "INDFMPIR",
+    "EDUC3",
+    "SMOKING3",
+    "BMXBMI",
+    "EGFR_2021"
+  ],
+  "outcomes": {
+    "SOMATIC": "SOMATIC_SCORE",
+    "COGAFF": "COGAFF_SUM",
+    "PHQ9_TOTAL": "PHQ9_TOTAL"
+  },
+  "cycle_as_predictor": false,
+  "cycle_reason": "future cycle categories are unseen; a frozen transport map cannot depend on them",
+  "r_status": "pass",
+  "r_error": ""
+}

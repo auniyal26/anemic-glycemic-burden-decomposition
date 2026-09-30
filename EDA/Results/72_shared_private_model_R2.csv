@@ -1,0 +1,10 @@
+"period","outcome","model","weighted_R2"
+"2005-2008","SOMATIC","covariates_only",0.0773471113339314
+"2005-2008","SOMATIC","shared_private_main",0.0927462796260299
+"2005-2008","SOMATIC","shared_private_plus_multiplicative",0.0976057855329048
+"2005-2008","COGAFF","covariates_only",0.0722937813741281
+"2005-2008","COGAFF","shared_private_main",0.0822362120749281
+"2005-2008","COGAFF","shared_private_plus_multiplicative",0.0865015727757313
+"2005-2008","PHQ9_TOTAL","covariates_only",0.0901488817526872
+"2005-2008","PHQ9_TOTAL","shared_private_main",0.105457487351281
+"2005-2008","PHQ9_TOTAL","shared_private_plus_multiplicative",0.109784294621579
