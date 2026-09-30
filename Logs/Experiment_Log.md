@@ -1912,3 +1912,101 @@ Y → X is not treated as a unique inverse because many physiological states may
 
 ## Stop point
 The physiology/latent architecture is now much clearer, but phenotype decomposition and the full conceptual architecture needs to be revisited fresh rather than pushed further today.
+
+## 30 Sep 2026 — Shared/Private Decomposition + Phenotype-Map Transfer
+
+### Shared/private physiological decomposition
+Extended the A–G framework from separate latent blocks into:
+
+\[
+X_{phys}
+\rightarrow
+\{Z_{shared}, Z_{discordance}, Z_{A-private}, Z_{G-private}\}
+\]
+
+Using outcome-independent weighted CCA learned only on NHANES 2005–08 adults.
+
+- Discovery physiology n = 4,088
+- Two reproducible shared A–G axes:
+  - \(\rho_1 = 0.304\)
+  - \(\rho_2 = 0.246\)
+- Third canonical correlation was weak (\(\rho_3 = 0.025\)); retained as private rather than shared.
+- Transformation remains full-rank and preserves the original physiological information.
+- Phenotype was not used to construct the decomposition.
+
+### Corrected phenotype mapping
+After correcting an initial outcome-column error, the model used the actual:
+
+- Somatic PHQ score
+- Cognitive-affective PHQ score
+- PHQ-9 total
+
+The main emerging pattern is that phenotype-relevant information exists in both **shared A–G physiology** and **A-specific physiology**, rather than being explained well by a simple multiplicative \(A\times G\) term.
+
+Working architecture:
+
+\[
+X \xrightarrow{T}
+Z_{shared/private}
+\xrightarrow{h}
+Y
+\]
+
+### Frozen phenotype-map time travel
+Learned both \(T\) and \(h\) on 2005–08 only and applied them unchanged to later NHANES periods.
+
+#### Somatic phenotype
+- 2005–08: \(R^2=0.0906\), physiology \(\Delta R^2=+0.0186\)
+- 2009–18: \(R^2=0.0786\), \(\Delta R^2=+0.0042\), calibration slope 0.940
+- 2021–23: \(R^2=0.0353\), \(\Delta R^2=+0.0314\), calibration slope 0.829
+
+#### PHQ-9 total
+- 2005–08: \(R^2=0.1043\), physiology \(\Delta R^2=+0.0186\)
+- 2009–18: \(R^2=0.0806\), \(\Delta R^2=+0.0035\), calibration slope 0.931
+- 2021–23: overall calibration deteriorated, but physiology still improved the frozen model by \(\Delta R^2=+0.0324\).
+
+### Interpretation
+The physiological coordinate system appears more stable than the physiology→phenotype mapping.
+
+\[
+X \leftrightarrow Z
+\]
+
+remains structurally stable, while
+
+\[
+Z \rightarrow Y
+\]
+
+shows temporal drift/recalibration.
+
+Working hypothesis:
+
+\[
+Y = h(Z,t)
+\]
+
+rather than one permanently frozen phenotype map.
+
+In the time-travel analogy: **the physiological GPS still works, but the destination/city changes with time.**
+
+### Next step
+Test a **time-aware phenotype map**:
+
+\[
+Y=h(Z,t)
+\]
+
+to determine whether temporal change is mainly:
+
+- baseline/intercept drift,
+- changing component coefficients,
+- or both.
+
+After temporal behaviour is understood, extend the same idea to external-population transfer:
+
+\[
+Y=h(Z,t,\text{population})
+\]
+
+This will connect temporal transfer with later LASI-DAD / external-population validation.
