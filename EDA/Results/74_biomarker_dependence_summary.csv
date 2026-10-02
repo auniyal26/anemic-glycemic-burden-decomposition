@@ -1,0 +1,8 @@
+input_variable,n_components_directly_affected,affected_components,strongest_component_by_standardized_derivative,strongest_std_partial
+Hb,6,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4,A_private3,2.3037505232065714
+RBC,6,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4,A_private4,-2.441028468422476
+MCV,6,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4,A_private4,-1.8337054948349638
+RDW,6,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4,A_private3,1.0746034914784173
+HbA1c,5,Shared1|Shared2|Discord1|Discord2|G_private3,Discord1,-1.0237066011071996
+Glucose,5,Shared1|Shared2|Discord1|Discord2|G_private3,G_private3,1.0487660739273064
+logInsulin,5,Shared1|Shared2|Discord1|Discord2|G_private3,Discord1,-0.6163103388839957

@@ -1,0 +1,8 @@
+component,n_directly_dependent_inputs,dependent_inputs,strongest_input_by_standardized_derivative,strongest_std_partial,second_strongest_input,second_strongest_std_partial,hematology_dependency,glycemia_dependency
+Shared1,7,Hb|RBC|MCV|RDW|HbA1c|Glucose|logInsulin,HbA1c,0.7479117992248455,RBC,0.5462484023915327,True,True
+Shared2,7,Hb|RBC|MCV|RDW|HbA1c|Glucose|logInsulin,Hb,1.5541704748582479,RBC,-1.0343460356819392,True,True
+Discord1,7,Hb|RBC|MCV|RDW|HbA1c|Glucose|logInsulin,HbA1c,-1.0237066011071996,RBC,0.7476791995420325,True,True
+Discord2,7,Hb|RBC|MCV|RDW|HbA1c|Glucose|logInsulin,Hb,1.9987919170039101,RBC,-1.330254646418157,True,True
+A_private3,4,Hb|RBC|MCV|RDW,Hb,2.3037505232065714,RBC,-2.1748155297731158,True,False
+A_private4,4,Hb|RBC|MCV|RDW,RBC,-2.441028468422476,MCV,-1.8337054948349638,True,False
+G_private3,3,HbA1c|Glucose|logInsulin,Glucose,1.0487660739273064,logInsulin,-0.41839424388149044,False,True

@@ -1,0 +1,12 @@
+metric,value
+rank_J_f,7.0
+det_J_f,0.09843314130232118
+condition_number_J_f,245.4492325408511
+max_abs_JfJg_minus_I,4.440892098500626e-16
+max_abs_JgJf_minus_I,8.01764919241174e-15
+max_abs_finite_difference_Jf_minus_analytic_Jf,3.9683600849826917e-10
+max_abs_finite_difference_Jg_minus_analytic_Jg,6.8218626303462315e-09
+max_abs_Hessian_f,9.478335841882138e-09
+max_abs_Hessian_g,0.0
+max_abs_Hessian_f_after_g,3.552713678800501e-07
+max_abs_Hessian_g_after_f,3.126084283746202e-08

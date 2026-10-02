@@ -1,0 +1,4 @@
+period,outcome,n_expected_derivatives,n_found_derivatives,complete,missing_terms
+2005-2008,COGAFF,7,7,True,
+2005-2008,PHQ9_TOTAL,7,7,True,
+2005-2008,SOMATIC,7,7,True,

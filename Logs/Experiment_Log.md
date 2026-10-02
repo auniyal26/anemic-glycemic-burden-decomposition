@@ -1916,89 +1916,91 @@ The physiology/latent architecture is now much clearer, but phenotype decomposit
 ## 30 Sep 2026 — Shared/Private Decomposition + Phenotype-Map Transfer
 
 ### Shared/private physiological decomposition
+
 Extended the A–G framework from separate latent blocks into:
 
 $$
-\[
-X_{phys}
+X_{\text{phys}}
 \rightarrow
-\{Z_{shared}, Z_{discordance}, Z_{A-private}, Z_{G-private}\}
-\]
+\{Z_{\text{shared}}, Z_{\text{discordance}}, Z_{\text{A-private}}, Z_{\text{G-private}}\}
 $$
 
 Using outcome-independent weighted CCA learned only on NHANES 2005–08 adults.
 
 - Discovery physiology n = 4,088
 - Two reproducible shared A–G axes:
-  - $$\(\rho_1 = 0.304\)$$
-  - $$\(\rho_2 = 0.246\)$$
-- Third canonical correlation was weak ($$\(\rho_3 = 0.025\)$$); retained as private rather than shared.
+  - $\rho_1 = 0.304$
+  - $\rho_2 = 0.246$
+- Third canonical correlation was weak ($\rho_3 = 0.025$); retained as private rather than shared.
 - Transformation remains full-rank and preserves the original physiological information.
 - Phenotype was not used to construct the decomposition.
 
 ### Corrected phenotype mapping
+
 After correcting an initial outcome-column error, the model used the actual:
 
 - Somatic PHQ score
 - Cognitive-affective PHQ score
 - PHQ-9 total
 
-The main emerging pattern is that phenotype-relevant information exists in both **shared A–G physiology** and **A-specific physiology**, rather than being explained well by a simple multiplicative $$\(A\times G\)$$ term.
+The emerging pattern is that phenotype-relevant information exists in both **shared A–G physiology** and **A-specific physiology**, rather than being explained well by a simple multiplicative $A \times G$ term.
 
 Working architecture:
 
-$$\[
-X \xrightarrow{T}
-Z_{shared/private}
-\xrightarrow{h}
-Y
-\]$$
+$$
+X \xrightarrow{T} Z_{\text{shared/private}} \xrightarrow{h} Y
+$$
 
 ### Frozen phenotype-map time travel
-Learned both $$\(T\)$$ and $$\(h\)$$ on 2005–08 only and applied them unchanged to later NHANES periods.
+
+Learned both $T$ and $h$ on 2005–08 only and applied them unchanged to later NHANES periods.
 
 #### Somatic phenotype
-- 2005–08: $$\(R^2=0.0906\)$$, physiology $$\(\Delta R^2=+0.0186\)$$
-- 2009–18: $$\(R^2=0.0786\)$$, $$\(\Delta R^2=+0.0042\)$$, calibration slope 0.940
-- 2021–23: $$\(R^2=0.0353\)$$, $$\(\Delta R^2=+0.0314\)$$, calibration slope 0.829
+
+- 2005–08: $R^2 = 0.0906$, physiology $\Delta R^2 = +0.0186$
+- 2009–18: $R^2 = 0.0786$, $\Delta R^2 = +0.0042$, calibration slope = 0.940
+- 2021–23: $R^2 = 0.0353$, $\Delta R^2 = +0.0314$, calibration slope = 0.829
 
 #### PHQ-9 total
-- 2005–08: $$\(R^2=0.1043\)$$, physiology $$\(\Delta R^2=+0.0186\)$$
-- 2009–18: $$\(R^2=0.0806\)$$,$$\(\Delta R^2=+0.0035\)$$, calibration slope 0.931
-- 2021–23: overall calibration deteriorated, but physiology still improved the frozen model by $$\(\Delta R^2=+0.0324\)$$.
+
+- 2005–08: $R^2 = 0.1043$, physiology $\Delta R^2 = +0.0186$
+- 2009–18: $R^2 = 0.0806$, $\Delta R^2 = +0.0035$, calibration slope = 0.931
+- 2021–23: overall calibration deteriorated, but physiology still improved the frozen model by $\Delta R^2 = +0.0324$.
 
 ### Interpretation
-The physiological coordinate system appears more stable than the physiology→phenotype mapping.
 
-$$\[
+The physiological coordinate system appears more stable than the physiology-to-phenotype mapping.
+
+$$
 X \leftrightarrow Z
-\]
+$$
 
 remains structurally stable, while
 
-\[
-Z \rightarrow Y
-\]
 $$
+Z \rightarrow Y
+$$
+
 shows temporal drift/recalibration.
 
 Working hypothesis:
+
 $$
-\[
 Y = h(Z,t)
-\]
 $$
+
 rather than one permanently frozen phenotype map.
 
 In the time-travel analogy: **the physiological GPS still works, but the destination/city changes with time.**
 
 ### Next step
+
 Test a **time-aware phenotype map**:
+
 $$
-\[
-Y=h(Z,t)
-\]
+Y = h(Z,t)
 $$
+
 to determine whether temporal change is mainly:
 
 - baseline/intercept drift,
@@ -2007,8 +2009,186 @@ to determine whether temporal change is mainly:
 
 After temporal behaviour is understood, extend the same idea to external-population transfer:
 
-\[
-Y=h(Z,t,\text{population})
-\]
+$$
+Y = h(Z,t,\text{population})
+$$
 
 This will connect temporal transfer with later LASI-DAD / external-population validation.
+
+## 02 Oct 2026 — Bidirectional Gradient Audit + Functional Dependence
+
+### Four-way gradient / reconstruction audit
+
+Audited the frozen physiological transformation in both directions:
+
+$$
+X \leftrightarrow Z
+$$
+
+where:
+
+$$
+X =
+[Hb,\ RBC,\ MCV,\ RDW,\ HbA1c,\ Glucose,\ logInsulin]
+$$
+
+and
+
+$$
+Z =
+[Shared_1,\ Shared_2,\ Discord_1,\ Discord_2,\ A_{private3},\ A_{private4},\ G_{private3}]
+$$
+
+Main findings:
+
+- The $X \rightarrow Z$ transformation is full-rank and invertible.
+- The forward and backward Jacobians reconstruct one another to numerical precision.
+- Finite-difference checks matched the analytical derivatives.
+- Hessians were approximately zero, confirming that the current transformation is affine/linear.
+
+### Structural dependence inside the decomposition
+
+Partial derivatives showed:
+
+- Shared1 and Shared2 depend on both A and G variables.
+- Discord1 and Discord2 depend on both A and G variables.
+- A-private3 and A-private4 depend only on hematology and have zero dependence on glycemia.
+- G-private3 depends only on glycemia and has zero dependence on hematology.
+
+The reverse reconstruction showed the same structure.
+
+Therefore the shared/private decomposition behaves structurally as intended.
+
+### Phenotype-function derivative test
+
+Applied Prof. Saeed's derivative idea directly to the learned phenotype function:
+
+$$
+\frac{\partial \hat P}{\partial z_i}
+$$
+
+For the current linear phenotype model:
+
+$$
+\frac{\partial \hat P}{\partial z_i} = \beta_i
+$$
+
+Tested:
+
+- Shared1
+- Shared2
+- Discord1
+- Discord2
+- A-private3
+- A-private4
+- G-private3
+
+across:
+
+- cognitive-affective phenotype,
+- PHQ-9 total,
+- somatic phenotype.
+
+Result:
+
+**All seven fitted partial derivatives were nonzero for all three phenotypes.**
+
+Therefore none of the learned physiological components is completely ignored by the fitted phenotype function.
+
+### Direct A-block / G-block derivative audit
+
+Extended the same test back to the original physiological variables using the chain rule:
+
+$$
+\frac{\partial P}{\partial X}
+=
+\frac{\partial P}{\partial Z}
+\frac{\partial Z}{\partial X}
+$$
+
+Hematology block:
+
+$$
+\nabla_A P =
+\left[
+\frac{\partial P}{\partial Hb},
+\frac{\partial P}{\partial RBC},
+\frac{\partial P}{\partial MCV},
+\frac{\partial P}{\partial RDW}
+\right]
+$$
+
+Glycemia block:
+
+$$
+\nabla_G P =
+\left[
+\frac{\partial P}{\partial HbA1c},
+\frac{\partial P}{\partial Glucose},
+\frac{\partial P}{\partial logInsulin}
+\right]
+$$
+
+Results:
+
+- All 4 hematological derivatives were nonzero.
+- All 3 glycemic derivatives were nonzero.
+- This held for somatic, cognitive-affective and total PHQ-9 phenotypes.
+- Chain-rule reconstruction error was approximately $2.8 \times 10^{-17}$.
+
+Therefore all seven original physiological variables are functionally used by the current fitted model.
+
+### Standardized block-gradient results
+
+| Phenotype | A block | G block |
+|---|---:|---:|
+| Cognitive-affective | 0.660 | 0.121 |
+| PHQ-9 total | 1.040 | 0.258 |
+| Somatic | 0.412 | 0.131 |
+
+Within the current fitted model:
+
+- RBC had the largest standardized derivative within the A block.
+- log-insulin had the largest standardized derivative within the G block.
+
+These magnitudes are descriptive and are not yet causal or proof of variable indispensability.
+
+### Current interpretation
+
+We now have a mathematically verified route:
+
+$$
+X \rightarrow Z \rightarrow Y
+$$
+
+and can trace phenotype dependence all the way from the learned phenotype back to the original physiological measurements.
+
+Current evidence says:
+
+- all selected raw variables enter the fitted phenotype function,
+- all learned shared/private components enter the fitted phenotype function,
+- the $X \leftrightarrow Z$ bridge is stable and reversible,
+- but the current $Z \rightarrow Y$ bridge is not yet established as stable or reversible.
+
+### Next work
+
+- Interpret the derivative magnitudes and establish what can and cannot be given a causal interpretation.
+- Perform variable-removal and combination/ablation tests to determine whether each variable is genuinely necessary.
+- Build a complete table of derivatives across variables, components and phenotypes.
+- Propagate uncertainty through the full derivative chain.
+- Apply the same derivative-based dependence test to external published datasets where data/code are available.
+- Compare this approach with studies relying mainly on correlation and use the comparison as a methodological critique where justified.
+- Build and validate a stable phenotype equation.
+- Develop the second bidirectional bridge:
+
+$$
+Z \leftrightarrow Y
+$$
+
+so that the eventual complete system becomes:
+
+$$
+X \leftrightarrow Z \leftrightarrow Y
+$$
+
+- Once the full bridge is stable, use simulated data to test recovery, identifiability, perturbations and failure modes.

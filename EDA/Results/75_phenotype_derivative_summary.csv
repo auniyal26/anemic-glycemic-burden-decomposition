@@ -1,0 +1,4 @@
+period,outcome,n_components_tested,n_nonzero_derivatives,n_zero_derivatives,zero_components,nonzero_components,strongest_component,strongest_derivative
+2005-2008,COGAFF,7,7,0,,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4|G_private3,A_private3,0.184664931243251
+2005-2008,PHQ9_TOTAL,7,7,0,,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4|G_private3,A_private3,0.379132493295995
+2005-2008,SOMATIC,7,7,0,,Shared1|Shared2|Discord1|Discord2|A_private3|A_private4|G_private3,A_private3,0.194141686320128
