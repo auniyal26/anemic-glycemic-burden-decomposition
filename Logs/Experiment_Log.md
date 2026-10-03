@@ -2192,3 +2192,603 @@ X \leftrightarrow Z \leftrightarrow Y
 $$
 
 - Once the full bridge is stable, use simulated data to test recovery, identifiability, perturbations and failure modes.
+
+# 03 October 2026 — Phenotype-Map Stability, Reverse Inference, Longitudinal Proof-of-Concept, and MoM Closeout
+
+## Objective
+
+Complete the open work from the 23 September supervisor meeting by extending the derivative audit into:
+
+1. uncertainty and ablation testing,
+2. temporal stability of the phenotype map,
+3. reverse phenotype-to-physiology inference,
+4. probabilistic calibration,
+5. longitudinal simulation,
+6. PHQ severity and component-by-time auditing,
+7. final literature / external-validation / causal-positioning closeout.
+
+The physiological architecture remains:
+
+$$
+X \leftrightarrow Z \rightarrow Y
+$$
+
+where:
+
+- $X$ = raw physiology,
+- $Z$ = shared / discordant / private physiological representation,
+- $Y$ = depressive phenotype.
+
+---
+
+## Script 77 — Derivative Uncertainty and Component Ablation
+
+`77_derivative_uncertainty_and_component_ablation.py`
+
+The derivative results from Scripts 75–76 were extended with uncertainty estimates and leave-one-component-out ablation.
+
+A critical guardrail first verified that the refitted phenotype model reproduced the accepted Script 72 coefficients exactly.
+
+### Component ablation
+
+Approximate $\Delta R^2$ from removing each component:
+
+| Component | COGAFF | PHQ-9 | Somatic |
+|---|---:|---:|---:|
+| Shared1 | 0.00191 | 0.00291 | 0.00261 |
+| Shared2 | 0.00010 | 0.00047 | 0.00091 |
+| Discord1 | 0.00051 | 0.00088 | 0.00088 |
+| Discord2 | 0.00101 | 0.00267 | 0.00363 |
+| A-private3 | **0.00595** | **0.00882** | **0.00842** |
+| A-private4 | 0.00123 | 0.00121 | 0.00076 |
+| G-private3 | 0.00078 | 0.00111 | 0.00109 |
+
+Main result:
+
+> **A-private3 is the strongest single phenotype-relevant component across all three outcomes.**
+
+Shared1 contributes consistently.
+
+Discord2 appears particularly relevant to the somatic phenotype.
+
+### Raw-block gradient tests
+
+Joint block-level gradient tests:
+
+| Phenotype | A block | G block |
+|---|---:|---:|
+| COGAFF | p = 0.00195 | p = 0.0928 |
+| PHQ-9 | p = 0.000215 | p = 0.0183 |
+| Somatic | p = 0.000095 | p = 0.0105 |
+
+The A block is strongly supported across all outcomes.
+
+The G block is supported for PHQ-9 total and somatic phenotype and is weaker for COGAFF.
+
+---
+
+# Temporal Phenotype-Map Stability
+
+## Script 78 — Frozen Z → Y Stability Audit
+
+`78_Z_to_Y_stability_audit.py`
+
+The physiological representation was kept frozen and the stability of the phenotype bridge was examined across:
+
+- 2005–08,
+- 2009–18,
+- 2021–23.
+
+This explicitly separates:
+
+$$
+X \leftrightarrow Z
+$$
+
+from:
+
+$$
+Z \rightarrow Y
+$$
+
+### Frozen versus period-refitted performance
+
+| Outcome | 2005–08 | 2009–18 | 2021–23 |
+|---|---:|---:|---:|
+| Somatic frozen/refit | 0.0906 / 0.0906 | 0.0786 / 0.0877 | 0.0353 / 0.0995 |
+| COGAFF frozen/refit | 0.0820 / 0.0820 | 0.0590 / 0.0698 | -0.0355 / 0.0644 |
+| PHQ-9 frozen/refit | 0.1043 / 0.1043 | 0.0806 / 0.0902 | -0.0056 / 0.0848 |
+
+2009–18 remains reasonably close to the discovery mapping.
+
+2021–23 shows much larger phenotype-map drift.
+
+Several component coefficients also changed magnitude or sign.
+
+### Interpretation
+
+> **The physiological coordinate system is more temporally stable than the mapping from physiology to depressive phenotype.**
+
+The emerging model is therefore:
+
+$$
+Y = h(Z,t)
+$$
+
+rather than assuming one permanently invariant $h(Z)$.
+
+---
+
+## Script 79 — Time-Travel / GPS Recalibration
+
+`79_time_travel_gps_recalibration.py`
+
+Tested whether the 2005–08 phenotype map could be rescued in later periods using only a target-period intercept and slope:
+
+$$
+Y_t \approx \alpha_t + \gamma_t \hat Y_{2005}
+$$
+
+For 2021–23, simple recalibration recovered approximately:
+
+- **36%** of the Somatic performance gap,
+- **60%** of the COGAFF gap,
+- **56%** of the PHQ-9 gap.
+
+A residual $R^2$ gap of approximately **0.04** remained.
+
+Therefore:
+
+> Some temporal change is calibration drift, but simple intercept/slope correction does not explain all of the change.
+
+The component structure of the phenotype map itself also shifts.
+
+---
+
+# Reverse Phenotype → Physiology Problem
+
+## Script 80 — Minimum Residual Augmentation
+
+Tested whether phenotype information could deterministically reconstruct the seven-dimensional physiological state.
+
+Using:
+
+$$
+Y \rightarrow Z
+$$
+
+baseline reconstruction was extremely weak.
+
+Discovery mean $R^2$ was approximately:
+
+$$
+R^2 \approx 0.0065
+$$
+
+To recover approximately 80% of $Z$, around **six additional residual dimensions** were required.
+
+Using all seven residual dimensions produced exact reconstruction.
+
+### Interpretation
+
+This demonstrated that a deterministic phenotype inverse is not meaningful.
+
+Adding enough residual dimensions simply reintroduces the missing physiological information.
+
+---
+
+## Script 81 — Multidimensional Phenotype Bridge
+
+The reverse test was repeated using increasingly rich phenotype representations:
+
+- PHQ-9 total,
+- somatic + cognitive-affective scores,
+- all nine individual PHQ items.
+
+Even the full nine-item representation performed poorly for reconstructing individual physiological state.
+
+Approximate $Y \rightarrow Z$ mean $R^2$ remained around:
+
+- **0.01** in discovery,
+- negative in later periods.
+
+Important distinction:
+
+> **Having enough phenotype dimensions to span the latent space algebraically does not mean those phenotype measurements identify an individual's physiological state.**
+
+Therefore the reverse object should not be:
+
+$$
+Z = g(Y)
+$$
+
+as a unique deterministic function.
+
+Instead:
+
+$$
+p(Z \mid Y)
+$$
+
+is the appropriate formulation.
+
+---
+
+# Probabilistic Reverse Inference
+
+## Script 82 — Conditional Gaussian Reverse
+
+A conditional Gaussian model was used to estimate:
+
+$$
+p(Z \mid Y)
+$$
+
+Approximate 95% region coverage:
+
+- discovery: **0.922**
+- 2009–18: **0.898**
+- 2021–23: **0.877**
+
+Mahalanobis distance increased across time:
+
+$$
+7.00 \rightarrow 7.88 \rightarrow 8.68
+$$
+
+The reverse distribution remained usable, but Gaussian calibration deteriorated under temporal shift.
+
+---
+
+## Script 83 — Conformal Reverse Bridge
+
+A distribution-free conformal calibration strategy was then tested.
+
+Training:
+
+- 2005–06
+
+Calibration:
+
+- 2007–08
+
+Future evaluation:
+
+- 2009–18
+- 2021–23
+
+Calibration thresholds were constructed for:
+
+- 50% regions,
+- 80% regions,
+- 95% regions.
+
+Observed coverage:
+
+| Period | 50% | 80% | 95% |
+|---|---:|---:|---:|
+| 2007–08 calibration | 0.500 | 0.800 | 0.950 |
+| 2009–18 | 0.523 | 0.797 | 0.944 |
+| 2021–23 | 0.558 | 0.815 | 0.958 |
+
+### Main result
+
+> **Probabilistic reverse regions transfer substantially better than deterministic phenotype → physiology reconstruction.**
+
+The next methodological question is not only coverage but also **sharpness**:
+
+> Does conditioning on phenotype produce meaningfully smaller physiological uncertainty than the unconditional baseline $p(Z)$?
+
+---
+
+# Longitudinal Proof-of-Concept
+
+## Script 84 — Prior-State / Skip-Informed Simulation
+
+NHANES is repeated cross-sectional rather than genuinely longitudinal.
+
+Therefore a controlled simulation was used to test the longitudinal idea without pretending NHANES contains within-person trajectories.
+
+The proposed structure is:
+
+$$
+p(Z_t \mid Z_{t-1},Y_t,t)
+$$
+
+Three models were compared:
+
+1. phenotype only,
+2. previous physiology only,
+3. phenotype + previous physiology.
+
+Physiological temporal continuity was varied using $\rho$.
+
+### Combined-model performance
+
+| $\rho$ | $R^2$ |
+|---:|---:|
+| 0.00 | 0.004 |
+| 0.25 | 0.063 |
+| 0.50 | 0.242 |
+| 0.75 | 0.551 |
+| 0.90 | 0.802 |
+
+Relative uncertainty volume compared with phenotype-only inference:
+
+| $\rho$ | Relative volume |
+|---:|---:|
+| 0.00 | 0.995 |
+| 0.25 | 0.928 |
+| 0.50 | 0.423 |
+| 0.75 | 0.052 |
+| 0.90 | 0.004 |
+
+### Interpretation
+
+When physiology is temporally persistent, knowing the previous physiological state sharply constrains the plausible current state.
+
+Phenotype adds comparatively little once strong prior physiological information is available.
+
+---
+
+## Script 85 — Delta-State Simulation
+
+The next simulation examined physiological change:
+
+$$
+\Delta Z_t
+$$
+
+using:
+
+- $\Delta Y$ only,
+- $Z_{t-1}$ only,
+- $Z_{t-1} + \Delta Y$.
+
+Phenotype change provided a **modest additional contribution** beyond the previous physiological state.
+
+The contribution became larger when persistent person-specific phenotype noise was introduced because differencing partially cancelled that nuisance variation.
+
+### Current longitudinal target
+
+The resulting conceptual model is:
+
+$$
+p(Z_t \mid Z_{t-1},Y_t,\Delta Y_t,t)
+$$
+
+This remains a **simulation-derived design target**, not a claim of observed within-person NHANES dynamics.
+
+---
+
+# Script 86 — MoM Closeout Audit
+
+The final NHANES closeout script directly addressed the remaining supervisor-requested EDA and temporal checks.
+
+## Cohort counts
+
+| Period | Eligible | PHQ available | All Z available | Both |
+|---|---:|---:|---:|---:|
+| 2005–08 | 4,869 | 4,407 | 4,506 | 4,145 |
+| 2009–18 | 13,223 | 11,777 | 12,230 | 11,002 |
+| 2021–23 | 3,397 | 2,892 | 3,010 | 2,590 |
+
+---
+
+## PHQ-9 Severity Distribution
+
+Weighted PHQ-9 mean:
+
+- 2005–08: **2.77**
+- 2009–18: **3.04**
+- 2021–23: **3.80**
+
+Weighted prevalence of PHQ-9 ≥ 10:
+
+- 2005–08: **6.4%**
+- 2009–18: **7.7%**
+- 2021–23: **11.7%**
+
+Weighted prevalence of PHQ-9 ≥ 15:
+
+- 2005–08: **1.9%**
+- 2009–18: **2.8%**
+- 2021–23: **3.0%**
+
+Weighted prevalence of PHQ-9 ≥ 20:
+
+- 2005–08: **0.5%**
+- 2009–18: **0.8%**
+- 2021–23: **1.2%**
+
+### Interpretation
+
+The poorer 2021–23 phenotype-map transfer is **not explained by an absence of depressive-symptom variation**.
+
+The modern period actually contains a larger proportion of participants with higher PHQ burden.
+
+---
+
+## Component × Time Audit
+
+After FDR correction:
+
+### Cognitive-affective phenotype
+
+Significant component-by-time interactions:
+
+- A-private3: **q = 0.0211**
+- Shared2: **q = 0.0393**
+
+### PHQ-9 total
+
+Significant:
+
+- A-private3: **q = 0.00929**
+
+### Somatic phenotype
+
+No interaction survived FDR correction.
+
+A-private3 was borderline:
+
+- **q ≈ 0.066**
+
+### Interpretation
+
+Temporal drift is not purely a global calibration issue.
+
+At least some component-to-phenotype relationships change with period.
+
+---
+
+# MoM / Supervisor-Request Closeout
+
+The following requests from the 23 September meeting have now been addressed:
+
+- stronger cohort and PHQ EDA,
+- PHQ severity / high-burden analysis,
+- informed simulation,
+- explanation of why the representation works,
+- shared / discordant / private decomposition,
+- partial-derivative testing,
+- raw-variable derivative propagation,
+- derivative uncertainty,
+- component ablation,
+- temporal sensitivity,
+- component × time interaction testing,
+- temporal proof-of-concept modelling,
+- probabilistic reverse inference,
+- mathematical strengthening of the architecture.
+
+---
+
+# External Evidence and Validation Position
+
+A literature-based external triangulation was completed before participant-level external transport.
+
+Relevant independent evidence now includes:
+
+- UK Biobank evidence linking glycaemic and haematological biomarkers with later major depressive disorder,
+- longitudinal Chinese evidence linking RDW / RBC measures with depression risk,
+- Japanese population evidence linking haemoglobin with depressive symptom burden,
+- LASI-DAD / HRS evidence connecting haemoglobin / anaemia with cognitive outcomes.
+
+This supports the plausibility of the individual physiological variables outside NHANES.
+
+It does **not** replace the future stronger experiment:
+
+> transport or independently rediscover one frozen physiological component in a genuinely external participant-level dataset.
+
+LASI-DAD remains the preferred India / cognition bridge once the required individual-level data are available.
+
+---
+
+# Causal Roadmap
+
+The current derivative:
+
+$$
+\frac{\partial \hat Y}{\partial X_j}
+$$
+
+describes sensitivity of the fitted phenotype function.
+
+A future causal quantity would instead require something such as:
+
+$$
+\frac{\partial}{\partial x}
+E[Y \mid do(X_j=x)]
+$$
+
+The proposed identification ladder is:
+
+1. current NHANES association / functional-dependence analysis,
+2. genuine repeated-measures data with longitudinal g-methods where appropriate,
+3. target-trial-style observational emulation for clinically meaningful interventions,
+4. genetic or quasi-experimental triangulation where valid,
+5. negative controls and quantitative sensitivity analysis.
+
+The latent coordinates themselves are primarily treated as a representation and hypothesis-generation system.
+
+Causal targets should ultimately be defined using physiologically interpretable exposures or interventions.
+
+---
+
+# Evidence-Pack / Visualization Work
+
+Scripts 87–88 were used to produce and audit publication-quality figures covering:
+
+- PHQ severity,
+- physiological structure,
+- temporal coefficient behaviour,
+- probabilistic reverse inference,
+- longitudinal simulation.
+
+Script 89 explored interactive / 3D mathematical visualization.
+
+That visualization branch is now **parked** because it does not add scientific evidence to the current update.
+
+---
+
+# Current Scientific Position — 03 October 2026
+
+The project now supports the following architecture:
+
+$$
+X_{\text{physiology}}
+\leftrightarrow
+Z_{\text{physiology}}
+\rightarrow
+Y_{\text{phenotype}}
+$$
+
+with reverse inference represented as:
+
+$$
+p(Z \mid Y)
+$$
+
+and the future longitudinal formulation:
+
+$$
+p(Z_t \mid Z_{t-1},Y_t,\Delta Y_t,t)
+$$
+
+Current evidence supports:
+
+1. The raw physiological state can be transformed into a full-rank shared / discordant / private representation.
+2. The current $X \leftrightarrow Z$ transformation is mathematically auditable and reversible.
+3. Every retained raw physiological variable contributes to the fitted phenotype map.
+4. Every retained latent component participates in the fitted phenotype map.
+5. A-private3 is the strongest individual phenotype-relevant latent direction in the current discovery model.
+6. The physiological representation is more stable through time than the phenotype mapping.
+7. Simple recalibration explains only part of later temporal drift.
+8. Phenotype does not uniquely determine individual physiology.
+9. Probabilistic $p(Z \mid Y)$ regions are more appropriate than deterministic $Y \rightarrow Z$ inversion.
+10. Conformal reverse regions retain good temporal coverage.
+11. Prior physiological state can dramatically reduce reverse uncertainty when temporal continuity is present in simulation.
+12. Some component-to-phenotype relationships themselves change with time.
+13. The 2021–23 mapping drift is not explained by lack of depressive-phenotype variability.
+
+---
+
+# Remaining Research Frontier
+
+The current NHANES / mathematical branch is sufficiently closed for the next supervisor update.
+
+The next major scientific steps are:
+
+1. **external participant-level validation**
+   - transport or rediscover at least one frozen component outside NHANES;
+
+2. **true longitudinal validation**
+   - test the proposed state-space formulation on repeated measurements from the same individuals;
+
+3. **causal identification**
+   - move from fitted functional sensitivity to interventionally interpretable quantities where suitable data/designs exist;
+
+4. **optional multimodal extension**
+   - fundus / retinal physiology after the core framework is stable.
+
+No additional exploratory NHANES branch is required before the current research update.

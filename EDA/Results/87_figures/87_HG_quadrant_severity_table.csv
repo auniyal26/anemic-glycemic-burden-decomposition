@@ -1,0 +1,21 @@
+quadrant,severity,n,weighted_prop
+Higher H burden + Higher G burden,Minimal (0-4),799,0.7102476759673721
+Higher H burden + Higher G burden,Mild (5-9),227,0.20090217568896918
+Higher H burden + Higher G burden,Moderate (10-14),68,0.06098432541041933
+Higher H burden + Higher G burden,Moderately severe (15-19),32,0.021309758895078065
+Higher H burden + Higher G burden,Severe (20-27),12,0.006556064038161323
+Higher H burden + Lower G burden,Minimal (0-4),889,0.7552421232517053
+Higher H burden + Lower G burden,Mild (5-9),206,0.15861371849027808
+Higher H burden + Lower G burden,Moderate (10-14),84,0.058937457212530436
+Higher H burden + Lower G burden,Moderately severe (15-19),23,0.018937070113724606
+Higher H burden + Lower G burden,Severe (20-27),11,0.008269630931761729
+Lower H burden + Higher G burden,Minimal (0-4),881,0.8316092456137185
+Lower H burden + Higher G burden,Mild (5-9),121,0.11858141152526136
+Lower H burden + Higher G burden,Moderate (10-14),40,0.031576158312716956
+Lower H burden + Higher G burden,Moderately severe (15-19),18,0.013391700237411767
+Lower H burden + Higher G burden,Severe (20-27),9,0.004841484310891544
+Lower H burden + Lower G burden,Minimal (0-4),1048,0.8469634384205771
+Lower H burden + Lower G burden,Mild (5-9),155,0.1125370564107076
+Lower H burden + Lower G burden,Moderate (10-14),47,0.032632881448476
+Lower H burden + Lower G burden,Moderately severe (15-19),11,0.007272189840972833
+Lower H burden + Lower G burden,Severe (20-27),2,0.0005944338792663146

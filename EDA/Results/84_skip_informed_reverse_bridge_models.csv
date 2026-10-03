@@ -1,0 +1,16 @@
+rho,model,input_dimension,ridge_alpha,rank_reverse_map
+0.0,Y_only,2,100.0,2
+0.0,Zprev_only,7,100.0,7
+0.0,Y_plus_Zprev,9,100.0,7
+0.25,Y_only,2,100.0,2
+0.25,Zprev_only,7,100.0,7
+0.25,Y_plus_Zprev,9,100.0,7
+0.5,Y_only,2,100.0,2
+0.5,Zprev_only,7,10.0,7
+0.5,Y_plus_Zprev,9,10.0,7
+0.75,Y_only,2,100.0,2
+0.75,Zprev_only,7,1.0,7
+0.75,Y_plus_Zprev,9,10.0,7
+0.9,Y_only,2,100.0,2
+0.9,Zprev_only,7,0.1,7
+0.9,Y_plus_Zprev,9,1.0,7

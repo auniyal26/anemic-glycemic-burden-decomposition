@@ -1,0 +1,4 @@
+target_coverage,conformal_cutoff_mahalanobis2,calibration_n
+0.5,5.753376139341365,2340
+0.8,11.375319811688506,2340
+0.95,32.87461283569615,2340

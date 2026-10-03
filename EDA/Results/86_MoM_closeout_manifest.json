@@ -1,0 +1,30 @@
+{
+  "script": "86_MoM_closeout_audits.py",
+  "purpose": "final pre-presentation MoM EDA + component x time closeout",
+  "EDA": {
+    "PHQ_thresholds": [
+      10,
+      15,
+      20
+    ],
+    "PHQ_categories": [
+      "0-4 minimal",
+      "5-9 mild",
+      "10-14 moderate",
+      "15-19 moderately severe",
+      "20-27 severe"
+    ],
+    "demographics": "age, sex, broad race/ethnicity where raw DEMO available"
+  },
+  "time_interaction": {
+    "baseline": "2005-2008",
+    "comparisons": [
+      "2009-2018",
+      "2021-2023"
+    ],
+    "model": "survey-weighted WLS with HC3 robust covariance",
+    "tests": "joint Wald test of both time interactions per component",
+    "multiple_testing": "Benjamini-Hochberg within phenotype",
+    "causal": false
+  }
+}

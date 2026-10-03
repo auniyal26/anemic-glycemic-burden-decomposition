@@ -1,0 +1,26 @@
+{
+  "script": "81_minimum_residual_augmentation.py",
+  "training_period": "2005-2008 only",
+  "future_refit": false,
+  "Y_state": [
+    "SOMATIC_SCORE",
+    "COGAFF_SUM"
+  ],
+  "Z_state": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "Y_dimension": 2,
+  "Z_dimension": 7,
+  "rank_Y_to_Z_map": 2,
+  "residual_effective_rank": 7,
+  "ridge_alpha": 100.0,
+  "discovery_Y_to_Z_R2": 0.006541479905610936,
+  "interpretation": "R_k is an oracle side-channel used only to measure how many extra dimensions must accompany phenotype Y for faithful Z reconstruction.",
+  "causal": false
+}

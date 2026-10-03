@@ -1,0 +1,42 @@
+{
+  "script": "82_conditional_reverse_bridge.py",
+  "training_period": "2005-2008 only",
+  "future_refit": false,
+  "target": "p(Z|Y)",
+  "Z": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "Y_representations": {
+    "Y1_total": [
+      "PHQ9_TOTAL_BRIDGE"
+    ],
+    "Y2_somatic_cogaff": [
+      "SOMATIC_BRIDGE",
+      "COGAFF_BRIDGE"
+    ],
+    "Y9_items": [
+      "DPQ010",
+      "DPQ020",
+      "DPQ030",
+      "DPQ040",
+      "DPQ050",
+      "DPQ060",
+      "DPQ070",
+      "DPQ080",
+      "DPQ090"
+    ]
+  },
+  "distribution": "multivariate Gaussian residual around ridge conditional mean E[Z|Y]",
+  "coverage_levels": [
+    0.5,
+    0.8,
+    0.95
+  ],
+  "causal": false
+}

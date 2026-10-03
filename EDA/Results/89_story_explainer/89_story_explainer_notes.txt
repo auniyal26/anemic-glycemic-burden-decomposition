@@ -1,0 +1,18 @@
+
+89 STORY EXPLAINER DASHBOARD
+============================
+Input used:
+  D:\Hematological and Glycemic Decomposition of Depression\EDA\Results\73_frozen_phenotype_map_input.csv
+
+Main output:
+  D:\Hematological and Glycemic Decomposition of Depression\EDA\Results\89_story_explainer\89_story_explainer_dashboard.html
+
+How to present it:
+  Panel 1: raw physiology cloud = the messy starting point.
+  Panel 2: latent physiology = structured axes with interpretation.
+  Panel 3: phenotype space = symptom burden progression.
+  Panel 4: conceptual bridge = X ↔ Z → Y and probabilistic Y → Z.
+
+Interpretive boundary:
+  This is a communication figure. It explains the modelling pipeline.
+  It does not replace the formal statistical figures in the paper.

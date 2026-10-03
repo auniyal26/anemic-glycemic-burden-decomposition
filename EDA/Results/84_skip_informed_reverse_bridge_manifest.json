@@ -1,0 +1,36 @@
+{
+  "script": "84_skip_informed_reverse_bridge_simulation.py",
+  "status": "controlled simulation, not observed longitudinal evidence",
+  "empirical_source": "NHANES 2005-08 frozen Z and phenotype state",
+  "Y": [
+    "SOMATIC_SCORE",
+    "COGAFF_SUM"
+  ],
+  "Z": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "rho_values": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "n_simulated": 30000,
+  "forward_generator": "ridge Y|Z + empirically resampled phenotype residuals",
+  "transition": "Z_t = rho*Z_tminus1 + sqrt(1-rho^2)*empirical_Z_innovation",
+  "reverse_models": [
+    "p(Z_t|Y_t)",
+    "p(Z_t|Z_tminus1)",
+    "p(Z_t|Y_t,Z_tminus1)"
+  ],
+  "train_cal_test": "60/20/20 fixed split",
+  "coverage": "95% split-conformal Mahalanobis region",
+  "causal": false
+}

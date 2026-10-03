@@ -1,0 +1,27 @@
+
+SCRIPT 89 — INTERACTIVE LATENT STORYBOARD
+========================================
+Input used:
+  D:\Hematological and Glycemic Decomposition of Depression\EDA\Results\73_frozen_phenotype_map_input.csv
+
+Outputs:
+  89A_raw_X_space.html
+  89B_latent_Z_space.html
+  89C_Y_space.html
+  89D_storyboard_dashboard.html
+  89E_bridge_concept.html
+
+What to show first in a talk:
+  1) 89D_storyboard_dashboard.html
+  2) 89B_latent_Z_space.html
+  3) 89E_bridge_concept.html
+
+Interpretive boundaries:
+- X-space is PCA of raw physiology, used for visual communication only.
+- Z-space is the actual learned latent representation (3 displayed coordinates only).
+- Y-space is standardized phenotype space used for visual communication.
+- These are story assets, not substitutes for the statistical figures.
+
+Terminology:
+  H state = haematological state
+  G state = glycaemic state

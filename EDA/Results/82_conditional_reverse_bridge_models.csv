@@ -1,0 +1,4 @@
+representation,Y_dimension,Z_dimension,rank_conditional_mean,ridge_alpha,discovery_n,residual_cov_condition_number
+Y1_total,1,7,1,100.0,4145,1.0841052769076354
+Y2_somatic_cogaff,2,7,2,100.0,4145,1.0860493572367742
+Y9_items,9,7,7,100.0,4145,1.0876791392740373

@@ -1,0 +1,4 @@
+representation,Y_dimension,Z_dimension,rank_Z_to_Y,rank_Y_to_Z,ridge_alpha_Z_to_Y,ridge_alpha_Y_to_Z,discovery_n
+Y1_total,1,7,1,1,100.0,100.0,4145
+Y2_somatic_cogaff,2,7,2,2,100.0,100.0,4145
+Y9_items,9,7,7,7,100.0,100.0,4145

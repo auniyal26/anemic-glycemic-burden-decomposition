@@ -1,0 +1,29 @@
+{
+  "script": "85_delta_state_informed_bridge_simulation.py",
+  "status": "controlled simulation; NOT observed longitudinal evidence",
+  "empirical_source": "NHANES 2005-08",
+  "target": "delta Z",
+  "predictors_compared": [
+    "delta Y only",
+    "Z previous only",
+    "Z previous + delta Y"
+  ],
+  "rho_values": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "kappa_values": [
+    0.0,
+    0.5,
+    0.9
+  ],
+  "rho_definition": "physiological temporal continuity",
+  "kappa_definition": "persistence of phenotype residual/nuisance across time",
+  "n_simulated": 30000,
+  "train_cal_test": "60/20/20",
+  "uncertainty": "95% split-conformal Mahalanobis region",
+  "causal": false
+}

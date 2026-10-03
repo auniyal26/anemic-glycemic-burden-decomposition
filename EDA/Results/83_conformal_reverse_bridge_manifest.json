@@ -1,0 +1,27 @@
+{
+  "script": "83_conformal_reverse_bridge.py",
+  "train_cycle": "2005-2006",
+  "calibration_cycle": "2007-2008",
+  "future_evaluation": [
+    "2009-2018",
+    "2021-2023"
+  ],
+  "Y": [
+    "SOMATIC_SCORE",
+    "COGAFF_SUM"
+  ],
+  "Z": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "mean_model": "weighted ridge",
+  "score": "Mahalanobis squared residual using 2005-06 covariance",
+  "calibration": "split conformal using 2007-08 empirical score quantiles",
+  "exact_conformal_note": "Finite-sample conformal guarantee applies to exchangeable unweighted calibration/test observations; survey-weighted coverage is reported descriptively.",
+  "causal": false
+}
