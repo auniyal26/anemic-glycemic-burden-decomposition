@@ -1,0 +1,7 @@
+metric,value
+n_total_papers,62
+n_star_yes,22
+n_novelty_high,14
+intersection_counts,"{'Method / framework': 31, 'Supporting / population context': 18, 'A ↔ G coupling': 5, 'G × depression': 3, 'A × depression': 3, 'Exact / near-exact A × G × depression': 2}"
+region_counts,"{'Methodological / not population-specific': 23, 'Not specified': 11, 'Global / multi-study': 9, 'South Asia': 9, 'East Asia': 4, 'Europe': 3, 'North America': 2, 'Latin America': 1}"
+top_country_region_counts,"{'Methodological / not population-specific': 23, 'Not specified in stored metadata': 11, 'Global / multi-study': 9, 'India': 9, 'China': 4, 'United Kingdom': 3, 'India + United States': 1, 'Brazil': 1, 'United States (multi-hospital external cohort)': 1}"
