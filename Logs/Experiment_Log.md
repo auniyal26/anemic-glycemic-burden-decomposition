@@ -2792,3 +2792,113 @@ The next major scientific steps are:
    - fundus / retinal physiology after the core framework is stable.
 
 No additional exploratory NHANES branch is required before the current research update.
+
+## Research Log — 12 October 2026
+**Scripts 90–94 | Reversible Encoding and Phenotype–Physiology Bridge**
+
+### Objective
+Investigate Prof. Saeed's proposed reversible encoding methods as representations for learning a phenotype equation \(\hat Y=h(E(Z))\) and potentially constructing a reverse bridge \(Y\rightarrow Z\).
+
+Retain the existing seven-component haematological–glycaemic decomposition as the frozen baseline.
+
+### Experimental Setup
+- **Dataset:** NHANES-derived Script 73 frozen phenotype-map observations.
+- **Training:** 2005–06 (n=1,805).
+- **Calibration:** 2007–08 (n=2,340), where applicable.
+- **External-cycle tests:** 2009–18 (n=11,002) and 2021–23 (n=2,590).
+- **Encoders:** Decimal digit interleaving, Cantor pairing, prime-exponent coding and \(2^n(2m+1)\).
+- **Models:** Ridge regression, histogram-based gradient boosting (HGB), codebook retrieval and phenotype-conditioned candidate weighting.
+
+### Script 90 — Encoding and Reconstruction
+- Tested 4,506 physiological observations at 2, 3 and 4 decimal places.
+- Zero failures in recovering quantized components.
+- Maximum original-to-reconstructed component error at 3 decimals: 0.0005.
+- All 4,506 observations retained distinct codes.
+- Among 63 observations with PHQ-9 = 10, all 63 had distinct physiological codes.
+
+**Finding:** Reversible encoding is feasible at specified precision. Equal phenotype scores do not identify unique physiological configurations.
+
+### Script 91 — Direct vs Encoded Reverse Retrieval
+2009–18, PHQ-9 total:
+
+| Method | Weighted Z R² |
+|---|---:|
+| Direct Y→Z ridge | −0.0611 |
+| Nearest-Y direct Z | −0.7458 |
+| Nearest-Y encoded Z | −0.7458 |
+
+**Finding:** Encoding did not improve nearest-phenotype retrieval.
+
+### Script 92 — Encoded Forward Phenotype Equation
+Seven-component results, 2009–18:
+
+| Method | Weighted Y R² |
+|---|---:|
+| Raw Z + ridge | +0.0154 |
+| Decimal interleaving + HGB | −0.0293 |
+| Cantor + HGB | −0.0479 |
+
+Cantor codes reached 906 bits; prime-exponent encoding exceeded the configured limit in seven dimensions.
+
+**Finding:** None of the tested encoded representations improved forward phenotype prediction over the raw-Z baseline.
+
+### Script 93 — Structured Digit-Level Learning
+Seven-component results, 2009–18:
+
+| Representation | Weighted Y R² |
+|---|---:|
+| Raw Z | +0.0154 |
+| Decimal multiscale | −0.0182 |
+| Decimal digit tokens | −0.0293 |
+| Cantor complete bytes | −0.0535 |
+
+Reverse Y→Z weighted R²:
+- Direct ridge: −0.0611.
+- Best reported encoded posterior mean: −0.0642.
+
+Two-component prime-exponent and two-adic representations also showed no improvement.
+
+**Finding:** Explicit digit-level and structured representations did not resolve the weak forward or reverse relationship.
+
+### Script 94 — Multiple Candidate Physiological States
+Seven components; five candidates; 24 physiological families.
+
+**2009–18, PHQ-9 total:**
+
+| Method | Weighted Z R² | Top-5 family hit |
+|---|---:|---:|
+| Direct Y→Z ridge | −0.0611 | N/A |
+| Prior-only | −0.0670 | 32.93% |
+| Raw-Z forward ridge posterior | −0.0618 | 31.21% |
+| Decimal multiscale HGB posterior | −0.0646 | 31.05% |
+
+- Quantized encoding round-trip failures: 0.
+- Maximum quantization error: 0.0005.
+- Encoded posterior performed worse than prior-only family ranking.
+- Forward PHQ-9 R² remained weak (+0.0154 for raw-Z ridge).
+
+**Finding:** Returning multiple candidate configurations did not demonstrate useful improvement from phenotype conditioning.
+
+### Consolidated Conclusions
+1. Reversible representations of Z can be constructed and decoded reliably at fixed precision.
+2. Encoding does not, by itself, make the many-to-one phenotype relationship invertible.
+3. Scripts 90–94 found no predictive improvement over the existing raw-Z baselines.
+4. The forward association between physiology and PHQ-9 is weak, limiting the information available for reverse inference.
+5. The broader representation-learning hypothesis remains unproven, not disproven.
+
+### Limitations
+- Conclusions concern the implemented encoders, models and tested NHANES cycles, not every possible encoding architecture.
+- PHQ-9 is not a unique physiological signature.
+- NHANES cycle comparisons are not person-level longitudinal observations.
+- Reported results come from local terminal outputs; complete generated CSVs and source implementations have not been independently audited in this review.
+- No causal inference or clinical diagnostic capability established.
+
+### Next Session — 13 October 2026
+**Priority: Diagnose the weak forward phenotype relationship before further encoding experiments.**
+
+1. Audit forward prediction residuals, signal strength and temporal degradation.
+2. Determine whether any physiological components contain stable phenotype information beyond the existing baselines.
+3. Revisit Prof. Saeed's encoding proposal in light of these constraints.
+4. Decide on the next experiment only after reviewing the evidence.
+
+**Session status:** Scripts 90–94 executed locally. No improvement demonstrated. Encoding investigation paused pending forward-model audit.
