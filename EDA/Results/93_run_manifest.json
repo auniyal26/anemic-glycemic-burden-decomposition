@@ -1,0 +1,30 @@
+{
+  "provenance": "real NHANES-derived frozen Script 73 observations ONLY",
+  "training_cycle": "0506",
+  "calibration_cycle": "0708",
+  "test_periods": {
+    "2007-2008_CAL": 2340,
+    "2009-2018": 11002,
+    "2021-2023": 2590
+  },
+  "components": [
+    "SP_SHARED1",
+    "SP_A_PRIVATE3"
+  ],
+  "outcome": "PHQ9_TOTAL",
+  "decimals": 3,
+  "decimal_width": 7,
+  "n_training": 1805,
+  "calibration_n": 2340,
+  "flags": [
+    "No synthetic fallback",
+    "No modifications to frozen Script 72-75 artifacts",
+    "Forward scores omit covariate adjustment; not comparable to adjusted Script 73 regressions",
+    "Calibrated sigma is evaluated on 2007-08 and reused for 2009-18/2021-23",
+    "Posterior uses empirical discrete 2005-06 codebook with NHANES survey-weight proxy prior",
+    "Gaussian phenotype likelihood is an assumption, not verified clinical law",
+    "Posterior marginal 90% intervals are not conformal or guaranteed calibrated",
+    "A code cannot restore lost inverse information or identify personal biological causation",
+    "Prime-exponent/two-adic factorized fields are reversible coordinate encodings and provide no extra information"
+  ]
+}

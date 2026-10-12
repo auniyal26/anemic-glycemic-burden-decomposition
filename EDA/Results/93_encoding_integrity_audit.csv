@@ -1,0 +1,5 @@
+representation,state,n_components,n_features,max_Z_quant_error,notes,max_cantor_bytes_used
+decimal_digit_tokens,exact_after_quantization,2,14,0.0004999974403742946,Complete interleaved digits; no code digits truncated,
+cantor_complete_bytes,complete,2,161,,All encoded integer bytes provided; no truncation,4.0
+prime_exponent_fields,factorized_exact,2,2,,"Exponents/valuation and odd part; equivalent to quantized coordinates, not independent compression",
+two_adic_fields,factorized_exact,2,2,,"Exponents/valuation and odd part; equivalent to quantized coordinates, not independent compression",

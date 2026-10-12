@@ -1,0 +1,30 @@
+{
+  "data": "real complete rows from EDA/Results/73_frozen_phenotype_map_input.csv",
+  "n_real_complete_rows": 17737,
+  "train_0506": 1805,
+  "rank_Jf": 7,
+  "inverse_error_JfJg": 2.6645352591003757e-15,
+  "inverse_error_JgJf": 6.24129235301149e-15,
+  "PHQ9_linear_nullspace_dimensions": 6,
+  "Somatic_plus_CogAff_linear_nullspace_dimensions": 5,
+  "constructed_nullspace_delta_Z": {
+    "Shared1": 0.25,
+    "Shared2": 0.0,
+    "Discord1": 0.0,
+    "Discord2": 0.0,
+    "A_private3": -0.16115904590218935,
+    "A_private4": 0.0,
+    "G_private3": 0.0
+  },
+  "predicted_PHQ_delta_at_fixed_covariates": -6.938893903907228e-18,
+  "implied_raw_biomarker_difference": {
+    "Hb": -0.05631286142863006,
+    "RBC": 0.06194223604627536,
+    "MCV": -1.1349501351063698,
+    "RDW": 0.03230188281567842,
+    "HbA1c": 0.11380115532124338,
+    "Glucose": 1.875544564886341,
+    "logInsulin": 0.10363519129255887
+  },
+  "warning": "This is not exact replication of Script 81's tuning/training; training exclusively 2005-06 prevents 2007-08 leakage. Codebook nearest-neighbor deliberately matches identical train patient indices. Reversible representation does not imply phenotype identifiability."
+}

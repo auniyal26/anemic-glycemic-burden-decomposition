@@ -1,0 +1,44 @@
+{
+  "source": "REAL NHANES-derived Script-73 only; no synthetic fallback",
+  "train_cycle": "0506",
+  "calibration_cycle": "0708",
+  "heldout_periods": {
+    "2009-2018": 11002,
+    "2021-2023": 2590
+  },
+  "train_n": 1805,
+  "cal_n": 2340,
+  "frozen_Z": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "quantization_decimals": 3,
+  "digits_per_component": 7,
+  "max_Z_quantization_error": {
+    "train": 0.000499992552225402,
+    "cal": 0.0004999974403742946,
+    "2009-2018": 0.0004999891649188903,
+    "2021-2023": 0.0004999378105772015
+  },
+  "posterior_family_count": 24,
+  "top_k": 5,
+  "notes": [
+    "No original frozen decompositions or existing numbered outputs changed",
+    "Calibrated Gaussian phenotype likelihood, survey-weight empirical codebook prior",
+    "No claims of actual patient-level longitudinal dynamics or causal inference",
+    "Somatic and CogAff use two measured dimensions; may carry more information than PHQ total",
+    "Codebook consists of 2005-06 observation codes; exact individuals cannot be recovered from phenotype alone",
+    "Cluster hit@5 compares a true held-out state cluster solely for retrospective evaluation",
+    "Oracle best-of-5 error uses held-out true Z; NOT deployable reconstruction performance",
+    "Physiology families formed from training Z, not from a code-specific physical law",
+    "Posterior/top-five ranking compared with Y-independent fixed prior top-five family baseline",
+    "Posterior probabilities are model-based; NO conformal guarantee, no guarantee of cross-cycle calibration",
+    "Survey weights used as empirical-prior proxy, not true physiological prevalence distribution",
+    "Forward rawZ Y scores without additional covariates; not directly comparable to adjusted Script-73 maps"
+  ]
+}

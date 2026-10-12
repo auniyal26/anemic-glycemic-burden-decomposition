@@ -1,0 +1,4 @@
+decimals,n_real_rows,distinct_codes,duplicated_code_rows,max_abs_Z_error,mean_abs_Z_error,roundtrip_failures_relative_to_quantized_Z,digits_per_component,interleave_total_digits,mean_nested_cantor_bits,max_nested_cantor_bits,rows_with_observed_PHQ9_10,distinct_Z_codes_at_observed_PHQ9_10
+2,4506,4506,0,0.004999939759396693,0.002492326172167007,0,4,28,451.4982245894363,664,63,63
+3,4506,4506,0,0.0004999974403742946,0.0002507867836959483,0,5,35,663.4494007989348,876,63,63
+4,4506,4506,0,4.999920644804812e-05,2.493849976511963e-05,0,6,42,875.9656014203284,1089,63,63

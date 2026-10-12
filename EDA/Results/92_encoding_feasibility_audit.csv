@@ -1,0 +1,5 @@
+method,status,train_rows,total_rows_encoded,audited_roundtrips,quantization_decimals,max_abs_Z_rounding_error,distinct_train_codes,code_collisions_between_different_quantized_states,mean_train_code_size_bits_or_digits,max_code_size_bits_or_digits,h_feature_dimension,fraction_h_feature_vectors_missing_middle_code_bits
+decimal_interleave,OK,1805.0,17737.0,52.0,3.0,0.0004999974403742946,1805.0,0.0,70.0,70.0,70.0,0.0
+cantor,OK,1805.0,17737.0,52.0,3.0,0.0004999974403742946,1805.0,0.0,663.0260387811634,906.0,49.0,0.9981958617579072
+two_adic,SKIP: 2-adic encoder implemented for exactly 2 values,,,,,,,,,,,
+prime_exponents,SKIPPED (feasibility): OverflowError: Prime integer exceeds --max-bits,,,,,,,,,,,

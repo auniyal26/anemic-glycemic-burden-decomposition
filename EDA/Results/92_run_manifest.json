@@ -1,0 +1,30 @@
+{
+  "provenance": "REAL NHANES-derived frozen Script 73 Z and observed PHQ Y; no synthetic fallback",
+  "train_cycle": "0506",
+  "test_periods": {
+    "2007-2008": 2340,
+    "2009-2018": 11002,
+    "2021-2023": 2590
+  },
+  "n_train": 1805,
+  "components": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "outcome": "PHQ9_TOTAL",
+  "decimals": 3,
+  "q_error_bound": 0.0005,
+  "important_limits": [
+    "No demographic covariates; this is NOT a refit of Script 73's adjusted regression.",
+    "Code integer is reversible at stated quantization, but integer-code model features may omit middle bits: check 92 audit.",
+    "Reverse method searches only observed training-codebook states, not a learned mathematical inverse.",
+    "Top-k weighted mean Z may not itself correspond to one valid encoded state.",
+    "No valid inference of an individual's physiological cause from PHQ-9 alone.",
+    "Not a causal model, no within-person longitudinal inference."
+  ]
+}

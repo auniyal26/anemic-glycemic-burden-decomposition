@@ -1,0 +1,18 @@
+{
+  "provenance": "REAL frozen Script 73 NHANES-derived Z (no simulated fallback)",
+  "n_complete_Z_rows": 4506,
+  "period_counts": {
+    "2005-2008": 4506
+  },
+  "decimals": [
+    2,
+    3,
+    4
+  ],
+  "interpretation": "Encoding exactly recovers only the rounded values. A code is NOT a uniquely identifiable physiological state given PHQ-9.",
+  "files": [
+    "90_real_encoding_summary.csv",
+    "90_component_precision_audit.csv",
+    "90_patient_code_examples.csv"
+  ]
+}
