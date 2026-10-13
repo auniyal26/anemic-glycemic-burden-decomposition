@@ -1,0 +1,6 @@
+metric,value
+train_silhouette,0.10894207171992827
+bootstrap_mean_ARI,0.46173983980997413
+bootstrap_SD_ARI,0.1450810353653304
+K_fixed_exploratory,4.0
+discovery_distance_95pct_threshold,4.380214906250804

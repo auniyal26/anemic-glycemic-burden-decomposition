@@ -1,0 +1,42 @@
+{
+  "script": "95_physiological_configuration_atlas.py",
+  "source": "real Script-73 frozen Z + original DPQ XPT PHQ items",
+  "training_cycle": "2005-2006 only",
+  "evaluation_periods": [
+    "2007-2008",
+    "2009-2018",
+    "2021-2023"
+  ],
+  "cluster_method": "weighted KMeans, K=4 fixed; no phenotype used to form groups",
+  "warning": "KMeans imposes partitions; clusters not independently validated biological phenotypes",
+  "prediction": "regularized multinomial logistic; same complete-PHQ/Z cohort; no test physiology in features",
+  "comparison": "prior-only, phenotype-only, covariate-only, phenotype plus covariates",
+  "weights": "NHANES SURVEY_WT weighting for clustering, fitting, and scoring (not full complex-survey variance estimation)",
+  "causal": false,
+  "observed_longitudinal": false,
+  "seed": 95,
+  "K": 4,
+  "z_columns": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "covariates": [
+    "RIDAGEYR",
+    "RIAGENDR",
+    "BMXBMI"
+  ],
+  "raw_biomarker_columns_available": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW",
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ]
+}

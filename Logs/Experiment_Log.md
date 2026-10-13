@@ -2729,8 +2729,152 @@ Script 89 explored interactive / 3D mathematical visualization.
 
 That visualization branch is now **parked** because it does not add scientific evidence to the current update.
 
----
 
+# Research Log — 13 October 2026
+
+## Script 95 — Physiological Configuration Atlas
+
+### Objective
+
+Investigate whether identical PHQ-9 scores correspond to different haematological and glycaemic physiological configurations, and whether recurring physiological patterns can be identified and reproduced across NHANES cycles.
+
+This experiment extends Scripts 90–94 by examining physiological heterogeneity rather than attempting deterministic reverse reconstruction.
+
+### Experimental Setup
+
+- **Dataset:** NHANES, using the frozen seven-component decomposition from Script 73.
+- **Discovery:** 2005–06 (n = 1,805).
+- **Validation:** 2007–08 (n = 2,340), 2009–18 (n = 11,002), 2021–23 (n = 2,590).
+- **Method:** Survey-weighted KMeans, K = 4, fitted on discovery physiology only.
+- **Components:** Shared1/2, Discord1/2, A-private3/4, G-private3.
+- **Predictors compared:** PHQ-9 total, nine PHQ items, age/sex/BMI, and combinations.
+- **Baselines:** Prior-only group identification and covariate-only prediction.
+
+The frozen physiological transformation was not modified.
+
+### Results
+
+#### 1. Physiological Heterogeneity at PHQ-9 = 10
+
+The discovery sample contained 22 observations with PHQ-9 = 10.
+
+Their group assignments were:
+
+| Group | Observations |
+|---|---:|
+| Group 0 | 14 |
+| Group 1 | 1 |
+| Group 2 | 6 |
+| Group 3 | 1 |
+
+Despite having the same observed phenotype score, participants occupied different positions in the physiological component space.
+
+**Finding:** Identical PHQ-9 scores do not imply identical haematological–glycaemic physiological states.
+
+The four assigned groups should not be interpreted as validated subtypes, particularly because two groups contain only one observation at this score.
+
+#### 2. Physiological Group Profiles
+
+The four exploratory groups displayed different mean patterns across the seven components.
+
+Group 3 showed particularly elevated glycaemic measurements in the discovery data:
+
+- Group 3: mean HbA1c approximately 9.68%, glucose approximately 229 mg/dL.
+- Group 0: mean HbA1c approximately 5.26%, glucose approximately 97 mg/dL.
+
+These differences support physiological interpretability of the group profiles but do not establish distinct disease mechanisms.
+
+#### 3. Cluster Quality
+
+| Metric | Result |
+|---|---:|
+| Discovery silhouette | 0.1089 |
+| Bootstrap adjusted Rand index | 0.4617 |
+| Bootstrap ARI SD | 0.1451 |
+| Smallest weighted group prevalence | 2.7% |
+
+**Finding:** Cluster separation was weak, and reproducibility was imperfect. K = 4 was imposed rather than established as the natural number of physiological groups.
+
+#### 4. Phenotype-Based Group Identification
+
+Held-out NHANES 2009–18:
+
+| Model | Weighted log loss | Information gain vs prior |
+|---|---:|---:|
+| Prior-only | 1.2103 | 0.0000 |
+| PHQ-9 total | 1.2082 | +0.0022 |
+| Nine PHQ items | 1.2192 | -0.0088 |
+| Covariates only | 1.0222 | +0.1882 |
+| PHQ total + covariates | 1.0215 | +0.1888 |
+
+Lower log loss is better.
+
+**Finding:** PHQ-9 contained little additional information for identifying physiological groups. Age, sex and BMI were substantially more informative.
+
+Adding PHQ-9 to these covariates produced only a small additional improvement.
+
+#### 5. Cross-Cycle Transfer
+
+| Period | Outside discovery 95% radius | Group prevalence variation |
+|---|---:|---:|
+| 2005–06 | 3.00% | 0.0000 |
+| 2007–08 | 3.85% | 0.0557 |
+| 2009–18 | 4.87% | 0.1154 |
+| 2021–23 | 5.69% | 0.1133 |
+
+The assigned physiological group distribution changed across cycles, indicating some population shift.
+
+### Consolidated Interpretation — Scripts 90–95
+
+1. The seven-dimensional physiological representation can be encoded and decoded with negligible quantization error.
+2. The same observed phenotype score can correspond to multiple distinct physiological configurations.
+3. The tested encoding methods did not improve forward phenotype prediction or reverse physiological reconstruction.
+4. Physiological configurations exhibit heterogeneous component profiles, but the current clustering does not establish robust biological subtypes.
+5. PHQ-9 alone carries limited information for distinguishing these configurations.
+6. Covariates appear substantially more informative than PHQ-9 for the tested group-identification task.
+7. No reliable individual-level reverse bridge has yet been demonstrated.
+
+### Limitations
+
+- Exploratory clustering, not validated clinical phenotyping.
+- Weak cluster separation and imperfect bootstrap reproducibility.
+- No demonstrated causal decomposition of depressive symptoms.
+- No reliable recovery of individual physiology from PHQ-9.
+- NHANES cycles are repeated cross-sectional observations, not within-person longitudinal data.
+- No external participant-level validation.
+- Full complex-survey variance inference remains outstanding.
+
+### Research Discussion and Future Directions
+
+Three directions were identified:
+
+**1. Physiological fingerprints**
+
+Investigate stable physiological configurations independently of PHQ-9. Evaluate biological interpretability, subgroup stability and reproducibility without presupposing a fixed number of clusters.
+
+**2. Universal data-harmonization adapter**
+
+Develop a preprocessing interface that transforms compatible external datasets into the seven-variable physiological input expected by the frozen decomposition.
+
+Assess units, assay differences, missing biomarkers, normalization and dataset compatibility before transfer.
+
+**3. Cognitive phenotype extension**
+
+Move toward cognitive outcomes and genuine longitudinal measurements, preserving the outcome-independent physiological decomposition.
+
+Prof. Saeed's reversible coding methods, physiological-frequency analysis, Bayesian reverse inference and PDE-related modelling remain research directions. No additional benefit from those methods is claimed at this stage.
+
+### Decision — 13 October 2026
+
+**Research session closed.**
+
+- Scripts 90–95 completed locally.
+- Script 95 figures and experimental results preserved.
+- Reverse-bridge experimentation paused.
+- No additional experiment authorized for today.
+- Future work will be selected based on scientific value rather than continuing experiment numbering.
+
+**Current scientific position:** Physiological heterogeneity at identical phenotype scores is demonstrated descriptively, but reliably identifying an individual's physiological configuration from phenotype information remains unresolved.
 # Current Scientific Position — 03 October 2026
 
 The project now supports the following architecture:
@@ -2902,3 +3046,4 @@ Seven components; five candidates; 24 physiological families.
 4. Decide on the next experiment only after reviewing the evidence.
 
 **Session status:** Scripts 90–94 executed locally. No improvement demonstrated. Encoding investigation paused pending forward-model audit.
+
