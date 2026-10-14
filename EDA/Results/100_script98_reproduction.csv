@@ -1,0 +1,13 @@
+target,scope,period,R2_difference
+PHQ_total,lean,test_2009-2018,-1.6653345369377348e-16
+PHQ_total,lean,validate_2021-2023,1.4137996329210978e-16
+PHQ_total,full,test_2009-2018,-3.191891195797325e-16
+PHQ_total,full,validate_2021-2023,-4.0766001685454967e-17
+Somatic,lean,test_2009-2018,3.7470027081099033e-16
+Somatic,lean,validate_2021-2023,1.3877787807814457e-17
+Somatic,full,test_2009-2018,0.0
+Somatic,full,validate_2021-2023,-6.938893903907228e-17
+CogAff,lean,test_2009-2018,3.3306690738754696e-16
+CogAff,lean,validate_2021-2023,-1.734723475976807e-17
+CogAff,full,test_2009-2018,3.400058012914542e-16
+CogAff,full,validate_2021-2023,-1.3877787807814457e-17

@@ -1,0 +1,164 @@
+{
+  "script": "98_regularized_phenotype_equation.py",
+  "input": "EDA\\Results\\73_frozen_phenotype_map_input.csv",
+  "source": "genuine Script73 frozen Z and raw DPQ items",
+  "train_cycles": [
+    "0506",
+    "0708"
+  ],
+  "test_cycles": [
+    "0910",
+    "1112",
+    "1314",
+    "1516",
+    "1718"
+  ],
+  "validation_cycles": [
+    "2123"
+  ],
+  "selection": "5-fold (configurable) training-only cycle-stratified CV, smallest weighted MSE",
+  "designs": 10,
+  "candidates_per_design": 28,
+  "outcomes": [
+    "PHQ_total",
+    "Somatic",
+    "CogAff"
+  ],
+  "matched_cohort": {
+    "test_2009-2018": 9893,
+    "train_2005-2008": 3815,
+    "validate_2021-2023": 2247
+  },
+  "full_covariates": [
+    "RIDAGEYR",
+    "BMXBMI",
+    "INDFMPIR",
+    "EGFR_2021",
+    "RIAGENDR",
+    "RACE",
+    "EDUC3",
+    "SMOKING3"
+  ],
+  "lean_covariates": [
+    "RIDAGEYR",
+    "BMXBMI",
+    "RIAGENDR"
+  ],
+  "categorical_reference": {
+    "RIAGENDR": "1",
+    "RACE": "1",
+    "EDUC3": "1",
+    "SMOKING3": "0"
+  },
+  "interaction_raw_scalers": {
+    "LBXHGB": {
+      "mean": 14.552688420658196,
+      "sd": 1.5097908076307374
+    },
+    "LBXRBCSI": {
+      "mean": 4.777996271477139,
+      "sd": 0.48346625658872705
+    },
+    "LBXMCVSI": {
+      "mean": 89.48901234261619,
+      "sd": 5.432004723656851
+    },
+    "LBXRDW": {
+      "mean": 12.722793492989831,
+      "sd": 1.0752870062583322
+    },
+    "LBXGH": {
+      "mean": 5.512548725928415,
+      "sd": 0.8883969990905444
+    },
+    "LBXGLU": {
+      "mean": 104.45232099646412,
+      "sd": 29.020011795026374
+    },
+    "LOG_IN": {
+      "mean": 2.157049955897997,
+      "sd": 0.731158632563445
+    },
+    "SP_SHARED1": {
+      "mean": -0.011121507254428736,
+      "sd": 0.9959826574481258
+    },
+    "SP_SHARED2": {
+      "mean": 0.011065731016453785,
+      "sd": 0.9934085959128397
+    },
+    "SP_DISCORD1": {
+      "mean": 0.008399509990400521,
+      "sd": 0.986357851892747
+    },
+    "SP_DISCORD2": {
+      "mean": 0.021404037815871635,
+      "sd": 0.9833545147397927
+    },
+    "SP_A_PRIVATE3": {
+      "mean": -0.013792065472510117,
+      "sd": 0.9845869348867854
+    },
+    "SP_A_PRIVATE4": {
+      "mean": -0.008118280700395438,
+      "sd": 0.9986237800838317
+    },
+    "SP_G_PRIVATE3": {
+      "mean": -0.01356167283649354,
+      "sd": 0.9693813886579443
+    }
+  },
+  "outcome_winners": [
+    {
+      "outcome": "PHQ_total",
+      "selected_scope": "full",
+      "selected_design": "Z_pairwise",
+      "method": "ElasticNet",
+      "alpha": 0.05,
+      "l1_ratio": 0.8,
+      "cv_MSE": 12.335021184101018,
+      "test_R2": 0.07537586651341832,
+      "validation_R2": 0.0007724494628471579
+    },
+    {
+      "outcome": "Somatic",
+      "selected_scope": "full",
+      "selected_design": "Z_pairwise",
+      "method": "ElasticNet",
+      "alpha": 0.05,
+      "l1_ratio": 0.5,
+      "cv_MSE": 3.4182576886562246,
+      "test_R2": 0.07359977878691071,
+      "validation_R2": 0.03844011499515254
+    },
+    {
+      "outcome": "CogAff",
+      "selected_scope": "full",
+      "selected_design": "Z_main",
+      "method": "Ridge",
+      "alpha": 100.0,
+      "l1_ratio": NaN,
+      "cv_MSE": 4.451276293623979,
+      "test_R2": 0.05921799857740451,
+      "validation_R2": -0.03517776866182731
+    }
+  ],
+  "outputs": [
+    "98_model_selection_cv.csv",
+    "98_frozen_holdout_performance.csv",
+    "98_equation_terms.csv",
+    "98_model_contributions.csv",
+    "98_equations.md",
+    "98_primary_equations.md",
+    "98_model_derivatives.csv",
+    "98_phenotype_coherence.csv",
+    "98_readout.md",
+    "98_manifest.json",
+    "98_cohort_coverage.csv"
+  ],
+  "frozen_transforms_modified": false,
+  "causality": false,
+  "within_subject_longitudinal": false,
+  "survey_weighted_point_metrics_only": true,
+  "note": "Equations in 98_equations.md and 98_equation_terms.csv are fitted to genuine local NHANES on run; selection uses training CV only."
+}

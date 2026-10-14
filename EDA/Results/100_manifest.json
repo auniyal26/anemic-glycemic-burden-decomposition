@@ -1,0 +1,48 @@
+{
+  "script": "100_dynamic_physiological_regression.py",
+  "synthetic_self_test": false,
+  "reused_script98": "EDA\\98_regularized_phenotype_equation.py",
+  "training_cycles": [
+    "0506",
+    "0708"
+  ],
+  "test_cycles": [
+    "0910",
+    "1112",
+    "1314",
+    "1516",
+    "1718"
+  ],
+  "validation_cycles": [
+    "2123"
+  ],
+  "survey_weighted_point_metrics": true,
+  "revisited_temporal_holdouts": true,
+  "frozen_Z": true,
+  "selected_by": "training-only stratified CV weighted MSE",
+  "matched_counts": {
+    "test_2009-2018": 9893,
+    "train_2005-2008": 3815,
+    "validate_2021-2023": 2247
+  },
+  "n_candidate_specs_per_target": 20,
+  "no_causality": true,
+  "no_individual_longitudinal": true,
+  "winners": {
+    "PHQ_total": {
+      "cv_winner": "full/smooth_experts/G_axis/alpha=100/tau=0.75",
+      "best_dynamic": "full/smooth_experts/G_axis/alpha=100/tau=0.75",
+      "best_global": "full/global_z_pairwise/none/alpha=0.05/l1=0.8"
+    },
+    "Somatic": {
+      "cv_winner": "full/smooth_experts/G_axis/alpha=100/tau=0.75",
+      "best_dynamic": "full/smooth_experts/G_axis/alpha=100/tau=0.75",
+      "best_global": "full/global_z_pairwise/none/alpha=0.05/l1=0.5"
+    },
+    "CogAff": {
+      "cv_winner": "full/smooth_experts/G_axis/alpha=100/tau=1.5",
+      "best_dynamic": "full/smooth_experts/G_axis/alpha=100/tau=1.5",
+      "best_global": "full/global_z_ridge/none/alpha=100"
+    }
+  }
+}

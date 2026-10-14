@@ -1,0 +1,4 @@
+period,n,direct_total_weighted_R2,coherent_sum_weighted_R2,weighted_RMSE_disagreement,note
+train_2005-2008,3815,0.11061484152245338,0.10800603527172548,0.18304357332708807,"Somatic+CogAff is algebraically coherent, but independently CV-selected models need not agree with separately fit PHQ-total model"
+test_2009-2018,9893,0.07537586651341832,0.0803635780702614,0.21279912651609087,"Somatic+CogAff is algebraically coherent, but independently CV-selected models need not agree with separately fit PHQ-total model"
+validate_2021-2023,2247,0.0007724494628471579,-0.0008705425921098353,0.22041151455114413,"Somatic+CogAff is algebraically coherent, but independently CV-selected models need not agree with separately fit PHQ-total model"

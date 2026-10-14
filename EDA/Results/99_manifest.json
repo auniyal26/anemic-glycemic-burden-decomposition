@@ -1,0 +1,68 @@
+{
+  "script": "99_temporal_coefficient_stability.py",
+  "discovery_cycles": [
+    "0506",
+    "0708"
+  ],
+  "test_cycles": [
+    "0910",
+    "1112",
+    "1314",
+    "1516",
+    "1718"
+  ],
+  "validation_cycles": [
+    "2123"
+  ],
+  "selection": "Script 98 original training-only CV winners",
+  "inputs_used": [
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\98_regularized_phenotype_equation.py",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\98_model_selection_cv.csv",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\98_frozen_holdout_performance.csv",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\98_manifest.json"
+  ],
+  "input_sha256": {
+    "98_regularized_phenotype_equation.py": "73d61c85324cc4b60f580d787441180bf0b2ec9754db3bb6cd357a114d354a0e",
+    "98_model_selection_cv.csv": "f2f16f31819c10cb9ec0abfa8aadf26904a6b568512559b582064b23a09356c1",
+    "98_frozen_holdout_performance.csv": "ff9c3841c21f14bab1747c76669558074c3d07af04eb3b221a956fd35a1abb56",
+    "98_manifest.json": "46b9da1448cd2162c94c22147b64ec8eab82f18e436fe31cd19f9fd58ecbbd62"
+  },
+  "full_covariates": [
+    "RIDAGEYR",
+    "BMXBMI",
+    "INDFMPIR",
+    "EGFR_2021",
+    "RIAGENDR",
+    "RACE",
+    "EDUC3",
+    "SMOKING3"
+  ],
+  "lean_covariates": [
+    "RIDAGEYR",
+    "BMXBMI",
+    "RIAGENDR"
+  ],
+  "matched_cohorts": {
+    "test_2009-2018": 9893,
+    "train_2005-2008": 3815,
+    "validate_2021-2023": 2247
+  },
+  "models_audited": 30,
+  "n_frozen_cycle_metrics": 240,
+  "n_refit_coefficients": 4848,
+  "max_abs_98_R2_reproduction_error": 4.0939474033052647e-16,
+  "refits_used_to_select_predictors": false,
+  "frozen_models_modified": false,
+  "causal": false,
+  "within_subject_longitudinal": false,
+  "complex_survey_inference": false,
+  "outputs": [
+    "99_cycle_performance.csv",
+    "99_scope_comparison.csv",
+    "99_coefficient_drift.csv",
+    "99_drift_summary.csv",
+    "99_cycle_refit_diagnostics.csv",
+    "99_manifest.json",
+    "99_readout.md"
+  ]
+}

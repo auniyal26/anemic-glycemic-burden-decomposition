@@ -3047,3 +3047,299 @@ Seven components; five candidates; 24 physiological families.
 
 **Session status:** Scripts 90–94 executed locally. No improvement demonstrated. Encoding investigation paused pending forward-model audit.
 
+## 14 October 2026 — Research Log: Scripts 96–100
+
+### Session Objective
+
+Investigate reversible physiological encoding, determine whether phenotype information can recover underlying haematological and glycaemic measurements, and establish explicit regression equations linking physiological decomposition components to depressive phenotypes.
+
+The session subsequently shifted toward regularized regression, temporal coefficient stability, and dynamic multi-equation models.
+
+---
+
+### 1. Script 96 — Reversible Encoding and Cryptanalytic Audit
+
+**Objective:** Investigate whether physiological and phenotype information can be represented through reversible numerical codes and whether frequency-based cryptanalytic methods can improve physiological identification.
+
+**Methods:**
+- Tested decimal interleaving, Cantor pairing, prime-exponent encoding and two-adic encoding.
+- Applied encoding to subsets of physiological variables (X), decomposition coordinates (Z) and phenotype variables (Y).
+- Investigated phenotype-symbol frequencies and cryptanalytic n-gram patterns.
+- Compared reverse physiological reconstruction against conventional regression baselines.
+
+**Results:**
+- Evaluated 4,349 variable subsets and 17,396 encoder attempts.
+- Obtained 12,846 feasible encoding configurations.
+- Feasible configurations achieved exact round-trip reconstruction at the selected quantization precision.
+- Two-adic encoding was restricted to ordered pairs; several other configurations exceeded practical numerical size limits.
+- Frequency-based models yielded small exploratory physiological-pattern signals but did not reliably reconstruct individual physiology.
+
+**Conclusion:** Reversible encoding is mathematically feasible, but coding does not introduce information that is absent from the phenotype. The X-to-Y relationship cannot be inverted merely by changing its numerical representation.
+
+### 2. Script 97 — Identifiability of X from Y
+
+**Objective:** Determine whether seven physiological biomarkers can be encoded into one number and subsequently recovered from phenotype information.
+
+The seven raw physiological variables were Hb, RBC, MCV, RDW, HbA1c, glucose and log-insulin.
+
+**Model:**
+
+\[
+X \longleftrightarrow C_X,\qquad
+Y\longrightarrow\widehat C_X\longrightarrow\widehat X
+\]
+
+**Results:**
+
+- Decimal interleaving and Cantor pairing successfully encoded and decoded the seven-variable X vector and joint X-plus-PHQ-total representation.
+- No decoding failures or collisions occurred in the tested feasible configurations.
+- Prime-exponent coding exceeded the configured size limit for full-dimensional vectors.
+- A unique X-from-Y inverse was not identifiable.
+
+Training-set ambiguity:
+
+| Phenotype representation | Ambiguous observations | Maximum in-sample exact identification |
+|---|---:|---:|
+| PHQ total | 99.83% | 1.44% |
+| Somatic + CogAff | 98.28% | 5.76% |
+| Nine PHQ items | 79.11% | 26.26% |
+
+Held-out 2009–18 reconstruction:
+
+| Method | Mean weighted R² |
+|---|---:|
+| Prior decoded candidate | −0.7612 |
+| PHQ-total decoded candidate | −0.8295 |
+| Nine-item decoded candidate | −0.8890 |
+| Cryptanalysis bigrams | −0.8946 |
+| Cryptanalysis trigrams | −0.8875 |
+
+**Interpretation:** Different physiological vectors correspond to identical phenotype observations. Although the complete physiological code is reversible, phenotype observations alone cannot uniquely identify it.
+
+**Decision:** Stop treating exact individual Y-to-X inversion as the primary objective. Shift toward statistical physiological decomposition, conditional associations and interpretable phenotype equations.
+
+---
+
+### 3. Regression Framework and Partial-Derivative Clarification
+
+Revisited Scripts 72–77 and confirmed that the existing phenotype-mapping framework already supports regression and partial-derivative analysis.
+
+The basic model is:
+
+\[
+Y_i=\beta_0+\sum_{j=1}^{7}\beta_jZ_{ij}+\gamma^\top C_i+\varepsilon_i
+\]
+
+where:
+- \(Z_1,Z_2\): shared components.
+- \(Z_3,Z_4\): discordant components.
+- \(Z_5,Z_6\): A-private components.
+- \(Z_7\): G-private component.
+- \(C\): adjustment covariates.
+
+For the linear specification:
+
+\[
+\frac{\partial\widehat Y}{\partial Z_j}=\beta_j
+\]
+
+**Clarification:** These are fitted regression sensitivities, not a partial differential equation (PDE). A true PDE-based model remains a separate research direction.
+
+Also clarified that R² is not the sole scientific criterion. Physiological contribution estimates, coefficient stability, partial derivatives, uncertainty and independent replication are essential to the decomposition objective.
+
+### 4. Script 98 — Regularized Phenotype Regression
+
+**Objective:** Fit explicit numerical equations using ordinary regression, Ridge, LASSO and Elastic Net, with and without physiological interactions.
+
+**Protocol:**
+- Training: NHANES 2005–08.
+- Testing: NHANES 2009–18.
+- Validation: NHANES 2021–23.
+- Five-fold training-only cross-validation.
+- Compared raw X, frozen Z, pairwise interactions and lean/full covariate sets.
+
+Matched sample sizes: 3,815 training, 9,893 testing and 2,247 validation observations.
+
+**Cross-validation-selected models:**
+
+| Outcome | Model | Test R² | Validation R² |
+|---|---|---:|---:|
+| PHQ total | Elastic Net, Z pairwise | 0.0754 | 0.0008 |
+| Somatic | Elastic Net, Z pairwise | 0.0736 | 0.0384 |
+| CogAff | Ridge, Z main effects | 0.0592 | −0.0352 |
+
+**Concrete seven-component somatic equation (lean Ridge):**
+
+\[
+\begin{aligned}
+Y_i={}&1.377041
++0.127107Z_{1i}
+-0.066859Z_{2i}\\
+&-0.092493Z_{3i}
+-0.113033Z_{4i}\\
+&+0.268620Z_{5i}
++0.035237Z_{6i}\\
+&+0.081045Z_{7i}
+-0.009094Age_i\\
+&+0.015558BMI_i
++0.421778Female_i+\varepsilon_i
+\end{aligned}
+\]
+
+Performance:
+- 2009–18: R² = 0.0436; MAE = 1.54.
+- 2021–23: R² = 0.0449; MAE = 1.58.
+
+**Findings:**
+- Successfully obtained actual fitted numerical regression equations.
+- Regularization and interaction terms provided only limited gains.
+- Raw X and frozen Z performed similarly, consistent with the fact that Z is derived from X.
+- A-private components exhibited comparatively prominent fitted associations.
+- PHQ total and CogAff models showed poor temporal transfer.
+
+**Decision:** Retain the seven-component Ridge equation as a simple, interpretable baseline. Investigate physiological stability rather than relying exclusively on prediction accuracy.
+
+---
+
+### 5. Script 99 — Temporal Coefficient Stability
+
+**Objective:** Assess changes in regression performance, coefficient magnitudes and signs across NHANES cycles.
+
+**Methods:**
+- Reproduced the frozen Script 98 regression predictions.
+- Evaluated individual NHANES cycles.
+- Compared lean and full covariate adjustments.
+- Conducted cycle-specific refits for descriptive coefficient-drift analysis only.
+
+**Lean Z-main performance:**
+
+| Outcome | 2009–18 R² | 2021–23 R² |
+|---|---:|---:|
+| PHQ total | 0.0325 | 0.0054 |
+| Somatic | 0.0436 | 0.0449 |
+| CogAff | 0.0143 | −0.0238 |
+
+**Coefficient findings:**
+- Somatic prediction remained relatively stable across evaluation periods.
+- A-private 3 maintained a positive coefficient in the examined somatic refits, although its magnitude decreased.
+- G-private 3 also remained positive but comparatively weak in the lean Z-main somatic equation.
+- Discordant component 2 exhibited a relatively stable negative coefficient.
+- Shared component 1 and A-private 4 exhibited greater instability.
+- CogAff showed more pronounced coefficient and prediction instability.
+
+Additional covariates improved performance during 2009–18 but generally worsened transfer to 2021–23 compared with lean Z-main models.
+
+**Conclusion:** Some physiological associations are directionally persistent despite weak individual prediction. Temporal coefficient stability merits direct investigation.
+
+**Limitation:** Later-cycle refits are descriptive, not independent predictive validation, and coefficient sign consistency alone does not establish statistical significance.
+
+---
+
+### 6. Script 100 — Dynamic Physiological Regression
+
+**Objective:** Develop a flexible but interpretable model in which different physiological profiles can have different regression coefficients.
+
+Rather than using one fixed regression equation, multiple Ridge equations are combined through smooth physiological gating.
+
+**Model:**
+
+\[
+Y_i=\sum_{k=1}^{K}w_k(Z_i)
+\left(\beta_{0k}+\sum_{j=1}^{7}\beta_{jk}Z_{ij}
++\gamma_k^\top C_i\right)+\varepsilon_i
+\]
+
+Tested:
+- Static Ridge and Elastic Net baselines.
+- A-private gating.
+- G-private gating.
+- Joint A/G gating.
+- Unsupervised two-center gating.
+
+All fitting, gating construction and model selection were restricted to the 2005–08 training data.
+
+**Training-CV winners:**
+- PHQ total: two-expert G-private gating, Ridge alpha = 100, temperature = 0.75.
+- Somatic: two-expert G-private gating, Ridge alpha = 100, temperature = 0.75.
+- CogAff: two-expert G-private gating, Ridge alpha = 100, temperature = 1.5.
+
+**Evaluation results:**
+
+| Outcome | Dynamic test R² | Dynamic validation R² |
+|---|---:|---:|
+| PHQ total | 0.0795 | −0.0070 |
+| Somatic | 0.0781 | 0.0345 |
+| CogAff | 0.0581 | −0.0355 |
+
+**Comparison with static training-CV winners:**
+
+| Outcome | Static validation R² | Dynamic validation R² |
+|---|---:|---:|
+| PHQ total | 0.0008 | −0.0070 |
+| Somatic | 0.0384 | 0.0345 |
+| CogAff | −0.0352 | −0.0355 |
+
+The dynamic models achieved marginally lower training-CV MSE but did not improve validation R².
+
+**Physiological observations:**
+- The selected dynamic models used G-private 3 to determine the mixture between two experts.
+- The fitted G-private coefficient changed sign between experts for each phenotype.
+- A-private coefficients remained positive across the two experts.
+- Local partial derivatives now depend on both expert coefficients and changes in the gating function.
+- These findings provide exploratory evidence of model-dependent physiological heterogeneity, not proof of distinct biological regimes.
+
+Generated numerical expert equations, gating parameters, dynamic partial derivatives, physiological block contrasts, gate occupancy and prediction metrics.
+
+**Conclusion:** Dynamic multi-equation physiological regression is mathematically and computationally feasible. However, additional model flexibility did not resolve weak phenotype prediction or temporal transfer.
+
+---
+
+### 7. Consolidated Findings
+
+The experiments established the following:
+
+1. **Reversible physiological representation:** Seven physiological variables can be encoded into one exact, decodable numerical representation at fixed precision.
+
+2. **Inverse non-identifiability:** Phenotype scores are insufficient to uniquely recover an individual's full physiological configuration.
+
+3. **Concrete regression equations:** Fitted seven-component phenotype equations now exist, including explicit coefficients, intercepts, covariate terms and residuals.
+
+4. **Physiological sensitivity:** Regression coefficients and partial derivatives provide interpretable conditional statistical associations.
+
+5. **Temporal heterogeneity:** Some physiological associations persist across NHANES cycles, while others exhibit coefficient drift or loss of predictive performance.
+
+6. **Dynamic model feasibility:** Multiple physiological regression equations can be combined through learned, physiology-dependent weights.
+
+7. **Limited generalization improvement:** More complex regression models have not yet produced consistent improvements over static baselines.
+
+### 8. Methodological Limitations
+
+- Results are associative rather than causal.
+- NHANES temporal cohorts contain different participants; they do not establish within-person longitudinal changes.
+- Reversible numerical encoding does not imply an invertible physiological-to-phenotype relationship.
+- Complex survey-design confidence intervals and formal multiplicity adjustments remain incomplete.
+- Repeated inspection of the 2009–18 and 2021–23 outcomes makes subsequent comparisons exploratory rather than untouched confirmatory validation.
+- Physiological block sensitivities must not be interpreted as direct causal contributions or biological percentages.
+- Better predictive accuracy is not equivalent to stronger mechanistic identification.
+
+### 9. Pending Research Directions
+
+1. Quantify uncertainty in the seven regression coefficients and dynamic derivatives.
+2. Investigate A-private, G-private, shared and discordant component-specific statistical contributions.
+3. Examine whether the apparent G-private sign change between experts persists under resampling and independent replication.
+4. Investigate temporal distribution shifts, measurement differences and calibration.
+5. Test more informative phenotype definitions, especially symptom-specific and eventual cognitive outcomes.
+6. Retain the static seven-component Ridge equation as the interpretability reference and the dynamic mixture as an exploratory alternative.
+7. Revisit genuine longitudinal and causal modelling only with suitable data and identification assumptions.
+
+### Final Session Decision
+
+**Scripts 96–100 completed and evaluated.**
+
+The session successfully advanced from reversible physiological coding and failed phenotype-to-physiology inversion to concrete static and dynamic phenotype regression equations.
+
+The principal achievement is the establishment of an explicit, reproducible mathematical relationship between the frozen physiological decomposition coordinates and observed depressive phenotypes.
+
+The principal unresolved problem is not equation construction, but determining which physiological associations are robust, meaningful and generalizable.
+
+**Status:** Session closed — 14 October 2026. Frozen decomposition and earlier experimental assets preserved.

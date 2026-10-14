@@ -1,0 +1,46 @@
+{
+  "script": "96_Y_code_cryptanalysis_audit.py",
+  "base": "real frozen Script-73 and PHQ item XPTs",
+  "training": "0506",
+  "heldout": [
+    "0708",
+    "0918",
+    "2123"
+  ],
+  "complete_case_cohorts": {
+    "2007-2008": 2340,
+    "2009-2018": 11002,
+    "2021-2023": 2590,
+    "train_2005-2006": 1805
+  },
+  "encoding_subsets": 4349,
+  "encoder_attempts": 17396,
+  "coder_status_counts": {
+    "ok": 12846,
+    "not_defined_nonpair": 4241,
+    "not_feasible:prime_bit_limit": 254,
+    "not_feasible:two_adic_bit_limit": 42,
+    "not_feasible:cantor_bit_limit": 13
+  },
+  "precision": {
+    "Y": 0,
+    "X": 3,
+    "Z": 3
+  },
+  "caveats": [
+    "No causal identification",
+    "No unique Y->X/Z inverse",
+    "2-adic is pair-only",
+    "Encoding cannot add Y information",
+    "Survey-weighted point metrics only: not full NHANES variance estimation",
+    "Y/Z analysis uses complete PHQ/Z rows; X prediction uses target-specific complete A, G or X cohorts. Compare only within matched target cohorts",
+    "Frequency keys trained only from 2005-06 observed phenotype-physiology pairs",
+    "Cluster-based candidate keys are exploratory and not biologically validated",
+    "2007-08 is not fully independent of the 2005-08 unsupervised X-to-Z representation fit; 2009-18 and 2021-23 are the principal temporal holdouts",
+    "Encoding-symbol frequency search is an analogy to substitution cryptanalysis, not RSA decryption",
+    "Exhaustive subsets refer to exact codec auditing; predictive audits use prespecified phenotype representations"
+  ],
+  "coded_model_rows": 180,
+  "coverage_file": "96_cohort_coverage.csv",
+  "seed": 96
+}

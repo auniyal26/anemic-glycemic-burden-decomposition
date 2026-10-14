@@ -1,0 +1,54 @@
+{
+  "script": "97_X_code_from_Y_identifiability.py",
+  "input": "REAL Script 73 + original DPQ as in 96",
+  "train": "2005-2006 only",
+  "heldout": [
+    "2007-2008",
+    "2009-2018",
+    "2021-2023"
+  ],
+  "cohorts": {
+    "train_2005-2006": 1805,
+    "2007-2008": 2340,
+    "2009-2018": 11002,
+    "2021-2023": 2590
+  },
+  "source_X": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW",
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "quantization_decimals": 3,
+  "decimal_width": 16,
+  "code_dimension": 7,
+  "k": 10,
+  "note": "Candidate code is always encoded from observed TRAIN X; no test X in decoding. Test X used only for evaluation.",
+  "codecs": [
+    "decimal_interleave",
+    "cantor",
+    "prime_exponents",
+    "two_adic"
+  ],
+  "comparisons": [
+    "prior",
+    "ridge_total",
+    "ridge_pair",
+    "ridge_items",
+    "score_match",
+    "item_hamming",
+    "cryptanalytic_ngrams"
+  ],
+  "limits": [
+    "A single score cannot uniquely identify X if several X correspond to that score.",
+    "Candidate top-k oracle uses test X only for evaluation.",
+    "Quantile bins are exploratory surrogate outcomes, not clinical thresholds.",
+    "Zero holdout exact-code hits can reflect unseen continuous states; compare coarse and distance metrics.",
+    "No causality or patient-level clinical claims.",
+    "Survey-weighted point metrics; no complex-design uncertainty or multiplicity corrections.",
+    "Code length can be extremely large; coding cannot manufacture information absent from Y."
+  ]
+}
