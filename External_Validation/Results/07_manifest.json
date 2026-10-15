@@ -1,0 +1,43 @@
+{
+  "script": "07_nhanes_hba1c_hematology_discordance.py",
+  "input": "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\73_frozen_phenotype_map_input.csv",
+  "input_sha256": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962",
+  "discovery_period": "0506,0708",
+  "holdouts": [
+    "0910",
+    "1112",
+    "1314",
+    "1516",
+    "1718",
+    "2123"
+  ],
+  "eligible_before_complete_screen": 21489,
+  "complete_by_period": {
+    "discovery_2005_08": 4413,
+    "holdout_2009_18": 12065,
+    "holdout_2021_23": 2959
+  },
+  "seed": 20261015,
+  "fixed_alpha": 20.0,
+  "bootstrap_reps": 600,
+  "target": "LBXGH",
+  "baseline_features": [
+    "LBXGLU",
+    "LOG_IN",
+    "GLUCOSE_SQUARED",
+    "RIDAGEYR",
+    "BMXBMI",
+    "EGFR_2021",
+    "SEX_FEMALE"
+  ],
+  "hematology_features": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "causal_claim": false,
+  "complex_survey_design_se_accounted_for": false,
+  "midja_direct_discordance_test": false,
+  "patient_records_exported": false
+}

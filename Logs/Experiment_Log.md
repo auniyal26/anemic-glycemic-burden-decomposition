@@ -3343,3 +3343,29 @@ The principal achievement is the establishment of an explicit, reproducible math
 The principal unresolved problem is not equation construction, but determining which physiological associations are robust, meaningful and generalizable.
 
 **Status:** Session closed — 14 October 2026. Frozen decomposition and earlier experimental assets preserved.
+
+## 2026-10-15 — External Validation and Causal Identification
+
+### Completed
+- Scripts 05–06: Frozen NHANES glycemic representation tested in longitudinal MIDUS cohorts.
+- Physiological structure showed partial external stability.
+- No reliable incremental cognitive prediction over HbA1c alone.
+- Script 07: Hematology improved frozen HbA1c prediction across NHANES periods.
+- Script 08: Cross-fitted AIPW causal-identification stress test.
+
+### Key Findings
+- Hematological variables contain transferable conditional information about HbA1c.
+- Low-Hb associations weakened under expanded adjustment.
+- Modern 2021–23 estimates were not stable across specifications.
+- Causal identification was NOT established.
+
+### Interpretation
+Predictive information, physiological decomposition, and causal effects remain distinct.
+The hematology–HbA1c measurement-discordance hypothesis warrants further investigation.
+
+### Next Direction
+Investigate iron-status measurements, longitudinal glucose reference data,
+and intervention-based evidence before developing a correction model.
+
+### Status
+Scripts 05–08 complete. No causal or clinical claims established.

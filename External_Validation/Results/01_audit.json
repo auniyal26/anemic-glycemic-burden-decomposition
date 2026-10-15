@@ -1,0 +1,475 @@
+{
+  "script": "01_midus_schema_linkage_audit.py",
+  "input_root": "D:\\Hematological and Glycemic Decomposition of Depression\\data\\MIDUS\\raw",
+  "files_inspected": 15,
+  "candidate_matches": 1885,
+  "disclosure_rule": "counts 0 to 10 suppressed (MIDUS portal policy)",
+  "candidate_warning": "variable-label searches, NOT verified harmonized measures",
+  "inventory": [
+    {
+      "file": "M2_BIO_AGGREGATE_N1255_20240405.sav",
+      "path": "data\\MIDUS\\raw\\M2_BIO_AGGREGATE_N1255_20240405.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M2",
+      "kind": "BIO",
+      "column_count": 3516,
+      "metadata_row_count": "1255",
+      "person_id_column": "M2ID",
+      "matched_variable_count": 149,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "CESD",
+        "Cognition",
+        "Depression",
+        "Glucose",
+        "HbA1c",
+        "Insulin",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "1255",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "M2_P1_SURVEY_N4963_20200720.sav",
+      "path": "data\\MIDUS\\raw\\M2_P1_SURVEY_N4963_20200720.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M2",
+      "kind": "SURVEY",
+      "column_count": 2189,
+      "metadata_row_count": "4963",
+      "person_id_column": "M2ID",
+      "matched_variable_count": 169,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "Depression",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "4963",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "M2_P3_BTACT_N4512_20211123.sav",
+      "path": "data\\MIDUS\\raw\\M2_P3_BTACT_N4512_20211123.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M2",
+      "kind": "COG",
+      "column_count": 223,
+      "metadata_row_count": "4512",
+      "person_id_column": "M2ID",
+      "matched_variable_count": 12,
+      "candidate_groups": [
+        "Age",
+        "Cognition",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "4512",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "M3_BIO_AGGREGATE_N747_20231016.sav",
+      "path": "data\\MIDUS\\raw\\M3_BIO_AGGREGATE_N747_20231016.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M3",
+      "kind": "BIO",
+      "column_count": 3205,
+      "metadata_row_count": "747",
+      "person_id_column": "M2ID",
+      "matched_variable_count": 139,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "CESD",
+        "Cognition",
+        "Depression",
+        "Glucose",
+        "HbA1c",
+        "Insulin",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "747",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "M3_P1_SURVEY_N3294_20251029.sav",
+      "path": "data\\MIDUS\\raw\\M3_P1_SURVEY_N3294_20251029.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M3",
+      "kind": "SURVEY",
+      "column_count": 2613,
+      "metadata_row_count": "3294",
+      "person_id_column": "M2ID",
+      "matched_variable_count": 330,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "Depression",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "3294",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "M3_P3_BTACT_N3291_20210922.sav",
+      "path": "data\\MIDUS\\raw\\M3_P3_BTACT_N3291_20210922.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M3",
+      "kind": "COG",
+      "column_count": 245,
+      "metadata_row_count": "3291",
+      "person_id_column": "M2ID",
+      "matched_variable_count": 6,
+      "candidate_groups": [
+        "Age",
+        "Cognition",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "3291",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MIDJA 2_Biomarker_Public_N=328_10-06-2016.sav",
+      "path": "data\\MIDUS\\raw\\MIDJA 2_Biomarker_Public_N=328_10-06-2016.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_2",
+      "kind": "BIO",
+      "column_count": 1000,
+      "metadata_row_count": "328",
+      "person_id_column": "MIDJA_IDs",
+      "matched_variable_count": 62,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "CESD",
+        "Depression",
+        "Hb",
+        "HbA1c",
+        "MCV",
+        "RBC",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "328",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MIDJA_ SURVEY_ DATA_Public_01_6-13-11.sav",
+      "path": "data\\MIDUS\\raw\\MIDJA_ SURVEY_ DATA_Public_01_6-13-11.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_1",
+      "kind": "SURVEY",
+      "column_count": 703,
+      "metadata_row_count": "1027",
+      "person_id_column": "MIDJA_IDs",
+      "matched_variable_count": 12,
+      "candidate_groups": [
+        "Age",
+        "Cognition",
+        "Depression",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "1027",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MIDJA_1_Biomarker_Public_N382_20180816.sav",
+      "path": "data\\MIDUS\\raw\\MIDJA_1_Biomarker_Public_N382_20180816.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_1",
+      "kind": "BIO",
+      "column_count": 946,
+      "metadata_row_count": "382",
+      "person_id_column": "MIDJA_IDs",
+      "matched_variable_count": 63,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "CESD",
+        "Depression",
+        "Hb",
+        "HbA1c",
+        "MCV",
+        "RBC",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "382",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MIDJA_2_SURVEY_DATA_Public_01_03-09-16.sav",
+      "path": "data\\MIDUS\\raw\\MIDJA_2_SURVEY_DATA_Public_01_03-09-16.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_2",
+      "kind": "SURVEY",
+      "column_count": 760,
+      "metadata_row_count": "657",
+      "person_id_column": "MIDJA_IDs",
+      "matched_variable_count": 12,
+      "candidate_groups": [
+        "Age",
+        "Cognition",
+        "Depression",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "657",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MR1_BIO_AGGREGATE_N863_20240405.sav",
+      "path": "data\\MIDUS\\raw\\MR1_BIO_AGGREGATE_N863_20240405.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR1",
+      "kind": "BIO",
+      "column_count": 3469,
+      "metadata_row_count": "863",
+      "person_id_column": "MRID",
+      "matched_variable_count": 142,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "CESD",
+        "Cognition",
+        "Depression",
+        "Glucose",
+        "HbA1c",
+        "Insulin",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "863",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MR1_P1_SURVEY_N3577_20250407.sav",
+      "path": "data\\MIDUS\\raw\\MR1_P1_SURVEY_N3577_20250407.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR1",
+      "kind": "SURVEY",
+      "column_count": 2605,
+      "metadata_row_count": "3577",
+      "person_id_column": "MRID",
+      "matched_variable_count": 309,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "Depression",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "3577",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MR1_P3_BTACT_N2763_20251119.SAV",
+      "path": "data\\MIDUS\\raw\\MR1_P3_BTACT_N2763_20251119.SAV",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR1",
+      "kind": "COG",
+      "column_count": 252,
+      "metadata_row_count": "2763",
+      "person_id_column": "MRID",
+      "matched_variable_count": 15,
+      "candidate_groups": [
+        "Age",
+        "Cognition",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "2763",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MR2_P1_SURVEY_N2154_20251003.sav",
+      "path": "data\\MIDUS\\raw\\MR2_P1_SURVEY_N2154_20251003.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR2",
+      "kind": "SURVEY",
+      "column_count": 2493,
+      "metadata_row_count": "2154",
+      "person_id_column": "MRID",
+      "matched_variable_count": 275,
+      "candidate_groups": [
+        "Age",
+        "BMI",
+        "Depression",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "2154",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    },
+    {
+      "file": "MR2_P3_BTACT+MOCA_N1934_20260709.sav",
+      "path": "data\\MIDUS\\raw\\MR2_P3_BTACT+MOCA_N1934_20260709.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR2",
+      "kind": "COG",
+      "column_count": 399,
+      "metadata_row_count": "1934",
+      "person_id_column": "MRID",
+      "matched_variable_count": 164,
+      "candidate_groups": [
+        "Age",
+        "Cognition",
+        "Sex"
+      ],
+      "id_status": "read_locally",
+      "n_unique_id": "1934",
+      "n_null_id": "SUPPRESSED_0_TO_10",
+      "n_duplicate_id_rows": "SUPPRESSED_0_TO_10"
+    }
+  ],
+  "linkage": [
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_BIO",
+      "target": "M2_SURVEY",
+      "shared_ids": "1054",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_BIO",
+      "target": "M2_COG",
+      "shared_ids": "1152",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_BIO",
+      "target": "M3_BIO",
+      "shared_ids": "687",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_BIO",
+      "target": "M3_COG",
+      "shared_ids": "1049",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_COG",
+      "target": "M3_COG",
+      "shared_ids": "2940",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M3_BIO",
+      "target": "M3_SURVEY",
+      "shared_ids": "644",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M3_BIO",
+      "target": "M3_COG",
+      "shared_ids": "731",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_REFRESHER",
+      "source": "MR1_BIO",
+      "target": "MR1_SURVEY",
+      "shared_ids": "746",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_REFRESHER",
+      "source": "MR1_BIO",
+      "target": "MR1_COG",
+      "shared_ids": "801",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_REFRESHER",
+      "source": "MR1_BIO",
+      "target": "MR2_COG",
+      "shared_ids": "689",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_REFRESHER",
+      "source": "MR1_COG",
+      "target": "MR2_COG",
+      "shared_ids": "1602",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDJA",
+      "source": "MIDJA_1_BIO",
+      "target": "MIDJA_1_SURVEY",
+      "shared_ids": "382",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDJA",
+      "source": "MIDJA_1_BIO",
+      "target": "MIDJA_2_BIO",
+      "shared_ids": "243",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDJA",
+      "source": "MIDJA_1_BIO",
+      "target": "MIDJA_2_SURVEY",
+      "shared_ids": "317",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDJA",
+      "source": "MIDJA_2_BIO",
+      "target": "MIDJA_2_SURVEY",
+      "shared_ids": "328",
+      "note": "aggregate count; records not exported"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_BIO+M2_COG",
+      "target": "M3_COG",
+      "shared_ids": "972",
+      "note": "three-way aggregate; not complete-case N"
+    },
+    {
+      "family": "MIDUS_CORE",
+      "source": "M2_BIO+M3_BIO",
+      "target": "M3_COG",
+      "shared_ids": "673",
+      "note": "three-way aggregate; not complete-case N"
+    },
+    {
+      "family": "MIDUS_REFRESHER",
+      "source": "MR1_BIO+MR1_COG",
+      "target": "MR2_COG",
+      "shared_ids": "649",
+      "note": "three-way aggregate; not complete-case N"
+    }
+  ],
+  "errors": []
+}

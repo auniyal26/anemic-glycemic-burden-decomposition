@@ -1,0 +1,33 @@
+{
+  "project": "Hematological and Glycemic Decomposition of Depression",
+  "purpose": "External validation of frozen physiology and phenotype frameworks; no re-fitting or harmonization is implied by downloading.",
+  "datasets": {
+    "KNHANES": {
+      "country": "South Korea",
+      "design": "Repeated cross-sectional survey; not within-person follow-up",
+      "official_portals": [
+        "https://knhanes.kdca.go.kr/knhanes/main.do",
+        "https://knhanes.kdca.go.kr/knhanes/postSendPage.do?postparam=%7B%22menuId%22%3A%224003%22%7D&url=%2Feng%2Fintr%2FdataIntr.do"
+      ],
+      "target_years_to_audit": [2014, 2016, 2018],
+      "access": "Official raw-data download interface; accept provider terms/pledge as required. Do not assume unauthenticated direct links.",
+      "primary_goal": "Potential PHQ-9 replication; verify seven exact biomarkers and same-person survey modules first.",
+      "restriction": "Respect official KDCA data terms; check variable availability and survey design per year."
+    },
+    "MIDUS": {
+      "country": "United States",
+      "design": "Longitudinal cohort with linked biomarker and other survey/cognitive projects; linkage and overlapping sample must be checked.",
+      "official_portals": [
+        "https://www.icpsr.umich.edu/web/NACDA/studies/29282",
+        "https://www.icpsr.umich.edu/web/NACDA/studies/38837",
+        "https://www.icpsr.umich.edu/web/NACDA/studies/25281",
+        "https://www.icpsr.umich.edu/web/NACDA/studies/37095",
+        "https://midus.colectica.org/Account/Login"
+      ],
+      "release_ids": [29282, 38837, 25281, 37095],
+      "access": "Public-use; create/log into an ICPSR account and accept each download's terms; a separate MIDUS Portal registration may be required.",
+      "primary_goal": "Longitudinal biomarker/cognition and depression-instrument transfer; verify full seven-marker coverage before exact X->Z transfer.",
+      "restriction": "MIDUS data must NOT be uploaded to public AI/LLM services or redistributed. Use for non-commercial research; suppress reporting cells with n < 10."
+    }
+  }
+}

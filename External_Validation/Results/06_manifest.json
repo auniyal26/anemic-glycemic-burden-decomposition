@@ -1,0 +1,67 @@
+{
+  "script": "06_midus_executive_incremental_validation.py",
+  "source_script": "05_midus_frozen_glycemic_transfer.py",
+  "script05_sha256": "b54a30b3fcc03c60cede504b5df4896f4494fd82215e94b8a250d08c4d09e580",
+  "manifest05_sha256": "224b38729fdca9ef43e4f4f37ad911df18942eac4263d0a5072e0d2e40b28da7",
+  "nhanes_sha256": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962",
+  "seed": 20261015,
+  "folds": 5,
+  "ridge_alpha": 10.0,
+  "bootstrap_reps": 3000,
+  "models": [
+    "covariates",
+    "HbA1c",
+    "NHANES_PC2"
+  ],
+  "scenarios": [
+    "native_frozen",
+    "baseline_anchored",
+    "within_person_change"
+  ],
+  "analysis_domains": [
+    "comp",
+    "memory",
+    "executive"
+  ],
+  "analyses": [
+    {
+      "domain": "comp",
+      "scenario": "native_frozen",
+      "n_core": 783,
+      "n_refresher": 522,
+      "note": "Unmodified Script 05 score construction and frozen Core-to-Refresher transport"
+    },
+    {
+      "domain": "memory",
+      "scenario": "native_frozen",
+      "n_core": 842,
+      "n_refresher": 573,
+      "note": "Unmodified Script 05 score construction and frozen Core-to-Refresher transport"
+    },
+    {
+      "domain": "executive",
+      "scenario": "native_frozen",
+      "n_core": 846,
+      "n_refresher": 576,
+      "note": "Unmodified Script 05 score construction and frozen Core-to-Refresher transport"
+    },
+    {
+      "domain": "executive",
+      "scenario": "baseline_anchored",
+      "n_core": 846,
+      "n_refresher": 576,
+      "note": "Cohort-specific baseline-only centering/scaling: uses Refresher earlier BTACT moments, never later outcomes; test-cohort normalization, not strictly frozen deployment"
+    },
+    {
+      "domain": "executive",
+      "scenario": "within_person_change",
+      "n_core": 846,
+      "n_refresher": 576,
+      "note": "Predict follow-up minus earlier BTACT on each native within-cohort reference scale"
+    }
+  ],
+  "prior_performance_reproduction": "PASS: MSE, R2, bias, participant counts",
+  "no_participant_data_exported": true,
+  "original_7D_map_modified": false,
+  "notes": "Outcome-informed centered-error decomposition diagnostic only; not individual calibration"
+}

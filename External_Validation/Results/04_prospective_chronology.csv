@@ -1,0 +1,7 @@
+cohort,dimension,n_candidate,baseline_cog_to_bio_median_months,bio_to_followup_cog_median_months,baseline_to_followup_cog_median_months,timing_rule
+CORE_M2_TO_M3,comp,785,22.000,89.000,110.000,baseline_cog_month < biomarker_month < followup_cog_month
+CORE_M2_TO_M3,memory,844,22.000,89.000,111.000,baseline_cog_month < biomarker_month < followup_cog_month
+CORE_M2_TO_M3,executive,848,22.000,89.000,111.000,baseline_cog_month < biomarker_month < followup_cog_month
+REFRESHER_MR1_TO_MR2,comp,523,19.000,99.000,124.000,baseline_cog_month < biomarker_month < followup_cog_month
+REFRESHER_MR1_TO_MR2,memory,574,19.000,99.000,123.000,baseline_cog_month < biomarker_month < followup_cog_month
+REFRESHER_MR1_TO_MR2,executive,577,19.000,99.000,123.000,baseline_cog_month < biomarker_month < followup_cog_month

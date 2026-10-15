@@ -1,0 +1,21 @@
+dataset,panel,all_fields_present,n_numeric_complete,denominator,definition,note
+M2_BIO,G3,True,1228,1255,HbA1c + Glucose + Insulin,Numeric availability only. Not fully screened or harmonized.
+M2_BIO,G3+inflammation,True,1224,1255,HbA1c + Glucose + Insulin + CRP + Fibrinogen,Numeric availability only. Not fully screened or harmonized.
+M2_BIO,G3+metabolic,True,1226,1255,HbA1c + Glucose + Insulin + HDL + Triglycerides + Creatinine,Numeric availability only. Not fully screened or harmonized.
+M2_BIO,G3+CESD,True,1220,1255,HbA1c + Glucose + Insulin + CESD_total,Numeric availability only. Not fully screened or harmonized.
+M3_BIO,G3,True,733,747,HbA1c + Glucose + Insulin,Numeric availability only. Not fully screened or harmonized.
+M3_BIO,G3+inflammation,True,731,747,HbA1c + Glucose + Insulin + CRP + Fibrinogen,Numeric availability only. Not fully screened or harmonized.
+M3_BIO,G3+metabolic,True,731,747,HbA1c + Glucose + Insulin + HDL + Triglycerides + Creatinine,Numeric availability only. Not fully screened or harmonized.
+M3_BIO,G3+CESD,True,732,747,HbA1c + Glucose + Insulin + CESD_total,Numeric availability only. Not fully screened or harmonized.
+MR1_BIO,G3,True,846,863,HbA1c + Glucose + Insulin,Numeric availability only. Not fully screened or harmonized.
+MR1_BIO,G3+inflammation,True,844,863,HbA1c + Glucose + Insulin + CRP + Fibrinogen,Numeric availability only. Not fully screened or harmonized.
+MR1_BIO,G3+metabolic,True,845,863,HbA1c + Glucose + Insulin + HDL + Triglycerides + Creatinine,Numeric availability only. Not fully screened or harmonized.
+MR1_BIO,G3+CESD,True,846,863,HbA1c + Glucose + Insulin + CESD_total,Numeric availability only. Not fully screened or harmonized.
+MIDJA_1_BIO,H3+HbA1c_raw,True,382,382,Hb + RBC + MCV + HbA1c_raw,Numeric availability only. Not fully screened or harmonized.
+MIDJA_1_BIO,H7+HbA1c_raw,True,382,382,Hb + RBC + MCV + Hematocrit + MCH + MCHC + WBC + HbA1c_raw,Numeric availability only. Not fully screened or harmonized.
+MIDJA_1_BIO,H3+HbA1c_raw+CESD,True,353,382,Hb + RBC + MCV + HbA1c_raw + CESD_total,Numeric availability only. Not fully screened or harmonized.
+MIDJA_1_BIO,H7+HbA1c_raw+inflammation,True,382,382,Hb + RBC + MCV + Hematocrit + MCH + MCHC + WBC + HbA1c_raw + CRP + Fibrinogen,Numeric availability only. Not fully screened or harmonized.
+MIDJA_2_BIO,H3+HbA1c_raw,True,326,328,Hb + RBC + MCV + HbA1c_raw,Numeric availability only. Not fully screened or harmonized.
+MIDJA_2_BIO,H7+HbA1c_raw,True,326,328,Hb + RBC + MCV + Hematocrit + MCH + MCHC + WBC + HbA1c_raw,Numeric availability only. Not fully screened or harmonized.
+MIDJA_2_BIO,H3+HbA1c_raw+CESD,True,306,328,Hb + RBC + MCV + HbA1c_raw + CESD_total,Numeric availability only. Not fully screened or harmonized.
+MIDJA_2_BIO,H7+HbA1c_raw+inflammation,True,325,328,Hb + RBC + MCV + Hematocrit + MCH + MCHC + WBC + HbA1c_raw + CRP + Fibrinogen,Numeric availability only. Not fully screened or harmonized.

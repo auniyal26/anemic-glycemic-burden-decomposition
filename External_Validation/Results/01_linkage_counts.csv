@@ -1,0 +1,19 @@
+﻿family,source,target,shared_ids,note
+MIDUS_CORE,M2_BIO,M2_SURVEY,1054,aggregate count; records not exported
+MIDUS_CORE,M2_BIO,M2_COG,1152,aggregate count; records not exported
+MIDUS_CORE,M2_BIO,M3_BIO,687,aggregate count; records not exported
+MIDUS_CORE,M2_BIO,M3_COG,1049,aggregate count; records not exported
+MIDUS_CORE,M2_COG,M3_COG,2940,aggregate count; records not exported
+MIDUS_CORE,M3_BIO,M3_SURVEY,644,aggregate count; records not exported
+MIDUS_CORE,M3_BIO,M3_COG,731,aggregate count; records not exported
+MIDUS_REFRESHER,MR1_BIO,MR1_SURVEY,746,aggregate count; records not exported
+MIDUS_REFRESHER,MR1_BIO,MR1_COG,801,aggregate count; records not exported
+MIDUS_REFRESHER,MR1_BIO,MR2_COG,689,aggregate count; records not exported
+MIDUS_REFRESHER,MR1_COG,MR2_COG,1602,aggregate count; records not exported
+MIDJA,MIDJA_1_BIO,MIDJA_1_SURVEY,382,aggregate count; records not exported
+MIDJA,MIDJA_1_BIO,MIDJA_2_BIO,243,aggregate count; records not exported
+MIDJA,MIDJA_1_BIO,MIDJA_2_SURVEY,317,aggregate count; records not exported
+MIDJA,MIDJA_2_BIO,MIDJA_2_SURVEY,328,aggregate count; records not exported
+MIDUS_CORE,M2_BIO+M2_COG,M3_COG,972,three-way aggregate; not complete-case N
+MIDUS_CORE,M2_BIO+M3_BIO,M3_COG,673,three-way aggregate; not complete-case N
+MIDUS_REFRESHER,MR1_BIO+MR1_COG,MR2_COG,649,three-way aggregate; not complete-case N

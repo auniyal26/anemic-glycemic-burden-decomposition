@@ -1,0 +1,5 @@
+variable,coefficient_per_training_sd,discovery_mean,discovery_sd,interpretation
+LBXHGB,-0.2444774192793198,14.529450570472664,1.507614529291735,"Conditional association, NOT causal or mechanism"
+LBXRBCSI,0.2020106349695842,4.769860704673313,0.4859775178560072,"Conditional association, NOT causal or mechanism"
+LBXMCVSI,0.038952871132794144,89.50766337408906,5.42847133234586,"Conditional association, NOT causal or mechanism"
+LBXRDW,0.016426840754918653,12.731034012395096,1.0799288919976824,"Conditional association, NOT causal or mechanism"

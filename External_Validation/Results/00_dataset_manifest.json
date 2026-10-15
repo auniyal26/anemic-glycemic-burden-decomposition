@@ -1,0 +1,499 @@
+{
+  "script": "00_dataset_inventory.py",
+  "created_utc": "2026-10-15T04:40:51.921587+00:00",
+  "project_root": "D:\\Hematological and Glycemic Decomposition of Depression",
+  "source": "D:\\Hematological and Glycemic Decomposition of Depression\\data\\MIDUS\\raw",
+  "scope": "MIDUS and MIDJA only; KNHANES will be added later",
+  "privacy": "schema metadata only; no participant observations or IDs read",
+  "file_count": 15,
+  "inspected_schema_count": 15,
+  "files": [
+    {
+      "file": "M2_BIO_AGGREGATE_N1255_20240405.sav",
+      "relative_path": "data\\MIDUS\\raw\\M2_BIO_AGGREGATE_N1255_20240405.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M2",
+      "role": "BIO",
+      "size_bytes": 18595104,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 3516,
+      "row_count_metadata": 1255,
+      "id_column": "M2ID",
+      "first_columns": [
+        "M2ID",
+        "M2FAMNUM",
+        "SAMPLMAJ",
+        "B1PAGE_M2",
+        "B1PRSEX",
+        "B4ZSITE",
+        "B4ZCOMPM",
+        "B4ZCOMPY",
+        "B4ZRZONE",
+        "B4ZSZONE",
+        "B4ZB1PLG",
+        "B4ZB1SLG"
+      ]
+    },
+    {
+      "file": "M2_P1_SURVEY_N4963_20200720.sav",
+      "relative_path": "data\\MIDUS\\raw\\M2_P1_SURVEY_N4963_20200720.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M2",
+      "role": "SURVEY",
+      "size_bytes": 20233563,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 2189,
+      "row_count_metadata": 4963,
+      "id_column": "M2ID",
+      "first_columns": [
+        "M2ID",
+        "M2FAMNUM",
+        "SAMPLMAJ",
+        "B1STATUS",
+        "B1PAGE_M2",
+        "B1PRAGE_2019",
+        "M2AGE_FLAG",
+        "B1PBYEAR",
+        "B1PBYEAR_2019",
+        "M2BYEAR_FLAG",
+        "B1PRSEX",
+        "B1PIDATE_MO"
+      ]
+    },
+    {
+      "file": "M2_P3_BTACT_N4512_20211123.sav",
+      "relative_path": "data\\MIDUS\\raw\\M2_P3_BTACT_N4512_20211123.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M2",
+      "role": "COG",
+      "size_bytes": 4627396,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 223,
+      "row_count_metadata": 4512,
+      "id_column": "M2ID",
+      "first_columns": [
+        "M2ID",
+        "M2FAMNUM",
+        "SAMPLMAJ",
+        "B1PAGE_M2",
+        "B1PRAGE_2019",
+        "B1PRSEX",
+        "B3PIDATE_MO",
+        "B3PIDATE_YR",
+        "B3TWLIFP",
+        "B3TWLI1",
+        "B3TWLI2",
+        "B3TWLI3"
+      ]
+    },
+    {
+      "file": "M3_BIO_AGGREGATE_N747_20231016.sav",
+      "relative_path": "data\\MIDUS\\raw\\M3_BIO_AGGREGATE_N747_20231016.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M3",
+      "role": "BIO",
+      "size_bytes": 9683684,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 3205,
+      "row_count_metadata": 747,
+      "id_column": "M2ID",
+      "first_columns": [
+        "M2ID",
+        "M2FAMNUM",
+        "SAMPLMAJ",
+        "C1PRAGE",
+        "C1PRSEX",
+        "C4ZSITE",
+        "C4ZCOMPM",
+        "C4ZCOMPY",
+        "C4ZRZONE",
+        "C4ZSZONE",
+        "C4ZC1PLG",
+        "C4ZC1SLG"
+      ]
+    },
+    {
+      "file": "M3_P1_SURVEY_N3294_20251029.sav",
+      "relative_path": "data\\MIDUS\\raw\\M3_P1_SURVEY_N3294_20251029.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M3",
+      "role": "SURVEY",
+      "size_bytes": 15395155,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 2613,
+      "row_count_metadata": 3294,
+      "id_column": "M2ID",
+      "first_columns": [
+        "M2ID",
+        "M2FAMNUM",
+        "SAMPLMAJ",
+        "C1STATUS",
+        "M3RE_FILTER",
+        "C1PRAGE",
+        "C1PBYEAR",
+        "C1PRSEX",
+        "C1PIDATE_MO",
+        "C1PIDATE_YR",
+        "C1PWGHT1",
+        "C1PWGHT2"
+      ]
+    },
+    {
+      "file": "M3_P3_BTACT_N3291_20210922.sav",
+      "relative_path": "data\\MIDUS\\raw\\M3_P3_BTACT_N3291_20210922.sav",
+      "family": "MIDUS_CORE",
+      "wave": "M3",
+      "role": "COG",
+      "size_bytes": 3957821,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 245,
+      "row_count_metadata": 3291,
+      "id_column": "M2ID",
+      "first_columns": [
+        "M2ID",
+        "M2FAMNUM",
+        "SAMPLMAJ",
+        "C3STATUS",
+        "C1PRAGE",
+        "C1PRSEX",
+        "C3IDATE_MO",
+        "C3IDATE_YR",
+        "C3CMPTIME_H",
+        "C3CMPTIME_M",
+        "C3PHONTYPE",
+        "C3TWLIFP"
+      ]
+    },
+    {
+      "file": "MIDJA 2_Biomarker_Public_N=328_10-06-2016.sav",
+      "relative_path": "data\\MIDUS\\raw\\MIDJA 2_Biomarker_Public_N=328_10-06-2016.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_2",
+      "role": "BIO",
+      "size_bytes": 1229685,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 1000,
+      "row_count_metadata": 328,
+      "id_column": "MIDJA_IDs",
+      "first_columns": [
+        "MIDJA_IDs",
+        "K2STATUS",
+        "K2CMONTH",
+        "K2CYEAR",
+        "K2CSEX",
+        "K2CAGE",
+        "K2QSAQ",
+        "K2Q1A",
+        "K2Q1AD",
+        "K2Q1B",
+        "K2Q1BD",
+        "K2Q1C"
+      ]
+    },
+    {
+      "file": "MIDJA_ SURVEY_ DATA_Public_01_6-13-11.sav",
+      "relative_path": "data\\MIDUS\\raw\\MIDJA_ SURVEY_ DATA_Public_01_6-13-11.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_1",
+      "role": "SURVEY",
+      "size_bytes": 1258507,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 703,
+      "row_count_metadata": 1027,
+      "id_column": "MIDJA_IDs",
+      "first_columns": [
+        "MIDJA_IDs",
+        "J1SA1",
+        "J1SA2",
+        "J1SA3",
+        "J1SA4",
+        "J1SA5",
+        "J1SSATIS",
+        "J1SSATI2",
+        "J1SA6A",
+        "J1SA6B",
+        "J1SA6C",
+        "J1SA6D"
+      ]
+    },
+    {
+      "file": "MIDJA_1_Biomarker_Public_N382_20180816.sav",
+      "relative_path": "data\\MIDUS\\raw\\MIDJA_1_Biomarker_Public_N382_20180816.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_1",
+      "role": "BIO",
+      "size_bytes": 1434604,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 946,
+      "row_count_metadata": 382,
+      "id_column": "MIDJA_IDs",
+      "first_columns": [
+        "MIDJA_IDs",
+        "J2CMONTH",
+        "J2CYEAR",
+        "J1SQ1",
+        "J2CAGE",
+        "J2QSAQ",
+        "J2Q1A",
+        "J2Q1AD",
+        "J2Q1B",
+        "J2Q1BD",
+        "J2Q1C",
+        "J2Q1CD"
+      ]
+    },
+    {
+      "file": "MIDJA_2_SURVEY_DATA_Public_01_03-09-16.sav",
+      "relative_path": "data\\MIDUS\\raw\\MIDJA_2_SURVEY_DATA_Public_01_03-09-16.sav",
+      "family": "MIDJA",
+      "wave": "MIDJA_2",
+      "role": "SURVEY",
+      "size_bytes": 903384,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 760,
+      "row_count_metadata": 657,
+      "id_column": "MIDJA_IDs",
+      "first_columns": [
+        "MIDJA_IDs",
+        "K1SA1",
+        "K1SA2",
+        "K1SA3",
+        "K1SA4",
+        "K1SA5",
+        "K1SSATIS",
+        "K1SSATI2",
+        "K1SA6",
+        "K1SA7A",
+        "K1SA7B",
+        "K1SA7C"
+      ]
+    },
+    {
+      "file": "MR1_BIO_AGGREGATE_N863_20240405.sav",
+      "relative_path": "data\\MIDUS\\raw\\MR1_BIO_AGGREGATE_N863_20240405.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR1",
+      "role": "BIO",
+      "size_bytes": 11818680,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 3469,
+      "row_count_metadata": 863,
+      "id_column": "MRID",
+      "first_columns": [
+        "MRID",
+        "SAMPLMAJ",
+        "RA1PRSEX",
+        "RA1PRAGE",
+        "RA4ZSITE",
+        "RA4ZCOMPM",
+        "RA4ZCOMPY",
+        "RA4ZRZONE",
+        "RA4ZSZONE",
+        "RA4ZRA1PLG",
+        "RA4ZRA1SLG",
+        "RA4ZRA3CLG"
+      ]
+    },
+    {
+      "file": "MR1_P1_SURVEY_N3577_20250407.sav",
+      "relative_path": "data\\MIDUS\\raw\\MR1_P1_SURVEY_N3577_20250407.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR1",
+      "role": "SURVEY",
+      "size_bytes": 15781274,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 2605,
+      "row_count_metadata": 3577,
+      "id_column": "MRID",
+      "first_columns": [
+        "MRID",
+        "SAMPLMAJ",
+        "RA1STATUS",
+        "RA1PRAGE",
+        "RA1PBYEAR",
+        "RA1PRSEX",
+        "RA1PIDATE_MO",
+        "RA1PIDATE_YR",
+        "RA1WGHT",
+        "RA1PWGHT1",
+        "RA1PWGHT2",
+        "RA1PWGHT3"
+      ]
+    },
+    {
+      "file": "MR1_P3_BTACT_N2763_20251119.SAV",
+      "relative_path": "data\\MIDUS\\raw\\MR1_P3_BTACT_N2763_20251119.SAV",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR1",
+      "role": "COG",
+      "size_bytes": 3408664,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 252,
+      "row_count_metadata": 2763,
+      "id_column": "MRID",
+      "first_columns": [
+        "MRID",
+        "SAMPLMAJ",
+        "RA1PRAGE",
+        "RA1PRSEX",
+        "RA3IDATE_MO",
+        "RA3IDATE_YR",
+        "RA3CMPTIME_H",
+        "RA3CMPTIME_M",
+        "RA3PHONTYPE",
+        "RA3TWLIFP",
+        "RA3TWLI1",
+        "RA3TWLI2"
+      ]
+    },
+    {
+      "file": "MR2_P1_SURVEY_N2154_20251003.sav",
+      "relative_path": "data\\MIDUS\\raw\\MR2_P1_SURVEY_N2154_20251003.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR2",
+      "role": "SURVEY",
+      "size_bytes": 9227161,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 2493,
+      "row_count_metadata": 2154,
+      "id_column": "MRID",
+      "first_columns": [
+        "MRID",
+        "SAMPLMAJ",
+        "RB1STATUS",
+        "RB1PRAGE",
+        "RB1PBYEAR",
+        "RB1PRSEX",
+        "RB1PIDATE_MO",
+        "RB1PIDATE_YR",
+        "RB1PWGHT1",
+        "RB1PWGHT2",
+        "RB1PWGHT3",
+        "RB1PWGHT4"
+      ]
+    },
+    {
+      "file": "MR2_P3_BTACT+MOCA_N1934_20260709.sav",
+      "relative_path": "data\\MIDUS\\raw\\MR2_P3_BTACT+MOCA_N1934_20260709.sav",
+      "family": "MIDUS_REFRESHER",
+      "wave": "MR2",
+      "role": "COG",
+      "size_bytes": 2730314,
+      "sha256": null,
+      "schema_status": "ok",
+      "column_count": 399,
+      "row_count_metadata": 1934,
+      "id_column": "MRID",
+      "first_columns": [
+        "MRID",
+        "SAMPLMAJ",
+        "RB1PRAGE",
+        "RB1PRSEX",
+        "RB3IDATE_MO",
+        "RB3IDATE_YR",
+        "RB3CMPTIME_H",
+        "RB3CMPTIME_M",
+        "RB3PHONTYPE",
+        "RB3TWLIFP",
+        "RB3TWLI1",
+        "RB3TWLI2"
+      ]
+    }
+  ],
+  "coverage": {
+    "M2": {
+      "expected_roles": [
+        "SURVEY",
+        "BIO",
+        "COG"
+      ],
+      "observed_roles": [
+        "BIO",
+        "COG",
+        "SURVEY"
+      ],
+      "missing_roles": [],
+      "file_count": 3
+    },
+    "M3": {
+      "expected_roles": [
+        "SURVEY",
+        "BIO",
+        "COG"
+      ],
+      "observed_roles": [
+        "BIO",
+        "COG",
+        "SURVEY"
+      ],
+      "missing_roles": [],
+      "file_count": 3
+    },
+    "MR1": {
+      "expected_roles": [
+        "SURVEY",
+        "BIO",
+        "COG"
+      ],
+      "observed_roles": [
+        "BIO",
+        "COG",
+        "SURVEY"
+      ],
+      "missing_roles": [],
+      "file_count": 3
+    },
+    "MR2": {
+      "expected_roles": [
+        "SURVEY",
+        "COG"
+      ],
+      "observed_roles": [
+        "COG",
+        "SURVEY"
+      ],
+      "missing_roles": [],
+      "file_count": 2
+    },
+    "MIDJA_1": {
+      "expected_roles": [
+        "SURVEY",
+        "BIO"
+      ],
+      "observed_roles": [
+        "BIO",
+        "SURVEY"
+      ],
+      "missing_roles": [],
+      "file_count": 2
+    },
+    "MIDJA_2": {
+      "expected_roles": [
+        "SURVEY",
+        "BIO"
+      ],
+      "observed_roles": [
+        "BIO",
+        "SURVEY"
+      ],
+      "missing_roles": [],
+      "file_count": 2
+    }
+  },
+  "duplicates": [],
+  "errors": []
+}

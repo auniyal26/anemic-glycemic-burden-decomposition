@@ -1,0 +1,24 @@
+{
+  "script": "08_hba1c_causal_identification_stress_test.py",
+  "source": "EDA/Results/73_frozen_phenotype_map_input.csv",
+  "source_sha256": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962",
+  "seed": 20261015,
+  "crossfit_folds": 5,
+  "source_has_PSU_and_strata_columns": true,
+  "matched_sample_restriction": "common expanded complete cohort when available",
+  "exposure": "Low Hb: <13 g/dL men or <12 g/dL women; mixed anemia etiologies, NOT a well-defined intervention",
+  "target": "Measured HbA1c; NOT directly observed assay bias or lifetime glycemia",
+  "causal_effect_identified": false,
+  "participants_exported": false,
+  "extra_adjustment_variables_present": [
+    "INDFMPIR",
+    "RACE",
+    "EDUC3",
+    "SMOKING3"
+  ],
+  "pre_qc_counts": {
+    "discovery_2005_08": "4869",
+    "holdout_2009_18": "13223",
+    "holdout_2021_23": "3397"
+  }
+}

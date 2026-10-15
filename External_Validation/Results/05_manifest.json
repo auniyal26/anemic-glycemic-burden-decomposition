@@ -1,0 +1,181 @@
+{
+  "script": "05_midus_frozen_glycemic_transfer.py",
+  "seed": 20261015,
+  "folds": 5,
+  "ridge_alpha": 10.0,
+  "bootstrap_reps": 1000,
+  "nhanes_source": "EDA\\Results\\73_frozen_phenotype_map_input.csv",
+  "nhanes_sha256": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962",
+  "nhanes_discovery_n": 4518,
+  "g3_order": [
+    "HbA1c",
+    "Glucose",
+    "logInsulin"
+  ],
+  "nhanes_g3_weighted_mean": [
+    5.528518121372859,
+    104.99394609460512,
+    2.1647219017651045
+  ],
+  "nhanes_g3_weighted_sd": [
+    0.9069728161410546,
+    30.076979700135286,
+    0.734105068501867
+  ],
+  "frozen_g3_basis_columns": [
+    [
+      0.6723017607022251,
+      -0.2531037124692548,
+      -0.6956643251532806
+    ],
+    [
+      0.6870115468451072,
+      -0.13669496336326856,
+      0.7136733296772468
+    ],
+    [
+      0.2757271786715662,
+      0.9577332602167451,
+      -0.0819849084674904
+    ]
+  ],
+  "frozen_g3_eigenvalues": [
+    1.887820968585368,
+    0.9324246294514132,
+    0.17975440196322345
+  ],
+  "midus_files": {
+    "M2_BIO": {
+      "path": "data\\MIDUS\\raw\\M2_BIO_AGGREGATE_N1255_20240405.sav",
+      "n": 1255
+    },
+    "M2_COG": {
+      "path": "data\\MIDUS\\raw\\M2_P3_BTACT_N4512_20211123.sav",
+      "n": 4512
+    },
+    "M2_SURVEY": {
+      "path": "data\\MIDUS\\raw\\M2_P1_SURVEY_N4963_20200720.sav",
+      "n": 4963
+    },
+    "M3_COG": {
+      "path": "data\\MIDUS\\raw\\M3_P3_BTACT_N3291_20210922.sav",
+      "n": 3291
+    },
+    "MR1_BIO": {
+      "path": "data\\MIDUS\\raw\\MR1_BIO_AGGREGATE_N863_20240405.sav",
+      "n": 863
+    },
+    "MR1_COG": {
+      "path": "data\\MIDUS\\raw\\MR1_P3_BTACT_N2763_20251119.SAV",
+      "n": 2763
+    },
+    "MR1_SURVEY": {
+      "path": "data\\MIDUS\\raw\\MR1_P1_SURVEY_N3577_20250407.sav",
+      "n": 3577
+    },
+    "MR2_COG": {
+      "path": "data\\MIDUS\\raw\\MR2_P3_BTACT+MOCA_N1934_20260709.sav",
+      "n": 1934
+    }
+  },
+  "cohort_counts": {
+    "CORE": {
+      "linked": 972,
+      "lab_ordered_cov": 846
+    },
+    "REFRESHER": {
+      "linked": 649,
+      "lab_ordered_cov": 576
+    }
+  },
+  "domain_counts": [
+    {
+      "domain": "comp",
+      "core_n": "783",
+      "refresher_n": "522",
+      "core_education_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unseen_refresh_levels": {
+        "Sex": [],
+        "Education": []
+      }
+    },
+    {
+      "domain": "memory",
+      "core_n": "842",
+      "refresher_n": "573",
+      "core_education_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unseen_refresh_levels": {
+        "Sex": [],
+        "Education": []
+      }
+    },
+    {
+      "domain": "executive",
+      "core_n": "846",
+      "refresher_n": "576",
+      "core_education_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unseen_refresh_levels": {
+        "Sex": [],
+        "Education": []
+      }
+    }
+  ],
+  "models": [
+    "covariates",
+    "HbA1c",
+    "HOMA_IR",
+    "raw_G3",
+    "NHANES_PC1",
+    "NHANES_PC2",
+    "NHANES_PC3"
+  ],
+  "outputs": [
+    "05_readout.md",
+    "05_structure_transfer.csv",
+    "05_distribution_shift.csv",
+    "05_cognitive_performance.csv",
+    "05_external_mse_improvement.csv",
+    "05_manifest.json"
+  ],
+  "original_7D_map_modified": false,
+  "note": "NEW G3-only PCA learned from genuine NHANES 05\u201308 before any MIDUS outcomes; not original full 7D transform"
+}

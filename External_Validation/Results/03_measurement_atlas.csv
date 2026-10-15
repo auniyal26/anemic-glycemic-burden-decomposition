@@ -1,0 +1,115 @@
+dataset,role,measure,variable,label,present,n_rows,n_numeric,p05,median,p95,unit_validated,score_validated
+M2_BIO,BIO,HbA1c,B4BHA1C,Blood Hemoglobin A1c %,True,1255,1235,5.229,5.862,7.835,False,False
+M2_BIO,BIO,Glucose,B4BGLUC,Blood Fasting Glucose levels mg/dL,True,1255,1236,81,96,137.2,False,False
+M2_BIO,BIO,Insulin,B4BINSLN,Blood Fasting Insulin levels uIU/mL,True,1255,1236,4,10,34,False,False
+M2_BIO,BIO,CRP,B4BCRP,Blood C-Reactive Protein (ug/mL),True,1255,1235,0.2,1.44,9.381,False,False
+M2_BIO,BIO,Fibrinogen,B4BFGN,Blood Fibrinogen (mg/dL),True,1255,1235,222.7,341,495,False,False
+M2_BIO,BIO,Creatinine,B4BSCREA,Blood Creatinine (mg/dL),True,1255,1244,0.6,0.8,1.2,False,False
+M2_BIO,BIO,Total_cholesterol,B4BCHOL,Blood Total Cholesterol (mg/dL),True,1255,1244,127,184,253.8,False,False
+M2_BIO,BIO,HDL,B4BHDL,Blood HDL Cholesterol (mg/dL),True,1255,1242,31,53,87.95,False,False
+M2_BIO,BIO,LDL,B4BLDL,Blood LDL Cholesterol (mg/dL),True,1255,1242,55,101,166,False,False
+M2_BIO,BIO,Triglycerides,B4BTRIGL,Blood Triglycerides (mg/dL),True,1255,1244,50.15,106,277,False,False
+M2_BIO,BIO,CESD_total,B4QCESD,CESD: Center for Epidemiologic Studies Depression Scale,True,1255,1246,0,7,25,False,False
+M2_BIO,BIO,CESD_somatic,B4QCESDSC,"CESD Somatic Complaints Subscale (A,B,E,G,K,M,T)",True,1255,1249,0,3,10,False,False
+M2_BIO,BIO,CESD_affect,B4QCESDDA,"CESD Depressive Affect Subscale (C,F,I,J,N,Q,R)",True,1255,1249,0,1,9,False,False
+M2_COG,COG,BTACT_composite_national,B3TCOMPZ1,Zscore BTACT Composite Score - computed for MIDUS national sample only (N=4206),True,4512,3973,-1.638,0.002369,1.635,False,False
+M2_COG,COG,BTACT_composite_all,B3TCOMPZ3,Zscore BTACT Composite Score - computed for complete sample (MIDUS + Milwaukee; N=4512),True,4512,4247,-1.623,-0.007261,1.637,False,False
+M2_COG,COG,BTACT_memory,B3TEMZ1,Zscore Episodic Memory - computed for MIDUS national sample only (N=4206),True,4512,4189,-1.501,-0.03959,1.724,False,False
+M2_COG,COG,BTACT_executive,B3TEFZ1,Zscore Executive Functioning - computed for MIDUS national sample only (N=4206),True,4512,4198,-1.629,0.007366,1.577,False,False
+M2_SURVEY,SURVEY,Age,B1PAGE_M2,Respondent's calculated age at MIDUS 2 Project 1 phone interview,True,4963,4962,37,55,77,False,False
+M2_SURVEY,SURVEY,Sex,B1PRSEX,Respondent's sex,True,4963,4963,1,2,2,False,False
+M2_SURVEY,SURVEY,BMI,B1SBMI,Body Mass Index,True,4963,3814,20.38,27.04,38.4,False,False
+M2_SURVEY,SURVEY,Education,B1PB1,Highest level of education completed,True,4963,4956,3,6,11,False,False
+M2_SURVEY,SURVEY,Two_week_sadness,B1PA60,Felt sad/depressed for 2 or more weeks (12 months),True,4963,4957,1,2,2,False,False
+M3_BIO,BIO,HbA1c,C4BHA1C,Blood Hemoglobin A1c %,True,747,733,4.9,5.6,8.14,False,False
+M3_BIO,BIO,Glucose,C4BGLUC,Blood Fasting Glucose levels mg/dL,True,747,738,85,101,161.4,False,False
+M3_BIO,BIO,Insulin,C4BINSLN,Blood Fasting Insulin levels uIU/mL,True,747,738,3,10,43,False,False
+M3_BIO,BIO,CRP,C4BCRP,Blood C-Reactive Protein (ug/mL),True,747,738,0.26,1.77,16.34,False,False
+M3_BIO,BIO,Fibrinogen,C4BFGN,Blood Fibrinogen (mg/dL),True,747,735,258.4,367,525.9,False,False
+M3_BIO,BIO,Creatinine,C4BSCREA,Blood Creatinine (mg/dL),True,747,737,0.62,0.87,1.302,False,False
+M3_BIO,BIO,Total_cholesterol,C4BCHOL,Blood Total Cholesterol (mg/dL),True,747,737,120,176,244,False,False
+M3_BIO,BIO,HDL,C4BHDL,Blood HDL Cholesterol (mg/dL),True,747,736,30.75,52,85,False,False
+M3_BIO,BIO,LDL,C4BLDL,Blood LDL Cholesterol (mg/dL),True,747,736,50.75,98,161.2,False,False
+M3_BIO,BIO,Triglycerides,C4BTRIGL,Blood Triglycerides (mg/dL),True,747,737,50,97,243.4,False,False
+M3_BIO,BIO,CESD_total,C4QCESD,CESD: Center for Epidemiologic Studies Depression Scale,True,747,746,0,7,25,False,False
+M3_BIO,BIO,CESD_somatic,C4QCESDSC,"CESD Somatic Complaints Subscale (A,B,E,G,K,M,T)",True,747,746,0,3,10,False,False
+M3_BIO,BIO,CESD_affect,C4QCESDDA,"CESD Depressive Affect Subscale (C,F,I,J,N,Q,R)",True,747,746,0,1,8,False,False
+M3_COG,COG,BTACT_composite,C3TCOMP,MIDUS 3 BTACT Composite Score standardized based on main national MIDUS 2 M and SD (to use for longitudinal analyses),True,3291,3043,-1.187,-0.03976,1.109,False,False
+M3_COG,COG,BTACT_memory,C3TEM,MIDUS 3 Episodic Memory standardized based on main national MIDUS 2 M and SD (to use for longitudinal analyses),True,3291,3285,-1.495,-0.2122,1.802,False,False
+M3_COG,COG,BTACT_executive,C3TEF,MIDUS 3 Executive Functioning standardized based on main national MIDUS 2 M and SD (to use for longitudinal analyses),True,3291,3290,-1.485,-0.2035,0.9581,False,False
+M3_SURVEY,SURVEY,Age,C1PRAGE,Respondent's calculated age at M3 survey project phone interview,True,3294,3294,46,63,83,False,False
+M3_SURVEY,SURVEY,Sex,C1PRSEX,Respondent's sex,True,3294,3294,1,2,2,False,False
+M3_SURVEY,SURVEY,BMI,C1SBMI,Body Mass Index,True,3294,2839,20.3,27.3,39.5,False,False
+M3_SURVEY,SURVEY,Education,C1PB1,Highest level of education completed,True,3294,3283,3,8,12,False,False
+M3_SURVEY,SURVEY,Two_week_sadness,C1PA60,Felt sad/depressed for 2 or more weeks (12 months),True,3294,3294,1,2,2,False,False
+MR1_BIO,BIO,HbA1c,RA4BHA1C,Blood Hemoglobin A1c %,True,863,847,4.6,5.5,7.54,False,False
+MR1_BIO,BIO,Glucose,RA4BGLUC,Blood Fasting Glucose levels mg/dL,True,863,852,81.55,96,136,False,False
+MR1_BIO,BIO,Insulin,RA4BINSLN,Blood Fasting Insulin levels uIU/mL,True,863,852,4,12,47,False,False
+MR1_BIO,BIO,CRP,RA4BCRP,Blood C-Reactive Protein (ug/mL),True,863,849,0.21,1.28,10.22,False,False
+MR1_BIO,BIO,Fibrinogen,RA4BFGN,Blood Fibrinogen (mg/dL),True,863,850,239,335.5,476,False,False
+MR1_BIO,BIO,Creatinine,RA4BSCREA,Blood Creatinine (mg/dL),True,863,852,0.61,0.84,1.22,False,False
+MR1_BIO,BIO,Total_cholesterol,RA4BCHOL,Blood Total Cholesterol (mg/dL),True,863,852,124,178,246,False,False
+MR1_BIO,BIO,HDL,RA4BHDL,Blood HDL Cholesterol (mg/dL),True,863,851,33,56,91.5,False,False
+MR1_BIO,BIO,LDL,RA4BLDL,Blood LDL Cholesterol (mg/dL),True,863,851,51,96,154,False,False
+MR1_BIO,BIO,Triglycerides,RA4BTRIGL,Blood Triglycerides (mg/dL),True,863,852,45.55,98,248.4,False,False
+MR1_BIO,BIO,CESD_total,RA4QCESD,CESD: Center for Epidemiologic Studies Depression Scale,True,863,862,0,7,25,False,False
+MR1_BIO,BIO,CESD_somatic,RA4QCESDSC,"CESD Somatic Complaints Subscale (A,B,E,G,K,M,T)",True,863,862,0,3,10,False,False
+MR1_BIO,BIO,CESD_affect,RA4QCESDDA,"CESD Depressive Affect Subscale (C,F,I,J,N,Q,R)",True,863,862,0,1,9,False,False
+MR1_COG,COG,BTACT_composite_national,RA3TCOMPZ1,Zscore BTACT Composite Score - computed for MIDUS Refresher national sample only (N=2550),True,2763,2388,-1.647,0.00633,1.611,False,False
+MR1_COG,COG,BTACT_composite_all,RA3TCOMPZ3,Zscore BTACT Composite Score - computed for complete Refresher sample (MIDUS + Milwaukee; N=2763),True,2763,2570,-1.649,0.01253,1.619,False,False
+MR1_COG,COG,BTACT_memory,RA3TEMZ1,Zscore Episodic Memory - computed for MIDUS Refresher national sample only (N=2550),True,2763,2543,-1.497,-0.02732,1.759,False,False
+MR1_COG,COG,BTACT_executive,RA3TEFZ1,Zscore Executive Functioning - computed for MIDUS Refresher national sample only (N=2550),True,2763,2544,-1.726,0.02718,1.567,False,False
+MR1_SURVEY,SURVEY,Age,RA1PRAGE,Respondent's calculated age at Project 1 phone interview,True,3577,3577,29,51,73,False,False
+MR1_SURVEY,SURVEY,Sex,RA1PRSEX,Respondent's sex,True,3577,3577,1,2,2,False,False
+MR1_SURVEY,SURVEY,BMI,RA1SBMI,Body Mass Index,True,3577,2507,20.3,27.6,41.8,False,False
+MR1_SURVEY,SURVEY,Education,RA1PB1,Highest level of education completed,True,3577,3570,3,8,11.55,False,False
+MR1_SURVEY,SURVEY,Two_week_sadness,RA1PA60,Felt sad/depressed for 2 or more weeks (12 months),True,3577,3575,1,2,2,False,False
+MR2_COG,COG,BTACT_composite_longitudinal,RB3TCOMPZ_Long,Longitudinal BTACT Composite Score (standardized based on main national MR1 means and SDs),True,1934,1808,-1.246,-0.1174,1.008,False,False
+MR2_COG,COG,BTACT_memory_longitudinal,RB3TEMZ_Long,Longitudinal BTACT Episodic Memory Factor (standardized based on main national MR1 means and SDs),True,1934,1929,-1.487,-0.3905,1.474,False,False
+MR2_COG,COG,BTACT_executive_longitudinal,RB3TEFZC_Long,Longitudinal BTACT Executive Functioning Factor (standardized based on main national MR1 means and SDs) corrected based on the metronome values,True,1934,1934,-1.256,-0.07361,1.08,False,False
+MR2_SURVEY,SURVEY,Age,RB1PRAGE,Respondent's calculated age at MR2 Survey Project phone interview,True,2154,2154,40,63,82,False,False
+MR2_SURVEY,SURVEY,Sex,RB1PRSEX,Respondent's sex,True,2154,2154,1,2,2,False,False
+MR2_SURVEY,SURVEY,BMI,RB1SBMI,Body Mass Index,True,2154,1638,20.5,27.96,41.58,False,False
+MR2_SURVEY,SURVEY,Education,RB1PB1,Highest level of education completed,True,2154,2153,5,9,12,False,False
+MR2_SURVEY,SURVEY,Two_week_sadness,RB1PA60,Felt sad/depressed for 2 or more weeks (12 months),True,2154,2152,1,2,2,False,False
+MIDJA_1_BIO,BIO,Hb,J2CHGB,Tokyo Lab Anemia: Hemoglobin (HGB),True,382,382,11.3,13.6,16,False,False
+MIDJA_1_BIO,BIO,RBC,J2CRBC,Tokyo Lab Anemia: Red Blood Cell Count,True,382,382,384.1,451,520,False,False
+MIDJA_1_BIO,BIO,MCV,J2CMCV,Tokyo Lab Anemia: Mean Cell Volume (MCV),True,382,382,86.3,95.4,103.9,False,False
+MIDJA_1_BIO,BIO,Hematocrit,J2CHTC,Tokyo Lab Anemia: Hematocrit (HTC),True,382,382,36.2,42.75,49.3,False,False
+MIDJA_1_BIO,BIO,MCH,J2CMCH,Tokyo Lab Anemia: Mean Cell Hemoglobin (MCH),True,382,382,26.9,30.5,33.39,False,False
+MIDJA_1_BIO,BIO,MCHC,J2CMCHC,Tokyo Lab Anemia: Mean Cell Hemoglobin Concentration (MCHC),True,382,382,30.3,31.9,33.6,False,False
+MIDJA_1_BIO,BIO,WBC,J2CWBC,Tokyo Lab Anemia: White Blood Cell Count,True,382,382,31,50,78,False,False
+MIDJA_1_BIO,BIO,HbA1c_raw,J2CHBA1C,Tokyo Lab Diabetes: Hemoglobin A1c (%),True,382,382,4.5,5,6.3,False,False
+MIDJA_1_BIO,BIO,HbA1c_adjusted,J2BHA1CA,Tokyo Lab Diabetes: MIDUS adjusted Hemoglobin A1c (%),True,382,382,5.2,5.6,6.7,False,False
+MIDJA_1_BIO,BIO,CRP,J2BCRP,Biocore C Reactive Protein (ug/mL),True,382,382,0.08,0.26,2.567,False,False
+MIDJA_1_BIO,BIO,Fibrinogen,J2BFGN,Biocore Fibrinogen (mg/dL),True,382,382,229,308.5,433,False,False
+MIDJA_1_BIO,BIO,Creatinine,J2BSCREA,Biocore Serum Creatinine (mg/dL),True,382,382,0.5,0.7,1.095,False,False
+MIDJA_1_BIO,BIO,Total_cholesterol,J2BCHOL,Biocore Total Cholesterol (mg/dL),True,382,382,145.1,205,273.9,False,False
+MIDJA_1_BIO,BIO,HDL_original,J2BHDL,Biocore original MIDJA HDL Cholesterol (mg/dL),True,382,382,37,61.5,95,False,False
+MIDJA_1_BIO,BIO,HDL_adjusted,J2BHDLA,Biocore MIDJA HDL Cholesterol (adjusted to MIDUS)  (mg/dL),True,382,382,41,69.5,108,False,False
+MIDJA_1_BIO,BIO,CESD_total,J2QCESD,CESD: Center for Epidemiologic Studies Depression Scale,True,382,353,5,11,23.5,False,False
+MIDJA_1_BIO,BIO,CESD_somatic,J2QCESDSC,"CESD Somatic Complaints Subscale (A,B,E,G,K,M,T)",True,382,357,0,2,9,False,False
+MIDJA_1_BIO,BIO,CESD_affect,J2QCESDDA,"CESD Depressive Affect Subscale (C,F,I,J,N,Q,R)",True,382,357,0,1,8,False,False
+MIDJA_1_SURVEY,SURVEY,Sex,J1SQ1,Respondent gender,True,1027,1027,1,2,2,False,False
+MIDJA_1_SURVEY,SURVEY,Education,J1SQ3,Highest level of education completed,True,1027,1015,1,4,7,False,False
+MIDJA_1_SURVEY,SURVEY,Self_report_anxiety_depression,J1SA8T,Anxiety/depression ever (12 mo),True,1027,1012,1,2,2,False,False
+MIDJA_2_BIO,BIO,Hb,K2CHGB,Tokyo Lab: Hemoglobin (HGB),True,328,326,11.4,13.7,15.78,False,False
+MIDJA_2_BIO,BIO,RBC,K2CRBC,Tokyo Lab: Red Blood Cell Count,True,328,326,379.2,448,519,False,False
+MIDJA_2_BIO,BIO,MCV,K2CMCV,Tokyo Lab: Mean Cell Volume (MCV),True,328,326,85.05,94.6,102.9,False,False
+MIDJA_2_BIO,BIO,Hematocrit,K2CHTC,Tokyo Lab: Hematocrit (HTC),True,328,326,36.3,42.3,48,False,False
+MIDJA_2_BIO,BIO,MCH,K2CMCH,Tokyo Lab: Mean Cell Hemoglobin (MCH),True,328,326,27.12,30.6,33.3,False,False
+MIDJA_2_BIO,BIO,MCHC,K2CMCHC,Tokyo Lab: Mean Cell Hemoglobin Concentration (MCHC),True,328,326,30.3,32.2,33.9,False,False
+MIDJA_2_BIO,BIO,WBC,K2CWBC,Tokyo Lab: White Blood Cell Count,True,328,326,27,50,75.75,False,False
+MIDJA_2_BIO,BIO,HbA1c_raw,K2CHBA1C,Tokyo Lab: Hemoglobin A1c (%),True,328,326,4.8,5.3,6.5,False,False
+MIDJA_2_BIO,BIO,HbA1c_adjusted,K2BHA1CA,MIDUS Adjusted Tokyo Lab: Hemoglobin A1c (%),True,328,326,5.3,5.9,7.4,False,False
+MIDJA_2_BIO,BIO,CRP,K2BCRP,Biocore C Reactive Protein (ug/mL),True,328,326,0.08,0.34,3.873,False,False
+MIDJA_2_BIO,BIO,Fibrinogen,K2BFGN,Biocore Fibrinogen (mg/dL),True,328,325,219.4,303,420.6,False,False
+MIDJA_2_BIO,BIO,Creatinine,K2BSCREA,Biocore Serum Creatinine (mg/dL),True,328,326,0.5,0.7,1.1,False,False
+MIDJA_2_BIO,BIO,Total_cholesterol,K2BCHOL,Biocore Total Cholesterol (mg/dL),True,328,326,154.2,207.5,276.2,False,False
+MIDJA_2_BIO,BIO,HDL_original,K2BHDL,Biocore original MIDJA HDL Cholesterol (mg/dL),True,328,326,34.25,58,87,False,False
+MIDJA_2_BIO,BIO,HDL_adjusted,K2BHDLA,Biocore MIDJA HDL Cholesterol (adjusted to MIDUS) (mg/dL),True,328,326,38.25,65,98,False,False
+MIDJA_2_BIO,BIO,CESD_total,K2QCESD,CESD: Center for Epidemiologic Studies Depression Scale,True,328,308,1,9,22.65,False,False
+MIDJA_2_SURVEY,SURVEY,Sex,K1SQ1,Respondent gender,True,657,657,1,2,2,False,False
+MIDJA_2_SURVEY,SURVEY,Education,K1SQ3,Highest level of education completed,True,657,653,1,4,7,False,False
+MIDJA_2_SURVEY,SURVEY,Self_report_anxiety_depression,K1SA9T,Anxiety/depression ever (12 months),True,657,657,1,2,2,False,False
+MIDJA_2_SURVEY,SURVEY,Household_income,K1SF8,Total household income (12 months),True,657,603,2,3,5,False,False
