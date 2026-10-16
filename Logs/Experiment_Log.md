@@ -1,6 +1,3 @@
-> **Research integrity:** This is the complete experimental record. No findings, estimates,
-> methodology, limitations, negative results, or interpretations have been removed.
->
 > **Reading path:** NHANES feasibility → seven-marker decomposition/reconstruction →
 > phenotype mapping → temporal transfer → encoding/reverse-inference limits →
 > external validation and causal-identification audit.
