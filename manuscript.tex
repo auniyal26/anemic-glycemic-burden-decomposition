@@ -1,0 +1,308 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{graphicx}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,pdftitle={Outcome-independent hematological and glycemic representations in NHANES},pdfauthor={Alankar Sunil Uniyal, Sunita Chauhan, Saeed Salehi}}
+\setstretch{1.08}
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+\captionsetup{font=small,labelfont=bf}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\footnotesize Hematological--glycemic physiological decomposition}\fancyhead[R]{\footnotesize Draft manuscript}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\PHQ}{\mathrm{PHQ\text{-}9}}
+\newcommand{\Rtwo}{R^{2}}
+\newcommand{\prelim}{\textit{Exploratory}}
+\begin{document}
+\begin{center}
+{\small\bfseries ORIGINAL RESEARCH \quad | \quad TRANSLATIONAL AND COMPUTATIONAL MEDICINE}\par\vspace{0.55em}
+{\Large\bfseries Outcome-Independent Decomposition of Hematological and Glycemic States Preserves Depressive-Phenotype Information Beyond Scalar Burden Measures: A Frozen Temporal-Transfer Study in NHANES}\par\vspace{0.9em}
+{\normalsize Alankar Sunil Uniyal$^{1,*}$ \quad Sunita Chauhan$^{1}$ \quad Saeed Salehi$^{1}$}\par\vspace{0.55em}
+{\small $^{1}$Plaksha University, Sahibzada Ajit Singh Nagar, Punjab, India}\par
+{\small $^{*}$Corresponding author: Alankar Sunil Uniyal (contact information to be confirmed)}\par\vspace{0.6em}
+{\small Manuscript prepared 16 October 2026 \quad | \quad \textbf{Working draft for coauthor review; not submitted or peer reviewed}}\par
+\end{center}
+\vspace{0.4em}
+\begin{abstract}
+\noindent\textbf{Background:} Hematological indices and glycemic assays encode overlapping but nonidentical physiology. Univariate hemoglobin deficit and glycated hemoglobin (HbA1c) thresholds may discard information relevant to heterogeneous depressive symptoms, while HbA1c itself can be affected by erythrocyte biology. We evaluated whether outcome-independent multivariate physiological representations preserve symptom-associated information beyond simple scalar burden measures and whether this relationship transfers across survey periods.
+
+\noindent\textbf{Methods:} We developed hematological and glycemic representations using National Health and Nutrition Examination Survey (NHANES) 2005--2008 observations and evaluated frozen mappings in NHANES 2009--2018 and August 2021--August 2023. The principal outcome was a somatic depressive-symptom score from PHQ-9 sleep, fatigue and appetite items. The primary inferential comparison added frozen physiological components to models containing prespecified scalar hemoglobin-deficit and HbA1c-excess measures, with complex-survey design-based tests. Separate exploratory analyses developed a seven-coordinate shared/discordant/private representation, examined coefficient sensitivity, and compared frozen phenotype prediction with period refitting.
+
+\noindent\textbf{Results:} In fully adjusted matched analytic samples (2005--2008, $n=3{,}830$; 2009--2018, $n=9{,}919$), frozen physiological components added weighted outcome-explained variation beyond scalar burden ($\Delta \Rtwo=0.01020$, $p=0.0141$; and $\Delta \Rtwo=0.00369$, $p=0.00612$, respectively). The reverse addition of scalar measures to component models was not supported ($p=0.966$ and $p=0.149$). The hematological representation retained at least 99.2\% reconstruction energy and aligned strongly across cycles (minimum loading similarity 0.994). In exploratory seven-coordinate analyses, an anemia-private direction provided the largest individual ablation signal, but frozen somatic-score prediction decreased from $\Rtwo=0.0906$ in discovery to $0.0786$ in 2009--2018 and $0.0353$ in 2021--2023. More flexible models did not improve modern-period generalization.
+
+\noindent\textbf{Conclusions:} An outcome-independent multivariate physiological representation retains modest, reproducible depressive-symptom information beyond simple burden thresholds in NHANES. It does not establish causal pathways, accurate individual prediction, longitudinal within-person effects or clinical utility. Stronger external and genuinely longitudinal cognitive validation is required.
+\end{abstract}
+\noindent\textbf{Keywords:} hematology; glycemia; NHANES; representation learning; canonical correlation; depressive symptoms; complex surveys; temporal transportability; computational medicine
+
+\section{Introduction}
+Anemia, dysglycemia and depressive symptoms coexist in populations and may be interrelated through biological, behavioral and measurement pathways. Epidemiological work has documented associations between depression and type 2 diabetes \cite{mezuk2008}; however, shared exposure, reciprocal effects and confounding complicate their interpretation. Glycated hemoglobin is also not an exclusive measure of glycemic exposure: red-cell lifespan, erythrocyte turnover, iron deficiency and other hematological conditions can change the relationship between HbA1c and circulating glucose \cite{ada2024}. This creates an important measurement and modeling problem at the interface of hematology, metabolism and mental health.
+
+A commonly used strategy is to summarize hematological state by a hemoglobin threshold and glycemic state by HbA1c or a diagnostic cutoff. These variables are clinically intelligible but they need not capture information in red blood cell (RBC) count, mean corpuscular volume (MCV), red-cell distribution width (RDW), measured glucose or insulin. Omitting joint structure may obscure weak but reproducible associations and can lead to misleading assumptions of independence. Conversely, a higher-dimensional model may appear superior merely because it has greater flexibility; explicit same-sample nested tests, reconstruction audits and temporal replication are needed to establish a defensible incremental-information claim.
+
+The Patient Health Questionnaire-9 (PHQ-9) measures depressive symptom severity rather than clinical etiology \cite{kroenke2001}. Its somatic content, especially sleep disturbance, fatigue and appetite change, is particularly plausible as a broad phenotype in which physiological and psychological factors could overlap. We therefore treat PHQ-9 scores as observed outcomes, not as diagnoses or proven biological subtypes. The broader doctoral research program aims toward longitudinal cognitive phenotypes and multimodal, potentially fundus-based physiological measurement, but those extensions are not treated as completed experiments here.
+
+This study asks three questions. First, does a frozen, \emph{outcome-independent} multivariate representation of hematological and glycemic physiology retain symptom-associated information beyond threshold-based scalar measures? Second, is the physiological representation more stable across NHANES collection periods than the mapping from physiological state to symptoms? Third, do more elaborate seven-coordinate and nonlinear phenotype mappings yield practically useful improvements over simpler baselines? Our principal hypothesis concerns additional statistical information, not an etiologic effect or immediate clinical deployment.
+
+\section{Related work and methodological position}
+\subsection{Hematology and glycemic measurement}
+HbA1c reflects glycation of hemoglobin over the lifetime of circulating erythrocytes; disease processes that alter their production or survival can distort its correspondence with glycemia \cite{ada2024}. These observations motivate considering blood-cell indices and conventional glycemic assays together. They do \emph{not} justify subtracting a learned hematological term from HbA1c to create a clinical ``corrected HbA1c'' without an external glucose reference, repeated measures and appropriate prospective validation.
+
+\subsection{Depressive symptoms and physiological heterogeneity}
+PHQ-9 total score aggregates distinct symptom items \cite{kroenke2001}. Factor and symptom-level views may provide complementary targets, but separating somatic from cognitive-affective scores does not automatically yield biologically specific constructs. Our analyses use a transparent operational somatic sum and a complementary cognitive-affective sum. Exploratory ordinal confirmatory-factor analyses from the project were used as supportive measurement checks, not as evidence that two factors are universally invariant.
+
+\subsection{Outcome-independent multivariate decomposition}
+Principal-component analysis (PCA) compresses covariance structure, whereas canonical correlation analysis (CCA) characterizes linear covariation between two blocks \cite{hotelling1936}. Neither method alone identifies causal mechanisms. Regularized outcome models address correlated predictors \cite{hoerl1970}. The conceptual contribution of our implementation is an auditable chain from retained raw physiology to an outcome-independent coordinate system, followed by an explicitly separated phenotype map and frozen temporal evaluation. Reversible coordinate changes preserve mathematical information but cannot create new outcome-relevant information. The empirical question is how much relevant information is discarded by simpler scalar summaries.
+
+\section{Methods}
+\subsection{Data sources, periods and study design}
+We used publicly available NHANES questionnaire, examination, laboratory and demographic modules \cite{nhanesportal}. Discovery comprised pooled 2005--2006 and 2007--2008 cycles; temporal replication comprised 2009--2018; the later stress test comprised August 2021--August 2023. These are \emph{repeated cross-sectional} observations of different participants, not an individual-level longitudinal cohort. The later release has distinctive fieldwork, sampling and weighting considerations \cite{nhanes2123}.
+
+Each analysis joined records by NHANES participant identifier and retained available measurements required by the corresponding model. Sample sizes differ between analytic branches because their measurement and covariate requirements differ. For the fixed, fully adjusted primary survey analysis, the discovery eligible sample contained 4,869 records with 3,830 included; the 2009--2018 eligible sample contained 13,223 with 9,919 included; and the 2021--2023 eligible sample contained 3,397 with 2,261 included. These are unweighted counts and are not population estimates. A separate seven-coordinate regularized-prediction branch used matched complete-case samples of 3,815, 9,893 and 2,247 in the same three periods, respectively. The two sets of denominators must not be conflated.
+
+\subsection{Physiological features and scalar comparator}
+Let $X_i=(X_{Ai}^{\mathsf T},X_{Gi}^{\mathsf T})^{\mathsf T}$ be the measured physiological vector for participant $i$, with hematological block
+\begin{equation}
+X_{Ai}=\big(\mathrm{Hb}_i,\mathrm{RBC}_i,\mathrm{MCV}_i,\mathrm{RDW}_i\big)^{\mathsf T}
+\end{equation}
+and glycemic block
+\begin{equation}
+X_{Gi}=\big(\mathrm{HbA1c}_i,\mathrm{Glucose}_i,\log(\mathrm{Insulin}_i)\big)^{\mathsf T}.
+\end{equation}
+Glucose and insulin availability depends on the NHANES laboratory subsample and the branch-specific assay protocol. Transformations, standardization constants and component directions were fitted in the discovery data and retained for later observations. Because source physiological values are preserved, the transformation can be audited independently of any symptom outcome.
+
+The clinical scalar comparators were a sex-specific hemoglobin deficit and HbA1c excess above a threshold:
+\begin{align}
+a_i&=\max\{0,h_{\mathrm{sex}(i)}-\mathrm{Hb}_i\}, &h_{\mathrm{male}}&=13\ \mathrm{g/dL}, &h_{\mathrm{female}}&=12\ \mathrm{g/dL},\\
+g_i&=\max\{0,\mathrm{HbA1c}_i-5.7\}.
+\end{align}
+These are \emph{operational comparison variables}, not adjudicated diagnoses of anemia or diabetes. The comparator deliberately contains less multivariate information than the raw physiological measurements.
+
+\subsection{Outcome definitions}
+Each PHQ-9 item was coded on its usual 0--3 scale. We defined total symptoms as $Y_i^{\mathrm{total}}=\sum_{j=1}^{9}q_{ij}$ and the somatic score as
+\begin{equation}
+Y_i^{\mathrm{som}}=q_{i,\mathrm{sleep}}+q_{i,\mathrm{fatigue}}+q_{i,\mathrm{appetite}},\qquad Y_i^{\mathrm{cogaff}}=Y_i^{\mathrm{total}}-Y_i^{\mathrm{som}}.
+\end{equation}
+The primary analysis used $Y^{\mathrm{som}}$; total and cognitive-affective scores were supporting outcomes. The cognitive-affective label is descriptive and does not imply a directly measured cognitive test or neurocognitive disease endpoint.
+
+\subsection{The prespecified representation and reconstruction audit}
+The primary locked analysis used outcome-independent frozen hematological principal components and glycemic representation coordinates. The design retained sufficient axes to characterize the four-variable hematology block and three-variable glycemic block without conditioning the coordinate fitting on PHQ-9. The core comparison used the retained multivariate coordinate vector $Z_i$ and tested whether it contributed information over $(a_i,g_i)$.
+
+For a discovery-fitted centering vector $\mu$ and transformation $T$, a linear representation takes the form
+\begin{equation}
+Z_i=T(X_i-\mu),\qquad \widehat X_i=\mu+T^{+}Z_i,\qquad
+L_{X}=\frac{\sum_i\lVert X_i-\widehat X_i\rVert_2^2}{\sum_i\lVert X_i-\bar X\rVert_2^2},
+\label{eq:represent}
+\end{equation}
+where $T^{+}$ is an inverse or pseudoinverse as appropriate. The reconstruction-energy fraction is $1-L_X$. A full-rank transform has zero reconstruction error up to floating-point precision; lower-dimensional PCA may incur nonzero loss. Reconstruction is evaluated in the physiological input space, not as a claim of clinical predictability.
+
+A distinct \emph{exploratory seven-coordinate} representation in the later project branch retained two shared directions, two discordant directions, two hematology-private directions and one glycemia-private direction:
+\begin{equation}
+Z_i=(S_{1i},S_{2i},D_{1i},D_{2i},A_{3i}^{\mathrm{priv}},A_{4i}^{\mathrm{priv}},G_{3i}^{\mathrm{priv}})^{\mathsf T}.
+\label{eq:zseven}
+\end{equation}
+CCA was used to assess shared linear relationships between separately standardized physiological blocks, and independent/private directions completed the coordinate system. The labeling refers to \emph{linear-algebraic} structure; it does not imply latent biological sources or a uniquely identifiable disease decomposition. Results of this seven-coordinate branch were not pooled numerically with the primary design-based model.
+
+\subsection{Complex-survey inference and nested incremental information}
+We followed the NHANES complex sampling framework using appropriate sample weights, strata and primary sampling units for each analytic domain, rather than treating the observations as identically sampled participants \cite{nhanesportal,nhanes2123}. Denominators and residual design degrees of freedom were checked before testing analytic domains. Covariates in the fully adjusted X3 specification cover prespecified demographic, socioeconomic, anthropometric, behavioral and renal measurements subject to availability; the complete operational definitions and model specifications are in the project scripts. No causal interpretation is attached to any adjustment set.
+
+For the same analytic individuals and adjustment variables $C_i$, we compared a scalar reference and an expanded model:
+\begin{align}
+M_{\mathrm{scalar}}:\quad &Y_i=\beta_0+\beta_a a_i+\beta_g g_i+\gamma^{\mathsf T}C_i+\varepsilon_i,\\
+M_{\mathrm{expanded}}:\quad &Y_i=\beta_0+\beta_a a_i+\beta_g g_i+\theta^{\mathsf T}Z_i+\gamma^{\mathsf T}C_i+\varepsilon_i.
+\end{align}
+We report design-based block tests for $H_0:\theta=0$ and the corresponding change in weighted $\Rtwo$. A reverse test added $(a,g)$ to a model already containing $Z$ and $C$. A statistically significant forward increment is evidence of model-conditional information beyond the scalar comparator, not that the components introduce new measurements or reveal a causal effect. Other adjustment ladders and quasi-Poisson sensitivity models served as specification checks.
+
+\subsection{Exploratory phenotype mapping, sensitivity and time transfer}
+In the seven-coordinate branch, a frozen linear or regularized map was of the form
+\begin{equation}
+\widehat Y_i^{(k)}=\beta_{0k}+\sum_{j=1}^{7}\beta_{jk}Z_{ij}+\gamma_k^{\mathsf T}C_i,\qquad k\in\{\mathrm{total,som,cogaff}\}.
+\label{eq:phenomap}
+\end{equation}
+For linear maps $\partial \widehat Y^{(k)}/\partial Z_j=\beta_{jk}$; these are \emph{conditional prediction sensitivities}, not causal derivatives. A leave-one-coordinate-out refit measures the reduction in fit associated with excluding that coordinate under a particular specification. Correlated physiological features can redistribute coefficients under alternative coordinates, so an individual ablation is not a uniquely additive biological contribution.
+
+Model families included ridge, elastic net, interactions and smooth mixtures of local linear experts. Hyperparameters were selected using training-period cross-validation. Frozen discovery-period transformations and phenotype maps were then applied in later cycles; period-specific refits were reported only to quantify descriptive map drift and were not treated as prospective holdout predictions. Because later-period outcomes were repeatedly examined during research development, the latest exploratory tests do not constitute untouched confirmatory evaluation.
+
+We measured weighted $\Rtwo$ relative to each evaluation sample's weighted outcome mean:
+\begin{equation}
+\Rtwo_{w,t}=1-\frac{\sum_{i\in t}w_i(Y_i-\widehat Y_i)^2}{\sum_{i\in t}w_i(Y_i-\overline Y_{w,t})^2}.
+\end{equation}
+Negative values can arise under temporal transfer. Simple recalibration allowed an intercept and slope to update predictions, $\widehat Y_t^{\mathrm{cal}}=\alpha_t+\eta_t\widehat Y_{\mathrm{discovery}}$, without treating that procedure as independent external validation.
+
+\section{Results}
+\subsection{Cohort retention and representation stability}
+Table~\ref{tab:cohort} describes the survey-analysis samples. Complete-case retention was 78.7\% in discovery, 75.0\% in 2009--2018 and 66.6\% in 2021--2023, unweighted. Corresponding survey-weighted retention was 87.9\%, 83.6\% and 71.3\%, respectively. Observed-variable selection imbalances were not negligible (maximum reported absolute weighted standardized mean difference 0.430); missingness therefore remains a substantive validity concern.
+
+\begin{table}[htbp]\centering\small
+\caption{Study-period retention in the primary fully adjusted X3 survey-analysis cohort.}
+\label{tab:cohort}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}\toprule
+Period & Eligible $n$ & Included $n$ & Retention (\%) & Weighted retention (\%) \\\midrule
+2005--2008 (discovery) & 4,869 & 3,830 & 78.7 & 87.9\\
+2009--2018 (temporal replication) & 13,223 & 9,919 & 75.0 & 83.6\\
+2021--2023 (modern stress test) & 3,397 & 2,261 & 66.6 & 71.3\\\bottomrule
+\end{tabular}
+\end{table}
+
+The frozen outcome-independent hematological components had a minimum aligned loading-vector similarity of 0.994483 across the evaluated cycles and a minimum reconstruction-energy fraction of 0.992364. These results support stability and information preservation of the physiological representation itself. They do not imply that its mapping to psychological symptoms was equally stable.
+
+\subsection{Primary incremental-information analysis}
+Table~\ref{tab:increment} shows that the multivariate components contributed a modest but nonzero increment over scalar burden measures in both the discovery period and the 2009--2018 temporal replication period. The fully adjusted design-based block-test $p$ values were $0.0141$ and $0.00612$, and additional weighted $\Rtwo$ values were $0.01020$ and $0.00369$. Reverse scalar additions were not supported. Results were retained in adjustment-ladder and quasi-Poisson checks, although individual effect magnitudes depended on specification.
+
+\begin{table}[htbp]\centering\small
+\caption{Same-sample survey-weighted evidence for multivariate components beyond threshold scalars for somatic PHQ-9 score. These are model-conditional increments, not causal shares.}
+\label{tab:increment}
+\begin{tabular}{lrrrr}\toprule
+Period & $n$ & $p$: $Z\mid(a,g,C)$ & $\Delta\Rtwo$: $Z\mid(a,g,C)$ & $p$: $(a,g)\mid(Z,C)$\\\midrule
+2005--2008 & 3,830 & 0.014075 & 0.010197 & 0.965949\\
+2009--2018 & 9,919 & 0.006120 & 0.003686 & 0.149261\\\bottomrule
+\end{tabular}\par\vspace{2pt}
+\begin{minipage}{0.97\linewidth}\footnotesize $C$ denotes the fully adjusted X3 covariate set; the forward and reverse comparisons were estimated on each period's matched analysis sample. The table presents the project lock-in audit, not independent replication outside NHANES.\end{minipage}
+\end{table}
+
+A model that treated the seven original continuous measurements directly achieved a weighted $\Rtwo$ close to the PCA representation (absolute difference $0.000723$ in discovery and $0.000030$ in 2009--2018). This observation is important: multivariate representation mainly reorganizes available information, whereas the scalar comparator discards it. A broad hematology-by-glycemia interaction did not show reproducible support in the replication period ($p=0.753$); an interaction is therefore not required for the principal conclusion.
+
+\subsection{Shared, discordant and private coordinate sensitivities}
+In the exploratory seven-coordinate analysis, the first two cross-block canonical correlations were $0.304$ and $0.246$; a third value near $0.025$ provided little evidence of shared linear structure. These modest correlations argue against treating hematology and glycemia as one interchangeable physiological burden. The retained coordinates included two shared and two discordant directions, with private directions accounting for residual block-specific structure.
+
+Component exclusion audits in the discovery data (Table~\ref{tab:ablations}) indicated that the third hematology-private coordinate had the largest single ablation-associated change in model fit across the examined outcomes. It explained an additional $0.00842$ of somatic-score $\Rtwo$ in the specific refitted design, compared with $0.00109$ for the glycemia-private direction. These values cannot be summed into a decomposition of population variance or interpreted as treatment-effect magnitudes. Joint raw-block gradient tests supported hematological conditional associations for total, somatic and cognitive-affective scores ($p=0.000215$, $0.000095$ and $0.00195$, respectively); glycemic block tests were stronger for total and somatic symptoms ($p=0.0183$ and $0.0105$) than cognitive-affective symptoms ($p=0.0928$). Full design-based uncertainty for all derivative families and multiplicity control remain incomplete.
+
+\begin{table}[htbp]\centering\small
+\caption{Exploratory discovery-period change in fitted $\Rtwo$ after exclusion of one seven-coordinate direction and refitting the phenotype model.}
+\label{tab:ablations}
+\begin{tabular}{lrrr}\toprule
+Coordinate & PHQ-9 total & Somatic & Cognitive-affective\\\midrule
+Shared 1 & 0.00291 & 0.00261 & 0.00191\\
+Shared 2 & 0.00047 & 0.00091 & 0.00010\\
+Discordant 1 & 0.00088 & 0.00088 & 0.00051\\
+Discordant 2 & 0.00267 & 0.00363 & 0.00101\\
+Hematology-private 3 & \textbf{0.00882} & \textbf{0.00842} & \textbf{0.00595}\\
+Hematology-private 4 & 0.00121 & 0.00076 & 0.00123\\
+Glycemia-private 3 & 0.00111 & 0.00109 & 0.00078\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Frozen phenotype-map performance and temporal drift}
+The frozen seven-coordinate phenotype map transferred more effectively to 2009--2018 than to 2021--2023 (Table~\ref{tab:transfer}). For somatic symptoms, frozen $\Rtwo$ declined from 0.0906 in discovery to 0.0786 in 2009--2018 and 0.0353 in 2021--2023. The later-period refitted result of 0.0995 represents an \emph{in-sample descriptive ceiling under altered mapping}, not a valid prospective predictive benchmark. Total-score and cognitive-affective mappings also deteriorated in the modern period; the latter two frozen $\Rtwo$ values were negative.
+
+\begin{table}[htbp]\centering\small
+\caption{Exploratory seven-coordinate map: frozen discovery-fitted versus period-refitted weighted $\Rtwo$. Refitted columns use period outcomes and are descriptive, not holdout validation.}
+\label{tab:transfer}
+\begin{tabular}{llrr}\toprule
+Outcome & Period & Frozen $\Rtwo$ & Period-refitted $\Rtwo$\\\midrule
+Somatic & 2005--2008 & 0.0906 & 0.0906\\
+ & 2009--2018 & 0.0786 & 0.0877\\
+ & 2021--2023 & 0.0353 & 0.0995\\\midrule
+PHQ-9 total & 2005--2008 & 0.1043 & 0.1043\\
+ & 2009--2018 & 0.0806 & 0.0902\\
+ & 2021--2023 & $-0.0056$ & 0.0848\\\midrule
+Cognitive-affective & 2005--2008 & 0.0820 & 0.0820\\
+ & 2009--2018 & 0.0590 & 0.0698\\
+ & 2021--2023 & $-0.0355$ & 0.0644\\\bottomrule
+\end{tabular}
+\end{table}
+
+Intercept/slope recalibration recovered part, but not all, of the discrepancy between frozen and period-refitted mapping in exploratory 2021--2023 analyses. The reported recovered fractions were approximately 36\% for somatic, 56\% for total PHQ-9 and 60\% for cognitive-affective scores; remaining weighted-$\Rtwo$ differences were on the order of 0.04. These experiments indicate both calibration change and possible coefficient or case-mix shift, but the repeated use of modern outcomes precludes treating the recalibration evidence as untouched prospective confirmation.
+
+\subsection{Predictive complexity did not solve temporal generalization}
+In a separately matched branch (3,815/9,893/2,247 observations across the three periods), five-fold discovery-only cross-validation compared ridge, elastic net, pairwise interactions and smooth mixture-of-experts mappings. The selected dynamic models did not outperform the selected static baselines on the 2021--2023 validation sample (Table~\ref{tab:complexity}). This is consistent with the central distinction between a robust physiological coordinate representation and an outcome map of limited predictive strength.
+
+\begin{table}[htbp]\centering\small
+\caption{Exploratory modern-period weighted $\Rtwo$ for selected static versus dynamic mappings.}
+\label{tab:complexity}
+\begin{tabular}{lrr}\toprule
+Outcome & Static validation $\Rtwo$ & Dynamic validation $\Rtwo$\\\midrule
+PHQ-9 total & 0.0008 & $-0.0070$\\
+Somatic & 0.0384 & 0.0345\\
+Cognitive-affective & $-0.0352$ & $-0.0355$\\\bottomrule
+\end{tabular}
+\end{table}
+
+Further exploratory reverse-map experiments underscored non-identifiability: many distinct physiological vectors corresponded to the same depressive score, and phenotype-only reconstruction of seven-dimensional physiology was weak (discovery mean $\Rtwo$ near 0.01 and negative in later periods). Exact coding of a measured physiological vector is mathematically reversible, but does not make the phenotype-to-physiology inverse unique. A conditional distribution $p(Z\mid Y,C)$ is therefore better motivated than a deterministic reconstruction $Z=g(Y)$; reliable interval sharpness and externally validated conditional coverage remain open.
+
+\section{Discussion}
+\subsection{Principal interpretation}
+The most defensible finding is narrow but reproducible: a frozen multivariate physiological representation retains modest incremental information about somatic depressive symptoms beyond two scalar burden variables across NHANES discovery and temporal replication periods. The reverse nested test was not supportive. This establishes that one-dimensional threshold summaries can be an incomplete representation of measured physiology for a particular statistical phenotype mapping. It does not establish that CCA, PCA or the seven-coordinate basis is intrinsically superior to a well-specified model using the original continuous measurements; raw-feature comparators performed similarly.
+
+The magnitude of improvement matters. An incremental weighted $\Rtwo$ of about one percentage point in discovery and substantially less during 2009--2018 is not strong person-level clinical prediction. The stable coordinate structure and weaker phenotype transfer highlight a second result: $T:X\mapsto Z$ and $h:Z\mapsto Y$ have different stability properties. Consistent with the separate observed measurements and symptoms, distributional changes in participant mix, survey methodology, missingness, laboratory assays and symptom reporting may affect $h$ without substantially disturbing the hematological basis.
+
+\subsection{Translational implications for computational medicine}
+A practical translational program should distinguish four operations: (i) measuring physiology, (ii) encoding its overlapping and private variation, (iii) mapping it to symptom or cognitive outcomes, and (iv) validating the map under changing assay availability and populations. Because real-world clinical and field data frequently lack a complete laboratory panel, the most promising computational extension is a missing-modality-aware mapping $p(Z_{\mathrm{missing}}\mid X_{\mathrm{observed}},C)$ coupled to explicit uncertainty, rather than deterministic imputation asserted to be true physiology.
+
+A second clinically motivated bridge is hematology-aware interpretation of HbA1c. The current work found transferable conditional information from hematological measurements for predicting HbA1c in subsequent exploratory NHANES analyses, but it did not establish measurement bias in any individual or a validated HbA1c correction. Testing the mechanism requires independent glycemic reference measurements, iron-status markers, hemoglobinopathy assessment, and interventions or serial data. Association with HbA1c is not proof of an assay artifact.
+
+The intended extension to late-life cognitive outcomes is scientifically plausible but remains an extension, not an empirical result of this manuscript. The Longitudinal Aging Study in India--Diagnostic Assessment of Dementia (LASI-DAD) provides repeated cognitive testing and venous assays, including a second wave designed for longitudinal assessment \cite{lasi2020,lasiwave2}. It differs materially from NHANES in age distribution, symptom instruments, sampling and assay coverage. Harmonized outcome definitions and explicit domain shift tests must precede claims of international transportability. Fundus imaging could form an additional measurement/validation channel, but no fundus-based cognitive-risk score is evaluated here.
+
+\subsection{Relation to causality and biological identifiability}
+The fitted partial derivatives $\partial\widehat{Y}/\partial Z_j$ describe model sensitivity holding other included inputs fixed. They are neither physiological response functions nor causal effects. Observational regression can be distorted by confounding, reverse causation, conditioning on intermediates, collider bias and selection into complete-case analytic domains. Moreover, coordinates formed by a change of basis are not identified biological mechanisms. A causal claim would require an explicit target estimand, justified temporal ordering and a suitable identification strategy; these are not supplied by an invertible representation or survey-weighted significance alone.
+
+\subsection{Strengths and limitations}
+Strengths include preserved input measurements, separation of unsupervised representation from phenotype training, same-sample scalar comparators, survey-design checks, frozen multi-period evaluation, reconstruction diagnostics and reporting of unsuccessful complexity experiments. The project also maintained a formal falsification log rather than retaining only positive analyses.
+
+Several limitations prevent stronger inference. First, NHANES is cross-sectional within each collection period, so between-period comparisons are not within-person trajectories. Second, fasting glucose and insulin restrictions introduce selection and smaller analytic domains; complete-case samples differed visibly from eligible samples. Third, residual design degrees of freedom in the 2021--2023 fully adjusted survey domain were insufficient for some valid inferential tests; we therefore do not report a fully adjusted modern-period confirmation $p$ value. Fourth, covariance components can rotate or change signs across fitting choices, limiting mechanistic interpretations of individual coefficients. Fifth, family-wise false-discovery control and design-valid uncertainty intervals are incomplete for the full seven-coordinate derivative and model-selection search. Sixth, repeated inspection of outcomes in the later NHANES cycles weakens claims of an untouched holdout. Seventh, clinical diagnoses, medication history, iron deficiency, renal state and unmeasured determinants are imperfectly captured. Eighth, independence from PHQ during representation fitting is not sufficient to establish independence from all selection or measurement pathways. Ninth, there is not yet an independent prospective external validation of cognitive or fundus-based outcomes.
+
+Accordingly, our evidence supports a \emph{computational representation and conditional association} finding, not a validated disease stratifier, a correction of HbA1c, an individual-level diagnostic test, a longitudinal intervention model or a mechanism for depressive disorders.
+
+\section{Conclusions}
+Across the 2005--2008 NHANES discovery period and frozen 2009--2018 replication, multidimensional hematological and glycemic representations retained a small but reproducible amount of depressive-symptom information beyond scalar hemoglobin-deficit and HbA1c-excess measures. The representation was more stable than its fitted phenotype map, and additional model complexity did not remedy modern-period transfer limitations. The next decisive tests are independent population and assay replication, calibration under missing physiology, rigorous survey-aware uncertainty, and genuinely longitudinal cognitive outcomes. These findings provide a bounded foundation for translational computational phenotyping, not a clinical prediction or causal claim.
+
+\section*{Declarations}
+\textbf{Ethics:} This report analyzes de-identified public-use NHANES data. NHANES collection and consent procedures are managed by the US National Center for Health Statistics; institutional requirements for secondary analysis should be checked by the authors before submission. No new participants were recruited for this manuscript.
+
+\textbf{Data availability:} NHANES public-use files are available from \url{https://wwwn.cdc.gov/nchs/nhanes/}. Code and public project outputs are maintained at \url{https://github.com/auniyal26/anemic-glycemic-burden-decomposition}. The later exploratory experimental log contains branches not all reflected as committed tabular outputs; submission will require a frozen release with executable scripts, version identifiers, environmental specifications and output manifests.
+
+\textbf{Funding:} To be confirmed by all authors; no funding source is asserted in this draft.
+
+\textbf{Conflicts of interest:} To be declared independently by all authors before submission.
+
+\textbf{Author contributions:} Authorship order supplied for drafting. Final CRediT contributions and corresponding-author designation require verification and approval by all three named authors. Listing an individual here does not establish their consent to submission.
+
+\textbf{Reporting:} The final submission should be checked against relevant STROBE observational-study items \cite{strobe2007} and the journal's specific requirements.
+
+\appendix
+\section{Supplementary mathematical specification}
+\subsection{Linear representation: what can and cannot be recovered}
+Let $x\in\R^7$ and suppose $T\in\R^{7\times7}$ is full rank. The invertible map $z=T(x-\mu)$ yields $x=\mu+T^{-1}z$ exactly in exact arithmetic. This statement concerns coordinate encoding, not an ability to recover $x$ from depressive symptoms $y$. Indeed, if $y=\beta_0+\beta^{\mathsf T}z+\varepsilon$ with $\beta\in\R^7$, multiple states $z$ share the same expected $y$. When $\varepsilon=0$ and $\beta\ne0$, the inverse set $\{z:\beta^{\mathsf T}z=y-\beta_0\}$ is generically a six-dimensional affine hyperplane. With noise, a distribution $p(z\mid y)$ is the meaningful reverse object.
+
+\subsection{Worked example: a seven-coordinate somatic-score equation}
+One of the exploratory discovery-fit lean ridge benchmarks was recorded as
+\begin{align}
+\widehat{Y}_i^{\mathrm{som}}={}&1.377041+0.127107Z_{1i}-0.066859Z_{2i}
+-0.092493Z_{3i}-0.113033Z_{4i}\nonumber\\
+&+0.268620Z_{5i}+0.035237Z_{6i}+0.081045Z_{7i}
+-0.009094\,\mathrm{Age}_i\nonumber\\
+&+0.015558\,\mathrm{BMI}_i+0.421778\,\mathrm{Female}_i.
+\label{eq:example}
+\end{align}
+The $Z_j$ are discovery-defined coordinates; the coefficients are not changes in PHQ-9 score per unit of a raw laboratory measurement. The benchmark achieved weighted test $\Rtwo=0.0436$ in 2009--2018 and $0.0449$ in 2021--2023. It is a distinct lean ridge specification from the primary locked, fully adjusted survey comparison and from the higher-fitting seven-coordinate map in Table~\ref{tab:transfer}. A fitted equation does not supply its own uncertainty intervals or guarantee individual-level utility.
+
+\subsection{Audit and replication priority}
+Before journal submission, all authors should freeze (1) a discovery-only analysis protocol; (2) a single definition and set of signs for $Z$; (3) exact laboratory-file joins and sample weights for every branch; (4) sample flows and missingness assessment by cycle; (5) uncertainty intervals for scalar and component increments; (6) multiplicity treatment; (7) full covariate and outcome codebooks; and (8) a genuinely untouched external test set. The 2021--2023 period cannot be described as independent confirmation for research choices repeatedly optimized after viewing it. Preserving unsuccessful results is essential for transparent inference.
+
+\begin{thebibliography}{99}\small
+\bibitem{nhanesportal} National Center for Health Statistics. National Health and Nutrition Examination Survey: questionnaires, datasets and related documentation. Centers for Disease Control and Prevention. \url{https://wwwn.cdc.gov/nchs/nhanes/}. Accessed 16 October 2026.
+\bibitem{nhanes2123} National Center for Health Statistics. Brief overview of sample design, nonresponse bias assessment, and analytic guidelines for NHANES August 2021--August 2023. Centers for Disease Control and Prevention, 2024. \url{https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/overviewbrief.aspx?Cycle=2021-2023}.
+\bibitem{kroenke2001} Kroenke K, Spitzer RL, Williams JBW. The PHQ-9: validity of a brief depression severity measure. \emph{J Gen Intern Med}. 2001;16(9):606--613. doi:\href{https://doi.org/10.1046/j.1525-1497.2001.016009606.x}{10.1046/j.1525-1497.2001.016009606.x}.
+\bibitem{ada2024} American Diabetes Association Professional Practice Committee. 2. Diagnosis and classification of diabetes: Standards of Care in Diabetes---2024. \emph{Diabetes Care}. 2024;47(Suppl 1):S20--S42. \url{https://diabetesjournals.org/care/article/47/Supplement_1/S20/153261/}.
+\bibitem{mezuk2008} Mezuk B, Eaton WW, Albrecht S, Golden SH. Depression and type 2 diabetes over the lifespan: a meta-analysis. \emph{Diabetes Care}. 2008;31(12):2383--2390. doi:\href{https://doi.org/10.2337/dc08-0985}{10.2337/dc08-0985}.
+\bibitem{hotelling1936} Hotelling H. Relations between two sets of variates. \emph{Biometrika}. 1936;28(3--4):321--377. doi:\href{https://doi.org/10.1093/biomet/28.3-4.321}{10.1093/biomet/28.3-4.321}.
+\bibitem{hoerl1970} Hoerl AE, Kennard RW. Ridge regression: biased estimation for nonorthogonal problems. \emph{Technometrics}. 1970;12(1):55--67. doi:\href{https://doi.org/10.1080/00401706.1970.10488634}{10.1080/00401706.1970.10488634}.
+\bibitem{lasi2020} Lee J, et al. Design and methodology of the Longitudinal Aging Study in India--Diagnostic Assessment of Dementia (LASI-DAD). \emph{J Am Geriatr Soc}. 2020. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC7503220/}.
+\bibitem{lasiwave2} LASI-DAD study investigators. Design and methodology of the harmonized diagnostic assessment of dementia for the longitudinal aging study in India: Wave 2. \emph{J Am Geriatr Soc}. 2025;73(3):685--696. doi:\href{https://doi.org/10.1111/jgs.19252}{10.1111/jgs.19252}.
+\bibitem{strobe2007} von Elm E, Altman DG, Egger M, Pocock SJ, G\o tzsche PC, Vandenbroucke JP, et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement. \emph{PLoS Med}. 2007;4(10):e296. doi:\href{https://doi.org/10.1371/journal.pmed.0040296}{10.1371/journal.pmed.0040296}.
+\end{thebibliography}
+\end{document}

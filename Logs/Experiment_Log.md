@@ -1,3 +1,26 @@
+> **Research integrity:** This is the complete experimental record. No findings, estimates,
+> methodology, limitations, negative results, or interpretations have been removed.
+>
+> **Reading path:** NHANES feasibility → seven-marker decomposition/reconstruction →
+> phenotype mapping → temporal transfer → encoding/reverse-inference limits →
+> external validation and causal-identification audit.
+
+### Quick navigation
+
+| Stage | Research entries |
+| --- | --- |
+| Initial feasibility | [20 Aug](#log-aug-20) · [21 Aug](#log-aug-21) |
+| Representation and replication | [14 Sep](#log-sep-14) · [16 Sep](#log-sep-16) · [Scripts 25+ backfill](#log-backfill) |
+| Simulation and falsification | [17 Sep](#log-sep-17) · [21 Sep](#log-sep-21) |
+| Decomposition interpretation | [24 Sep](#log-sep-24) · [25 Sep](#log-sep-25) · [30 Sep](#log-sep-30) |
+| Bidirectional / temporal analysis | [2 Oct](#log-oct-02) · [3 Oct](#log-oct-03) |
+| Encoding and phenotype equations | [12 Oct](#log-oct-12) · [13 Oct](#log-oct-13) · [14 Oct](#log-oct-14) |
+| External / causal stress tests | [15 Oct](#log-oct-15) |
+
+---
+
+<a id="log-aug-20"></a>
+
 # Research Log — 20 August 2026
 
 ## Project
@@ -191,6 +214,8 @@ What survived:
 8. Move toward external/Indian validation.
 
 ---
+
+<a id="log-aug-21"></a>
 
 # Research Log — 21 August 2026
 
@@ -414,6 +439,8 @@ Use stable physiological components to determine:
 Do not yet treat exploratory PCA components as final physiological representations.
 
 ---
+
+<a id="log-sep-14"></a>
 
 # Research Log — 14 September 2026
 
@@ -681,6 +708,8 @@ Do not currently claim:
 
 ---
 
+<a id="log-sep-16"></a>
+
 # Research Log — 16 September 2026
 
 ## Objective
@@ -846,6 +875,8 @@ No robust X-dependent heterogeneity is currently supported.
    - sensitivity only
 4. Avoid indiscriminate biomarker expansion.
 5. Preserve A + G3 as the primary framework unless new evidence justifies changing it.
+
+<a id="log-backfill"></a>
 
 # Research Log Backfill — Work Completed After Script 24
 
@@ -1399,6 +1430,8 @@ G4 is physiologically richer, but its extra complexity was not justified for the
 
 ---
 
+<a id="log-sep-17"></a>
+
 # 17 September — Synthetic Longitudinal Ground-Truth Experiment
 
 A separate `Synthetic_Longitudinal` analysis branch was created.
@@ -1598,6 +1631,8 @@ The simulator was treated as a **methodological sandbox**, not as evidence that 
 
 ---
 
+<a id="log-sep-21"></a>
+
 # 21 September — Formal Lock-In / Falsification Suite
 
 ## NHANES Script 51 — Lock-In Falsification Suite
@@ -1663,6 +1698,8 @@ Irreducible limitations included:
 - true longitudinal change.
 
 ---
+
+<a id="log-sep-24"></a>
 
 # 24 September — Mechanistic / Interpretability Audit
 
@@ -1862,6 +1899,8 @@ The objective is to determine:
 
 > **why it works, what physiological information it preserves, why simple clinical scalars lose that information, and under what conditions the representation, mapping, and interactions remain valid.**
 
+<a id="log-sep-25"></a>
+
 # 25 Sep 2026 — Research Log
 
 ## Representation mechanics
@@ -1912,6 +1951,8 @@ Y → X is not treated as a unique inverse because many physiological states may
 
 ## Stop point
 The physiology/latent architecture is now much clearer, but phenotype decomposition and the full conceptual architecture needs to be revisited fresh rather than pushed further today.
+
+<a id="log-sep-30"></a>
 
 ## 30 Sep 2026 — Shared/Private Decomposition + Phenotype-Map Transfer
 
@@ -2014,6 +2055,8 @@ Y = h(Z,t,\text{population})
 $$
 
 This will connect temporal transfer with later LASI-DAD / external-population validation.
+
+<a id="log-oct-02"></a>
 
 ## 02 Oct 2026 — Bidirectional Gradient Audit + Functional Dependence
 
@@ -2192,6 +2235,8 @@ X \leftrightarrow Z \leftrightarrow Y
 $$
 
 - Once the full bridge is stable, use simulated data to test recovery, identifiability, perturbations and failure modes.
+
+<a id="log-oct-03"></a>
 
 # 03 October 2026 — Phenotype-Map Stability, Reverse Inference, Longitudinal Proof-of-Concept, and MoM Closeout
 
@@ -2730,6 +2775,8 @@ Script 89 explored interactive / 3D mathematical visualization.
 That visualization branch is now **parked** because it does not add scientific evidence to the current update.
 
 
+<a id="log-oct-13"></a>
+
 # Research Log — 13 October 2026
 
 ## Script 95 — Physiological Configuration Atlas
@@ -2937,11 +2984,13 @@ The next major scientific steps are:
 
 No additional exploratory NHANES branch is required before the current research update.
 
+<a id="log-oct-12"></a>
+
 ## Research Log — 12 October 2026
 **Scripts 90–94 | Reversible Encoding and Phenotype–Physiology Bridge**
 
 ### Objective
-Investigate Prof. Saeed's proposed reversible encoding methods as representations for learning a phenotype equation \(\hat Y=h(E(Z))\) and potentially constructing a reverse bridge \(Y\rightarrow Z\).
+Investigate Prof. Saeed's proposed reversible encoding methods as representations for learning a phenotype equation $\hat Y=h(E(Z))$ and potentially constructing a reverse bridge $Y\rightarrow Z$.
 
 Retain the existing seven-component haematological–glycaemic decomposition as the frozen baseline.
 
@@ -2950,7 +2999,7 @@ Retain the existing seven-component haematological–glycaemic decomposition as 
 - **Training:** 2005–06 (n=1,805).
 - **Calibration:** 2007–08 (n=2,340), where applicable.
 - **External-cycle tests:** 2009–18 (n=11,002) and 2021–23 (n=2,590).
-- **Encoders:** Decimal digit interleaving, Cantor pairing, prime-exponent coding and \(2^n(2m+1)\).
+- **Encoders:** Decimal digit interleaving, Cantor pairing, prime-exponent coding and $2^n(2m+1)$.
 - **Models:** Ridge regression, histogram-based gradient boosting (HGB), codebook retrieval and phenotype-conditioned candidate weighting.
 
 ### Script 90 — Encoding and Reconstruction
@@ -3047,6 +3096,8 @@ Seven components; five candidates; 24 physiological families.
 
 **Session status:** Scripts 90–94 executed locally. No improvement demonstrated. Encoding investigation paused pending forward-model audit.
 
+<a id="log-oct-14"></a>
+
 ## 14 October 2026 — Research Log: Scripts 96–100
 
 ### Session Objective
@@ -3084,10 +3135,10 @@ The seven raw physiological variables were Hb, RBC, MCV, RDW, HbA1c, glucose and
 
 **Model:**
 
-\[
+$$
 X \longleftrightarrow C_X,\qquad
 Y\longrightarrow\widehat C_X\longrightarrow\widehat X
-\]
+$$
 
 **Results:**
 
@@ -3126,22 +3177,22 @@ Revisited Scripts 72–77 and confirmed that the existing phenotype-mapping fram
 
 The basic model is:
 
-\[
+$$
 Y_i=\beta_0+\sum_{j=1}^{7}\beta_jZ_{ij}+\gamma^\top C_i+\varepsilon_i
-\]
+$$
 
 where:
-- \(Z_1,Z_2\): shared components.
-- \(Z_3,Z_4\): discordant components.
-- \(Z_5,Z_6\): A-private components.
-- \(Z_7\): G-private component.
-- \(C\): adjustment covariates.
+- $Z_1,Z_2$: shared components.
+- $Z_3,Z_4$: discordant components.
+- $Z_5,Z_6$: A-private components.
+- $Z_7$: G-private component.
+- $C$: adjustment covariates.
 
 For the linear specification:
 
-\[
+$$
 \frac{\partial\widehat Y}{\partial Z_j}=\beta_j
-\]
+$$
 
 **Clarification:** These are fitted regression sensitivities, not a partial differential equation (PDE). A true PDE-based model remains a separate research direction.
 
@@ -3170,7 +3221,7 @@ Matched sample sizes: 3,815 training, 9,893 testing and 2,247 validation observa
 
 **Concrete seven-component somatic equation (lean Ridge):**
 
-\[
+$$
 \begin{aligned}
 Y_i={}&1.377041
 +0.127107Z_{1i}
@@ -3184,7 +3235,7 @@ Y_i={}&1.377041
 &+0.015558BMI_i
 +0.421778Female_i+\varepsilon_i
 \end{aligned}
-\]
+$$
 
 Performance:
 - 2009–18: R² = 0.0436; MAE = 1.54.
@@ -3243,11 +3294,11 @@ Rather than using one fixed regression equation, multiple Ridge equations are co
 
 **Model:**
 
-\[
+$$
 Y_i=\sum_{k=1}^{K}w_k(Z_i)
 \left(\beta_{0k}+\sum_{j=1}^{7}\beta_{jk}Z_{ij}
 +\gamma_k^\top C_i\right)+\varepsilon_i
-\]
+$$
 
 Tested:
 - Static Ridge and Elastic Net baselines.
@@ -3343,6 +3394,8 @@ The principal achievement is the establishment of an explicit, reproducible math
 The principal unresolved problem is not equation construction, but determining which physiological associations are robust, meaningful and generalizable.
 
 **Status:** Session closed — 14 October 2026. Frozen decomposition and earlier experimental assets preserved.
+
+<a id="log-oct-15"></a>
 
 ## 2026-10-15 — External Validation and Causal Identification
 
