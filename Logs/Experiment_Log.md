@@ -3419,3 +3419,310 @@ and intervention-based evidence before developing a correction model.
 
 ### Status
 Scripts 05–08 complete. No causal or clinical claims established.
+
+# Research Log — 19 October 2026
+
+## Objective
+
+Extend the physiological decomposition framework beyond NHANES depression outcomes by:
+
+1. Testing independent physiological decomposition in US MIDUS and Japanese MIDJA.
+2. Validating longitudinal phenotype associations using real repeated measurements.
+3. Challenging the assumptions of NHANES longitudinal simulations against observed MIDJA trajectories.
+4. Applying the frozen seven-variable A/G decomposition to objective cognitive outcomes in NHANES.
+
+The primary scientific objective remains the statistical decomposition of cognitive and depressive phenotypes into hematological, glycemic, shared and discordant physiological contributions.
+
+---
+
+## 1. Script 09 — Independent MIDUS Glycemic Decomposition
+
+**Script:** `09_midus_independent_decomposition_cesd.py`
+
+### Methodology
+
+- Independently decomposed HbA1c, fasting glucose and log-insulin in MIDUS Core and Refresher.
+- No NHANES PCA loadings were reused.
+- Evaluated physiological reconstruction, component alignment, CES-D prediction and reverse phenotype mapping.
+
+### Results
+
+| Metric | Result |
+|---|---:|
+| MIDUS Core participants | 1,219 |
+| MIDUS Refresher participants | 846 |
+| First-PC alignment | 0.9917 |
+| First-two-PC subspace alignment | 0.9945 |
+| Core variance retained by first two PCs | 92.2% |
+| Refresher variance retained by first two PCs | 90.1% |
+
+**Depression prediction:**
+
+- CES-D total: ΔMSE +0.4876.
+- Somatic symptoms: ΔMSE +0.0415.
+- Depressive affect: ΔMSE −0.0576.
+- Bootstrap intervals included zero.
+
+### Finding
+
+Independently discovered glycemic representations were highly similar across the two US cohorts.
+
+However, stable glycemic structure did not translate into a statistically convincing improvement in depression prediction.
+
+**Conclusion:** Strong structural reproducibility; inconclusive glycemic-to-depression predictive transfer.
+
+---
+
+## 2. Script 10 — Independent MIDJA A/G Decomposition
+
+**Script:** `10_midja_independent_decomposition_cesd.py`
+
+### Methodology
+
+- Used hemoglobin, RBC count, MCV and HbA1c.
+- Independently fitted physiological decompositions in MIDJA waves 1 and 2.
+- Compared raw and adjusted HbA1c measurements.
+- Examined concurrent CES-D associations and longitudinal depression prediction.
+
+### Results
+
+| Metric | Result |
+|---|---:|
+| MIDJA1 complete participants | 353 |
+| MIDJA2 complete participants | 303 |
+| Complete longitudinal pairs | 211 |
+| First-PC alignment | Approximately 0.97 |
+| First-two-PC alignment | Approximately 0.97 |
+| Variance retained by three PCs | Approximately 99% |
+
+Concurrent depression prediction did not improve reliably.
+
+**Longitudinal result:** Baseline physiology provided additional predictive information about later CES-D beyond earlier CES-D, age and sex.
+
+| Predictor | ΔMSE, raw HbA1c panel |
+|---|---:|
+| HbA1c alone | +1.0339 |
+| Four raw biomarkers | +1.4985 |
+| First two PCs | +0.2485 |
+| All four PCs | +1.4165 |
+
+These values came from the initial five-fold participant-held-out evaluation.
+
+### Finding
+
+Physiological structure was reasonably reproducible across the two Japanese waves.
+
+The longitudinal analysis provided a promising initial result, motivating stronger uncertainty and confounder audits.
+
+---
+
+## 3. Script 11 — MIDJA Longitudinal Failure Audit
+
+**Script:** `11_midja_longitudinal_validation_failure_audit.py`
+
+### Methodology
+
+- Repeated five-fold cross-validation across 20 partitions.
+- Compared individual biomarkers, hematology, full physiology and reduced components.
+- Added BMI, waist circumference, systolic blood pressure, medication count and chronic-condition count.
+- Evaluated participant-bootstrap uncertainty and attrition sensitivity.
+
+### Results
+
+Mean ΔMSE against the corresponding nonphysiological baseline:
+
+| Model | Minimal adjustment | Expanded adjustment |
+|---|---:|---:|
+| Raw four-biomarker panel | +1.8332 | +0.7612 |
+| Adjusted four-biomarker panel | +1.9138 | +0.8321 |
+| Raw two-PC model | +0.8290 | −0.3397 |
+| Adjusted two-PC model | +0.8352 | −0.3343 |
+
+**Uncertainty and attrition:**
+
+- Complete paired sample: 211 participants.
+- Follow-up eligibility: 59.8% of baseline-complete participants.
+- Attrition-weight effective sample size: approximately 139.
+- Descriptive bootstrap intervals crossed zero for the principal predictive improvements.
+
+### Finding
+
+Full physiology generally showed positive average predictive gains, but these decreased after stronger adjustment.
+
+Reduced components did not consistently outperform simpler models.
+
+**Conclusion:** Suggestive longitudinal association, but insufficient evidence for a robust independent predictive advantage.
+
+---
+
+## 4. Script 12 — Real Longitudinal Test of NHANES Simulations
+
+**Script:** `12_midja_observed_longitudinal_simulation_audit.py`
+
+### Objective
+
+Test assumptions from NHANES simulation Scripts 84–85 against real repeated physiological measurements in MIDJA.
+
+### Methodology
+
+- 211 matched participants.
+- Median follow-up: 53 months.
+- Ten repeated five-fold participant-held-out evaluations.
+- Tested previous physiology, current CES-D and changes in CES-D.
+- Evaluated physiological persistence and calibrated uncertainty.
+
+### Results
+
+**Observed physiological persistence:**
+
+| Component | Baseline-to-follow-up correlation |
+|---|---:|
+| PC1 | 0.793 |
+| PC2 | 0.628 |
+| PC3 | 0.833 |
+| PC4 | 0.305 |
+
+**Reverse-bridge results:**
+
+| Experiment | Added predictive gain |
+|---|---:|
+| Script 84: Previous Z + current CES-D | −0.0060 |
+| Script 85: Previous Z + change in CES-D | +0.0032 |
+
+Values use the raw HbA1c panel; adjusted results were similar.
+
+Nominal 90% uncertainty intervals achieved approximately 91% observed coverage.
+
+### Finding
+
+Different physiological components exhibited substantially different degrees of persistence.
+
+Previous physiological measurements were considerably more informative about future physiology than depression measurements.
+
+Adding depression or change in depression produced negligible incremental information.
+
+**Conclusion:** Observed MIDJA trajectories support component-dependent physiological persistence, but do not establish a useful depression-informed reverse bridge.
+
+These tests challenged selected simulation assumptions, not the complete 15-year NHANES synthetic trajectories.
+
+---
+
+## 5. Script 101 — NHANES Objective Cognitive Decomposition
+
+**Script:** `101_nhanes_cognitive_AG_decomposition.py`
+
+### Objective
+
+Apply the previously frozen seven-variable hematological–glycemic representation to genuine cognitive-performance outcomes rather than depressive symptom proxies.
+
+### Methodology
+
+- Training: NHANES 2011–12.
+- Evaluation: NHANES 2013–14.
+- Adults aged 60 years and older.
+- Outcomes: processing speed, verbal fluency, delayed memory and learning.
+- Compared covariates, hematology alone, glycemia alone, raw A+G and shared/private Z.
+- Calculated predictive A/G allocation and latent-block contributions.
+
+### Results
+
+**Out-of-period incremental predictive improvement:**
+
+| Cognitive outcome | ΔMSE from adding A+G |
+|---|---:|
+| DSST processing speed | **+14.9078** |
+| Animal verbal fluency | −0.0716 |
+| CERAD delayed memory | −0.0710 |
+| CERAD learning sum | −0.8154 |
+
+Positive ΔMSE indicates improved prediction.
+
+### Principal cognitive result — Processing Speed
+
+- Training participants: 630.
+- Held-out participants: 736.
+- Covariates-only R²: 0.2986.
+- Raw A+G R²: **0.3514**.
+- Frozen Z R²: **0.3502**.
+- Raw A+G improvement: ΔMSE +14.9078.
+- Descriptive 95% bootstrap interval: [+4.7489, +26.0667].
+
+**Predictive A/G allocation:**
+
+| Block | Allocated predictive gain | Share of total gain |
+|---|---:|---:|
+| Hematology | +12.0920 | 81.1% |
+| Glycemia | +2.8158 | 18.9% |
+
+This allocation describes predictive improvement, not the causal proportion of cognitive impairment attributable to anemia or diabetes.
+
+**Latent-component attribution:**
+
+| Z group | Mean absolute predicted DSST deviation |
+|---|---:|
+| Shared A/G | 2.4786 |
+| A-private | 1.7669 |
+| Discordant | 1.0002 |
+| G-private | 0.6495 |
+
+### Finding
+
+The complete physiological panel improved held-out processing-speed prediction beyond measured covariates.
+
+Both the original biomarker representation and the frozen decomposition achieved comparable results.
+
+No corresponding improvement was established for verbal fluency or memory.
+
+**Conclusion:** First encouraging objective-cognition result for the complete seven-variable A/G framework, with hematology accounting for most of the allocated predictive improvement.
+
+---
+
+## 6. Consolidated Scientific Findings
+
+1. **Physiological reproducibility:** Independently discovered physiological representations showed substantial structural similarity across MIDUS and MIDJA cohorts.
+
+2. **Depression associations:** Earlier NHANES findings remain supported, particularly for hematology-specific and shared A/G components. External depression prediction was weaker and less consistent.
+
+3. **Longitudinal persistence:** MIDJA provided observed evidence that physiological components persist at different strengths over approximately 4.5 years.
+
+4. **Reverse identifiability:** Knowing depression severity or its change provides little additional information for reconstructing physiology once previous physiological measurements are available.
+
+5. **Objective cognition:** NHANES DSST processing speed showed a positive and comparatively convincing physiological predictive contribution.
+
+6. **Domain specificity:** Processing speed, memory and verbal fluency did not respond uniformly to physiological predictors.
+
+7. **Decomposition:** The framework can quantify statistical and predictive contributions associated with hematology, glycemia and their latent components. Causal proportions of individual impairment are not identified.
+
+## 7. Methodological Limitations
+
+- All clinical relationships remain observational and associative.
+- MIDUS and MIDJA have reduced biomarker panels and are not exact replications of the full NHANES decomposition.
+- NHANES cognitive results involve different participants in 2011–12 and 2013–14, not individual longitudinal decline.
+- Complex survey-design inference, assay harmonization, clinical coding and attrition remain validation requirements.
+- Bootstrap intervals are descriptive rather than full design-corrected confidence intervals.
+- Full-rank physiological transformations preserve information but do not automatically improve predictive performance.
+- The reported 81.1%/18.9% DSST allocation is not a causal or biological decomposition.
+
+## 8. Research Direction
+
+**Primary:** Validate statistical decomposition of genuine cognitive phenotypes into A-specific, G-specific, shared and discordant physiological contributions.
+
+**Immediate priorities:**
+
+1. Strengthen the NHANES DSST result using survey-design inference, clinical subgroup analyses and uncertainty propagation.
+2. Determine why other cognitive domains do not show comparable associations.
+3. Assess stability of physiological contributions across datasets and populations.
+4. Retain real longitudinal measurements as validation for time-dependent physiological models.
+5. Extend the established tabular methodology toward multimodal cognitive phenotyping with vitals and fundus imaging.
+
+### Final Session Decision
+
+**Scripts 09–12 and 101 completed.**
+
+The session advanced the project from predominantly depression-oriented NHANES analyses toward independent-population validation, observed longitudinal testing and genuine cognitive-phenotype decomposition.
+
+The strongest new outcome-related evidence concerns **processing speed**, where hematological and glycemic measurements jointly improved predictive performance.
+
+The principal remaining challenge is to establish reliable and interpretable cognitive contribution estimates across populations and modalities.
+
+**Status:** Session closed — 19 October 2026. Existing frozen NHANES physiological transformations preserved.
