@@ -1,0 +1,62 @@
+{
+  "script": "101_nhanes_cognitive_AG_decomposition.py",
+  "input": "EDA\\Results\\73_frozen_phenotype_map_input.csv",
+  "training_cycle": "1112",
+  "external_cycle": "1314",
+  "outcomes": {
+    "DSST_processing_speed": "CFDDS",
+    "Animal_verbal_fluency": "CFDAST",
+    "CERAD_delayed_memory": "CFDCSR",
+    "CERAD_learning_sum": "CERAD_LEARNING"
+  },
+  "A": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW"
+  ],
+  "G": [
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "frozen_Z": [
+    "SP_SHARED1",
+    "SP_SHARED2",
+    "SP_DISCORD1",
+    "SP_DISCORD2",
+    "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4",
+    "SP_G_PRIVATE3"
+  ],
+  "cross_validation": {
+    "folds": 4,
+    "alpha_choices": [
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "seed": 101
+  },
+  "uses_NHANES2011_2014_real_cognitive_scores": true,
+  "refits_frozen_transformation": false,
+  "causal_attribution": false,
+  "survey_design_inference": false,
+  "trained_outcomes": [
+    "DSST_processing_speed",
+    "Animal_verbal_fluency",
+    "CERAD_delayed_memory",
+    "CERAD_learning_sum"
+  ],
+  "outputs": [
+    "101_cognitive_coverage.csv",
+    "101_cognitive_readout.md",
+    "101_cognitive_models.csv",
+    "101_cognitive_predictive_AG_allocation.csv",
+    "101_cognitive_Z_block_attribution.csv",
+    "101_cognitive_equation_terms.csv",
+    "101_cognitive_phenotype_gradients.csv",
+    "101_cognitive_paired_intervals.csv"
+  ]
+}

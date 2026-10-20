@@ -1,0 +1,13 @@
+stage,outcome,reference,candidate,n,mse_gain,case_bootstrap_ci_low,case_bootstrap_ci_high,direction
+MIDJA2_all,CESD_total,covariates,PC1_2,303,-1.0431043854462125,-1.7646441552286076,-0.3840058214029285,favors_reference
+MIDJA2_all,CESD_total,HbA1c,PC1_2,303,0.49427196303348764,-0.11163086197751126,1.1899998291037275,inconclusive
+MIDJA2_all,CESD_total,covariates,raw_X4,303,-1.6990958723789318,-2.619957181844972,-0.8629272949502096,favors_reference
+MIDJA2_all,CESD_total,hematology_raw,A_PC1_2_plus_G,303,-1.3496509520295603,-2.034569873610284,-0.7893236690730979,favors_reference
+MIDJA2_no_wave1_participation,CESD_total,covariates,PC1_2,78,-1.561158045144478,-2.6762594690757946,-0.46777488072436296,favors_reference
+MIDJA2_no_wave1_participation,CESD_total,HbA1c,PC1_2,78,0.9316157930994868,-0.6679699759299507,2.59152212928202,inconclusive
+MIDJA2_no_wave1_participation,CESD_total,covariates,raw_X4,78,-2.7146321332613033,-4.7783270697035345,-1.0141467153068549,favors_reference
+MIDJA2_no_wave1_participation,CESD_total,hematology_raw,A_PC1_2_plus_G,78,-2.136624257083559,-4.073884658789955,-0.5051680750321653,favors_reference
+MIDJA2_wave1_participants,CESD_total,covariates,PC1_2,225,-0.8635124500841472,-1.5979887954677698,-0.08716161953747673,favors_reference
+MIDJA2_wave1_participants,CESD_total,HbA1c,PC1_2,225,0.3426594352772742,-0.2693585818864304,1.0265713779291084,inconclusive
+MIDJA2_wave1_participants,CESD_total,covariates,raw_X4,225,-1.3470433019397094,-2.1963170685889075,-0.470006439260672,favors_reference
+MIDJA2_wave1_participants,CESD_total,hematology_raw,A_PC1_2_plus_G,225,-1.0768335396108404,-1.683320857546798,-0.48169767403376834,favors_reference

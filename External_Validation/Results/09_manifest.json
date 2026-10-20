@@ -1,0 +1,94 @@
+{
+  "experiment": "MIDUS independent discovery G3 to CES-D",
+  "script": "09_midus_independent_decomposition_cesd.py",
+  "seed": 20261019,
+  "ridge_alpha": 10.0,
+  "discovery_cv_folds": 5,
+  "case_bootstrap_reps": 1200,
+  "inputs": {
+    "CORE": {
+      "filename": "M2_BIO_AGGREGATE_N1255_20240405.sav",
+      "sha256": "d599e45cd7d6e5891c00f8779c030186a98ff027889aa7bcc2e6476433fefde8"
+    },
+    "REFRESHER": {
+      "filename": "MR1_BIO_AGGREGATE_N863_20240405.sav",
+      "sha256": "0a7d0252c0fc31f3fcdbbabf281e35f744c98af1208ad4f11149466aab29b8b5"
+    }
+  },
+  "core_n": "1219",
+  "refresher_n": "846",
+  "source_features": [
+    "HbA1c",
+    "Glucose",
+    "logInsulin"
+  ],
+  "target_fields": [
+    "CESD_total",
+    "CESD_somatic",
+    "CESD_affect"
+  ],
+  "covariates": [
+    "Age",
+    "Sex"
+  ],
+  "frozen_CORE_component_mean": [
+    6.085128794093518,
+    102.03609515996719,
+    2.3334337666318987
+  ],
+  "frozen_CORE_component_sd": [
+    1.152684017528325,
+    27.976909672550597,
+    0.7018269498022858
+  ],
+  "frozen_CORE_loadings": [
+    [
+      0.6626868444384172,
+      -0.26995936611131727,
+      -0.6985471257238334
+    ],
+    [
+      0.6735213259792345,
+      -0.19299125074741558,
+      0.7135288365484063
+    ],
+    [
+      0.32743727591620814,
+      0.9433325594845776,
+      -0.05393062726177994
+    ]
+  ],
+  "frozen_CORE_variance_ratios": [
+    0.622551756352618,
+    0.2993214935575883,
+    0.07812675008979372
+  ],
+  "REFRESHER_independently_rediscovered_loadings": [
+    [
+      0.6380275374412956,
+      -0.28008585640098554,
+      0.7172675752539791
+    ],
+    [
+      0.6280014489150173,
+      -0.3497421831621084,
+      -0.6951939193330451
+    ],
+    [
+      0.44557271194187204,
+      0.8939979409154859,
+      -0.04725082022184024
+    ]
+  ],
+  "REFRESHER_independently_rediscovered_variance_ratios": [
+    0.6447585032664624,
+    0.25662877442056103,
+    0.09861272231297652
+  ],
+  "NHANES_used_for_fit_or_variable_selection": false,
+  "causal_identification": false,
+  "laboratory_protocol_verified": false,
+  "CESD_invariance_verified": false,
+  "sampling_weights_or_attrition_adjusted": false,
+  "individual_records_exported": false
+}

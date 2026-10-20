@@ -1,0 +1,65 @@
+{
+  "script": "12_midja_observed_longitudinal_simulation_audit.py",
+  "tested_NHANES_simulations": [
+    "84_skip_informed_reverse_bridge_simulation",
+    "85_delta_state_informed_bridge_simulation"
+  ],
+  "additional_simulation": "84 rho grid adapted to MIDJA baseline measurements",
+  "not_identified": [
+    "53 stable/additive versus mapping drift versus A\u00d7G interaction versus assay drift",
+    "15-year trajectories"
+  ],
+  "seed": 20261019,
+  "folds": 5,
+  "repeats": 10,
+  "alpha": 10.0,
+  "calibration_fraction": 0.25,
+  "coverage_nominal": 0.9,
+  "rho_grid": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "sim_replicates_per_rho": 300,
+  "source_script10": {
+    "file": "10_midja_independent_decomposition_cesd.py",
+    "sha256": "67d9b724670b59e4d7a7be5dc02b849c9d6cb153b32ec6812471561005bb7490"
+  },
+  "source_files": {
+    "MIDJA1": {
+      "filename": "MIDJA_1_Biomarker_Public_N382_20180816.sav",
+      "sha256": "56fdbff8ec9dcdae5ea88c7e998913cac4711e435d551b536132011f196423ae"
+    },
+    "MIDJA2": {
+      "filename": "MIDJA 2_Biomarker_Public_N=328_10-06-2016.sav",
+      "sha256": "f96c32c846959330bdc58b017637e275b244aff706c07f4ff2b4d01cadb386ba"
+    }
+  },
+  "panels": {
+    "raw": {
+      "n": 211,
+      "matched_complete": 211,
+      "dated_pairs": 211,
+      "months_median": 53.0,
+      "months_min": 44.0,
+      "months_max": 65.0,
+      "CESD_change_mean": -2.9397156398104265
+    },
+    "adjusted": {
+      "n": 211,
+      "matched_complete": 211,
+      "dated_pairs": 211,
+      "months_median": 53.0,
+      "months_min": 44.0,
+      "months_max": 65.0,
+      "CESD_change_mean": -2.9397156398104265
+    }
+  },
+  "nhanes_or_midus_fitted_parameters_used": false,
+  "uses_followup_CESD_for_same_time_state_inference": true,
+  "causal_identification": false,
+  "external_independent_longitudinal_replication": false,
+  "individual_level_outputs_exported": false
+}

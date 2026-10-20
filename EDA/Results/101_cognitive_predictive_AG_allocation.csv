@@ -1,0 +1,9 @@
+outcome,block,shapley_delta_MSE,total_rawX_gain,note
+DSST_processing_speed,A,12.092004021325138,14.907819812050889,"predictive allocation, not individual impairment or causal fraction"
+DSST_processing_speed,G,2.8158157907257504,14.907819812050889,"predictive allocation, not individual impairment or causal fraction"
+Animal_verbal_fluency,A,-0.1313690532678642,-0.07155711194026182,"predictive allocation, not individual impairment or causal fraction"
+Animal_verbal_fluency,G,0.05981194132760237,-0.07155711194026182,"predictive allocation, not individual impairment or causal fraction"
+CERAD_delayed_memory,A,0.02237446296870349,-0.07100519680824036,"predictive allocation, not individual impairment or causal fraction"
+CERAD_delayed_memory,G,-0.09337965977694385,-0.07100519680824036,"predictive allocation, not individual impairment or causal fraction"
+CERAD_learning_sum,A,-0.5511807028579838,-0.8153680946226736,"predictive allocation, not individual impairment or causal fraction"
+CERAD_learning_sum,G,-0.26418739176468975,-0.8153680946226736,"predictive allocation, not individual impairment or causal fraction"

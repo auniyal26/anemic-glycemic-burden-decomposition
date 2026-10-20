@@ -1,0 +1,126 @@
+{
+  "script": "11_midja_longitudinal_validation_failure_audit.py",
+  "design": "Longitudinal MIDJA participant-level repeated-CV robustness and attrition audits",
+  "seed": 20261019,
+  "cv_folds": 5,
+  "cv_repeats": 20,
+  "ridge_alpha": 10.0,
+  "bootstrap_replicates": 2000,
+  "source_script": "10_midja_independent_decomposition_cesd.py",
+  "source_files": {
+    "MIDJA1": {
+      "filename": "MIDJA_1_Biomarker_Public_N382_20180816.sav",
+      "sha256": "56fdbff8ec9dcdae5ea88c7e998913cac4711e435d551b536132011f196423ae"
+    },
+    "MIDJA2": {
+      "filename": "MIDJA 2_Biomarker_Public_N=328_10-06-2016.sav",
+      "sha256": "f96c32c846959330bdc58b017637e275b244aff706c07f4ff2b4d01cadb386ba"
+    }
+  },
+  "optional_variables": {
+    "BMI": "J2CBMI",
+    "Waist_cm": "J2CWST",
+    "Systolic_BP": "J2CBPS1",
+    "Medication_count": "J2MTM",
+    "Chronic_condition_count": "J2QSYMN2"
+  },
+  "ranges": {
+    "BMI": [
+      12,
+      85
+    ],
+    "Waist_cm": [
+      40,
+      200
+    ],
+    "Systolic_BP": [
+      70,
+      260
+    ],
+    "Medication_count": [
+      0,
+      60
+    ],
+    "Chronic_condition_count": [
+      0,
+      80
+    ]
+  },
+  "panels": {
+    "raw": {
+      "panel": "raw",
+      "MIDJA1_complete": 353,
+      "MIDJA2_complete": 303,
+      "paired_all": 211,
+      "paired_strict_later": 211,
+      "followup_gap_months_median": 53.0,
+      "followup_gap_months_min": 44.0,
+      "followup_gap_months_max": 65.0,
+      "CESD_baseline_mean": 12.878104265402843,
+      "CESD_followup_mean": 9.938388625592417,
+      "CESD_mean_change": -2.9397156398104265,
+      "attrition": {
+        "MIDJA1_complete": 353,
+        "included_dated_pair": 211,
+        "excluded_or_no_complete_dated_pair": 142,
+        "inclusion_rate": 0.5977337110481586,
+        "propensity_min": 0.001734612150539328,
+        "propensity_p05": 0.44626821209252615,
+        "propensity_median": 0.6085916943117214,
+        "propensity_p95": 0.7332055408688214,
+        "propensity_max": 0.8830402731899042,
+        "clip_count": 1,
+        "weight_max": 11.954674220963172,
+        "weight_effective_n": 138.58669780265328,
+        "propensity_source": "cross-fitted baseline-only logistic regression",
+        "identification": "exploratory observed-covariate attrition adjustment; MAR unverified"
+      },
+      "sensitivity": {
+        "subset": "HbA1c_4to10_Hb_8to18",
+        "n": 211,
+        "exclusions": 0
+      }
+    },
+    "adjusted": {
+      "panel": "adjusted",
+      "MIDJA1_complete": 353,
+      "MIDJA2_complete": 303,
+      "paired_all": 211,
+      "paired_strict_later": 211,
+      "followup_gap_months_median": 53.0,
+      "followup_gap_months_min": 44.0,
+      "followup_gap_months_max": 65.0,
+      "CESD_baseline_mean": 12.878104265402843,
+      "CESD_followup_mean": 9.938388625592417,
+      "CESD_mean_change": -2.9397156398104265,
+      "attrition": {
+        "MIDJA1_complete": 353,
+        "included_dated_pair": 211,
+        "excluded_or_no_complete_dated_pair": 142,
+        "inclusion_rate": 0.5977337110481586,
+        "propensity_min": 0.00174997293582276,
+        "propensity_p05": 0.44643029685946944,
+        "propensity_median": 0.6074855814585383,
+        "propensity_p95": 0.7335656458885387,
+        "propensity_max": 0.8833765881472931,
+        "clip_count": 1,
+        "weight_max": 11.954674220963172,
+        "weight_effective_n": 138.6214507033171,
+        "propensity_source": "cross-fitted baseline-only logistic regression",
+        "identification": "exploratory observed-covariate attrition adjustment; MAR unverified"
+      },
+      "sensitivity": {
+        "subset": "HbA1c_4to10_Hb_8to18",
+        "n": 211,
+        "exclusions": 0
+      }
+    }
+  },
+  "uses_future_biomarkers_as_predictors": false,
+  "nhanes_or_midus_fit_used": false,
+  "causal_identification": false,
+  "survey_design_adjusted": false,
+  "clinical_coding_and_assays_verified": false,
+  "independent_external_prospective_cohort": false,
+  "individual_records_exported": false
+}

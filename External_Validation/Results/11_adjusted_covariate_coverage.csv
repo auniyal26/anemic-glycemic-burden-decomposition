@@ -1,0 +1,6 @@
+variable,n,missing_fraction,median
+BMI,211,0.0,22.4
+Waist_cm,211,0.0,74.8
+Systolic_BP,211,0.0,124.0
+Medication_count,211,0.0,1.0
+Chronic_condition_count,211,0.0,2.0
