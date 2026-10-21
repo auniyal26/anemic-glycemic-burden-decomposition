@@ -1205,6 +1205,849 @@ save_both(
 
 plt.close(fig)
 
+
+
+# =============================================================================
+# FIGURE G — SAME PHQ-9 SCORE, DIFFERENT PHYSIOLOGICAL STATES
+# Script 95 | Real NHANES participants | Seven-biomarker fingerprint
+# =============================================================================
+
+import runpy
+from sklearn.cluster import KMeans
+
+s95 = runpy.run_path(
+    str(PROJECT_ROOT / "EDA" / "95_physiological_configuration_atlas.py")
+)
+
+cohorts, _ = s95["load_real_data"]()
+discovery = cohorts["train_2005-2006"].copy()
+
+ZCOLS = [
+    "SP_SHARED1", "SP_SHARED2", "SP_DISCORD1",
+    "SP_DISCORD2", "SP_A_PRIVATE3",
+    "SP_A_PRIVATE4", "SP_G_PRIVATE3",
+]
+
+RAWCOLS = [
+    "LBXHGB", "LBXRBCSI", "LBXMCVSI", "LBXRDW",
+    "LBXGH", "LBXGLU", "LOG_IN",
+]
+
+RAWLABELS = [
+    "Hb", "RBC", "MCV", "RDW",
+    "HbA1c", "Glucose", "ln insulin",
+]
+
+weights = discovery["SURVEY_WT"].to_numpy(float)
+z = discovery[ZCOLS].to_numpy(float)
+
+# Reproduce the original Script 95 cluster assignments.
+z_mean, z_sd = s95["weighted_mean_sd"](z, weights)
+z_scaled = (z - z_mean) / z_sd
+
+km = KMeans(n_clusters=4, n_init=20, random_state=95)
+km.fit(z_scaled, sample_weight=weights / weights.mean())
+
+order = np.argsort(km.cluster_centers_[:, 0])
+mapping = {int(old): int(new) for new, old in enumerate(order)}
+clusters = np.array([mapping[int(c)] for c in km.labels_])
+
+# Exactly the original PHQ-9 = 10 participants.
+mask = discovery["PHQ9_ITEMS_TOTAL"].eq(10).to_numpy()
+focus = discovery.loc[mask].copy()
+focus["group"] = clusters[mask]
+
+if len(focus) != 22:
+    raise RuntimeError(
+        f"Expected 22 real observations; found {len(focus)}. "
+        "Check Script 95 source coverage."
+    )
+
+if not np.isfinite(focus[RAWCOLS].to_numpy(float)).all():
+    raise ValueError("Incomplete raw biomarkers in selected cohort")
+
+# Standardize original seven biomarkers relative to discovery.
+raw = discovery[RAWCOLS].to_numpy(float)
+mu = np.average(raw, axis=0, weights=weights)
+sd = np.sqrt(
+    np.average((raw - mu) ** 2, axis=0, weights=weights)
+)
+
+if not np.isfinite(sd).all() or np.any(sd <= 0):
+    raise ValueError("Invalid discovery biomarker scaling")
+
+# Keep participants anonymous and sort for visual interpretation.
+focus = focus.sort_values(
+    ["group", "LBXGH"]
+).reset_index(drop=True)
+
+heat = (focus[RAWCOLS].to_numpy(float) - mu) / sd
+groups = focus["group"].to_numpy(int)
+
+colors = [
+    CMAP(0.28), CMAP(0.47),
+    CMAP(0.68), CMAP(0.90),
+]
+
+fig, (ax, hx) = plt.subplots(
+    1, 2,
+    figsize=(15.8, 8.2),
+    gridspec_kw={"width_ratios": [1.1, 1.32]},
+)
+
+fig.patch.set_facecolor("white")
+
+# ------------------------------------------------------------------
+# PANEL A: PHYSIOLOGICAL COORDINATES
+# ------------------------------------------------------------------
+
+for group in range(4):
+    sub = focus.loc[focus["group"] == group]
+
+    ax.scatter(
+        sub["SP_SHARED1"],
+        sub["SP_A_PRIVATE3"],
+        s=110,
+        color=colors[group],
+        edgecolor="white",
+        linewidth=1.5,
+        alpha=0.95,
+        label=f"Group {group} (n={len(sub)})",
+        zorder=3,
+    )
+
+ax.set_title(
+    "a   Different positions in the frozen Z space",
+    loc="left", pad=15,
+)
+
+ax.set_xlabel("Shared physiological component 1")
+ax.set_ylabel("Hematology-private component 3")
+
+ax.grid(color=GRID, alpha=0.55, linewidth=0.75)
+ax.legend(loc="upper right", frameon=False, fontsize=9.5)
+sns.despine(ax=ax, top=True, right=True)
+
+# ------------------------------------------------------------------
+# PANEL B: ALL SEVEN REAL BIOMARKERS
+# ------------------------------------------------------------------
+
+im = hx.imshow(
+    np.clip(heat, -2.5, 2.5),
+    cmap="RdBu_r",
+    vmin=-2.5,
+    vmax=2.5,
+    aspect="auto",
+    interpolation="nearest",
+)
+
+hx.set_title(
+    "b   Seven observed biomarker fingerprints",
+    loc="left", pad=15,
+)
+
+hx.set_xticks(
+    np.arange(len(RAWLABELS)),
+    labels=RAWLABELS,
+    rotation=35,
+    ha="right",
+)
+
+hx.set_yticks(
+    np.arange(len(focus)),
+    labels=[f"{i:02d}" for i in range(1, len(focus) + 1)],
+)
+
+hx.set_ylabel("Anonymous participant (same PHQ-9 = 10)")
+hx.tick_params(axis="both", length=0)
+
+# Separate hematology from glycemia.
+hx.axvline(3.5, color="white", linewidth=2.8)
+
+# Visual boundaries between exploratory groups.
+for i in range(1, len(focus)):
+    if groups[i] != groups[i - 1]:
+        hx.axhline(
+            i - 0.5,
+            color="white",
+            linewidth=2.8,
+        )
+
+# Coloured markers link the rows with panel A.
+hx.scatter(
+    np.full(len(focus), -0.76),
+    np.arange(len(focus)),
+    c=[colors[g] for g in groups],
+    s=28,
+    marker="s",
+    edgecolors="none",
+    clip_on=False,
+)
+
+cb = fig.colorbar(im, ax=hx, fraction=0.035, pad=0.03)
+cb.set_label("Difference from discovery mean (SD)", fontsize=10)
+cb.ax.tick_params(labelsize=9)
+
+# ------------------------------------------------------------------
+# TITLE, ACTUAL OBSERVED RANGES, AND FOOTNOTES
+# ------------------------------------------------------------------
+
+hba1c = focus["LBXGH"].to_numpy(float)
+glucose = focus["LBXGLU"].to_numpy(float)
+
+fig.suptitle(
+    "One depressive-symptom score, multiple physiological states",
+    x=0.06, y=0.975,
+    ha="left",
+    fontsize=19,
+    fontweight="bold",
+    color=TEXT,
+)
+
+fig.text(
+    0.06, 0.925,
+    f"NHANES 2005–06  |  PHQ-9 = 10  |  n = {len(focus)}  |  "
+    f"HbA1c {hba1c.min():.1f}–{hba1c.max():.1f}%  |  "
+    f"Glucose {glucose.min():.0f}–{glucose.max():.0f} mg/dL",
+    fontsize=11.1,
+    color=MUTED,
+)
+
+fig.text(
+    0.06, 0.065,
+    "Each point and heatmap row represents one real participant. "
+    "Biomarkers are standardized against the discovery cohort; "
+    "colours saturate at ±2.5 SD.",
+    fontsize=9.5,
+    color=MUTED,
+)
+
+fig.text(
+    0.06, 0.040,
+    "Exploratory K-means groups (K=4; silhouette=0.109) are "
+    "visual guides, not validated clinical subtypes.",
+    fontsize=9.5,
+    color=MUTED,
+)
+
+fig.subplots_adjust(
+    left=0.075, right=0.95,
+    bottom=0.17, top=0.855,
+    wspace=0.28,
+)
+
+save_both(
+    fig,
+    "95_PHQ10_heterogeneity_physiological_fingerprints"
+)
+
+plt.close(fig)
+
+
+# =============================================================================
+# FIGURE H — OBSERVED VS PREDICTED PHENOTYPE SCORES
+# Script 98 | Frozen fitted equations | NHANES temporal transfer
+# =============================================================================
+
+import importlib.util
+import json
+
+results98 = PROJECT_ROOT / "EDA" / "Results"
+
+spec98 = importlib.util.spec_from_file_location(
+    "script98_plot_source",
+    PROJECT_ROOT / "EDA" / "98_regularized_phenotype_equation.py"
+)
+s98 = importlib.util.module_from_spec(spec98)
+spec98.loader.exec_module(s98)
+
+# Initialise the source script's required state.
+s98.yield_msg = []
+s98.normalizer = {}
+s98.categories_reference = {}
+s98.categories_feature_names = []
+
+# Reproduce Script 98's exact analytical cohort and feature definitions.
+data98 = s98.load_real()
+features98 = s98.build_features(data98)
+
+terms98 = pd.read_csv(results98 / "98_equation_terms.csv")
+metrics98 = pd.read_csv(
+    results98 / "98_frozen_holdout_performance.csv"
+)
+
+with open(results98 / "98_manifest.json", encoding="utf-8") as f:
+    manifest98 = json.load(f)
+
+winners98 = {
+    r["outcome"]: r
+    for r in manifest98["outcome_winners"]
+}
+
+periods98 = [
+    ("train_2005-2008", "Discovery | 2005–08"),
+    ("test_2009-2018", "Frozen test | 2009–18"),
+    ("validate_2021-2023", "Frozen validation | 2021–23"),
+]
+
+outcomes98 = {
+    "PHQ_total": ("PHQ-9 total", 27),
+    "Somatic": ("Somatic symptoms", 9),
+    "CogAff": ("Cognitive-affective symptoms", 18),
+}
+
+for outcome, (label, upper) in outcomes98.items():
+
+    selected = winners98[outcome]
+    scope = selected["selected_scope"]
+    design = selected["selected_design"]
+
+    # Load the REAL stored coefficients of the selected equation.
+    t = terms98.loc[
+        terms98["outcome"].eq(outcome)
+        & terms98["scope"].eq(scope)
+        & terms98["design"].eq(design)
+        & terms98["method"].eq(selected["method"])
+    ].copy()
+
+    if t.empty or t["feature"].duplicated().any():
+        raise RuntimeError(f"Missing/duplicate equation terms: {outcome}")
+
+    coef_names = t["feature"].tolist()
+    if not set(coef_names).issubset(features98.columns):
+        raise RuntimeError(f"Missing engineered features: {outcome}")
+
+    beta = t["beta_raw"].to_numpy(float)
+    intercept = float(t["intercept_raw"].iloc[0])
+
+    # Evaluate the SAVED equation, with no fitting or recalibration.
+    predicted = (
+        intercept
+        + features98[coef_names].to_numpy(float) @ beta
+    )
+    observed = data98[s98.Y_TARGETS[outcome]].to_numpy(float)
+    weights = data98["SURVEY_WT"].to_numpy(float)
+
+    fig, axes = plt.subplots(
+        1, 3,
+        figsize=(16, 6),
+        sharey=True
+    )
+
+    for ax, (period, subtitle) in zip(axes, periods98):
+
+        mask = data98["SPLIT"].eq(period).to_numpy()
+
+        y = observed[mask]
+        yh = predicted[mask]
+        w = weights[mask]
+
+        r2, rmse, mae, bias = s98.wmetrics(y, yh, w)
+
+        # Verify against the original Script 98 results.
+        reference = metrics98.loc[
+            metrics98["outcome"].eq(outcome)
+            & metrics98["scope"].eq(scope)
+            & metrics98["design"].eq(design)
+            & metrics98["period"].eq(period)
+        ]
+
+        if len(reference) != 1:
+            raise RuntimeError("Missing reference performance row")
+
+        ref = reference.iloc[0]
+
+        if (
+            len(y) != int(ref["n"])
+            or not np.isclose(
+                r2, ref["weighted_R2"],
+                atol=1e-5, rtol=0
+            )
+            or not np.isclose(
+                mae, ref["weighted_MAE"],
+                atol=1e-5, rtol=0
+            )
+        ):
+            raise RuntimeError(
+                f"Frozen equation reproduction failed: "
+                f"{outcome}, {period}"
+            )
+
+        # A: Actual participant-level outcome distribution.
+        ax.hexbin(
+            yh, y,
+            gridsize=(30, 24),
+            mincnt=1,
+            bins="log",
+            cmap=CMAP,
+            linewidths=0,
+            alpha=0.85,
+            zorder=2
+        )
+
+        # B: Weighted calibration curve in prediction deciles.
+        edges = np.unique(
+            np.quantile(yh, np.linspace(0, 1, 11))
+        )
+
+        if len(edges) > 2:
+            bins = np.searchsorted(
+                edges[1:-1], yh, side="right"
+            )
+
+            calibration = []
+
+            for k in range(len(edges) - 1):
+                sel = bins == k
+
+                if not sel.any():
+                    continue
+
+                calibration.append([
+                    np.average(yh[sel], weights=w[sel]),
+                    np.average(y[sel], weights=w[sel]),
+                ])
+
+            calibration = np.array(calibration)
+
+            ax.plot(
+                calibration[:, 0],
+                calibration[:, 1],
+                "-o",
+                color=DARK,
+                linewidth=2.1,
+                markersize=5,
+                markerfacecolor="white",
+                markeredgewidth=1.5,
+                zorder=5
+            )
+
+        # Ideal prediction: observed = predicted.
+        xmin = min(-0.3, float(yh.min()) - 0.35)
+        xmax = max(1.0, float(yh.max()) + 0.35)
+
+        ax.plot(
+            [xmin, xmax],
+            [xmin, xmax],
+            "--",
+            color=MUTED,
+            linewidth=1.3,
+            zorder=3
+        )
+
+        ax.set_xlim(xmin, xmax)
+        ax.set_ylim(-0.5, upper + 0.5)
+
+        ax.set_title(
+            subtitle,
+            fontsize=13,
+            fontweight="bold",
+            color=TEXT,
+            pad=14
+        )
+
+        ax.set_xlabel("Predicted score", fontsize=11)
+
+        ax.text(
+            0.04, 0.97,
+            f"n = {len(y):,}\n"
+            f"Weighted R² = {r2:+.3f}\n"
+            f"Weighted MAE = {mae:.2f}",
+            transform=ax.transAxes,
+            va="top",
+            fontsize=10,
+            color=TEXT,
+            bbox=dict(
+                facecolor="white",
+                edgecolor="none",
+                alpha=0.92,
+                pad=4
+            )
+        )
+
+        ax.grid(axis="y", color=GRID, alpha=0.3)
+        ax.grid(axis="x", visible=False)
+        sns.despine(ax=ax, top=True, right=True)
+
+    axes[0].set_ylabel("Observed score", fontsize=11)
+
+    fig.suptitle(
+        f"{label} | How closely does our fitted equation predict Y?",
+        x=0.055,
+        y=0.985,
+        ha="left",
+        fontsize=18,
+        fontweight="bold",
+        color=TEXT
+    )
+
+    fig.text(
+        0.055, 0.875,
+        f"Script 98 | {selected['method']} | {scope}/{design} | "
+        "Coefficients frozen from NHANES 2005–08",
+        fontsize=10,
+        color=MUTED
+    )
+
+    fig.text(
+        0.055, 0.045,
+        "Hexagons: unweighted participant density (log scale). "
+        "Blue line: survey-weighted decile calibration. "
+        "Dashed: perfect prediction. "
+        "Horizontal axes zoomed to fitted prediction ranges.",
+        fontsize=9,
+        color=MUTED
+    )
+
+    fig.subplots_adjust(
+        left=0.065,
+        right=0.985,
+        bottom=0.19,
+        top=0.79,
+        wspace=0.17
+    )
+
+    save_both(
+        fig,
+        f"98_observed_vs_predicted_{outcome}"
+    )
+
+    plt.close(fig)
+
+    print(
+        f"[VERIFIED] {outcome}: numerical equation "
+        "reproduces stored Script 98 metrics."
+    )
+
+
+# =============================================================================
+# FIGURE H — OBJECTIVE COGNITION: DOMAIN SPECIFICITY AND A/G ATTRIBUTION
+# Script 101 | NHANES 2011–12 training → 2013–14 evaluation
+# =============================================================================
+
+R101 = PROJECT_ROOT / "EDA" / "Results"
+
+models = pd.read_csv(R101 / "101_cognitive_models.csv")
+intervals = pd.read_csv(R101 / "101_cognitive_paired_intervals.csv")
+alloc = pd.read_csv(R101 / "101_cognitive_predictive_AG_allocation.csv")
+
+domains = [
+    ("DSST_processing_speed", "Processing speed (DSST)"),
+    ("Animal_verbal_fluency", "Verbal fluency"),
+    ("CERAD_delayed_memory", "Delayed memory"),
+    ("CERAD_learning_sum", "Learning (CERAD)"),
+]
+
+fig, (ax, bx) = plt.subplots(
+    1, 2,
+    figsize=(14.9, 6.8),
+    gridspec_kw={"width_ratios": [1.35, 1.0]}
+)
+
+fig.patch.set_facecolor("white")
+
+# ------------------------------------------------------------------
+# PANEL A — HOW MUCH DOES JOINT A/G IMPROVE EACH COGNITIVE DOMAIN?
+#
+# Normalise ΔMSE by the covariates-only MSE.
+# This allows different cognitive-score scales to be compared.
+# ------------------------------------------------------------------
+
+ax.axvline(
+    0, color=MUTED, linestyle="--",
+    linewidth=1.4, zorder=1
+)
+
+ax.axhspan(
+    2.55, 3.45,
+    color=CMAP(0.10), alpha=0.52, zorder=0
+)
+
+for index, (key, label) in enumerate(domains):
+
+    y = 3 - index
+
+    base = models.loc[
+        models.outcome.eq(key)
+        & models.specification.eq("covariates")
+    ]
+
+    joint = models.loc[
+        models.outcome.eq(key)
+        & models.specification.eq("raw_A_plus_G")
+    ]
+
+    bounds = intervals.loc[
+        intervals.outcome.eq(key)
+        & intervals.candidate.eq("raw_A_plus_G")
+    ]
+
+    if not (len(base) == len(joint) == len(bounds) == 1):
+        raise ValueError(f"Missing results for {key}")
+
+    mse0 = float(base.iloc[0].test_MSE)
+    delta = float(bounds.iloc[0].delta_MSE)
+
+    if mse0 <= 0:
+        raise ValueError("Invalid baseline MSE")
+
+    if not np.isclose(
+        delta,
+        float(joint.iloc[0].delta_MSE_vs_covariates),
+        atol=1e-5
+    ):
+        raise ValueError(f"ΔMSE mismatch for {key}")
+
+    effect, low, high = 100 * np.array([
+        delta,
+        float(bounds.iloc[0].descriptive_ci_low),
+        float(bounds.iloc[0].descriptive_ci_high)
+    ]) / mse0
+
+    color = VERY_DARK if index == 0 else MID
+
+    ax.errorbar(
+        effect, y,
+        xerr=[[effect - low], [high - effect]],
+        fmt="o",
+        ms=9.5,
+        color=color,
+        ecolor=color,
+        capsize=5,
+        elinewidth=2.2,
+        capthick=1.6,
+        markeredgecolor="white",
+        markeredgewidth=1.2,
+        zorder=5
+    )
+
+    ax.text(
+        effect, y + 0.29,
+        f"{effect:+.1f}%",
+        ha="center",
+        fontsize=11,
+        fontweight="bold" if index == 0 else "normal",
+        color=color
+    )
+
+ax.set_xlim(-9, 17)
+ax.set_ylim(-0.65, 3.8)
+
+ax.set_yticks(
+    [3, 2, 1, 0],
+    [label for _, label in domains]
+)
+
+ax.tick_params(axis="y", length=0, pad=10)
+
+ax.set_xlabel(
+    "Reduction in covariates-only MSE (%)",
+    fontsize=11
+)
+
+ax.set_title(
+    "a   Do biomarkers improve each cognitive test?",
+    loc="left",
+    pad=19,
+    fontsize=14.5,
+    fontweight="bold",
+    color=TEXT
+)
+
+ax.grid(axis="x", color=GRID, alpha=0.7)
+ax.grid(axis="y", visible=False)
+
+sns.despine(ax=ax, left=True, top=True, right=True)
+
+# ------------------------------------------------------------------
+# PANEL B — DSST PREDICTIVE CONTRIBUTION OF A AND G
+# ------------------------------------------------------------------
+
+key = "DSST_processing_speed"
+
+parts = alloc.loc[
+    alloc.outcome.eq(key)
+].set_index("block")
+
+A_gain = float(parts.loc["A", "shapley_delta_MSE"])
+G_gain = float(parts.loc["G", "shapley_delta_MSE"])
+total = float(parts.loc["A", "total_rawX_gain"])
+
+if (
+    A_gain <= 0
+    or G_gain <= 0
+    or not np.isclose(A_gain + G_gain, total, atol=1e-5)
+):
+    raise ValueError("Unexpected DSST allocation")
+
+base = models.loc[
+    models.outcome.eq(key)
+    & models.specification.eq("covariates")
+].iloc[0]
+
+raw = models.loc[
+    models.outcome.eq(key)
+    & models.specification.eq("raw_A_plus_G")
+].iloc[0]
+
+z_model = models.loc[
+    models.outcome.eq(key)
+    & models.specification.eq("Z_shared_private")
+].iloc[0]
+
+bx.set_title(
+    "b   DSST: who accounts for the improvement?",
+    loc="left",
+    pad=19,
+    fontsize=14.5,
+    fontweight="bold",
+    color=TEXT
+)
+
+bx.set_xlim(0, 1)
+bx.set_ylim(0, 1)
+bx.axis("off")
+
+bx.text(
+    0.02, 0.88,
+    f"R²  {base.test_R2:.3f}  →  {raw.test_R2:.3f}",
+    transform=bx.transAxes,
+    fontsize=23,
+    fontweight="bold",
+    color=VERY_DARK
+)
+
+bx.text(
+    0.02, 0.80,
+    f"Frozen Z yields R² = {z_model.test_R2:.3f}",
+    transform=bx.transAxes,
+    fontsize=11,
+    color=MUTED
+)
+
+bx.text(
+    0.02, 0.66,
+    f"Allocated error reduction (ΔMSE = +{total:.2f})",
+    transform=bx.transAxes,
+    fontsize=11,
+    color=TEXT
+)
+
+start, span = 0.02, 0.94
+
+bx.barh(
+    0.49, span * A_gain / total,
+    height=0.18, left=start,
+    color=VERY_DARK,
+    edgecolor="white"
+)
+
+bx.barh(
+    0.49, span * G_gain / total,
+    height=0.18,
+    left=start + span * A_gain / total,
+    color=MID_LIGHT,
+    edgecolor="white"
+)
+
+bx.text(
+    start + span * A_gain / total / 2,
+    0.49,
+    f"A  {100 * A_gain / total:.1f}%",
+    ha="center", va="center",
+    fontsize=12,
+    fontweight="bold",
+    color="white"
+)
+
+bx.text(
+    start + span * (A_gain + G_gain / 2) / total,
+    0.49,
+    f"G {100 * G_gain / total:.1f}%",
+    ha="center", va="center",
+    fontsize=9,
+    fontweight="bold",
+    color=TEXT
+)
+
+bx.text(
+    0.02, 0.30,
+    f"Hematology +{A_gain:.2f}    |    Glycemia +{G_gain:.2f}",
+    transform=bx.transAxes,
+    fontsize=11,
+    color=TEXT
+)
+
+bx.text(
+    0.02, 0.19,
+    "Shapley shares partition predictive gain,",
+    transform=bx.transAxes,
+    fontsize=10,
+    color=MUTED
+)
+
+bx.text(
+    0.02, 0.14,
+    "not causal shares of cognitive impairment.",
+    transform=bx.transAxes,
+    fontsize=10,
+    color=MUTED
+)
+
+# ------------------------------------------------------------------
+# PUBLICATION-STYLE FINISH
+# ------------------------------------------------------------------
+
+fig.suptitle(
+    "Physiology improves processing speed, but not all cognitive domains",
+    x=0.07, y=0.97,
+    ha="left",
+    fontsize=19,
+    fontweight="bold",
+    color=TEXT
+)
+
+fig.text(
+    0.07, 0.91,
+    "NHANES 2011–12 trained → 2013–14 held-out | "
+    "Adults ≥60 | Fixed 7-biomarker panel",
+    fontsize=10.5,
+    color=MUTED
+)
+
+fig.text(
+    0.07, 0.06,
+    "a: Paired participant-bootstrap 95% intervals; "
+    "normalised by each outcome's covariates-only MSE. "
+    "Positive = lower prediction error. "
+    "b: A/G Shapley allocation (no confidence intervals estimated).",
+    fontsize=9.2,
+    color=MUTED
+)
+
+fig.text(
+    0.07, 0.029,
+    "Exploratory observational comparisons; "
+    "complex-survey inference and multiplicity adjustment "
+    "remain outstanding.",
+    fontsize=9.2,
+    color=MUTED
+)
+
+fig.subplots_adjust(
+    left=0.22, right=0.97,
+    top=0.78, bottom=0.20,
+    wspace=0.22
+)
+
+save_both(
+    fig,
+    "101_cognition_domain_specificity_and_AG_allocation"
+)
+
+plt.close(fig)
+
+
 # =============================================================================
 # QUICK CONSOLE SUMMARY
 # =============================================================================
