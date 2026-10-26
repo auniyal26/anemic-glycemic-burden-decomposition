@@ -3420,6 +3420,8 @@ and intervention-based evidence before developing a correction model.
 ### Status
 Scripts 05–08 complete. No causal or clinical claims established.
 
+<a id="log-oct-19"></a>
+
 # Research Log — 19 October 2026
 
 ## Objective
@@ -3725,4 +3727,57 @@ The strongest new outcome-related evidence concerns **processing speed**, where 
 
 The principal remaining challenge is to establish reliable and interpretable cognitive contribution estimates across populations and modalities.
 
-**Status:** Session closed — 19 October 2026. Existing frozen NHANES physiological transformations preserved.
+**Status:** Session closed — 19 October 2026. Existing frozen NHANES physiological transformations preserved.---
+
+<a id="log-oct-26"></a>
+
+# Research Log — 26 October 2026
+
+## Goal
+
+Close the exploratory methodological-validation phase before drafting the manuscript. Test whether the full-rank haematology–glycaemia (H/G; formerly A/G) representation is reproducible across independently fitted NHANES cohorts, and benchmark it against PCA, JIVE and AJIVE without claiming superiority from invertibility alone.
+
+## Experiments Completed — Scripts 102–104
+
+### Script 102: Representation benchmark
+
+- Compared raw seven-biomarker physiology, frozen seven-dimensional H/G coordinates, independent CCA and PCA-based representations with matched downstream regression.
+- The full seven-dimensional H/G representation and PCA7 were effectively tied in phenotype prediction (PHQ-9 training CV MSE approximately **12.298** for both).
+- Conclusion: full-rank coordinate transformations preserve information but do not, by themselves, create predictive information or demonstrate methodological novelty.
+
+### Script 103: JIVE/AJIVE benchmark
+
+- Fit official JIVE and AJIVE implementations alongside PCA and our H/G coordinates; compared rank-matched five-dimensional representations and full seven-dimensional controls.
+- Five-dimensional physiology reconstruction: H/G subset approximately **0.80–0.82 R²**, versus approximately **0.97–0.98 R²** for PCA5/JIVE5. Thus our selected five-axis compression is less efficient.
+- Seven-dimensional H/G, PCA7 and raw biomarkers showed practically equivalent phenotype prediction. Similar frozen-axis biomarker fingerprints did not establish independent rediscovery.
+- Conclusion: predictive or compression superiority is **not supported**; further testing must concern structural reproducibility and interpretability.
+
+### Script 104: Independent representation-validation gate
+
+- Refit the original Script-72 **survey-weighted CCA recipe** independently in four non-overlapping NHANES cohorts (2005–06: **1,705**; 2007–08: **1,800**; 2009–18: **1,800**; 2021–23: **1,800**). Outcome values did not select the physiological transformations.
+- Benchmarked independently fitted H/G subspaces against PCA5, JIVE5 and AJIVE5 on the common 2005–06 reference participants; did not score the trivially identical entire invertible seven-dimensional span.
+- Leading two cross-block canonical correlations exceeded G-row permutation nulls in each period (**199 permutations; p = 0.005** for each tested leading direction). This supports non-random *statistical* H/G coupling, not causality.
+- Independent shared-subspace similarity (2007–08 / 2009–18 / 2021–23): **0.965 / 0.958 / 0.983**. Discordant-subspace similarity: **0.944 / 0.940 / 0.973**.
+- H-isolated subspace similarity: **0.978 / 0.920 / 0.925**; G-isolated axis similarity: **0.997 / 0.948 / 0.850**.
+- Comparative joint-subspace similarity: JIVE5 **0.544 / 0.748 / 0.756**, AJIVE5 **0.964 / 0.889 / 0.776**. These are descriptive comparisons of *different subspace definitions*, not a formal superiority test.
+- Native JIVE score adapters reproduced training scores (R² = 1.000); AJIVE adapter R² ranged from approximately **0.988–0.996**.
+
+## Interpretation and Scientific Claim Boundaries
+
+1. **Supported:** mathematically reversible full-rank H/G coordinates; statistically detectable H/G coupling; encouraging independent statistical subspace rediscovery within NHANES.
+2. **Not supported:** general superiority in five-dimensional compression, seven-dimensional prediction, causal attribution, or unique biological source identification.
+3. **Open:** physiological anchoring and external expert validation, survey-design-aware uncertainty for rediscovery comparisons, sensitivity to decomposition ranks and cohort selection, true within-person longitudinal validation, and independent seven-biomarker external replication.
+4. **Critical qualification:** shared/discordant/isolated groupings are defined through the chosen CCA construction; their names do not independently prove biological mechanisms. NHANES periods involve different participants, and the original frozen Script-72 map was trained using 2005–08 observations.
+
+## Decision / Next Step
+
+**Close the exploratory computational feasibility and robustness phase (Scripts 72–104).** Begin a critical methodological review and research-framework manuscript with the H/G decomposition as an empirical case study. Position the contribution as a transparent protocol for representation fidelity, reproducibility, interpretation and temporal transport—not as a superior predictor or a proven biological decomposition. Reserve further biological/longitudinal tests for explicit subsequent validation gates.
+
+## Artifacts
+
+- `EDA/102_representation_benchmark.py` and `EDA/Results/102*`
+- `EDA/103_jive_ajive_benchmark*.py` and `EDA/Results/103*`
+- `EDA/104_representation_validation_gate.py` and `EDA/Results/104_representation_validation_gate/`
+- Especially `104_readout.md`, `104_independent_rediscovery.csv`, `104_crossblock_permutation.csv`, `104_claim_ledger.csv`, `104_manifest.json`.
+
+**Status:** Exploratory methodological validation closed for manuscript drafting. Biological attribution and clinical utility remain unproven.

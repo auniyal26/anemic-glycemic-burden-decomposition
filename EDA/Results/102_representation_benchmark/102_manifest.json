@@ -1,0 +1,33 @@
+{
+  "script": "102_representation_benchmark.py",
+  "seed": 102,
+  "folds": 5,
+  "cohort_counts": {
+    "train_2005-2008": 3815,
+    "test_2009-2018": 9893,
+    "validate_2021-2023": 2247
+  },
+  "discovery_CCA_rho": [
+    0.3132650002493886,
+    0.2564507277402387,
+    0.02705389192648893
+  ],
+  "methods": [
+    "CovariatesOnly",
+    "Hb_HbA1c",
+    "RawX7",
+    "FrozenZ7",
+    "FrozenZ4_shared_discord",
+    "PCA4",
+    "PCA5",
+    "PCA7",
+    "BlockPCA6",
+    "IndependentCCA7"
+  ],
+  "real_data_only": true,
+  "frozen_Z": true,
+  "original_98_matched_sample": true,
+  "outcome_fitting_only_discovery": true,
+  "no_mofa_jive_claim": true,
+  "not_untouched_validation": true
+}

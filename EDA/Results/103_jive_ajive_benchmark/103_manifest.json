@@ -1,0 +1,41 @@
+{
+  "script": "103_jive_ajive_benchmark.py",
+  "seed": 103,
+  "same_participants_per_method": true,
+  "original_Z_frozen": true,
+  "n_by_period": {
+    "train_2005-2008": 3815,
+    "test_2009-2018": 9893,
+    "validate_2021-2023": 2247
+  },
+  "methods_run": [
+    "RawX7",
+    "FrozenZ7",
+    "FrozenZ5_trainX",
+    "PCA5",
+    "PCA7",
+    "JIVE5_rjive",
+    "AJIVE5_pyjive"
+  ],
+  "omissions": {},
+  "jive_ajive_fixed_ranks": {
+    "joint": 2,
+    "A_individual": 2,
+    "G_individual": 1
+  },
+  "Z5_outcome_free_indices": [
+    0,
+    1,
+    2,
+    5,
+    6
+  ],
+  "outcome_fit_and_tuning": "discovery_only",
+  "unweighted_unsupervised_fit": "same common X scaling; JIVE/AJIVE do not accept NHANES design weights",
+  "out_of_sample_joint_individual_scores": "training-only affine projection adapter (not native method output)",
+  "survey_variance_correct": false,
+  "external_confirmatory": false,
+  "revisited_future_periods": true,
+  "bootstrap_reps": 250,
+  "package_details": "official R r.jive and Python idc9 jive; package versions should be recorded manually"
+}

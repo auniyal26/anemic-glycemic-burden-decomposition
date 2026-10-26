@@ -1,0 +1,3 @@
+method,train_score_r2,native_max_abs_error
+JIVE5_rjive,1.0,3.299582829185965e-13
+AJIVE5_pyjive,0.9897341334548512,0.13205412142414888

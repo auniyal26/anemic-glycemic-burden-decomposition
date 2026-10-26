@@ -1,0 +1,31 @@
+{
+  "script": "104_representation_validation_gate.py",
+  "seed": 104,
+  "data": "Script-98 matched real NHANES complete cases",
+  "cohorts": {
+    "0506": 1705,
+    "0708": 1800,
+    "0918": 1800,
+    "2123": 1800
+  },
+  "no_native": false,
+  "cap": 1800,
+  "permutations": 199,
+  "cca_fit_recipe": "Script 72 weighted block standardization, covariance whitening, CCA, H nullspace",
+  "cca_unweighted_sensitivity": false,
+  "source_72_frozen_Z_unchanged": true,
+  "new_HG_CCA_refits_original_72_recipe_on_selected_98_complete_cases": true,
+  "ranks": {
+    "HG_CCA7": 7,
+    "PCA5": 5,
+    "JIVE5": 5,
+    "AJIVE5": 5
+  },
+  "adapter_native_out_of_sample": false,
+  "comparison_anchor": "same 0506 discovery participants for ALL independently fitted maps",
+  "future_outcomes_used_to_select_maps": false,
+  "survey_design_correct_inference": false,
+  "temporal_holdout_untouched": false,
+  "biological_identifiability_proven": false,
+  "errors": []
+}

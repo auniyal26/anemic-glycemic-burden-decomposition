@@ -1,0 +1,9 @@
+proposed_claim,status,grounds
+Exact 7D reconstruction,SUPPORTED ALREADY,"Scripts 72-73 and 103; full-rank linear map. Mathematical, not novel."
+Cross-block nonrandom correlation,EVALUATE 104,See 104_crossblock_permutation.csv. Noncausal coupling.
+Independent rediscovery by cohort,EVALUATE 104,"See 104_independent_rediscovery.csv. Statistical subspace/axis, not biological identification."
+Superior 5D reconstruction to PCA/JIVE,NOT SUPPORTED,103: Z5 around .80-.82 vs PCA/JIVE around .97-.98.
+Superior 7D phenotype prediction,NOT SUPPORTED,103: practically tied with PCA7/RawX7.
+More biological meaning than JIVE/AJIVE,OPEN,"Needs independent physiological anchors, expert review, falsification."
+Longitudinal subject-level evidence,OPEN,NHANES time transfer is repeated cross-sectional; use true repeated-person data.
+Generalisable validation framework,PROPOSED,Only credible after independent multicohort demonstrations + reproducible criteria.
