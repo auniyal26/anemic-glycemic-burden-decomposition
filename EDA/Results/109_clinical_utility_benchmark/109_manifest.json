@@ -1,0 +1,42 @@
+{
+  "script": "109_clinical_utility_benchmark.py",
+  "seed": 109,
+  "analysis": "risk flag PHQ-9 >=10 (self-reported symptom screen, not diagnosis)",
+  "periods": {
+    "train_2005-2008": 3815,
+    "test_2009-2018": 9893,
+    "validate_2021-2023": 2247
+  },
+  "frozen_physio_representation": "Original Script73 seven-variable outcome-independent Z, 2005-08 fitting",
+  "all_fit_and_C_selection": "2005-08 only, class-stratified five-fold CV",
+  "survey_weighted_point_metrics": true,
+  "nhanes_design_variance": false,
+  "case_bootstraps": 199,
+  "case_bootstraps_not_design_CIs": true,
+  "future_cohorts_previously_inspected": true,
+  "native_methods": [
+    {
+      "method": "JIVE5",
+      "status": "complete",
+      "train_adapter_R2": 1.0,
+      "warning": "frozen out-of-sample adapter, NOT native prediction"
+    },
+    {
+      "method": "AJIVE5",
+      "status": "complete",
+      "train_adapter_R2": 0.9898792416469595,
+      "warning": "frozen out-of-sample adapter, NOT native prediction"
+    }
+  ],
+  "note": "Full-rank RawX7/PCA7/Z7 have equivalent information; only numerically different regularized fits.",
+  "gate_comparison": "20% weighted flag budget within each later low-risk cohort is a retrospective capacity-normalized comparison, NOT deployable prevalence calibration.",
+  "frozen_gate_thresholds": "Also report discovery-based gate score thresholds for operational coverage drift.",
+  "not_proven": [
+    "causality",
+    "individual depression drivers",
+    "clinical deployment",
+    "multimodal advantage",
+    "independent confirmation",
+    "survey-design statistical significance"
+  ]
+}

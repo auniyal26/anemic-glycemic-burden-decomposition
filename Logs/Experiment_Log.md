@@ -3781,3 +3781,221 @@ Close the exploratory methodological-validation phase before drafting the manusc
 - Especially `104_readout.md`, `104_independent_rediscovery.csv`, `104_crossblock_permutation.csv`, `104_claim_ledger.csv`, `104_manifest.json`.
 
 **Status:** Exploratory methodological validation closed for manuscript drafting. Biological attribution and clinical utility remain unproven.
+
+---
+
+<a id="log-oct-28"></a>
+
+# Research Log — 28 October 2026
+
+## Goal
+
+Complete the biological-validation and clinical-application audit of the frozen haematological–glycaemic (H/G) decomposition. Determine whether the framework demonstrates physiological relevance, structural reproducibility and practical advantages over established methods. Verify the proposed manuscript contribution against published literature.
+
+## Experiments Completed — Scripts 105–108
+
+### Script 105: Conditional Placebo and Phenotype Transportability
+
+- Tested independently recovered physiological subspaces against sex- and broad-age-conditioned placebo distributions.
+- Re-evaluated frozen depressive-phenotype predictions across NHANES periods.
+- Used **199 placebo replications**.
+
+**Structural similarity results:**
+
+| Component | 2007–08 | 2009–18 | 2021–23 |
+|---|---:|---:|---:|
+| Shared2 | 0.966 | 0.967 | 0.959 |
+| Discordant2 | 0.944 | 0.949 | 0.942 |
+| H-isolated2 | 0.975 | 0.930 | 0.943 |
+| G-isolated1 | 0.997 | 0.893 | 0.740 |
+
+- Shared and discordant subspaces consistently exceeded their conditional placebo distributions.
+- The latest G-isolated component was less convincing (placebo-tail p = 0.055).
+
+**Frozen PHQ-9 total prediction:**
+
+| Model | 2009–18 R² | 2021–23 R² |
+|---|---:|---:|
+| Covariates only | 0.0454 | -0.0460 |
+| PCA7 | 0.0520 | -0.0120 |
+| Frozen H/G Z7 | 0.0523 | -0.0102 |
+
+**Finding:** Physiological structure is substantially reproducible, but phenotype prediction deteriorates across periods. The decomposition does not outperform full-rank PCA.
+
+### Script 106: Survey-Resampled Stability and Ferritin Anchoring
+
+- Conducted approximate PSU-rescaled bootstrap analyses of independently fitted H/G subspaces.
+- Tested serum ferritin as an additional physiological marker excluded from the original seven-biomarker decomposition.
+- Used female participants aged 20–49 with eligible fasting measurements.
+
+**Independent structural stability:**
+
+- Shared2, 2007–08: **0.966**, interval [0.830, 0.982].
+- Shared2, 2021–23: **0.969**, interval [0.825, 0.988].
+- Discordant2, 2007–08: **0.946**, interval [0.755, 0.964].
+- Discordant2, 2021–23: **0.954**, interval [0.765, 0.975].
+
+**Ferritin prediction — improvement in weighted MSE relative to covariates:**
+
+| Representation | 2007–08 | 2021–23 |
+|---|---:|---:|
+| Shared2 | +0.1588 | +0.0869 |
+| Discordant2 | +0.1597 | +0.0463 |
+| H-isolated2 | +0.1067 | +0.0367 |
+| Raw seven biomarkers | +0.2865 | -0.0866 |
+| PCA2 | +0.2463 | +0.0536 |
+
+- Shared2 retained a positive ferritin association in 2021–23, with descriptive interval [+0.0058, +0.1586].
+- Raw biomarkers and other conventional methods were competitive or stronger in earlier data.
+- Ferritin provides **partial external-to-representation biological anchoring**, not independent-population validation or unique physiological identification.
+
+**Finding:** The decomposition captures information associated with an independently measured iron-status marker. Clinical or predictive superiority is not established.
+
+### Script 107: Diabetes-Status Sensitivity
+
+- Examined whether diagnosed diabetes explained the deterioration in temporal depressive-phenotype prediction.
+- Compared the full population, participants without reported diabetes and a model retrained after excluding reported diabetes.
+- Diabetes classification relied on NHANES questionnaire information; type 1 and type 2 diabetes could not be distinguished reliably.
+
+**Frozen Z7 PHQ-9 prediction:**
+
+| Population/model | 2009–18 R² | 2021–23 R² |
+|---|---:|---:|
+| Full eligible sample | +0.0806 | -0.0056 |
+| No reported diabetes | +0.0720 | -0.0156 |
+| Retrained excluding reported diabetes | +0.0710 | -0.0252 |
+
+**Finding:** Temporal degradation persists after excluding participants with reported diabetes. Diagnosed diabetes alone does not explain the observed transportability failure.
+
+### Script 108: Clinical Application Benchmark
+
+**Executed locally as:** `EDA/108_clinical_utility_benchmark.py`
+
+**Results directory:** `EDA/Results/109_clinical_utility_benchmark/`
+
+An earlier OGTT-based Script 108 was discontinued after identifying incomplete later-cycle OGTT eligibility/matching. That preliminary attempt produced **no valid application benchmark result**.
+
+The completed application benchmark evaluated:
+
+- PHQ-9 ≥ 10 as a depressive-symptom screening flag, not a clinical diagnosis.
+- Covariates, Hb/HbA1c, RawX7, PCA7, FrozenZ7, PCA4, FrozenZ4, JIVE5 and AJIVE5.
+- Clinical screening discrimination and calibration.
+- Detection of missed elevated-PHQ cases using representation-anomaly and conventional reliability scores.
+
+**Matched samples:**
+
+- Training, 2005–08: **3,815**.
+- Testing, 2009–18: **9,893**.
+- Validation, 2021–23: **2,247**.
+
+**Clinical screening — AUROC:**
+
+| Model | 2009–18 | 2021–23 |
+|---|---:|---:|
+| Covariates | 0.7166 | 0.6189 |
+| RawX7 | 0.7236 | 0.6169 |
+| PCA7 | 0.7236 | 0.6169 |
+| FrozenZ7 | 0.7226 | 0.6142 |
+| JIVE5 | 0.7234 | 0.6187 |
+| AJIVE5 | 0.7194 | 0.6119 |
+
+RawX7 and PCA7 produced effectively identical predictions, consistent with full-rank linear information equivalence.
+
+**Missed-case detection at matched 20% review capacity:**
+
+| Reliability score | 2009–18 | 2021–23 |
+|---|---:|---:|
+| H/G group anomaly | 30.92% | 24.12% |
+| Raw-marker anomaly | 25.02% | 33.79% |
+| PCA-axis anomaly | 30.61% | 27.04% |
+| Raw Mahalanobis anomaly | 24.04% | 30.45% |
+
+The H/G anomaly score was marginally strongest in 2009–18 but substantially weaker than simpler alternatives in 2021–23.
+
+**Finding:** The current decomposition does not demonstrate consistent superiority in depressive-symptom screening or missed-case detection. The small screening differences are not convincing under descriptive bootstrap uncertainty.
+
+The matched 20% review-capacity analysis is retrospective and does not establish deployable clinical thresholds.
+
+## Literature Novelty Audit
+
+A targeted literature search and closer examination of relevant publications identified important precedents.
+
+| Publication | Established precedent |
+|---|---|
+| Shu et al. (2020), D-CCA | Mathematical common/distinctive decomposition of paired datasets |
+| Stout et al. (2022) | CCA-based physiological and biochemical relationships with psychiatric symptoms |
+| Moriarity et al. (2023) | Symptom-specific inflammatory associations replicated across NHANES cohorts |
+| Ciulei et al. (2023) | Iron status, ferritin and depressive symptoms in NHANES |
+| Rengasamy & Price (2024) | Replicated blood-biomarker associations with depression and individual symptoms |
+| Donnelly et al. (2025) | Immunometabolic biomarker signatures associated with affective symptoms |
+
+Five missing literature entries were prepared for manual addition to `PhD_Literature_Library`; Donnelly et al. was already indexed. Workbook changes were not performed during this session.
+
+**Novelty assessment:**
+
+- CCA and shared/distinctive decomposition are established methods.
+- Haematological, glycaemic and inflammatory associations with depression are not new individually.
+- Symptom-specific biomarker relationships and NHANES replication already have precedents.
+- No exact published replication of the complete H/G construction, biological-anchor analysis and structural-versus-phenotype transportability comparison was identified in the targeted search.
+- This is a **potentially original empirical combination**, not a verified claim of worldwide methodological priority.
+
+## Interpretation and Scientific Claim Boundaries
+
+1. **Supported:** The seven-marker H/G representation preserves information and exhibits substantial structural reproducibility across independently analysed NHANES periods.
+2. **Supported:** Selected physiological components show associations with depressive symptoms and an independently held-out ferritin measurement.
+3. **Supported:** Reproducibility of physiological structure does not guarantee stable phenotype associations or clinical predictions.
+4. **Not supported:** Superior screening performance, consistently better reliability detection, unique biological source identification or patient-level causal attribution.
+5. **Important mathematical qualification:** Full-rank transformations cannot create information absent from the original biomarkers. Component-level interpretation depends on the chosen representation and identification assumptions.
+6. **Validation limitation:** NHANES periods are repeated cross-sectional samples; the later periods have been examined repeatedly and cannot be treated as untouched confirmatory holdouts.
+7. **Statistical limitation:** Reported bootstrap intervals and conditional-placebo results do not constitute complete complex-survey inference.
+8. **Clinical limitation:** PHQ-9 screening and retrospective anomaly detection do not establish diagnosis, intervention benefit or prospective clinical utility.
+
+## Manuscript Positioning and Decision
+
+**Proceed with manuscript development**, consistent with the supervisors' agreement, while maintaining a restricted and evidence-based contribution statement.
+
+**Proposed central contribution:**
+
+> An empirical investigation of shared, discordant and isolated haematological–glycaemic physiological structure, demonstrating substantial representation reproducibility alongside limited and temporally unstable transportability of its depressive-phenotype associations.
+
+The manuscript should foreground:
+
+- Explicit physiological construction and interpretation.
+- Independent structural rediscovery across NHANES periods.
+- Ferritin-based biological anchoring and sensitivity analysis.
+- Temporal instability of depressive-phenotype relationships.
+- Direct comparisons against raw biomarkers, PCA, JIVE and AJIVE.
+- Transparent reporting of negative clinical-utility findings.
+
+Do not position the framework as a novel CCA algorithm, superior predictor or proven physiological explanation for individual depression.
+
+The present results also establish a useful benchmark and methodological starting point for future multimodal modelling involving blood data, vitals and fundus imagery; **no multimodal application advantage has yet been tested or demonstrated**.
+
+## Artifacts
+
+**New local analysis scripts and outputs:**
+
+- `EDA/105*` — conditional-placebo and frozen-phenotype audit.
+- `EDA/106_survey_ferritin_anchor.py` — survey-resampled stability and ferritin validation.
+- `EDA/107*` — diabetes-status sensitivity.
+- `EDA/108_clinical_utility_benchmark.py` — completed screening and reliability benchmark.
+- `EDA/Results/109_clinical_utility_benchmark/109_readout.md`
+- `EDA/Results/109_clinical_utility_benchmark/109_application_criteria.csv`
+- `EDA/Results/109_clinical_utility_benchmark/109_screening_metrics.csv`
+- `EDA/Results/109_clinical_utility_benchmark/109_missed_case_detection.csv`
+- `EDA/Results/109_clinical_utility_benchmark/109_paired_bootstrap.csv`
+- `EDA/Results/109_clinical_utility_benchmark/109_manifest.json`
+
+**Literature:** Five bibliographic entries prepared for manual library update; six publications identified for close manuscript comparison.
+
+**Repository note:** Scripts 105–108 and their generated results were executed locally; GitHub synchronisation was not verified during this session.
+
+## Final Session Decision
+
+The biological-anchor, clinical-utility and targeted literature-novelty investigations are complete for the present manuscript-planning stage.
+
+The framework has demonstrated **structural reproducibility and partial biological relevance**, but **no consistent incremental clinical utility relative to established baselines**.
+
+The publishable research question remains the distinction between **physiological structure, biological association and clinical transportability**. Manuscript claims must reflect both positive and negative results.
+
+**Status:** Research session closed — 28 October 2026. Manuscript development remains the next agreed research activity.

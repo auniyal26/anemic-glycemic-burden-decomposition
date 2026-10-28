@@ -1,0 +1,3 @@
+period,delta_auc_z_minus_raw,delta_brier_raw_minus_z,Z_gate_miss_capture,best_simple_gate_miss_capture,gate_advantage,Z_gate_beats_all_controls,prediction_better_auc_and_brier
+test_2009-2018,-0.000984224855738569,-6.084091182478879e-05,0.3091955119214344,0.30610638627829945,0.00308912564313496,True,False
+validate_2021-2023,-0.0026554403859510023,-0.00011376700457041422,0.24123207595950447,0.3379427013443248,-0.09671062538482034,False,False

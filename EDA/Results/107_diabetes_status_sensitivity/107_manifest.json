@@ -1,0 +1,38 @@
+{
+  "script": "107_diabetes_status_sensitivity.py",
+  "classification": "self-reported DIQ010 doctor diagnosis, separate DIQ160 prediabetes indicator, NOT Type 1/Type 2",
+  "insulin": "DIQ050 current use, only among reporting diabetes; NOT disease type",
+  "oral_drugs": "DID070 in 2005-08, DIQ070 afterward",
+  "age_at_diagnosis": "DID040, descriptive only",
+  "cohorts": {
+    "0506": "discovery_2005_08",
+    "0708": "discovery_2005_08",
+    "0910": "test_2009_18",
+    "1112": "test_2009_18",
+    "1314": "test_2009_18",
+    "1516": "test_2009_18",
+    "1718": "test_2009_18",
+    "2123": "recent_2021_23"
+  },
+  "physiology": "frozen Script73 full-rank 7D Z, learned in 2005-08, NOT refitted",
+  "training": "Ridge alpha=10, full-covariate 2005-08 only, comparison excluding diagnosed diabetes",
+  "weights": "official fasting-subsample WTSAF2YR per cycle; no formal pooled population estimates",
+  "unknown_diabetes": "excluded from no-reported-diabetes sensitivity training, retained in full model",
+  "all_later_cohorts_previously_explored": true,
+  "outcomes": [
+    "PHQ_total",
+    "Somatic",
+    "CogAff"
+  ],
+  "limitations": [
+    "self-reported status may miss undiagnosed diabetes",
+    "NHANES DIQ does not reliably determine Type 1 vs Type 2",
+    "treatment choices and physiology are confounded; no causal implications",
+    "DIQ010=2 subgroup includes participants reporting prediabetes on DIQ160 and people with undiagnosed diabetes",
+    "model MSE and R2 are descriptive; no masked PSU/strata design confidence intervals",
+    "same-data earlier 2005-08 preprocessing may enter 2007-08 evaluation",
+    "5-cycle 2009-18 aggregation is an exploratory fixed-era comparison",
+    "differences in subgroup R2 are not a hypothesis test of effect modification",
+    "analysis uses original complete-case cohort and does not correct selection/nonresponse"
+  ]
+}

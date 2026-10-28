@@ -1,0 +1,3 @@
+method,status,train_adapter_R2,warning
+JIVE5,complete,1.0,"frozen out-of-sample adapter, NOT native prediction"
+AJIVE5,complete,0.9898792416469595,"frozen out-of-sample adapter, NOT native prediction"

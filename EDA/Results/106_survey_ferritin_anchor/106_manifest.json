@@ -1,0 +1,24 @@
+{
+  "script": "106_survey_ferritin_anchor.py",
+  "seed": 106,
+  "psu_bootstrap_reps": 199,
+  "source": "Script98 common complete genuine NHANES + original public DEMO/GLU/FERTIN XPT",
+  "periods": [
+    "0506",
+    "0708",
+    "2123"
+  ],
+  "physiological_reference": "New 0506-only fitted H/G CCA",
+  "survey_weights": "WTSAF2YR from GLU XPT, period-specific (not pooled)",
+  "variance": "Rao-Wu-style rescaled PSU bootstrap; approximate sensitivity, not formal CI",
+  "ferritin_eligibility": "women 20-49, LBXFER>0, fasting marker complete cases",
+  "ferritin_reference_assay": "LBXFER not in seven input markers",
+  "ferritin_model": "Ridge alpha=10 fixed, trained 0506 only, log ferritin",
+  "phq_model": "Full covariate encoding from Script103; ridge alpha=10 frozen from 0506",
+  "all_cohorts_previously_inspected": true,
+  "independent_external_dataset": false,
+  "causal_or_clinical_identification": false,
+  "assay_harmonized": false,
+  "full_phq_sampling_nonresponse_addressed": false,
+  "covariate_category_encoding_inherited_from_Script98_200508": true
+}

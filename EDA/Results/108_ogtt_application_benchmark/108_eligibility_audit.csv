@@ -1,0 +1,7 @@
+cycle,source_rows,source_eligible_complete,ogtt_rows,ogtt_complete_code,ogtt_positive_weight,ogtt_numeric_glucose,ogtt_complete_weighted,matched_full_case_and_ogtt,matched_abnormal_ogtt,matched_positive_weight_sum
+0506,3352,1924,3352,3352,2723,2319,2306,1465,370,189110069.456
+0708,3315,2500,3315,0,2779,2232,0,0,0,0.0
+0910,3581,2661,3163,0,3163,2574,0,0,0,0.0
+1112,3239,2300,2815,0,2815,2287,0,0,0,0.0
+1314,3329,2460,2909,0,2909,2344,0,0,0,0.0
+1516,3191,2347,2713,0,2713,2084,0,0,0,0.0

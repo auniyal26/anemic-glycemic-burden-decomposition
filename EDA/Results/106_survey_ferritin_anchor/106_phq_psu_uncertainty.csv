@@ -1,0 +1,7 @@
+cohort,method,point_frozen_phq_r2,psu_rescaled_low_2p5,psu_rescaled_high_97p5,bootstrap_reps,note
+0708,Covariates,0.07566157225700842,0.05039303996524465,0.11114654969920475,199,Holdout PSU resampling; reference map and coefficients fixed
+0708,RawX7,0.08569253686261602,0.061652694232941126,0.11282390501826663,199,Holdout PSU resampling; reference map and coefficients fixed
+0708,H_G_CCA7,0.08602657699506977,0.06216829502057343,0.11318365452302434,199,Holdout PSU resampling; reference map and coefficients fixed
+2123,Covariates,-0.07138663097711229,-0.11228163063231583,-0.03619895047123578,199,Holdout PSU resampling; reference map and coefficients fixed
+2123,RawX7,-0.02075146258667737,-0.05446513713286764,0.012052488256722435,199,Holdout PSU resampling; reference map and coefficients fixed
+2123,H_G_CCA7,-0.02057200307726581,-0.05426898473295681,0.012347314998370832,199,Holdout PSU resampling; reference map and coefficients fixed

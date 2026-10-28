@@ -1,0 +1,24 @@
+{
+  "script": "105_specificity_and_transfer_audit.py",
+  "seed": 105,
+  "cohort_sizes": {
+    "0506": 1705,
+    "0708": 1800,
+    "0918": 1800,
+    "2123": 1800
+  },
+  "bootstrap": 199,
+  "conditional_null_reps": 199,
+  "row_cap": 1800,
+  "representations": "original Script104 weighted full-rank H/G CCA recipe",
+  "supervised_training": "0506 only; Ridge CV 0506 only",
+  "null": "whole G-block within sex x four broad age bands",
+  "true_NHANES_design_variance": false,
+  "negative_controls_pre_registered_before_new_results": false,
+  "posthoc_existing_cohorts": true,
+  "biological_anchor_tested": false,
+  "clinical_utility_tested": false,
+  "independent_external_replication": false,
+  "same_cohort_between_structure_and_prediction": true,
+  "native_JIVE_AJIVE_rerun": false
+}
