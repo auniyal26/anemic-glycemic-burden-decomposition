@@ -1,0 +1,9 @@
+reference,target,group,similarity,approx_PSU_bootstrap_low,approx_PSU_bootstrap_high,interpretation
+0506,0708,Shared2,0.9662546446607065,0.8297204886428314,0.9817636991942412,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,0708,Discordant2,0.946376191200327,0.7550808648510559,0.9643494082606544,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,0708,H_Isolated2,0.9861671116654733,0.8458334823360489,0.9892462777430777,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,0708,G_Isolated1,0.996435277322325,0.847672657681037,0.9973462398810568,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,2123,Shared2,0.9687693068253431,0.8247075616853472,0.98792318624979,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,2123,Discordant2,0.9544124834220926,0.7648465883295983,0.9753368764453503,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,2123,H_Isolated2,0.9346782815451594,0.7912271707083957,0.9831705633394298,Approximate survey-aware structural uncertainty; not 103 common sample
+0506,2123,G_Isolated1,0.7871905090846345,0.4176537697698342,0.997044095508777,Approximate survey-aware structural uncertainty; not 103 common sample

@@ -1,0 +1,15 @@
+{
+  "joint_rank": 2,
+  "individual_ranks": {
+    "H": 2,
+    "G": 1
+  },
+  "individual_svals": [
+    59.344040752475465,
+    50.532968550603925,
+    55.908091792985154
+  ],
+  "projection_invariant_pass": true,
+  "configuration": "native default joint check enabled; deterministic exact SVD",
+  "dimension_policy": "threshold selected"
+}

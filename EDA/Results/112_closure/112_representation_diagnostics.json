@@ -1,0 +1,54 @@
+[
+  {
+    "method": "JIVE5",
+    "adapter_relative_error": 3.0482625962954053e-15,
+    "native_rank": 5,
+    "score_count": 5
+  },
+  {
+    "method": "JIVE7",
+    "adapter_relative_error": 4.852577366444335e-15,
+    "native_rank": 7,
+    "score_count": 7
+  },
+  {
+    "method": "AJIVE5_rankchecked",
+    "adapter_R2": 1.0,
+    "adapter_relative_error": 2.0174142410830703e-15,
+    "repeat_subspace_min_cosine": 0.9999999999999996,
+    "joint_rank": 2,
+    "individual_ranks": {
+      "H": 2,
+      "G": 1
+    },
+    "individual_svals": [
+      59.344040752475465,
+      50.532968550603925,
+      55.908091792985154
+    ],
+    "projection_invariant_pass": true,
+    "configuration": "native default joint check enabled; deterministic exact SVD",
+    "dimension_policy": "fixed rank-5 comparison"
+  },
+  {
+    "method": "AJIVE7_rankchecked",
+    "adapter_R2": 1.0,
+    "adapter_relative_error": 1.890013880729006e-15,
+    "repeat_subspace_min_cosine": 0.9999999999999996,
+    "joint_rank": 2,
+    "individual_ranks": {
+      "H": 3,
+      "G": 2
+    },
+    "individual_svals": [
+      59.344040752475465,
+      50.532968550603925,
+      42.70976973070562,
+      55.908091792985154,
+      38.71597528961112
+    ],
+    "projection_invariant_pass": true,
+    "configuration": "native default joint check enabled; deterministic exact SVD",
+    "dimension_policy": "explicit full-budget sensitivity"
+  }
+]

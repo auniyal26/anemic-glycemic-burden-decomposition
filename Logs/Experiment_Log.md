@@ -13,6 +13,7 @@
 | Bidirectional / temporal analysis | [2 Oct](#log-oct-02) · [3 Oct](#log-oct-03) |
 | Encoding and phenotype equations | [12 Oct](#log-oct-12) · [13 Oct](#log-oct-13) · [14 Oct](#log-oct-14) |
 | External / causal stress tests | [15 Oct](#log-oct-15) |
+| Script inventory and corrections | [EDA coverage backfill](#log-script-coverage) |
 
 ---
 
@@ -3999,3 +4000,122 @@ The framework has demonstrated **structural reproducibility and partial biologic
 The publishable research question remains the distinction between **physiological structure, biological association and clinical transportability**. Manuscript claims must reflect both positive and negative results.
 
 **Status:** Research session closed — 28 October 2026. Manuscript development remains the next agreed research activity.
+---
+
+## 5 November 2026 — Benchmark closure and structure-recovery pilot (session paused)
+
+### Completed and interpreted
+
+- User ran scripts 112, 113 and both script114 pilots locally. Source artifacts: `EDA/Results/112_closure/` and `EDA/Results/114_structure_recovery{,_v2}/`.
+- 112/113: full-rank Z7, raw markers, PCA7, JIVE7 and corrected AJIVE7 give equivalent weighted OLS predictions (maximum difference approximately 6.25e-13). No added linear information or general predictive superiority demonstrated. Selected Z5 loses to PCA5 in all six later-period phenotype comparisons.
+- Full Z7 improves over covariates alone for all three outcomes in 2021–2023. Combined raw H/G improves over H alone for total and somatic outcomes in that period. These are exploratory, unadjusted frozen-model comparisons; they do not establish a decomposition-specific advantage or clinical utility.
+- Initial 114 pilot: two replicates per scenario; seven AJIVE failures. Inspection identified duplicate component removal in the installed package and inappropriate treatment of legitimate reduced ranks as failures in the benchmark.
+- Revised 114: 5D and 7D requested budgets, component-specific recovery and bootstrap refit stability. Local compatibility correction makes repeated AJIVE removal idempotent; installed package untouched. Actual score dimensions and bootstrap dimensions are reported; reduced-rank AJIVE results must not be treated as equal-budget comparisons. This revision retains the package's existing threshold/break logic, not a newly validated AJIVE implementation.
+- Revised pilot recorded zero failures (two replicates per scenario, training n=300, testing n=1000). In the discordant scenario, Z7's two discordance coordinates recover simulated discordance at mean held-out R2=0.9064, with minimum squared subspace-cosine stability=0.9404. Its shared pair recovers shared truth at R2=0.9679 and has essentially no discordance recovery (R2=-0.0107).
+- All seven scores recover discordance equally for Z7, PCA7 and JIVE7 (R2=0.9452): an information-preservation control, not superiority. At five scores, discordance recovery is 0.4664 for Z5, 0.0348 for PCA5 and 0.0542 for JIVE5, with poorer overall Z5 refit stability and loss of private information. Preserve those tradeoffs when reporting.
+
+### Interpretation and limits
+
+Candidate value: explicitly separating shared, discordant and domain-specific patterns while retaining full information at 7D. The pilot supports further investigation of component separation, not established superiority, novelty, clinical interpretation or biological identification. Two simulation replicates are insufficient for robust inference; scenarios are deliberately constructed and partially aligned with our representation. The no-sharing scenario fixes HG joint rank at two and therefore does not validate false-positive rank selection. Real-cohort component stability is still outstanding.
+
+### Resume here
+
+1. Agree broader simulation conditions and comparisons before examining further results; include settings favourable to other methods and report rank changes/failures.
+2. User runs more replicates under a new run name; retain earlier pilot outputs. Quantify paired uncertainty, component recovery, cross-component mixing and stability at comparable actual dimensions.
+3. Assess named-component stability in real cohorts, then connect supported patterns to H–D, G–D and H–G–D questions with multiplicity-aware uncertainty.
+
+Working agreement: local repository only; no ZIPs or unsolicited extra artifacts. User runs all research scripts; assistant edits requested scripts and interprets supplied outputs. No analysis run as part of this log update. No GitHub sync requested or performed. Session stopped at user's request.
+---
+
+<a id="log-script-coverage"></a>
+
+## 5 November 2026 — Script coverage backfill and numbering corrections
+
+Read-only audit of the local EDA script inventory against this log, script headers and existing result artifacts. This is retrospective documentation, not a new execution or independent revalidation. Earlier dated entries remain historical records; corrections below take precedence where applicable.
+
+### Previously missing or insufficiently identified work
+
+- **62 — `62_ddx_interaction_confounder_audit.py`:** component–covariate associations, matched explanatory-block attenuation, component-level A/G interactions and RBC/HbA1c coupling. Existing evidence includes `EDA/Results/62_ddx_manifest.json`, `62_matched_block_attenuation.csv`, `62_AG_component_interaction_joint_tests.csv` and `62_measurement_coupling_fingerprint.csv`. These are diagnostic associations, not causal identification.
+- **63 — `63_deep_ddx_additive_interaction_and_mechanism.py`:** extends 62 with HRR/TyG interaction scales, coupling drivers, CRP/cotinine attenuation, glycaemic-component decoding and restricted iron-marker analyses in non-anaemic women aged 20–49. Existing evidence: `63_deep_ddx_manifest.json`, `63_HRR_TyG_interaction_scales.csv`, `63_coupling_driver_decomposition.csv`, `63_CRP_cotinine_attenuation.csv` and `63_iron_mechanism_women20_49_nonanaemic.csv`. Subset eligibility prevents treating this as a whole-cohort mechanistic result.
+- **64 — `64_pca_to_ica_bidirectional_transfer.py`:** frozen-PCA to ICA mapping, reconstruction, conditioning and source diagnostics. Existing outputs include `64_ica_bidirectional_manifest.json` and `64_ica_reconstruction_roundtrip.csv`. Its raw-data completeness requirement excluded future periods; do not infer temporal validation from this script alone.
+- **65 — `65_ica_future_time_travel_audit.py`:** addresses 64's future-period exclusion by testing the frozen PCA–ICA round trip, support shift and independent future rediscovery. Outputs include `65_future_time_travel_manifest.json`, `65_future_ICA_roundtrip.csv` and `65_future_ICA_rediscovery.csv`. Round-trip recovery in PCA space does not restore information already discarded by PCA.
+- **66/67 — `66_bidirectional_cycle_consistency.py`:** the on-disk script is numbered 66, while its header and artifacts use 67. Discovery split fits raw-X/frozen-PCA/ICA forward and reverse maps and evaluates cycle errors. Evidence: `67_bidirectional_cycle_manifest.json` and `67_bidirectional_cycle_summary.csv`. This is a naming mismatch, not evidence of a separate missing script67.
+- **68 — `68_four_step_bidirectional_validation.py`:** discovery-split four-step forward/reverse composition and reconstruction checks; evidence in `68_four_step_bidirectional_validation_manifest.json` and corresponding summary. The historical variable Y here denotes a physiological latent reference, not the depressive phenotype.
+- **69 — `69_temporal_four_step_bidirectional_validation.py`:** restores raw markers into the scaffold and applies discovery-trained maps to later periods; evidence in `69_temporal_four_step_manifest.json`, `69_raw_source_inventory.csv` and temporal availability/summary CSVs. This supplies the temporal extension to the discovery-only cycle checks.
+- **70–71:** named source files are `70_jacobian_sensitivity_audit.py` and `71_phenotype_bidirectional_epsilon.py`. They correspond to the previously grouped 25 September Jacobian and actual-phenotype inverse experiments. Existing manifest/summary artifacts distinguish representation reversibility from the poor phenotype-to-physiology inverse.
+- **87–89:** previously logged collectively as presentation work. Distinct script89 files are `89_local_math_ui.py` (Tkinter interactive views; no saved output required) and `89_math_story_explainer.py` (HTML story generator; internal header says `89_conference_math_story.py`). These are explanatory interfaces, not independent evidence or a verified usability study. This audit did not launch either interface.
+- **`diagnostics.py`:** console audit of the Script72 model-input columns, including whether domain/inclusion flags were incorrectly treated as phenotype scores. It supports the already logged phenotype-mapping correction; no new diagnostic execution is claimed here.
+- **`presentation_viz.py`:** literature-landscape presentation utility reading `PhD_Literature_Library.xlsx`; internal title says `90_literature_landscape_v2.py`. It is separate from `90_nhanes_encoding_audit.py`, and its presence is not evidence of a new literature or novelty validation.
+
+### Scripts 110–114 and status corrections
+
+- **110 — `110_evidence_gate.py`:** existing `EDA/Results/110_evidence_gate/110_readout.md` and claim/utility/specificity/design CSVs consolidate outputs from 103, 105, 106 and the 109-prefixed clinical-utility artifacts. No new participant fits or survey estimates. Records weaker Z5 reconstruction/prediction than PCA5, subspace-specific reproducibility and no consistent screening advantage. Different source samples must not be pooled. Its statement that a unified matched survey comparison remains unrun is historical: script112 subsequently supplied paired fixed-model PSU comparisons. Script110's AJIVE-derived evidence inherits the old configuration and must be read alongside the correction in 112/113.
+- **111 — `111_matched_psu_benchmark.py`:** implemented generic paired PSU evaluator for supplied frozen prediction/reconstruction tables and a complete design frame; it does not fit models. No `111_paired_psu_comparisons.csv` or other identifiable 111 result artifact was located in this repository audit. **Implementation present; execution/results unverified.** Script112's outputs do not prove that script111 ran.
+- **112 — `112_finish_benchmarks.py`:** user-completed matched real-data 5D/7D fitting, corrected AJIVE, affine adapter checks, OLS invariance, reconstruction, phenotype comparisons and paired PSU uncertainty. Evidence in `EDA/Results/112_closure/112_run_manifest.json`, `112_advantage_scorecard.csv` and `112_paired_PSU_comparisons.csv`. See the preceding session entry for results and limits.
+- **113 — `113_summarize_and_export.py`:** user-completed validation of result counts, readout, triad evidence and transformation/parameter exports from112. Evidence: `113_READOUT.md`, `113_triad_evidence.csv`, `113_coordinate_domain_support.csv`, `113_transform_metadata.json` and `113_all_representation_maps.npz` in the same results directory. This summarizes/exports evidence; it is not an independent replication.
+- **114 — `114_structure_recovery.py`:** user-completed initial and revised two-replicate pilots. Keep `114_structure_recovery/` as the original record and `114_structure_recovery_v2/` as the corrected expanded pilot. The initial AJIVE failures are not methodological losses. Revised output records actual dimensions and zero failures; higher-replicate/broader-condition confirmation and real-cohort stability remain pending.
+- **108/109 numbering:** `108_clinical_utility_benchmark.py` writes `109_*` results under `109_clinical_utility_benchmark/`. No standalone `109*.py` exists in the current EDA inventory. References to “Script109” in derivative readouts mean these output artifacts, not a verified separate source script.
+
+### EDA source index
+
+Every current EDA Python file is linked below so grouped historical discussions do not hide individual source files. This index establishes source-file coverage only; it does not assert that every script completed successfully. Results and completion status are governed by the dated entries and qualifications above. Numbering is local to EDA; simulation and external-validation scripts can reuse the same numbers.
+- [100_dynamic_physiological_regression.py](../EDA/100_dynamic_physiological_regression.py)
+- [101_nhanes_cognitive_AG_decomposition.py](../EDA/101_nhanes_cognitive_AG_decomposition.py)
+- [102_representation_benchmark.py](../EDA/102_representation_benchmark.py)
+- [103_jive_ajive_benchmark.py](../EDA/103_jive_ajive_benchmark.py)
+- [104_representation_validation_gate.py](../EDA/104_representation_validation_gate.py)
+- [105_specificity_and_transfer_audit.py](../EDA/105_specificity_and_transfer_audit.py)
+- [106_survey_ferritin_anchor.py](../EDA/106_survey_ferritin_anchor.py)
+- [107_diabetes_status_sensitivity.py](../EDA/107_diabetes_status_sensitivity.py)
+- [108_clinical_utility_benchmark.py](../EDA/108_clinical_utility_benchmark.py)
+- [110_evidence_gate.py](../EDA/110_evidence_gate.py)
+- [111_matched_psu_benchmark.py](../EDA/111_matched_psu_benchmark.py)
+- [112_finish_benchmarks.py](../EDA/112_finish_benchmarks.py)
+- [113_summarize_and_export.py](../EDA/113_summarize_and_export.py)
+- [114_structure_recovery.py](../EDA/114_structure_recovery.py)
+- [58_cohort_phq_eda.py](../EDA/58_cohort_phq_eda.py)
+- [59_clinical_overlap_eda.py](../EDA/59_clinical_overlap_eda.py)
+- [60_nonanaemic_signal_audit.py](../EDA/60_nonanaemic_signal_audit.py)
+- [61_component_decoding.py](../EDA/61_component_decoding.py)
+- [62_ddx_interaction_confounder_audit.py](../EDA/62_ddx_interaction_confounder_audit.py)
+- [63_deep_ddx_additive_interaction_and_mechanism.py](../EDA/63_deep_ddx_additive_interaction_and_mechanism.py)
+- [64_pca_to_ica_bidirectional_transfer.py](../EDA/64_pca_to_ica_bidirectional_transfer.py)
+- [65_ica_future_time_travel_audit.py](../EDA/65_ica_future_time_travel_audit.py)
+- [66_bidirectional_cycle_consistency.py](../EDA/66_bidirectional_cycle_consistency.py)
+- [68_four_step_bidirectional_validation.py](../EDA/68_four_step_bidirectional_validation.py)
+- [69_temporal_four_step_bidirectional_validation.py](../EDA/69_temporal_four_step_bidirectional_validation.py)
+- [70_jacobian_sensitivity_audit.py](../EDA/70_jacobian_sensitivity_audit.py)
+- [71_phenotype_bidirectional_epsilon.py](../EDA/71_phenotype_bidirectional_epsilon.py)
+- [72_shared_private_decomposition_and_phenotype.py](../EDA/72_shared_private_decomposition_and_phenotype.py)
+- [73_frozen_phenotype_map_time_travel.py](../EDA/73_frozen_phenotype_map_time_travel.py)
+- [74_four_way_gradient_audit.py](../EDA/74_four_way_gradient_audit.py)
+- [75_phenotype_partial_derivative_audit.py](../EDA/75_phenotype_partial_derivative_audit.py)
+- [76_raw_AG_block_partial_derivative_audit.py](../EDA/76_raw_AG_block_partial_derivative_audit.py)
+- [77_derivative_uncertainty_and_component_ablation.py](../EDA/77_derivative_uncertainty_and_component_ablation.py)
+- [78_Z_to_Y_stability_audit.py](../EDA/78_Z_to_Y_stability_audit.py)
+- [79_time_travel_gps_recalibration.py](../EDA/79_time_travel_gps_recalibration.py)
+- [80_minimum_residual_augmentation.py](../EDA/80_minimum_residual_augmentation.py)
+- [81_multidimensional_Y_bridge.py](../EDA/81_multidimensional_Y_bridge.py)
+- [82_conditional_reverse_bridge.py](../EDA/82_conditional_reverse_bridge.py)
+- [83_conformal_reverse_bridge.py](../EDA/83_conformal_reverse_bridge.py)
+- [84_skip_informed_reverse_bridge_simulation.py](../EDA/84_skip_informed_reverse_bridge_simulation.py)
+- [85_delta_state_informed_bridge_simulation.py](../EDA/85_delta_state_informed_bridge_simulation.py)
+- [86_MoM_closeout_audits.py](../EDA/86_MoM_closeout_audits.py)
+- [87_visualization_closeout.py](../EDA/87_visualization_closeout.py)
+- [88_publication_figure_pack.py](../EDA/88_publication_figure_pack.py)
+- [89_local_math_ui.py](../EDA/89_local_math_ui.py)
+- [89_math_story_explainer.py](../EDA/89_math_story_explainer.py)
+- [90_nhanes_encoding_audit.py](../EDA/90_nhanes_encoding_audit.py)
+- [91_nhanes_reverse_bridge_audit.py](../EDA/91_nhanes_reverse_bridge_audit.py)
+- [92_encoded_phenotype_bridge.py](../EDA/92_encoded_phenotype_bridge.py)
+- [93_digit_structured_phenotype_bridge.py](../EDA/93_digit_structured_phenotype_bridge.py)
+- [94_multistate_encoded_reverse_bridge.py](../EDA/94_multistate_encoded_reverse_bridge.py)
+- [95_physiological_configuration_atlas.py](../EDA/95_physiological_configuration_atlas.py)
+- [96_Y_code_cryptanalysis_audit.py](../EDA/96_Y_code_cryptanalysis_audit.py)
+- [97_X_code_from_Y_identifiability.py](../EDA/97_X_code_from_Y_identifiability.py)
+- [98_regularized_phenotype_equation.py](../EDA/98_regularized_phenotype_equation.py)
+- [99_temporal_coefficient_stability.py](../EDA/99_temporal_coefficient_stability.py)
+- [diagnostics.py](../EDA/diagnostics.py)
+- [presentation_viz.py](../EDA/presentation_viz.py)
+
+Documentation-only update. No analysis scripts executed; no outputs overwritten or GitHub changes made. Session remains stopped.

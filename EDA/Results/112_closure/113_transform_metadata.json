@@ -1,0 +1,53 @@
+{
+  "raw_feature_order": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW",
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "raw_training_mean": [
+    14.420760157273921,
+    4.758361730013107,
+    89.21792922673657,
+    12.89994757536042,
+    5.684010484927916,
+    108.89698558322412,
+    2.229565921623825
+  ],
+  "raw_training_scale": [
+    1.5881405000342357,
+    0.5012956373951902,
+    5.860304154338812,
+    1.2724338130224906,
+    1.0837806551184932,
+    36.3480860458482,
+    0.7486832947797256
+  ],
+  "covariate_order": [
+    "RIDAGEYR",
+    "BMXBMI",
+    "INDFMPIR",
+    "EGFR_2021",
+    "RIAGENDR=2",
+    "RACE=2",
+    "RACE=3",
+    "RACE=4",
+    "RACE=5",
+    "EDUC3=2",
+    "EDUC3=3",
+    "SMOKING3=1",
+    "SMOKING3=2"
+  ],
+  "convention": "score = [1, discovery-standardized raw X] @ affine_map",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "AJIVE_source_sha256": "4c55bcf7ff0ed8562af24bc89ed03ec690715b488ed2ed9e0cd1167c3a283ad8",
+    "R_JIVE": "2.4; original official implementation; see native execution log"
+  }
+}

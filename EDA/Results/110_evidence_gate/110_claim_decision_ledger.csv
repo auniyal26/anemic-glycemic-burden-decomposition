@@ -1,0 +1,7 @@
+criterion,requirement,observed,status,scope
+Information preservation,Dimension-matched R2 >= PCA5 in both later periods,FAIL,NOT SUPPORTED,103 common sample
+PHQ prediction advantage,"Paired delta MSE CI lower > 0 in BOTH later periods, survey-design-aware",FAIL,NOT SUPPORTED,103 common sample; intervals are case bootstrap only
+Statistical subspace specificity,Observed rediscovery exceeds prespecified conditioned null; multiplicity and survey design accounted for,PARTIAL,EXPLORATORY SUPPORT ONLY,105 and 106 distinct refits; not pooled with 103
+External physiological anchoring,"Independent, harmonized assay and population with comparable full panel",NOT MET,NOT ESTABLISHED,106 ferritin is within NHANES
+Clinical utility beyond raw biomarkers,Positive paired AUROC and Brier in both periods with design-aware uncertainty,FAIL,NOT SUPPORTED,109 observational screening retrospective
+Confirmatory transport,"Untouched external dataset, stable measurement and independent hypothesis test",NOT MET,NOT ESTABLISHED,All available NHANES periods were previously inspected

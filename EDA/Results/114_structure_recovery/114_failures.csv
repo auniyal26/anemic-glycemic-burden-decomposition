@@ -1,0 +1,8 @@
+scenario,replicate,method,error
+shared_low_noise,0,AJIVE5,KeyError(1)
+shared_low_noise,1,AJIVE5,RuntimeError('Five-dimensional score rank gate failed')
+private_dominant,1,AJIVE5,RuntimeError('Five-dimensional score rank gate failed')
+discordant,0,AJIVE5,RuntimeError('Five-dimensional score rank gate failed')
+discordant,1,AJIVE5,RuntimeError('Five-dimensional score rank gate failed')
+no_sharing,0,AJIVE5,KeyError(0)
+no_sharing,1,AJIVE5,KeyError(0)

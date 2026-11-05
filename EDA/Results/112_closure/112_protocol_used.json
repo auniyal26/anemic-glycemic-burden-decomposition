@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-05",
+  "purpose": "Close numerical and dimension-matched comparisons; quantify evidence without requiring H/G superiority",
+  "status": "Exploratory: all NHANES periods previously inspected",
+  "discovery": "2005-2008 only for fitting, rank choices fixed below",
+  "later_periods": [
+    "2009-2018",
+    "2021-2023"
+  ],
+  "rank_budgets": {
+    "5": {
+      "joint": 2,
+      "H_individual": 2,
+      "G_individual": 1
+    },
+    "7": {
+      "joint": 2,
+      "H_individual": 3,
+      "G_individual": 2
+    }
+  },
+  "AJIVE": {
+    "initial_signal_ranks": {
+      "H": 3,
+      "G": 2
+    },
+    "explicit_final_ranks": true,
+    "production_configuration": "Use original AJIVE with reconsider_joint_components=True; this path correctly truncates the retained joint space. The local projection patch is diagnostic only, not used for production fits.",
+    "linear_algebra": "Exact dense SVD, scipy gesvd, no simulated/relabelled method",
+    "7D_interpretation": "Explicit full-budget stress test, not automatically selected AJIVE signal dimensionality",
+    "additional_reference": "Default rank-reconsideration plus threshold-selected individual ranks, dimension reported rather than forced",
+    "protocol_revision_basis": "Updated after discovery-only unsupervised pilot identified the joint-projection problem; no new holdout outcome tuning"
+  },
+  "downstream": {
+    "outcomes": [
+      "PHQ_total",
+      "Somatic",
+      "CogAff"
+    ],
+    "ridge_alphas": [
+      1,
+      10,
+      100,
+      1000
+    ],
+    "folds": 5,
+    "fold_seed": 103,
+    "hyperparameter_selection": "Discovery-only cycle-stratified folds; feature scaling inside each fold",
+    "full_rank_fairness_check": "Unpenalized weighted OLS predictions must be invariant across invertible 7D coordinates on identical rows",
+    "raw_block_analyses": [
+      "Covariates",
+      "H4",
+      "G3",
+      "RawX7",
+      "Threshold2"
+    ]
+  },
+  "uncertainty": {
+    "resamples": 999,
+    "seed": 112,
+    "sampling": "Paired Rao-Wu-style PSU rescaling using complete original DEMO frame within cycle and stratum",
+    "scope": "Frozen fitted models; no training/model-selection error; unadjusted exploratory intervals",
+    "comparisons": "Z5 and corrected AJIVE5/JIVE5 versus PCA5; all full-budget methods versus RawX7; H/G/combined versus covariates and each raw block"
+  },
+  "reliability_gates": {
+    "affine_score_adapter_R2_min": 0.99999999,
+    "affine_adapter_relative_error_max": 1e-07,
+    "native_score_numerical_rank_must_match_count": true,
+    "native_extracted_singular_value_relative_min": 1e-08,
+    "7D_discovery_linear_map_must_have_rank_7": true,
+    "7D_OLS_max_prediction_difference": 1e-07
+  },
+  "claim_rules": [
+    "Never infer biological identification from block-specific loadings or reconstruction",
+    "Full-rank coordinate changes cannot add information beyond raw markers",
+    "Any advantage must name endpoint, comparator, dimensional budget, metric and period",
+    "Do not attribute a software/configuration error to the JIVE/AJIVE method in general",
+    "Corrected AJIVE results supersede the old comparator; preserve original files and label the correction"
+  ]
+}

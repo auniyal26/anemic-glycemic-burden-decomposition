@@ -1,0 +1,17 @@
+{
+  "fingerprint": "a1cec6d412ea80533c96bd11b70fb7ba1e15f6c98d6ceb1045b31174366157e7",
+  "diagnostics": [
+    {
+      "method": "JIVE5",
+      "adapter_relative_error": 3.0482625962954053e-15,
+      "native_rank": 5,
+      "score_count": 5
+    },
+    {
+      "method": "JIVE7",
+      "adapter_relative_error": 4.852577366444335e-15,
+      "native_rank": 7,
+      "score_count": 7
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "arguments": {
+    "reps": 2,
+    "run_name": "114_structure_recovery_v2",
+    "n_train": 300,
+    "n_test": 1000,
+    "seed": 114,
+    "timeout": 1200,
+    "rscript": "C:\\Users\\auniy\\anaconda3\\envs\\physiodecomp\\Lib\\R\\bin\\x64\\Rscript.exe"
+  },
+  "scenarios": [
+    "shared_low_noise",
+    "private_dominant",
+    "discordant",
+    "no_sharing"
+  ],
+  "methods": [
+    "HG5",
+    "PCA5",
+    "JIVE5",
+    "AJIVE5_adaptive",
+    "HG7",
+    "PCA7",
+    "JIVE7",
+    "AJIVE7_adaptive"
+  ],
+  "source_hashes": {
+    "72_shared_private_decomposition_and_phenotype.py": "29a5b6b7604e08dda7bb9d30edcacce0b4133774eae0e5c3cb3439f45a3fbdd8",
+    "103_jive_ajive_benchmark.py": "5ff4d5329f2a7b8e2061a796ffd96e9a829485cef5d53abd983ac22c849b339d",
+    "112_finish_benchmarks.py": "613ebe67f6d94ccd5b09859b5f5ea4b23cd3f34d9be455fa281a4ec14a39a501",
+    "114_structure_recovery.py": "730029aad69209a2471397ba754cfffbcbc72f84b096b2c14c45a9c8102f4d06"
+  },
+  "limits": [
+    "Exploratory simulations; no clinical or biological claim",
+    "Equal weights; requested 5D and 7D budgets; AJIVE joint-rank reductions reported, never padded",
+    "AJIVE compatibility correction: local remove-to-discard only; installed package unchanged",
+    "Compare recovery only within equal actual dimensions; report all rank reductions and failures",
+    "7D total recovery is an information-preservation control, not superiority",
+    "Named-component recovery and off-target recovery measure separation, not clinical interpretability",
+    "HG rank remains fixed at two even in no-sharing; this does not test false-positive rank selection",
+    "HG5 uses the existing target-free reconstruction selection",
+    "All-score recovery measures information recoverability, not semantic separation",
+    "Shared2 compares designated shared scores with first-two-PC baseline",
+    "No-sharing shared target is an independent negative control",
+    "Stability is simulation row-bootstrap, not real survey stability",
+    "Recovery decoder learns synthetic truth on training rows only",
+    "Replicate intervals are Monte Carlo descriptive intervals, no multiplicity-adjusted superiority test"
+  ]
+}

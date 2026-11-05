@@ -1,0 +1,134 @@
+{
+  "protocol": {
+    "date": "2026-11-05",
+    "purpose": "Close numerical and dimension-matched comparisons; quantify evidence without requiring H/G superiority",
+    "status": "Exploratory: all NHANES periods previously inspected",
+    "discovery": "2005-2008 only for fitting, rank choices fixed below",
+    "later_periods": [
+      "2009-2018",
+      "2021-2023"
+    ],
+    "rank_budgets": {
+      "5": {
+        "joint": 2,
+        "H_individual": 2,
+        "G_individual": 1
+      },
+      "7": {
+        "joint": 2,
+        "H_individual": 3,
+        "G_individual": 2
+      }
+    },
+    "AJIVE": {
+      "initial_signal_ranks": {
+        "H": 3,
+        "G": 2
+      },
+      "explicit_final_ranks": true,
+      "production_configuration": "Use original AJIVE with reconsider_joint_components=True; this path correctly truncates the retained joint space. The local projection patch is diagnostic only, not used for production fits.",
+      "linear_algebra": "Exact dense SVD, scipy gesvd, no simulated/relabelled method",
+      "7D_interpretation": "Explicit full-budget stress test, not automatically selected AJIVE signal dimensionality",
+      "additional_reference": "Default rank-reconsideration plus threshold-selected individual ranks, dimension reported rather than forced",
+      "protocol_revision_basis": "Updated after discovery-only unsupervised pilot identified the joint-projection problem; no new holdout outcome tuning"
+    },
+    "downstream": {
+      "outcomes": [
+        "PHQ_total",
+        "Somatic",
+        "CogAff"
+      ],
+      "ridge_alphas": [
+        1,
+        10,
+        100,
+        1000
+      ],
+      "folds": 5,
+      "fold_seed": 103,
+      "hyperparameter_selection": "Discovery-only cycle-stratified folds; feature scaling inside each fold",
+      "full_rank_fairness_check": "Unpenalized weighted OLS predictions must be invariant across invertible 7D coordinates on identical rows",
+      "raw_block_analyses": [
+        "Covariates",
+        "H4",
+        "G3",
+        "RawX7",
+        "Threshold2"
+      ]
+    },
+    "uncertainty": {
+      "resamples": 999,
+      "seed": 112,
+      "sampling": "Paired Rao-Wu-style PSU rescaling using complete original DEMO frame within cycle and stratum",
+      "scope": "Frozen fitted models; no training/model-selection error; unadjusted exploratory intervals",
+      "comparisons": "Z5 and corrected AJIVE5/JIVE5 versus PCA5; all full-budget methods versus RawX7; H/G/combined versus covariates and each raw block"
+    },
+    "reliability_gates": {
+      "affine_score_adapter_R2_min": 0.99999999,
+      "affine_adapter_relative_error_max": 1e-07,
+      "native_score_numerical_rank_must_match_count": true,
+      "native_extracted_singular_value_relative_min": 1e-08,
+      "7D_discovery_linear_map_must_have_rank_7": true,
+      "7D_OLS_max_prediction_difference": 1e-07
+    },
+    "claim_rules": [
+      "Never infer biological identification from block-specific loadings or reconstruction",
+      "Full-rank coordinate changes cannot add information beyond raw markers",
+      "Any advantage must name endpoint, comparator, dimensional budget, metric and period",
+      "Do not attribute a software/configuration error to the JIVE/AJIVE method in general",
+      "Corrected AJIVE results supersede the old comparator; preserve original files and label the correction"
+    ]
+  },
+  "source_hashes": {
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\103_jive_ajive_benchmark.py": "5ff4d5329f2a7b8e2061a796ffd96e9a829485cef5d53abd983ac22c849b339d",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\98_regularized_phenotype_equation.py": "73d61c85324cc4b60f580d787441180bf0b2ec9754db3bb6cd357a114d354a0e",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\73_frozen_phenotype_map_input.csv": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962"
+  },
+  "source_unchanged": {
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\103_jive_ajive_benchmark.py": true,
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\98_regularized_phenotype_equation.py": true,
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\73_frozen_phenotype_map_input.csv": true
+  },
+  "cohort_counts": {
+    "train_2005-2008": 3815,
+    "test_2009-2018": 9893,
+    "validate_2021-2023": 2247
+  },
+  "Z5_indices": [
+    0,
+    1,
+    2,
+    5,
+    6
+  ],
+  "full_rank_methods": [
+    "RawX7",
+    "PCA7",
+    "FrozenZ7",
+    "JIVE7",
+    "AJIVE7_rankchecked"
+  ],
+  "AJIVE_primary_configuration": "original package, default reconsider_joint_components=True, exact dense SVD",
+  "AJIVE_auto_reference": {
+    "joint_rank": 2,
+    "individual_ranks": {
+      "H": 2,
+      "G": 1
+    },
+    "individual_svals": [
+      59.344040752475465,
+      50.532968550603925,
+      55.908091792985154
+    ],
+    "projection_invariant_pass": true,
+    "configuration": "native default joint check enabled; deterministic exact SVD",
+    "dimension_policy": "threshold selected"
+  },
+  "participant_rows_exported": false,
+  "limits": [
+    "exploratory previously inspected eras",
+    "fixed-model approximate PSU uncertainty",
+    "full-budget 7D fits are not selected denoised ranks",
+    "linearly equivalent information is not method superiority"
+  ]
+}
