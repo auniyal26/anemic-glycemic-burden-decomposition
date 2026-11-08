@@ -14,6 +14,7 @@
 | Encoding and phenotype equations | [12 Oct](#log-oct-12) · [13 Oct](#log-oct-13) · [14 Oct](#log-oct-14) |
 | External / causal stress tests | [15 Oct](#log-oct-15) |
 | Script inventory and corrections | [EDA coverage backfill](#log-script-coverage) |
+| Manuscript figures | [8 Nov](#log-nov-08) |
 
 ---
 
@@ -4119,3 +4120,35 @@ Every current EDA Python file is linked below so grouped historical discussions 
 - [presentation_viz.py](../EDA/presentation_viz.py)
 
 Documentation-only update. No analysis scripts executed; no outputs overwritten or GitHub changes made. Session remains stopped.
+
+---
+
+<a id="log-nov-08"></a>
+
+# Research Log — 8 November 2026
+
+## Goal
+
+Prepare manuscript figures showing how the haematological and glycaemic coordinates are constructed, how reliably they recur across NHANES periods, and how their associations with depressive symptoms change over time.
+
+## Script 115 — Manuscript and Supplementary Figures
+
+- **Figures 1–3** trace the observed domain scores into shared and discordant coordinates, compare physiological rediscovery with frozen PHQ-9 prediction, and benchmark prediction at matched five- and seven-dimensional budgets.
+- **Figures 4–5** examine ferritin as a physiological anchor and quantify the incremental contribution of each marker domain to depressive-symptom prediction.
+- **Supplementary animation S1** follows the same discovery-cohort observations through the frozen coordinate transformation.
+- **Supplementary Figure S2** shows haematological and glycaemic profiles at comparable shared scores. The simulation panels report both pilot replicates and show how five-score compression affects recovery of discordant and haematology-specific variation.
+
+## Interpretation and Scientific Claim Boundaries
+
+The NHANES panels describe observed physiological variation. Signal recovery was evaluated against known targets in two simulation replicates and remains exploratory.
+
+## Artifacts
+
+- [Script 115](../EDA/115_paper_figures.py)
+- [Manuscript figures and supplementary materials](../EDA/Results/115_paper_figures/revised/)
+
+## Final Session Decision
+
+Shortened the S2 panel headings, aligned the plots and reserved separate space for captions after reviewing the rendered PDF.
+
+**Status:** Session closed — 8 November 2026. The final S2 layout awaits rendering and visual review with `python EDA/115_paper_figures.py --s2-only`.
