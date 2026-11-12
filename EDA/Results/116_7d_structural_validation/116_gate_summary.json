@@ -1,0 +1,23 @@
+{
+  "n_no_sharing": 50,
+  "spurious_any_shared": 1,
+  "observed_false_positive_rate": 0.02,
+  "exact_binomial_interval_95": [
+    0.0005062279831152354,
+    0.10646954571150097
+  ],
+  "one_sided_p_vs_nominal_0p05": 0.9230550247232867,
+  "mean_selected_rank_by_scenario": {
+    "shared_low_noise": 2.0,
+    "private_dominant": 2.0,
+    "discordant": 2.0,
+    "one_shared": 1.0,
+    "no_sharing": 0.02
+  },
+  "one_shared_overselected_rank2_or_more": {
+    "count": 0,
+    "n": 50,
+    "fraction": 0.0,
+    "qualification": "descriptive only; not a valid partial-null rank test"
+  }
+}

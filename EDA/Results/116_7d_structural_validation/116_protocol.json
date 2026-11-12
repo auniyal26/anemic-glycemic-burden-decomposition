@@ -1,0 +1,50 @@
+{
+  "source_hashes": {
+    "72_shared_private_decomposition_and_phenotype.py": "29a5b6b7604e08dda7bb9d30edcacce0b4133774eae0e5c3cb3439f45a3fbdd8",
+    "103_jive_ajive_benchmark.py": "5ff4d5329f2a7b8e2061a796ffd96e9a829485cef5d53abd983ac22c849b339d",
+    "112_finish_benchmarks.py": "613ebe67f6d94ccd5b09859b5f5ea4b23cd3f34d9be455fa281a4ec14a39a501",
+    "114_structure_recovery.py": "730029aad69209a2471397ba754cfffbcbc72f84b096b2c14c45a9c8102f4d06",
+    "116_7d_structural_validation.py": "8e9396b37d7bca9898d5f5ba68cd2829bef67992cd09905435c1f2d2fd1da7bf"
+  },
+  "argv": [
+    "--reps",
+    "50",
+    "--permutations",
+    "199",
+    "--plot"
+  ],
+  "settings": {
+    "reps": 50,
+    "n_train": 500,
+    "n_test": 1500,
+    "permutations": 199,
+    "alpha": 0.05,
+    "min_rho": 0.1,
+    "seed": 116,
+    "methods": [
+      "HG7",
+      "PCA7",
+      "JIVE7",
+      "AJIVE7_adaptive"
+    ],
+    "run_name": "116_7d_structural_validation",
+    "timeout": 1200,
+    "rscript": null,
+    "plot": true,
+    "self_test": false
+  },
+  "python": "3.11.16",
+  "numpy": "2.4.6",
+  "pandas": "3.0.5",
+  "design": "Simulation: five prespecified conditions including rank-one and rank-zero negative controls; independent repeats; 7D-only fit policy",
+  "group_rules": "HG S2/D2/H2/G1. JIVE/AJIVE H_individual first 2 of 3, G_individual first 1 of 2 in native order; PCA leading2 only.",
+  "decision_rules": [
+    "No claim of novel information from any invertible 7D map",
+    "AJIVE adaptive ranks <7 flagged and excluded from equal-7D comparisons",
+    "No causal or clinical/physiological identification from synthetic target recovery",
+    "Use max-correlation permutation familywise gate on H/G independent no-sharing data",
+    "One-shared scenario is a descriptive check of rank over-selection, not a calibrated partial-null test",
+    "No direct discordance comparator because JIVE/AJIVE/PCA do not prelabel it",
+    "Preserve method failures, rank losses, and both unfavorable and favorable intervals"
+  ]
+}

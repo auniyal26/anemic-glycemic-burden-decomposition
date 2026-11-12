@@ -1,0 +1,27 @@
+scenario,target,scope,comparison,matched_group_dim,paired_reps,mean_delta_R2,paired_bootstrap_mean_low95,paired_bootstrap_mean_high95,remark
+shared_low_noise,shared,shared,HG7 minus PCA7,2,50,0.004265905508114976,0.003535693424638999,0.0050149828144446604,Synthetic truth decoder; exploratory; no biological claim
+shared_low_noise,shared,shared,HG7 minus JIVE7,2,50,0.019074563078075236,0.01879013787884264,0.019368572760710575,Synthetic truth decoder; exploratory; no biological claim
+shared_low_noise,shared,shared,HG7 minus AJIVE7_adaptive,2,1,0.03250176371087765,,,Synthetic truth decoder; exploratory; no biological claim
+shared_low_noise,H_private,H_private,HG7 minus JIVE7,2,50,-9.038654598132912e-05,-0.00014087233630366404,-4.232986023245733e-05,Synthetic truth decoder; exploratory; no biological claim
+shared_low_noise,H_private,H_private,HG7 minus AJIVE7_adaptive,2,4,0.02228905594480826,,,Synthetic truth decoder; exploratory; no biological claim
+shared_low_noise,G_private,G_private,HG7 minus JIVE7,1,50,0.0046903382515853555,0.0033443474501548736,0.006273549579568422,Synthetic truth decoder; exploratory; no biological claim
+shared_low_noise,G_private,G_private,HG7 minus AJIVE7_adaptive,1,4,0.01851077197599077,,,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,shared,shared,HG7 minus PCA7,2,50,0.9033087110324722,0.8822075434598091,0.923294053091901,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,shared,shared,HG7 minus JIVE7,2,50,0.03994097694598816,0.03526645702076749,0.044948420965663545,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,shared,shared,HG7 minus AJIVE7_adaptive,2,45,0.46943627010326894,0.46020846651854963,0.47959485502629573,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,H_private,H_private,HG7 minus JIVE7,2,50,0.004420564750642167,0.0026743559027825876,0.006346266559824507,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,H_private,H_private,HG7 minus AJIVE7_adaptive,2,46,0.24970608457885235,0.24196615316951517,0.25822948846062216,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,G_private,G_private,HG7 minus JIVE7,1,50,0.022449624877113647,0.017131009137413937,0.028376558778308483,Synthetic truth decoder; exploratory; no biological claim
+private_dominant,G_private,G_private,HG7 minus AJIVE7_adaptive,1,46,0.489762132107514,0.4718370590434244,0.5071033818648787,Synthetic truth decoder; exploratory; no biological claim
+discordant,shared,shared,HG7 minus PCA7,2,50,0.007757002204288377,0.00539820598539419,0.010217641344044905,Synthetic truth decoder; exploratory; no biological claim
+discordant,shared,shared,HG7 minus JIVE7,2,50,0.27087282369946647,0.2678968352950794,0.274033486700002,Synthetic truth decoder; exploratory; no biological claim
+discordant,H_private,H_private,HG7 minus JIVE7,2,50,0.26615834574187175,0.22436095100008727,0.30542782291029796,Synthetic truth decoder; exploratory; no biological claim
+discordant,G_private,G_private,HG7 minus JIVE7,1,50,0.2971383583246329,0.21108758001522676,0.38808973474463554,Synthetic truth decoder; exploratory; no biological claim
+one_shared,shared,shared,HG7 minus PCA7,2,50,0.005393227396044606,0.004223876570414337,0.006855564708365558,Synthetic truth decoder; exploratory; no biological claim
+one_shared,shared,shared,HG7 minus JIVE7,2,50,0.007399356613217139,0.00587305342573147,0.00895523687854417,Synthetic truth decoder; exploratory; no biological claim
+one_shared,H_private,H_private,HG7 minus JIVE7,2,50,0.011517025945215689,-0.027478902054777907,0.050407492273116965,Synthetic truth decoder; exploratory; no biological claim
+one_shared,G_private,G_private,HG7 minus JIVE7,1,50,-0.04633622964102956,-0.16512139092695494,0.07429178616785388,Synthetic truth decoder; exploratory; no biological claim
+no_sharing,shared,shared,HG7 minus PCA7,2,50,-0.0003081577733259699,-0.001099833607684553,0.0003866733293721205,Synthetic truth decoder; exploratory; no biological claim
+no_sharing,shared,shared,HG7 minus JIVE7,2,50,0.0005531203317926225,-0.0001898806039361105,0.0013331277029633418,Synthetic truth decoder; exploratory; no biological claim
+no_sharing,H_private,H_private,HG7 minus JIVE7,2,50,-0.0323738695489154,-0.09482750727403465,0.028534265972548215,Synthetic truth decoder; exploratory; no biological claim
+no_sharing,G_private,G_private,HG7 minus JIVE7,1,50,-0.007452569430230067,-0.1093457602790294,0.09559128145619311,Synthetic truth decoder; exploratory; no biological claim

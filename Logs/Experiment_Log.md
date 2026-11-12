@@ -15,6 +15,7 @@
 | External / causal stress tests | [15 Oct](#log-oct-15) |
 | Script inventory and corrections | [EDA coverage backfill](#log-script-coverage) |
 | Manuscript figures | [8 Nov](#log-nov-08) |
+| Expanded structural validation | [12 Nov](#log-nov-12) |
 
 ---
 
@@ -4152,3 +4153,62 @@ The NHANES panels describe observed physiological variation. Signal recovery was
 Shortened the S2 panel headings, aligned the plots and reserved separate space for captions after reviewing the rendered PDF.
 
 **Status:** Session closed — 8 November 2026. The final S2 layout awaits rendering and visual review with `python EDA/115_paper_figures.py --s2-only`.
+
+---
+
+<a id="log-nov-12"></a>
+
+# Research Log — 12 November 2026
+
+## Goal
+
+Assess seven-dimensional component recovery and rank-selection behaviour beyond the two-replicate pilot, including independent negative controls.
+
+## Experiment Completed — Script 116
+
+Reviewed the existing script, protocol, completion record, readout and result tables. The saved run used **50 repetitions in each of five synthetic settings**, with 500 training and 1,500 testing observations per repetition and 199 permutations for the coupling gate. Methods were HG7, PCA7, official JIVE7 and adaptive AJIVE7. Settings were shared low-noise, private-dominant, discordant, one-shared and no-sharing.
+
+All **1,000 distinct scenario–replicate–method evaluations** have all-score records. The failures table is empty. Each evaluation includes an original training fit and a bootstrap refit.
+
+## Principal Results
+
+### Recovery and refit stability
+
+- In the discordant setting, Z's discordance pair recovered the simulated target with mean held-out **R² = 0.9216** across 50 repetitions. Mean refit similarity was **0.9625**.
+- The shared pair recovered shared truth with mean **R² = 0.9712** and mean refit similarity **0.9864**.
+- Shared-target recovery in the discordant setting favoured HG7 over JIVE7 by **0.2709 R²**, with paired-bootstrap interval for the mean difference **0.2679 to 0.2740**. The difference versus the first two PCA scores was **0.0078**, interval **0.0054 to 0.0102**.
+- In the private-dominant setting, shared-target recovery favoured HG7 over the first two PCA scores by **0.9033 R²**, interval **0.8822 to 0.9233**, and over JIVE7 by **0.0399**, interval **0.0353 to 0.0449**.
+- Advantages depend on target and setting. H-specific recovery in the shared low-noise setting was slightly lower for HG7 than JIVE7, with mean difference **−0.0000904 R²**.
+- All eligible full-rank representations reconstructed the seven measured coordinates at **R² = 1** to reported precision, as expected for invertible affine representations.
+
+### Rank-selection control
+
+The no-sharing condition produced a false declaration of coupling in **1/50 repetitions (2%)**. Its exact binomial 95% interval was approximately **0.05% to 10.65%**. This leaves substantial uncertainty about the population false-positive rate.
+
+In the one-shared condition, the gate selected one shared direction in all 50 repetitions. This is descriptive because the global-independence permutation procedure does not formally calibrate rank-two versus rank-one testing. The gate was evaluated separately from HG7's fixed two-pair representation used for recovery.
+
+### Actual dimensionality and completion-metadata correction
+
+The completion JSON counts each all-score target row as a fit. Its complete_fit_fraction of 3.2 and strict_7d_fit_counts consequently overcount distinct evaluations.
+
+Distinct scenario–replicate–method records in 116_metrics.csv give **250/250 seven-score evaluations each for HG7, PCA7 and JIVE7**, and **50/250 for AJIVE7_adaptive**. The other **200 AJIVE evaluations returned fewer than seven scores** and were excluded from strict 7D comparisons. Rank reduction is distinct from execution failure. The original completion JSON retains its values, with the correction recorded here.
+
+## Interpretation and Scientific Claim Boundaries
+
+The expanded simulation supports target-specific recovery and stability under the stipulated generators. Matching group dimensions does not make the methods' semantic objectives identical. JIVE/AJIVE private groups use the first native scores under the declared truncation rule. PCA uses its first two variance directions. AJIVE comparisons vary in eligible repetitions and condition on retained rank.
+
+The explicit discordance pair is evaluated against known truth. Other methods have no directly corresponding native discordance group. Recovery uses supervised decoders fitted on synthetic training truth. These results strengthen the simulation evidence for separating shared and discordant signals. Human biological identification, clinical usefulness and real-cohort component stability require their own evidence. Previously documented limits on predictive-superiority claims continue to apply.
+
+## Artifacts
+
+- [Script 116](../EDA/116_7d_structural_validation.py)
+- [Protocol and results](../EDA/Results/116_7d_structural_validation/)
+- 116_summary.csv and 116_paired_group_differences.csv
+- 116_rank_gate.csv, 116_gate_summary.json and 116_failures.csv
+- 116_group_recovery_7d.svg and 116_null_control.svg
+
+## Final Session Decision
+
+Use the 50-repetition results when describing the expanded simulation. Existing S2 remains a two-replicate pilot illustration until its data source and labels are explicitly updated.
+
+**Status:** Existing results reviewed and logged — 12 November 2026. Completion-metadata overcount documented. No research scripts executed during this review.
