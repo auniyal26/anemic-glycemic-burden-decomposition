@@ -1,0 +1,110 @@
+{
+  "script": "117_comparative_structural_validation.py",
+  "seed": 117,
+  "settings": {
+    "reps": 5,
+    "null": 5,
+    "bootstrap": 5,
+    "permutations": 19,
+    "n_train": 500,
+    "n_test": 1500,
+    "cap": 250,
+    "methods": [
+      "HG7",
+      "PCA7",
+      "BlockPCA7",
+      "JIVE7",
+      "AJIVE7_adaptive",
+      "RawX7"
+    ],
+    "run_name": "117_quick_pilot",
+    "phase": "all",
+    "rscript": "C:\\Users\\auniy\\anaconda3\\envs\\physiodecomp\\Lib\\R\\bin\\x64\\Rscript.exe",
+    "timeout": 1200,
+    "self_test": false,
+    "plot": false
+  },
+  "scenarios": {
+    "reference": {
+      "rho": 0.5,
+      "noise": 0.2,
+      "private": 1.0,
+      "shift": "none"
+    },
+    "weak_coupling": {
+      "rho": 0.15,
+      "noise": 0.2,
+      "private": 1.0,
+      "shift": "none"
+    },
+    "strong_coupling": {
+      "rho": 0.85,
+      "noise": 0.2,
+      "private": 1.0,
+      "shift": "none"
+    },
+    "high_noise": {
+      "rho": 0.5,
+      "noise": 0.6,
+      "private": 1.0,
+      "shift": "none"
+    },
+    "private_dominant": {
+      "rho": 0.5,
+      "noise": 0.2,
+      "private": 4.0,
+      "shift": "none"
+    },
+    "population_shift": {
+      "rho": 0.5,
+      "noise": 0.2,
+      "private": 1.0,
+      "shift": "population"
+    },
+    "measurement_shift": {
+      "rho": 0.5,
+      "noise": 0.2,
+      "private": 1.0,
+      "shift": "measurement"
+    },
+    "no_sharing": {
+      "rho": 0.0,
+      "noise": 0.2,
+      "private": 1.0,
+      "shift": "none"
+    }
+  },
+  "noise_levels": [
+    0.01,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "source_hashes": {
+    "72_shared_private_decomposition_and_phenotype.py": "29a5b6b7604e08dda7bb9d30edcacce0b4133774eae0e5c3cb3439f45a3fbdd8",
+    "103_jive_ajive_benchmark.py": "5ff4d5329f2a7b8e2061a796ffd96e9a829485cef5d53abd983ac22c849b339d",
+    "104_representation_validation_gate.py": "6f5f4076bbe9dcbd9dcdf9824d88828f665f57b70e851fad0ac8c67956075f05",
+    "105_specificity_and_transfer_audit.py": "cb896c69ae5bbdad37c5570887299be088eb593d86ed17568d410e8473cc5e2c",
+    "112_finish_benchmarks.py": "613ebe67f6d94ccd5b09859b5f5ea4b23cd3f34d9be455fa281a4ec14a39a501",
+    "114_structure_recovery.py": "730029aad69209a2471397ba754cfffbcbc72f84b096b2c14c45a9c8102f4d06",
+    "116_7d_structural_validation.py": "8e9396b37d7bca9898d5f5ba68cd2829bef67992cd09905435c1f2d2fd1da7bf",
+    "117_comparative_structural_validation.py": "cd0dd2fc39753a13ba9ff870fd0b9c89a38304869bd8a855b58d582623c8c2f7"
+  },
+  "python": "3.11.16",
+  "numpy": "2.4.6",
+  "pandas": "3.0.5",
+  "group_dimensions": {
+    "shared": 2,
+    "discordant": 2,
+    "H_private": 2,
+    "G_private": 1
+  },
+  "strict_rank": 7,
+  "minimum_valid_pair_fraction": 0.8,
+  "primary_comparison": "Designated target recovery and conditioned structural specificity.",
+  "native_group_matching": "First k native scores; no truth-guided selection.",
+  "empirical_fit_weights": "unweighted",
+  "empirical_bootstrap": "Cycle-stratified cases; reference fit fixed.",
+  "external_validation": false,
+  "confirmatory_inference": false
+}

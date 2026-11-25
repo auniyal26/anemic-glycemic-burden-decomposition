@@ -4212,3 +4212,55 @@ The explicit discordance pair is evaluated against known truth. Other methods ha
 Use the 50-repetition results when describing the expanded simulation. Existing S2 remains a two-replicate pilot illustration until its data source and labels are explicitly updated.
 
 **Status:** Existing results reviewed and logged — 12 November 2026. Completion-metadata overcount documented. No research scripts executed during this review.
+
+
+---
+
+<a id="log-nov-25"></a>
+
+# Research Log — 25 November 2026
+
+## Goal
+
+Establish comparative biomedical utility, explain temporal prediction deterioration, and consolidate the manuscript evidence.
+
+## Experiments Completed — Scripts 117–119
+
+- **117 — Comparative structural validation:** Pilot completed with 411 fits, including 374 eligible 7D fits. No execution exceptions. Full experiment deferred.
+- **118 — Biomedical utility:** Compared HG shared2 against conventional markers, PCA, JIVE, AJIVE and a SYNERGY-VAE-inspired architecture using 999 paired PSU resamples.
+- **119 — Temporal drift:** Reproduced Script118 and decomposed prediction deterioration into calibration, residual variation and coordinate-level contributions.
+
+## Principal Results
+
+- HG shared2 outperformed JIVE joint2 in both evaluation periods, with MSE reductions of 0.0607 and 0.0441.
+- Calibration accounted for 90.3% and 97.1% of relative raw-marker and VAE deterioration, respectively.
+- Discordant and haematology-private coordinates contributed +0.1562 and +0.2124 to the change in raw-marker excess MSE, while shared coordinates contributed −0.0634.
+- Full-rank equivalence, reproduction and mathematical identity checks passed.
+
+## Interactive Research Demonstration
+
+Developed `physiodecomp_demo.py`, a Streamlit-based interactive walkthrough using animated, rotatable 3D particle clouds to communicate laboratory integration, phenotype association, physiological decomposition and temporal validation to non-technical audiences.
+
+The demonstration uses simulated display geometry without exposing fitted transformation parameters or participant data. It is a communication tool, not an additional validation experiment.
+
+## Manuscript Development — Scripts 120–121
+
+Consolidated publication figures under a consistent visual design. Revised the manuscript through Methods and Results to incorporate comparative biomedical anchoring and temporal error attribution.
+
+## Interpretation and Scientific Claim Boundaries
+
+The framework demonstrates conditional structural and calibration advantages, not universal predictive superiority. Comparative VAE and AJIVE findings remain mixed. Coordinate-level attribution is algebraic rather than causal.
+
+## Artifacts
+
+- [Script 117 results](../EDA/Results/117_quick_pilot/)
+- [Script 118 results](../EDA/Results/118_biomedical_utility/)
+- [Script 119 results](../EDA/Results/119_temporal_drift_explanation/)
+- [Manuscript figures](../EDA/Results/121_manuscript_figures/)
+- `physiodecomp_demo.py`
+
+## Final Session Decision
+
+Freeze experimental development and prioritise manuscript refinement and submission preparation.
+
+**Status:** Experimental phase closed — 25 November 2026.

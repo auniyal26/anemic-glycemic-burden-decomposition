@@ -1,0 +1,15 @@
+phase,condition,replicate,method,actual_dim,rank,eligible_7D
+empirical_reference,0506,0,HG7,7,7,True
+empirical_reference,0506,0,PCA7,7,7,True
+empirical_reference,0506,0,BlockPCA7,7,7,True
+empirical_reference,0506,0,JIVE7,7,7,True
+empirical_reference,0506,0,AJIVE7_adaptive,7,7,True
+empirical_reference,0506,0,RawX7,7,7,True
+observed,0708,0,HG7,7,7,True
+observed,0708,0,PCA7,7,7,True
+observed,0708,0,BlockPCA7,7,7,True
+observed,0708,0,JIVE7,7,7,True
+observed,0708,0,AJIVE7_adaptive,7,7,True
+conditional_null,0708,0,HG7,7,7,True
+conditional_null,0708,0,PCA7,7,7,True
+conditional_null,0708,0,BlockPCA7,7,7,True

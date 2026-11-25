@@ -1,0 +1,33 @@
+{
+  "execution_completed": true,
+  "full_rank_equivalence_pass": true,
+  "all_vae_seeds_available": true,
+  "fitted_methods": [
+    "Covariates",
+    "RawX7",
+    "H4",
+    "G3",
+    "Threshold2",
+    "Hb_HbA1c",
+    "Hb_RDW",
+    "PCA7",
+    "PCA2",
+    "H_PCA2",
+    "G_PCA2",
+    "HG7",
+    "HG_Shared2",
+    "HG_Discordant2",
+    "HG_HPrivate2",
+    "HG_GPrivate1",
+    "HG_Weighted_Shared2",
+    "JIVE_Joint2",
+    "AJIVE_Joint2",
+    "VAE2_seed118",
+    "VAE2_seed119",
+    "VAE2_seed120",
+    "VAE2_seed121",
+    "VAE2_seed122"
+  ],
+  "recorded_exceptions": 0,
+  "all_primary_comparators_available": true
+}

@@ -1,0 +1,9 @@
+scenario,mean_selected_rank,fraction_detecting_coupling,repetitions
+high_noise,2.0,1.0,5
+measurement_shift,2.0,1.0,5
+no_sharing,0.2,0.2,5
+population_shift,2.0,1.0,5
+private_dominant,2.0,1.0,5
+reference,2.0,1.0,5
+strong_coupling,2.0,1.0,5
+weak_coupling,0.6,0.6,5

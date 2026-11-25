@@ -1,0 +1,64 @@
+{
+  "seed": 118,
+  "settings": {
+    "replicates": 999,
+    "epochs": 250,
+    "beta": 0.05,
+    "run_name": "118_biomedical_utility",
+    "rscript": "C:\\Users\\auniy\\anaconda3\\envs\\physiodecomp\\Lib\\R\\bin\\x64\\Rscript.exe",
+    "timeout": 1200,
+    "fetch_missing": false,
+    "skip_native": false,
+    "self_test": false
+  },
+  "source_hashes": {
+    "72_shared_private_decomposition_and_phenotype.py": "29a5b6b7604e08dda7bb9d30edcacce0b4133774eae0e5c3cb3439f45a3fbdd8",
+    "103_jive_ajive_benchmark.py": "5ff4d5329f2a7b8e2061a796ffd96e9a829485cef5d53abd983ac22c849b339d",
+    "104_representation_validation_gate.py": "6f5f4076bbe9dcbd9dcdf9824d88828f665f57b70e851fad0ac8c67956075f05",
+    "106_survey_ferritin_anchor.py": "94cc7de9c1f1686999c68c20048efe244f4a5532b782ae821474fd4d3df401fb",
+    "112_finish_benchmarks.py": "613ebe67f6d94ccd5b09859b5f5ea4b23cd3f34d9be455fa281a4ec14a39a501",
+    "114_structure_recovery.py": "730029aad69209a2471397ba754cfffbcbc72f84b096b2c14c45a9c8102f4d06",
+    "118_biomedical_utility_benchmark.py": "c072c0e86ab2fbdfc0d434488913fd8a1109f384462cf7f86b276059b898a74c"
+  },
+  "primary_outcome": "log_ferritin",
+  "secondary_outcome": "ferritin_below_15_ug_L_AUC",
+  "primary_candidate": "HG_Shared2",
+  "matched_comparators": [
+    "Threshold2",
+    "Hb_HbA1c",
+    "Hb_RDW",
+    "PCA2",
+    "H_PCA2",
+    "G_PCA2",
+    "JIVE_Joint2",
+    "AJIVE_Joint2",
+    "VAE2_mean_loss"
+  ],
+  "reference_period": "0506",
+  "evaluation_periods": [
+    "0708",
+    "2123"
+  ],
+  "physiological_fit_weights": "unweighted primary comparison",
+  "downstream_weights": "official fasting WTSAF2YR",
+  "downstream_model": "weighted ridge with fixed alpha",
+  "ridge_alpha": 10.0,
+  "downstream_whitening": true,
+  "vae_seeds": [
+    118,
+    119,
+    120,
+    121,
+    122
+  ],
+  "vae_architecture": "two-domain multi-decoder adaptation",
+  "vae_reference": "10.1371/journal.pdig.0001719",
+  "vae_aggregation": "mean held-out loss across fixed seeds",
+  "uncertainty": "paired rescaled holdout PSU bootstrap",
+  "ferritin_used_for_encoder": false,
+  "later_periods_previously_inspected": true,
+  "independent_population_validation": false,
+  "multiplicity_adjusted": false,
+  "assay_harmonized": false,
+  "torch_version": "2.11.0+cu128"
+}

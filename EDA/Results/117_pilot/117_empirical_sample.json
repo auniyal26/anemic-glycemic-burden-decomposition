@@ -1,0 +1,19 @@
+{
+  "reference_fit_n": 375,
+  "independent_anchor_n": 125,
+  "target_sizes": {
+    "0708": 500,
+    "0918": 500,
+    "2123": 500
+  },
+  "markers": [
+    "LBXHGB",
+    "LBXRBCSI",
+    "LBXMCVSI",
+    "LBXRDW",
+    "LBXGH",
+    "LBXGLU",
+    "LOG_IN"
+  ],
+  "common_fit_weights": "unweighted"
+}
