@@ -1,0 +1,24 @@
+{
+  "script": "126_adversarial_figure_pack.py",
+  "input_dir": "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\125_adversarial_validation",
+  "output_dir": "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\126_adversarial_figures",
+  "outputs": [
+    "126_main_adversarial_validation.png",
+    "126_main_adversarial_validation.pdf",
+    "126_supplementary_adversarial_controls.png",
+    "126_supplementary_adversarial_controls.pdf"
+  ],
+  "source_files": [
+    "125_sim_paired.csv",
+    "125_numerical.csv",
+    "125_assay_paired.csv",
+    "125_random_percentiles.csv",
+    "125_sim_dimensions.csv",
+    "125_failures.csv"
+  ],
+  "notes": [
+    "Main figure emphasises adversarial structural recovery and paired effect sizes.",
+    "Supplementary figure emphasises biological contrasts, random controls, dimensional eligibility and numerical controls.",
+    "No additional model fitting is performed."
+  ]
+}

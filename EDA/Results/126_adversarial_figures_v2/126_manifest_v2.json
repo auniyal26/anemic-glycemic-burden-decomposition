@@ -1,0 +1,13 @@
+{
+  "script": "126_adversarial_figure_pack.py",
+  "input_dir": "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\125_adversarial_validation",
+  "outputs": [
+    "126_main_adversarial_validation_v2.png",
+    "126_main_adversarial_validation_v2.pdf",
+    "126_supplementary_adversarial_controls_v2.png",
+    "126_supplementary_adversarial_controls_v2.pdf"
+  ],
+  "notes": [
+    "v2 layout uses four separate group heatmaps in the main figure and replaces the crowded random-percentile heatmap with a cleaner percentile dot plot in the supplementary figure."
+  ]
+}
