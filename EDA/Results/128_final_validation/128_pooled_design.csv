@@ -1,0 +1,4 @@
+period,cycles,original_strata,nested_strata,original_psus,nested_psus,original_df,nested_df,identical_partition
+2005-2008,2,31,31,62,62,31,31,True
+2009-2018,5,74,74,152,152,78,78,True
+2021-2023,1,15,15,30,30,15,15,True

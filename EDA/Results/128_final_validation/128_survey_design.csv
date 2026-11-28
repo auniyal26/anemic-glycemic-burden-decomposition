@@ -1,0 +1,9 @@
+cycle,full_demo_strata,full_demo_psus,full_demo_df,fasting_strata,fasting_psus,fasting_df,singleton_fasting_strata,missing_demo_design
+0506,15,30,15,15,30,15,0,0
+0708,16,32,16,16,32,16,0,0
+0910,15,31,16,15,31,16,0,0
+1112,14,31,17,14,31,17,0,0
+1314,15,30,15,15,30,15,0,0
+1516,15,30,15,15,30,15,0,0
+1718,15,30,15,15,30,15,0,0
+2123,15,30,15,15,30,15,0,0

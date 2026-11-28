@@ -1,0 +1,13 @@
+cycle,anchor,status,eligible_scaffold_n,n,effective_n,weight,represented_psus,outcome
+0506,Ferritin,available,440.0,416.0,298.44750454165245,WTSAF2YR,30.0,natural_log
+0506,sTfR,available,440.0,417.0,298.86764003858167,WTSAF2YR,30.0,natural_log
+0506,CRP,available,1796.0,1688.0,1170.7836713032004,WTSAF2YR,30.0,natural_log
+0506,OGTT,available,1796.0,1407.0,988.9468033983475,WTSOG2YR,30.0,natural_log
+0708,Ferritin,available,555.0,513.0,350.3893942891469,WTSAF2YR,32.0,natural_log
+0708,sTfR,available,555.0,511.0,348.6748135716814,WTSAF2YR,32.0,natural_log
+0708,CRP,available,2292.0,2070.0,1288.2713243927042,WTSAF2YR,32.0,natural_log
+0708,OGTT,available,2292.0,1659.0,1060.6309874332503,WTSOG2YR,32.0,natural_log
+2123,Ferritin,available,597.0,519.0,358.4943229393497,WTSAF2YR,30.0,natural_log
+2123,sTfR,available,597.0,519.0,358.4943229393497,WTSAF2YR,30.0,natural_log
+2123,CRP,available,2783.0,2415.0,1519.2596792891532,WTSAF2YR,30.0,natural_log
+2123,OGTT,not_available_by_design,,,,,,
