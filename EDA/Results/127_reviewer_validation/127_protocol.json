@@ -1,0 +1,28 @@
+{
+  "seed": 127,
+  "replicates": 999,
+  "inputs": {
+    "127_reviewer_directed_validation.py": "d2dfd26f643114d8e3d3964ba64883e54e20c58954b24a0483d31f1f5b1071e8",
+    "123_biological_specificity_and_leakage_audit.py": "b2e0d7287c704fb795dbd0ba7195b9d69fb99125866b7fca2ed34cfa3c90c5f8",
+    "125_adversarial_comparative_validation.py": "088f0472f0e66d02c9a844fca70b6dc5375f506d324cf81de9e6d909f274b6cb",
+    "118_biomedical_utility_benchmark.py": "c072c0e86ab2fbdfc0d434488913fd8a1109f384462cf7f86b276059b898a74c",
+    "106_survey_ferritin_anchor.py": "94cc7de9c1f1686999c68c20048efe244f4a5532b782ae821474fd4d3df401fb",
+    "104_representation_validation_gate.py": "6f5f4076bbe9dcbd9dcdf9824d88828f665f57b70e851fad0ac8c67956075f05",
+    "73_frozen_phenotype_map_input.csv": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962",
+    "72_shared_private_frozen_transform.npz": "c0cdec22774872f8ea3d7a512ff02412aaefb377344f19aefa44858ef62be08a"
+  },
+  "assay_sources": [
+    "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/FERTIN_F.htm",
+    "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/FERTIN_I.htm",
+    "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/FERTIN_L.htm"
+  ],
+  "ferritin_bridge": "e170=10^(0.989 log10(Hitachi)+0.049); e601=0.2243+1.079 e170",
+  "HGI_reference": "2005-06 survey weighted reference; HbA1c (%) minus frozen linear prediction from fasting glucose; 2D controls HGI+FPG and HbA1c/log-insulin residuals vs FPG; published equation sensitivity HbA1c=0.024*FPG(mg/dL)+3.1 (overlaps NHANES development, not independent)",
+  "HGI_sources": [
+    "https://doi.org/10.1002/edm2.299",
+    "https://doi.org/10.1002/edm2.442"
+  ],
+  "CI": "rescaled stratified PSU bootstrap with full design frame; conditional fixed maps and prediction models; refit WLS for partial R2; 95% marginal intervals",
+  "external": "metadata inventory; explicit verified harmonised CSV only",
+  "survey_weight_notes": "Cycle-specific fasting subsample WTSAF2YR (OGTT WTSOG2YR); complete-case item nonresponse not separately reweighted. Script118 weight audit preserved; pooled weight construction not independently audited."
+}

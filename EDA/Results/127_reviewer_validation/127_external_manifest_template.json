@@ -1,0 +1,20 @@
+{
+  "file": "path/to/participant_level_harmonised.csv",
+  "id_column": "participant_id",
+  "cohort_name": "MIDUS (wave/specimen protocol)",
+  "units_verified": false,
+  "fasting_and_assay_compatibility_verified": false,
+  "eligibility_and_missing_codes_verified": false,
+  "units": {
+    "LBXHGB": "g/dL",
+    "LBXRBCSI": "million cells/uL",
+    "LBXMCVSI": "fL",
+    "LBXRDW": "%",
+    "LBXGH": "%",
+    "LBXGLU": "mg/dL",
+    "LOG_IN": "ln(insulin uIU/mL)"
+  },
+  "notes": "Use unique eligible nonpregnant adult participants. All columns already converted to exact NHANES units; LOG_IN natural log of positive fasting insulin. Outcome validation requires compatible covariates and assay protocols. No outcome-guided selection or refitting.",
+  "validated_anchors": [],
+  "covariates_and_endpoint_definitions_verified": false
+}

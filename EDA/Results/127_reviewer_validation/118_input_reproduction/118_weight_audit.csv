@@ -1,0 +1,4 @@
+cohort,n_matched,median_precomputed_to_WTSAF,max_relative_ratio_deviation,weight_source_used
+0506,1705,0.5,0.0,official_GLUXPT_WTSAF2YR
+0708,2110,0.5,0.0,official_GLUXPT_WTSAF2YR
+2123,2247,1.0,4.440892098500626e-16,official_GLUXPT_WTSAF2YR
