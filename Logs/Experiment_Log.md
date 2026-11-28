@@ -4264,3 +4264,73 @@ The framework demonstrates conditional structural and calibration advantages, no
 Freeze experimental development and prioritise manuscript refinement and submission preparation.
 
 **Status:** Experimental phase closed — 25 November 2026.
+
+---
+
+<a id="log-nov-28"></a>
+
+# Research Log — 28 November 2026
+
+## Goal
+
+Complete the statistical robustness, biological specificity and leakage audits of HG7, addressing outstanding methodological concerns before finalising the JBI manuscript.
+
+## Experiments Completed — Scripts 122–124
+
+- **122 — Statistical robustness and influence audit:** Evaluated weighted regression leverage, Cook's distance, DFBETAS, multicollinearity, residual behaviour, influential-participant sensitivity, PSU deletion and physiological subspace stability.
+- **123 — Biological specificity and leakage audit:** Extended laboratory validation beyond ferritin to soluble transferrin receptor (sTfR), C-reactive protein (CRP) and oral glucose tolerance (OGTT). Conducted survey-adjusted conditional inference, Holm correction, matched-dimensional PCA comparisons, random-rotation controls, frozen temporal evaluation and fold-specific representation fitting.
+- **124 — Final publication figures:** Consolidated existing and newly generated evidence into a consistent manuscript figure suite without additional model fitting.
+
+## Principal Results
+
+### Statistical Robustness
+
+- Completed 3,795 successful sensitivity refits across 45 regression models.
+- Full-rank invariance between Raw7 and HG7 passed.
+- HG7 reduced maximum non-intercept VIF by approximately 79–83% across the three NHANES periods.
+- Minimum subspace similarity under PSU deletion exceeded 0.996 across all four coordinate groups.
+- Improved parameterisation conditioning does not imply reduced regression leverage or additional predictive information.
+
+### Biological Construct Validation
+
+- Completed all 44 primary conditional association tests across 11 assay–cycle combinations.
+- 21 associations remained significant following Holm multiplicity correction.
+- Shared coordinates demonstrated reproducible associations with ferritin and sTfR.
+- Discordant coordinates demonstrated reproducible associations with sTfR.
+- The glycaemia-private coordinate demonstrated significant associations with OGTT across both available cycles.
+- Completed 84 frozen paired contrasts and 56 dimension-matched random-rotation comparisons.
+- Comparative performance against PCA remained dependent on the assay, coordinate group and evaluation period.
+
+### Leakage and Provenance
+
+- Reproduced the original frozen physiological transformation.
+- No provenance failures reported.
+- Fold-specific representation fitting produced negligible changes in PHQ-9, somatic and cognitive-affective prediction errors.
+- Historical outcome-informed methodological development and repeated inspection of temporal cohorts remain acknowledged limitations.
+
+## Manuscript Development
+
+Consolidated 18 publication figures at 600 DPI, comprising five main figures and 13 supplementary figures, in addition to the existing methodology schematic.
+
+Initiated final manuscript development for the Journal of Biomedical Informatics, prioritising comprehensive literature synthesis, mathematical justification, biological construct validation and methodological reproducibility.
+
+## Interpretation and Scientific Claim Boundaries
+
+The additional experiments strengthen the numerical stability, structural robustness and biological construct validity of HG7. They do not establish causal biological mechanisms, universal predictive superiority or independent clinical validation.
+
+The principal contribution remains an information-preserving, reversible physiological representation with explicitly designated shared, discordant and domain-restricted coordinates.
+
+## Artifacts
+
+- [Script 122](../EDA/122_statistical_robustness_audit.py)
+- [Script 123](../EDA/123_biological_specificity_and_leakage_audit.py)
+- [Script 124](../EDA/124_final_publication_figures.py)
+- [Statistical robustness results](../EDA/Results/122_statistical_robustness/)
+- [Biological specificity results](../EDA/Results/123_biological_specificity/)
+- [Final publication figures](../EDA/Results/124_final_figures/)
+
+## Final Session Decision
+
+Freeze further experimental development and proceed with final manuscript preparation, bibliography consolidation, literature integration and submission-readiness assessment.
+
+**Status:** Additional experimental audits completed — 28 November 2026. Manuscript finalisation underway.

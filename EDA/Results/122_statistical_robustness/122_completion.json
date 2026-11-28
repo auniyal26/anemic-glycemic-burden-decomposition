@@ -1,0 +1,20 @@
+{
+  "completed": true,
+  "per_model_deletion_fraction": 0.01,
+  "regression_models": 45,
+  "successful_refits": 3795,
+  "unsuccessful_or_limited_records": 0,
+  "structural_failed_or_limited_records": 0,
+  "full_rank_invariance_passed": true,
+  "existing_inference_files_found": 8,
+  "existing_inference_files_expected": 8,
+  "interpretation": [
+    "Classical WLS influence statistics are descriptive.",
+    "PSU deletions are sensitivity analyses, not confidence intervals.",
+    "Regression coefficients use standardized predictors.",
+    "Within-period fits are not frozen prediction models.",
+    "Structural refits retain fixed shared rank two.",
+    "Historical survey inference is copied, not recomputed.",
+    "No causal or clinical robustness claim is established."
+  ]
+}

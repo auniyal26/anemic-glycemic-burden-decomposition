@@ -1,0 +1,31 @@
+{
+  "figures": [
+    "Fig02_representation_and_recovery.png",
+    "Fig03_numerical_structural_robustness.png",
+    "Fig04_biological_construct_validation.png",
+    "Fig05_biomedical_utility.png",
+    "Fig06_structure_and_transport.png",
+    "FigS01_information_and_prediction.png",
+    "FigS02_physiological_shift.png",
+    "FigS03_temporal_error_attribution.png",
+    "FigS04_influence_screening.png",
+    "FigS05_residual_mean_profiles.png",
+    "FigS06_residual_variance_profiles.png",
+    "FigS07_random_rotation_specificity.png",
+    "FigS08_Ferritin_frozen_contrasts.png",
+    "FigS09_sTfR_frozen_contrasts.png",
+    "FigS10_CRP_frozen_contrasts.png",
+    "FigS11_OGTT_frozen_contrasts.png",
+    "FigS12_confounder_adjustment.png",
+    "FigS13_fold_specific_leakage_sensitivity.png"
+  ],
+  "figure_01": "Existing methodology schematic",
+  "format": "PNG",
+  "dpi": 600,
+  "new_model_fitting": false,
+  "source_scripts": [
+    121,
+    122,
+    123
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "seed": 123,
+  "replicates": 999,
+  "rotations": 199,
+  "planned_primary_tests": 44,
+  "anchors": {
+    "Ferritin": {
+      "file": "FERTIN",
+      "variable": "LBXFER",
+      "women_only": true
+    },
+    "sTfR": {
+      "file": "TFR",
+      "variable": "LBXTFR",
+      "women_only": true
+    },
+    "CRP": {
+      "file": "CRP",
+      "variable": "LBXCRP",
+      "women_only": false
+    },
+    "OGTT": {
+      "file": "OGTT",
+      "variable": "LBXGLT",
+      "women_only": false
+    }
+  },
+  "groups": {
+    "Shared": [
+      0,
+      1
+    ],
+    "Discordant": [
+      2,
+      3
+    ],
+    "H_private": [
+      4,
+      5
+    ],
+    "G_private": [
+      6
+    ]
+  },
+  "reference": "original frozen 2005-2008 HG7",
+  "anchor_fit_cycle": "0506",
+  "anchor_evaluation_cycles": [
+    "0708",
+    "2123"
+  ],
+  "multiplicity": "Holm across 44 primary tests",
+  "inference": "Stratified PSU Taylor-linearized WLS covariance with design-df F approximation.",
+  "primary_covariates": "Age, BMI, income-to-poverty ratio, sex where applicable.",
+  "sensitivity_covariates": "Additional eGFR, race, education, smoking.",
+  "source_hashes": {
+    "EDA\\Results\\72_shared_private_model_input.csv": "fd7a9a9119df0cd8ac8fe4c1824c13f72390d57fb0f617a115af8f935d8c4a00",
+    "EDA\\Results\\73_frozen_phenotype_map_input.csv": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962",
+    "EDA\\Results\\72_shared_private_frozen_transform.npz": "c0cdec22774872f8ea3d7a512ff02412aaefb377344f19aefa44858ef62be08a"
+  },
+  "interpretation": [
+    "No assay enters the HG7 fit.",
+    "Anchor models do not select the HG basis.",
+    "0708 contributed to original HG7 fitting.",
+    "0708 is therefore an anchor-model holdout, not a representation-discovery holdout.",
+    "2123 is a previously inspected temporal cohort.",
+    "Anchor-specific samples need not coincide.",
+    "Random-subspace percentiles are descriptive.",
+    "No causal mechanism identification."
+  ]
+}

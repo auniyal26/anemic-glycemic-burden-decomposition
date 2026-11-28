@@ -1,0 +1,9 @@
+evidence,source,available
+scalar_coefficients,Results\26_design_based_coefficients.csv,True
+scalar_incremental_tests,Results\27_incremental_information_tests.csv,True
+comparator_wald_tests,Results\48_comparator_sensitivity_tests.csv,True
+HG_block_wald_tests,EDA\Results\72_shared_private_block_tests.csv,True
+HG_coefficients,EDA\Results\72_shared_private_coefficients.csv,True
+raw_gradient_wald,EDA\Results\77_raw_block_gradient_wald.csv,True
+component_ablation,EDA\Results\77_component_and_block_ablation.csv,True
+temporal_interactions,EDA\Results\86_component_time_interaction_audit.csv,True

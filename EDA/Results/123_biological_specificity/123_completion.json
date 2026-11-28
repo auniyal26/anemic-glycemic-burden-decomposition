@@ -1,0 +1,16 @@
+{
+  "completed": true,
+  "available_anchor_cycle_samples": 11,
+  "expected_anchor_cycle_samples": 11,
+  "planned_primary_tests": 44,
+  "available_primary_tests": 44,
+  "holm_significant_primary_tests": 21,
+  "provenance_failures": 0,
+  "provenance_reviews": 0,
+  "complete_anchor_coverage": true,
+  "frozen_paired_contrasts": 84,
+  "rotation_comparisons": 56,
+  "fold_cv_models": 9,
+  "causal_mechanisms_proven": false,
+  "independent_clinical_validation": false
+}
