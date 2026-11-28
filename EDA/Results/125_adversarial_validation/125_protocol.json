@@ -1,0 +1,77 @@
+{
+  "arguments": {
+    "methods": [
+      "HG7",
+      "PCA7",
+      "White7",
+      "Raw7",
+      "JIVE7",
+      "AJIVE7_adaptive",
+      "DCCA",
+      "FiGuRO_fixed",
+      "FiGuRO_adaptive"
+    ],
+    "figuro": "FiGuRO\\src\\figuro.py",
+    "dcca": "D-CCA\\dcca.py",
+    "reps": 50,
+    "n_train": 500,
+    "n_test": 1500,
+    "epochs": 300,
+    "torch_threads": 1,
+    "boot": 999,
+    "rotations": 199,
+    "seed": 125,
+    "rscript": null,
+    "timeout": 1200,
+    "run_name": "125_adversarial_validation",
+    "fetch_missing": false,
+    "simulation_only": false,
+    "biology_only": false,
+    "self_test": false
+  },
+  "methods": [
+    "HG7",
+    "PCA7",
+    "White7",
+    "Raw7",
+    "AJIVE7_adaptive",
+    "DCCA",
+    "FiGuRO_fixed",
+    "FiGuRO_adaptive"
+  ],
+  "scenarios": [
+    "asymmetric_mixing",
+    "nonlinear_coupling",
+    "correlated_factors",
+    "heteroskedastic",
+    "contamination",
+    "independent_blocks"
+  ],
+  "python": "3.11.7",
+  "numpy": "1.26.4",
+  "source_hashes": {
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\125_adversarial_comparative_validation.py": "088f0472f0e66d02c9a844fca70b6dc5375f506d324cf81de9e6d909f274b6cb",
+    "FiGuRO\\src\\figuro.py": "454e7de24a8f99a3974838b8d14e350b516c1bb0d62bb3bc6caf4c1c8a4ce706",
+    "D-CCA\\dcca.py": "4a6dd14318e255070331eda30a7a39dc277fe45a827ef930907221b560367292",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\114_structure_recovery.py": "730029aad69209a2471397ba754cfffbcbc72f84b096b2c14c45a9c8102f4d06",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\103_jive_ajive_benchmark.py": "5ff4d5329f2a7b8e2061a796ffd96e9a829485cef5d53abd983ac22c849b339d",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\112_finish_benchmarks.py": "613ebe67f6d94ccd5b09859b5f5ea4b23cd3f34d9be455fa281a4ec14a39a501",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\72_shared_private_decomposition_and_phenotype.py": "29a5b6b7604e08dda7bb9d30edcacce0b4133774eae0e5c3cb3439f45a3fbdd8",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\123_biological_specificity_and_leakage_audit.py": "b2e0d7287c704fb795dbd0ba7195b9d69fb99125866b7fca2ed34cfa3c90c5f8",
+    "D:\\Hematological and Glycemic Decomposition of Depression\\EDA\\Results\\73_frozen_phenotype_map_input.csv": "92b1266d63e8841f173683b01a42a5051db6434c03fd3ecc895b872af2a92962"
+  },
+  "limits": [
+    "Unweighted matched representations; weighted HG sensitivity",
+    "FiGuRO fixed budget 2/2/1 and adaptive capacity 3/4/3 are distinct; not full paper reproduction",
+    "D-CCA fixed full block ranks/common rank 2, native output matrices converted to frozen affine scores; not exact original out-of-sample method",
+    "No native discordance group for FiGuRO, D-CCA, JIVE or AJIVE; no semantic superiority claim on unmatched groups",
+    "Prefix controls are neutral and not physiologically labelled",
+    "Simulated generators are illustrative; independent-block truth serves null recovery control",
+    "Paired signed-rank tests and Holm; bootstrap intervals for mean difference are descriptive and unadjusted",
+    "Assay partial R2 beyond covariates only; Holm across computed association tests; PSU contrast intervals conditional on fitted models and unadjusted",
+    "Random percentiles descriptive; no assay is asserted a biological negative control",
+    "Previously inspected NHANES periods; no independent clinical or causal validation",
+    "BFHD official key_code.py has unfilled TrainConfig assignments and cannot be imported as released; HCL not evaluated (no verified integration); PULSE not comparable on cross-sectional design",
+    "Single neural seed per simulation replicate and per real-data reference fit; no neural hyperparameter search; seed sensitivity remains untested"
+  ]
+}

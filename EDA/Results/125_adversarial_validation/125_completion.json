@@ -1,0 +1,43 @@
+{
+  "completed_phases": [
+    "simulation",
+    "biology"
+  ],
+  "requested_methods": [
+    "HG7",
+    "PCA7",
+    "White7",
+    "Raw7",
+    "JIVE7",
+    "AJIVE7_adaptive",
+    "DCCA",
+    "FiGuRO_fixed",
+    "FiGuRO_adaptive"
+  ],
+  "attempted_methods": [
+    "HG7",
+    "PCA7",
+    "White7",
+    "Raw7",
+    "AJIVE7_adaptive",
+    "DCCA",
+    "FiGuRO_fixed",
+    "FiGuRO_adaptive"
+  ],
+  "recorded_issues": 1,
+  "outputs": [
+    "123_anchor_coverage.csv",
+    "125_assay_associations.csv",
+    "125_assay_paired.csv",
+    "125_assay_performance.csv",
+    "125_failures.csv",
+    "125_numerical.csv",
+    "125_random_controls.csv",
+    "125_random_percentiles.csv",
+    "125_sim_dimensions.csv",
+    "125_sim_equal_total_dimension.csv",
+    "125_sim_paired.csv",
+    "125_sim_recovery.csv",
+    "125_sim_selectivity.csv"
+  ]
+}

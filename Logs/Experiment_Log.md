@@ -4334,3 +4334,156 @@ The principal contribution remains an information-preserving, reversible physiol
 Freeze further experimental development and proceed with final manuscript preparation, bibliography consolidation, literature integration and submission-readiness assessment.
 
 **Status:** Additional experimental audits completed — 28 November 2026. Manuscript finalisation underway.
+
+---
+
+<a id="log-nov-28-adversarial"></a>
+
+# Research Log — 28 November 2026
+
+## Goal
+
+Address remaining methodological objections concerning information preservation, numerical conditioning, structural recovery and biological specificity through adversarial comparative validation against established and emerging multiblock decomposition frameworks.
+
+## Experiment Completed — Script 125
+
+Conducted comparative evaluation across six synthetic conditions, with 50 repetitions per condition, 500 training observations and 1,500 testing observations per repetition.
+
+The experimental conditions comprised:
+
+- Asymmetric physiological mixing.
+- Nonlinear coupling.
+- Correlated latent factors.
+- Heteroskedastic measurement noise.
+- Contamination and outliers.
+- Independent blocks as a negative control.
+
+Evaluated HG7 against Raw7, PCA7, whitened Raw7, adaptive AJIVE, D-CCA and fixed-budget and adaptive FiGuRO implementations.
+
+Extended biological validation using matched-dimensional coordinate groups, 999 paired PSU resamples and 199 random-subspace controls.
+
+## Principal Results
+
+### Comparative Structural Recovery
+
+Across 107 eligible group-level comparisons, HG7 demonstrated 87 favourable and six unfavourable differences following Holm correction. The remaining 14 comparisons were statistically inconclusive.
+
+| Comparator | Favourable | Unfavourable | Inconclusive |
+|---|---:|---:|---:|
+| FiGuRO fixed | 14 | 0 | 1 |
+| FiGuRO adaptive | 5 | 0 | 1 |
+| D-CCA | 4 | 2 | 9 |
+| AJIVE | 9 | 1 | 1 |
+| PCA7 | 18 | 2 | 0 |
+| Whitened Raw7 | 19 | 0 | 1 |
+| Raw7 | 18 | 1 | 1 |
+| **Total** | **87** | **6** | **14** |
+
+Of these comparisons, 47 involved native or truncated native coordinate groups and 60 involved neutral coordinate-prefix controls.
+
+### Comparative Validation Against FiGuRO
+
+Shared-target recovery favoured HG7 over fixed-budget FiGuRO across all five signal-bearing simulation conditions.
+
+| Condition | Difference in held-out R² | 95% bootstrap CI |
+|---|---:|---:|
+| Asymmetric mixing | +0.4748 | [0.4453, 0.5053] |
+| Nonlinear coupling | +0.3780 | [0.3437, 0.4078] |
+| Correlated factors | +0.3536 | [0.3176, 0.3845] |
+| Heteroskedasticity | +0.3861 | [0.3604, 0.4121] |
+| Contamination | +0.2506 | [0.2205, 0.2789] |
+
+All five differences remained significant following Holm correction.
+
+These comparisons match the evaluated coordinate-group dimensionality rather than the total representation dimensionality.
+
+### Comparative Validation Against D-CCA
+
+- Shared-coordinate recovery was equivalent to numerical precision across all five signal-bearing conditions.
+- Differences in domain-specific recovery were dependent on the generating condition.
+- D-CCA represents an important mathematical comparator rather than a uniformly inferior alternative.
+
+### Negative-Control Validation
+
+Under independent-block generation, mean intended-target recovery R² remained below zero for all four HG7 coordinate groups.
+
+This supports the absence of recoverable synthetic target information under the specified null generator. It does not independently establish the calibration of the canonical rank-selection procedure.
+
+### Numerical Conditioning and Information Preservation
+
+| Representation | Maximum VIF | Condition number |
+|---|---:|---:|
+| Raw7 | 17.5838 | 9.3261 |
+| PCA7 | 1.0000 | 1.0000 |
+| Whitened Raw7 | 1.0000 | 1.0000 |
+| HG7 | 1.0007 | 1.0275 |
+
+All four full-rank representations achieved exact reconstruction and equivalent linear predictions to numerical precision.
+
+Consequently, reconstruction and numerical conditioning are treated as mathematical controls rather than evidence of methodological superiority.
+
+### Biological Specificity
+
+HG7 demonstrated favourable prediction-error rankings against dimension-matched random subspaces:
+
+- Glycaemia-private OGTT, 2007–2008: 95.98th percentile.
+- Shared ferritin, 2021–2023: 93.97th percentile.
+- Discordant sTfR, 2021–2023: 89.45th percentile.
+
+Shared-coordinate ferritin prediction favoured HG7 over fixed-budget FiGuRO in 2021–2023, with an MSE reduction of 0.1596 and a paired-bootstrap interval of [0.0193, 0.2931].
+
+The corresponding 2007–2008 comparison favoured FiGuRO, with a difference of −0.1141 and an interval of [−0.2163, −0.0316].
+
+Across 182 biological prediction contrasts, 28 intervals favoured HG7, 46 favoured competing representations and 108 included zero. These intervals are exploratory and unadjusted for multiplicity.
+
+### Dimensional Eligibility
+
+- HG7, PCA7, Raw7 and whitened Raw7 retained seven dimensions across all 300 simulation repetitions.
+- Fixed-budget FiGuRO retained five dimensions throughout.
+- Adaptive FiGuRO predominantly retained three dimensions; two repetitions lacked an eligible full-rank combined representation.
+- AJIVE retained seven dimensions in only six of 300 repetitions.
+- D-CCA provided eligible individual coordinate groups but no eligible combined full-rank representation under the implemented screening rule.
+
+Eligible equal-total-dimensionality linear recovery comparisons remained equivalent to numerical precision.
+
+## Interpretation and Scientific Claim Boundaries
+
+The adversarial evaluation strengthens the evidence for selective structural recovery beyond the original synthetic assumptions and conventional numerical conditioning controls.
+
+The principal methodological advantage lies in the accessibility and organisation of designated physiological signals rather than an increase in the information contained within the original measurements.
+
+The results do not establish universal predictive superiority, causal biological specificity or independent clinical validity.
+
+FiGuRO was evaluated using its official architectural implementation adapted to the present measurement setting, rather than through a complete reproduction of its published experimental protocol. Neural seed and hyperparameter sensitivity remain untested.
+
+JIVE was excluded because its required dependency was unavailable. BFHD and HCL remain unbenchmarked. PULSE addresses a different longitudinal integration problem.
+
+## Artifacts
+
+- [Script 125](../EDA/125_adversarial_comparative_validation.py)
+- [Adversarial validation results](../EDA/Results/125_adversarial_validation/)
+- 125_protocol.json
+- 125_completion.json
+- 125_numerical.csv
+- 125_sim_dimensions.csv
+- 125_sim_recovery.csv
+- 125_sim_paired.csv
+- 125_sim_selectivity.csv
+- 125_sim_equal_total_dimension.csv
+- 125_assay_associations.csv
+- 125_assay_performance.csv
+- 125_assay_paired.csv
+- 125_random_controls.csv
+- 125_random_percentiles.csv
+- 125_failures.csv
+- 125_READOUT.md
+
+## Final Session Decision
+
+Integrate adversarial structural recovery, numerical controls and comparative biological validation into the manuscript.
+
+Position HG7 as a reversible, physiologically organised decomposition framework with demonstrated conditional structural advantages over established and emerging representation-learning approaches.
+
+Retain unfavourable findings, dimensional eligibility restrictions and comparator limitations explicitly within the manuscript.
+
+**Status:** Adversarial comparative validation completed and reviewed — 28 November 2026. Both simulation and biological evaluation phases completed, with one recorded dependency exclusion. Manuscript refinement resumed.
